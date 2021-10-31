@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:p="http://www.springframework.org/schema/p"
+xmlns:tx="http://www.springframework.org/schema/tx"
+xmlns:mvc="http://www.springframework.org/schema/mvc"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/tx
+
+http://www.springframework.org/schema/tx/spring-tx.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+<!-- Spring MVC Annotation -->
+<context:annotation-config />
+<mvc:annotation-driven/>
+<mvc:resources  mapping="/images/**" location="/images/" cache-period="31556926"/>
+<!-- Cấu hình view -->
+<bean id="viewResolver"
+p:prefix="/WEB-INF/views/" p:suffix=".jsp"
+class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
+<!-- Cấu hình package chứa các controller -->
+<context:component-scan base-package="ptithcm.controller"/>
+<mvc:interceptors>
+    <mvc:interceptor>
+        <mvc:mapping path="/home/**"/>
+        <mvc:mapping path="/user/logoff**"/>
+        <mvc:mapping path="/user/change**"/>
+        <mvc:mapping path="/user/edit**"/>
+        <mvc:mapping path="/order/**"/>
+        <mvc:exclude-mapping path="/home/contact.htm"/>
+        <bean class="poly.interceptor.LoggerInterceptor" />
+    </mvc:interceptor>
+</mvc:interceptors>
+
+<bean id="customerDao" class="ptithcm.daoImpl.CustomerDaoImpl"></bean>
+<bean id="customerService" class="ptithcm.serviceImpl.CustomerServiceImpl"></bean>
+
+<bean id="productDao" class="ptithcm.daoImpl.ProductDaoImpl"></bean>
+<bean id="productService" class="ptithcm.serviceImpl.ProductServiceImpl"></bean>
+
+<bean id="authoritiesDao" class="ptithcm.daoImpl.AuthoritiesDaoImpl"></bean>
+<bean id="authoritiesService" class="ptithcm.serviceImpl.AuthoritiesServiceImpl"></bean>
+
+<bean id="billingAddressDao" class="ptithcm.daoImpl.BillingAddressDaoImpl"></bean>
+<bean id="billingAddressService" class="ptithcm.serviceImpl.BillingAddressServiceImpl"></bean>
+
+<bean id="shippingAddressDao" class="ptithcm.daoImpl.ShippingAddressDaoImpl"></bean>
+<bean id="shippingAddressService" class="ptithcm.serviceImpl.ShippingAddressServiceImpl"></bean>
+
+<bean id="cartDao" class="ptithcm.daoImpl.CartDaoImpl"></bean>
+<bean id="cartService" class="ptithcm.serviceImpl.CartServiceImpl"></bean>
+
+<bean id="sessionFactory" 
+      class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    <property name="dataSource" ref="dataSource"/>
+     <property name="hibernateProperties">
+      <props>
+          <prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+          <prop key="hibernate.show_sql">true</prop>
+          <!--<prop key="hibernate.hbm2ddl.auto">create-drop</prop>-->
+          <prop key="hibernate.hbm2ddl.auto">update</prop>
+          <prop key="hibernate.current_session_context_class">thread</prop>
+          
+          <prop key="hibernate.connection.useUnicode">true</prop>
+          <prop key="hibernate.connection.CharSet">latin1</prop>
+          <prop key="hibernate.connection.characterEncoding">latin1</prop>
+      </props>
+    </property>
+    <property name="packagesToScan" value="ptithcm.entity"/>
+</bean>
+<bean id="transactionManager"
+    class="org.springframework.orm.hibernate4.HibernateTransactionManager"
+    p:sessionFactory-ref="sessionFactory"/>
+<tx:annotation-driven transaction-manager="transactionManager"/>
+<bean id="dataSource"
+    class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+    p:driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    p:url="jdbc:sqlserver://localhost:1433;Database=QLSP"
+    p:username="sa"
+    p:password="123"/>
+<bean id="multipartResolver"
+    class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <property name="maxUploadSize" value="268435456" />
+</bean>
+
+</beans>
