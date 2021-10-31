@@ -11,11 +11,10 @@ import ptithcm.entity.ShippingAddress;
 import ptithcm.service.ShippingAddressService;
 
 /**
- *
  * @author Tuong
  */
-public class ShippingAddressServiceImpl implements ShippingAddressService{
-    
+public class ShippingAddressServiceImpl implements ShippingAddressService {
+
     @Autowired
     ShippingAddressDao shippingAddressDao;
 
@@ -23,5 +22,5 @@ public class ShippingAddressServiceImpl implements ShippingAddressService{
     public String addShippingAddress(ShippingAddress shippingAddress) {
         return shippingAddressDao.save(shippingAddress);
     }
-    
+
 }

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package ptithcm.daoImpl;
-import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -14,8 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 import ptithcm.dao.CustomerDao;
 import ptithcm.entity.Customer;
 
+import java.util.List;
+
 /**
- *
  * @author Tuong
  */
 @Transactional
@@ -23,7 +24,7 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
 
     @Autowired
     SessionFactory sessionFactory;
-    
+
     @Override
     public Customer findUserByusername(String username) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -37,12 +38,12 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
         Query query = session.createQuery(hql);
         query.setParameter("username", username);
         query.setParameter("password", password);
-        List<Customer> list= query.list();
+        List<Customer> list = query.list();
         t.commit();
-        if (list.isEmpty()){
+        if (list.isEmpty()) {
             return null;
         }
         return list.get(0);
     }
-    
+
 }

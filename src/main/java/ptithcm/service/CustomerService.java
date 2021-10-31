@@ -1,17 +1,18 @@
 package ptithcm.service;
 
-import java.util.List;
-
 import ptithcm.entity.Customer;
+
+import java.util.List;
 
 public interface CustomerService {
 
-	public void addCustomer(Customer customer);
-	public Customer findCustomerByUsername(String username);
-	
-	List<Customer> getAllCustomers();
-	
-	public Customer getCustomerBycustomerId(long customerId);
-	
-	Customer findCustomerByusernameAndpassword(String username,String password);
+    void addCustomer(Customer customer);
+
+    Customer findCustomerByUsername(String username);
+
+    List<Customer> getAllCustomers();
+
+    Customer getCustomerBycustomerId(long customerId);
+
+    Customer findCustomerByusernameAndpassword(String username, String password);
 }

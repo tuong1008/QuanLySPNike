@@ -1,11 +1,5 @@
 package ptithcm.controller;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,66 +8,55 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.HandlerExceptionResolver;
-import ptithcm.entity.Authorities;
-import ptithcm.entity.BillingAddress;
-import ptithcm.entity.Cart;
-import ptithcm.entity.Customer;
-import ptithcm.entity.ShippingAddress;
-import ptithcm.service.AuthoritiesService;
-import ptithcm.service.BillingAddressService;
-import ptithcm.service.CartService;
-import ptithcm.service.CustomerService;
-import ptithcm.service.ShippingAddressService;
+import ptithcm.entity.*;
+import ptithcm.service.*;
 
-
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 
 @Controller
-public class RegisterController{
+public class RegisterController {
 
-	@Autowired
-	private CustomerService customerService;
-	@Autowired
-	private BillingAddressService billingAddressService;
-	
-	@Autowired
-	private ShippingAddressService shippingAddressService;
-        
-	@Autowired
-	private AuthoritiesService authoritiesService;
-	
-	@Autowired
-	private CartService cartService;
-	
-	@RequestMapping("/register.htm")
-	public String registerCustomer(Model model){
-		
-		
-		
-		
-		Customer customer=new Customer();
-		BillingAddress billingAddress=new BillingAddress();
-		ShippingAddress shippingAddress=new ShippingAddress();
-		customer.setBillingAddress(billingAddress);
-		customer.setShippingAddress(shippingAddress);
-		
-		
-		model.addAttribute("customer",customer);
-		
-		return "customer/registerCustomer";
-	}
-	
-	
-	
-	@RequestMapping(value="/register.htm",method=RequestMethod.POST)
-	public String registerCustomerPost(@Valid@ModelAttribute("customer")Customer customer,BindingResult result, @RequestParam(name="update",required=false) String update,@RequestParam(name="oldUserId",required=false)Long oldUserId ,Model model,HttpServletRequest request){
-		
-	
-		if (result.hasErrors()) {
-			return "customer/registerCustomer";
-		}
-		
+    @Autowired
+    private CustomerService customerService;
+    @Autowired
+    private BillingAddressService billingAddressService;
+
+    @Autowired
+    private ShippingAddressService shippingAddressService;
+
+    @Autowired
+    private AuthoritiesService authoritiesService;
+
+    @Autowired
+    private CartService cartService;
+
+    @RequestMapping("/register.htm")
+    public String registerCustomer(Model model) {
+
+
+        Customer customer = new Customer();
+        BillingAddress billingAddress = new BillingAddress();
+        ShippingAddress shippingAddress = new ShippingAddress();
+        customer.setBillingAddress(billingAddress);
+        customer.setShippingAddress(shippingAddress);
+
+
+        model.addAttribute("customer", customer);
+
+        return "customer/registerCustomer";
+    }
+
+
+    @RequestMapping(value = "/register.htm", method = RequestMethod.POST)
+    public String registerCustomerPost(@Valid @ModelAttribute("customer") Customer customer, BindingResult result, @RequestParam(name = "update", required = false) String update, @RequestParam(name = "oldUserId", required = false) Long oldUserId, Model model, HttpServletRequest request) {
+
+
+        if (result.hasErrors()) {
+            return "customer/registerCustomer";
+        }
+
 //		List<Customer> customerList=customerService.getAllCustomers();
 //		
 //		for (Customer customer2 : customerList) {
@@ -88,105 +71,96 @@ public class RegisterController{
 //				return "registerCustomer";
 //			}
 //		}
-		
-		//System.out.println("--------------------------update:"+update+" ------------"+oldUserId);
-		
-		
-		
-		
-		if (update!=null && update.equalsIgnoreCase("update")) {
-			
-			
-			
-			Customer oldCustomer=customerService.getCustomerBycustomerId(oldUserId);
-			
-			customer.getBillingAddress().setBillingAddressId(oldCustomer.getBillingAddress().getBillingAddressId());
-			customer.getShippingAddress().setShippingAddressId(oldCustomer.getShippingAddress().getShippingAddressId());
-			billingAddressService.addBillingAddress(customer.getBillingAddress());
-			shippingAddressService.addShippingAddress(customer.getShippingAddress());
-			
-			
-			String oldUsername=oldCustomer.getUsername();
-			
-			oldCustomer.setBillingAddress(customer.getBillingAddress());
-			oldCustomer.setShippingAddress(customer.getShippingAddress());
-			oldCustomer.setEnabled(true);
-			oldCustomer.setBillingAddress(customer.getBillingAddress());
-			oldCustomer.setShippingAddress(customer.getShippingAddress());
-			oldCustomer.setUsername(customer.getUsername());
-			oldCustomer.setPassword(customer.getPassword());
-			oldCustomer.setCustomerEmailAddress(customer.getCustomerEmailAddress());
-			oldCustomer.setCustomerName(customer.getCustomerName());
-			oldCustomer.setCustomerPhoneNumber(customer.getCustomerPhoneNumber());
-			
-			
-			customerService.addCustomer(oldCustomer);
-			
-			
-			Authorities authorities=authoritiesService.findAuthoritiesByusername(oldUsername);
-			authorities.setAuthorityType("ROLE_USER");
-			authorities.setUsername(oldCustomer.getUsername());
-			
-			
-			
-			authoritiesService.addAuthorities(authorities);
-			
-			
-			Cart cart=oldCustomer.getCart();
+
+        //System.out.println("--------------------------update:"+update+" ------------"+oldUserId);
+
+
+        if (update != null && update.equalsIgnoreCase("update")) {
+
+
+            Customer oldCustomer = customerService.getCustomerBycustomerId(oldUserId);
+
+            customer.getBillingAddress().setBillingAddressId(oldCustomer.getBillingAddress().getBillingAddressId());
+            customer.getShippingAddress().setShippingAddressId(oldCustomer.getShippingAddress().getShippingAddressId());
+            billingAddressService.addBillingAddress(customer.getBillingAddress());
+            shippingAddressService.addShippingAddress(customer.getShippingAddress());
+
+
+            String oldUsername = oldCustomer.getUsername();
+
+            oldCustomer.setBillingAddress(customer.getBillingAddress());
+            oldCustomer.setShippingAddress(customer.getShippingAddress());
+            oldCustomer.setEnabled(true);
+            oldCustomer.setBillingAddress(customer.getBillingAddress());
+            oldCustomer.setShippingAddress(customer.getShippingAddress());
+            oldCustomer.setUsername(customer.getUsername());
+            oldCustomer.setPassword(customer.getPassword());
+            oldCustomer.setCustomerEmailAddress(customer.getCustomerEmailAddress());
+            oldCustomer.setCustomerName(customer.getCustomerName());
+            oldCustomer.setCustomerPhoneNumber(customer.getCustomerPhoneNumber());
+
+
+            customerService.addCustomer(oldCustomer);
+
+
+            Authorities authorities = authoritiesService.findAuthoritiesByusername(oldUsername);
+            authorities.setAuthorityType("ROLE_USER");
+            authorities.setUsername(oldCustomer.getUsername());
+
+
+            authoritiesService.addAuthorities(authorities);
+
+
+            Cart cart = oldCustomer.getCart();
 //			cart.setCustomer(oldCustomer);
-			cart.setGrandTotal(0);
-			
-			cartService.addCart(cart);
-			
-			oldCustomer.setCart(cart);
-			customerService.addCustomer(oldCustomer);
-			
-			autoLogin(oldCustomer,request);
-			
-			return "customer/updateCustomerSuccess";
-					 
-		}
-		
-		else {
-			billingAddressService.addBillingAddress(customer.getBillingAddress());
-			shippingAddressService.addShippingAddress(customer.getShippingAddress());
-			
-			customer.setEnabled(true);
-			
-			
-			Authorities authorities=new Authorities();
-			authorities.setAuthorityType("ROLE_USER");
-			authorities.setUsername(customer.getUsername());
-			
-			
-			
-			authoritiesService.addAuthorities(authorities);
-			
-			
-			Cart cart=new Cart();
+            cart.setGrandTotal(0);
+
+            cartService.addCart(cart);
+
+            oldCustomer.setCart(cart);
+            customerService.addCustomer(oldCustomer);
+
+            autoLogin(oldCustomer, request);
+
+            return "customer/updateCustomerSuccess";
+
+        } else {
+            billingAddressService.addBillingAddress(customer.getBillingAddress());
+            shippingAddressService.addShippingAddress(customer.getShippingAddress());
+
+            customer.setEnabled(true);
+
+
+            Authorities authorities = new Authorities();
+            authorities.setAuthorityType("ROLE_USER");
+            authorities.setUsername(customer.getUsername());
+
+
+            authoritiesService.addAuthorities(authorities);
+
+
+            Cart cart = new Cart();
 //			cart.setCustomer(customer);
-			cart.setGrandTotal(0);
-			
-			cartService.addCart(cart);
-			
-			customer.setCart(cart);
-			customerService.addCustomer(customer);
-			
-			
-			autoLogin(customer,request);
-		}
-		
-		return "customer/registerCustomerSuccess";
-	}
+            cart.setGrandTotal(0);
+
+            cartService.addCart(cart);
+
+            customer.setCart(cart);
+            customerService.addCustomer(customer);
 
 
+            autoLogin(customer, request);
+        }
 
-	private void autoLogin(Customer customer,HttpServletRequest request) {
-            
-	}
-	
-	
-	
+        return "customer/registerCustomerSuccess";
+    }
+
+
+    private void autoLogin(Customer customer, HttpServletRequest request) {
+
+    }
+
+
 //	@RequestMapping("/customer/update")
 //	public String customerUpdate(){
 //		

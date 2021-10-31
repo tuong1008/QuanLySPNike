@@ -1,20 +1,18 @@
 package ptithcm.dao;
 
-import java.util.List;
-
-
 import ptithcm.entity.Product;
 
-public interface ProductDao extends GenericDao<Product>{
+import java.util.List;
 
-	List<Product> getAllProduct(Integer pageNumber);
-        
-        Product findOne(long id);
-        
-        long getTotalProduct();
-        
-        
-	
+public interface ProductDao extends GenericDao<Product> {
+
+    List<Product> getAllProduct(Integer pageNumber);
+
+    Product findOne(long id);
+
+    long getTotalProduct();
+
+
 //	@Query("SELECT t FROM Product t WHERE t.productCategory = :category AND t.productModel LIKE %:searchTerm%  OR  t.productCategory = :category AND t.productBrand LIKE %:searchTerm%")
 //	Page<Product> findAllProductByBrandOrModel(@Param("searchTerm")String searchTerm,@Param("category")String category,Pageable pageable);
 //	

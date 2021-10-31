@@ -1,12 +1,11 @@
 package ptithcm.serviceImpl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
 import ptithcm.dao.ProductDao;
 import ptithcm.entity.Product;
 import ptithcm.service.ProductService;
+
+import java.util.List;
 
 public class ProductServiceImpl implements ProductService {
 
@@ -27,12 +26,12 @@ public class ProductServiceImpl implements ProductService {
     public String addProduct(Product prdct) {
         return productDao.save(prdct);
     }
-    
+
     @Override
     public String updateProduct(Product prdct) {
         return productDao.update(prdct);
     }
-    
+
     @Override
     public String deleteProduct(Product prdct) {
         return productDao.delete(prdct);
@@ -43,9 +42,5 @@ public class ProductServiceImpl implements ProductService {
         return productDao.findOne(l);
     }
 
-    
-	
-	
 
-	
 }

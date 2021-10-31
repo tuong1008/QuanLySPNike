@@ -9,9 +9,8 @@ import ptithcm.dao.CartDao;
 import ptithcm.entity.Cart;
 
 /**
- *
  * @author Tuong
  */
-public class CartDaoImpl extends AbstractDao<Cart> implements CartDao{
-    
+public class CartDaoImpl extends AbstractDao<Cart> implements CartDao {
+
 }

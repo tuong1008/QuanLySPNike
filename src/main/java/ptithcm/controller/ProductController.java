@@ -1,33 +1,21 @@
 package ptithcm.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.HandlerExceptionResolver;
-import org.springframework.web.servlet.ModelAndView;
 import ptithcm.entity.Product;
 import ptithcm.service.ProductService;
 
 
-
-
 @Controller
 @RequestMapping("/product")
-public class ProductController{
+public class ProductController {
 
-	@Autowired
-	private ProductService productService;
-	
+    @Autowired
+    private ProductService productService;
+
 //	@RequestMapping("/productList/{productCategory}/{pageNumber}.htm")
 //	public String getProductByCategory(@PathVariable("pageNumber")int pageNumber,@PathVariable("productCategory")String productCategory,Model model){
 //		
@@ -116,21 +104,20 @@ public class ProductController{
 //		
 //		return "productList";
 //	}
-	
-	
-	@RequestMapping("/viewProduct/{productId}.htm")
-	public String ProductDetailPage(@PathVariable("productId")long productId, Model model){
-		
-		Product product=productService.getProductById(productId);
-		
-		
-		model.addAttribute("product",product);
-		model.addAttribute("search","search");
-		return "customer/productDetail";
-	}
-	
-	
-	
+
+
+    @RequestMapping("/viewProduct/{productId}.htm")
+    public String ProductDetailPage(@PathVariable("productId") long productId, Model model) {
+
+        Product product = productService.getProductById(productId);
+
+
+        model.addAttribute("product", product);
+        model.addAttribute("search", "search");
+        return "customer/productDetail";
+    }
+
+
 //	public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
 //			Exception ex) {
 //		ModelAndView modelAndView=new ModelAndView();

@@ -8,7 +8,6 @@ package ptithcm.service;
 import ptithcm.entity.Cart;
 
 /**
- *
  * @author Tuong
  */
 public interface CartService {

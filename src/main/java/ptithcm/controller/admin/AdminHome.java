@@ -1,62 +1,54 @@
 package ptithcm.controller.admin;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.HandlerExceptionResolver;
-
 import ptithcm.entity.Product;
 import ptithcm.service.ProductService;
 
-
+import java.util.List;
 
 
 @Controller
 @RequestMapping("/admin")
-public class AdminHome{
+public class AdminHome {
 
-	@Autowired
-	private ProductService productService;
-	
-	@RequestMapping
-	public String adminPage(){
-		
-		return "admin";
-	}
-	
-	@RequestMapping("/productManagement/{pageNumber}.htm")
-	public String productManagement(@PathVariable Integer pageNumber,Model model){
-		
-		
-		List<Product> page=productService.getAllProduct(pageNumber);
-		long totalProducts=productService.getTotalProduct();
+    @Autowired
+    private ProductService productService;
 
-                int totalPages=(int) Math.ceil(totalProducts/10.0); //mỗi page có 10 dòng
-                if (totalProducts==0) totalPages=1;
-                
-		int currentPageNumber=pageNumber;
-		int beginIndex=Math.max(1, currentPageNumber-6);
-		int endIndex=Math.min(beginIndex+10, totalPages);
-		
-		
-                model.addAttribute("products",page);
-		model.addAttribute("totalPages",totalPages);
-		model.addAttribute("currentPageNumber",currentPageNumber);
-		model.addAttribute("beginIndex",beginIndex);
-		model.addAttribute("endIndex",endIndex);
-		
-		return "admin/productInventory";
-	}
-	
-	
-	
-	
+    @RequestMapping
+    public String adminPage() {
+
+        return "admin";
+    }
+
+    @RequestMapping("/productManagement/{pageNumber}.htm")
+    public String productManagement(@PathVariable Integer pageNumber, Model model) {
+
+
+        List<Product> page = productService.getAllProduct(pageNumber);
+        long totalProducts = productService.getTotalProduct();
+
+        int totalPages = (int) Math.ceil(totalProducts / 10.0); //mỗi page có 10 dòng
+        if (totalProducts == 0) totalPages = 1;
+
+        int currentPageNumber = pageNumber;
+        int beginIndex = Math.max(1, currentPageNumber - 6);
+        int endIndex = Math.min(beginIndex + 10, totalPages);
+
+
+        model.addAttribute("products", page);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("currentPageNumber", currentPageNumber);
+        model.addAttribute("beginIndex", beginIndex);
+        model.addAttribute("endIndex", endIndex);
+
+        return "admin/productInventory";
+    }
+
+
 //	@RequestMapping(value="/productManagement/search/{pageNumber}",method=RequestMethod.POST)
 //	public String productSearch(@RequestParam("searchTerm")String searchTerm,@PathVariable Integer pageNumber,Model model){
 //		

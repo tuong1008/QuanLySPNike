@@ -9,9 +9,8 @@ import ptithcm.dao.BillingAddressDao;
 import ptithcm.entity.BillingAddress;
 
 /**
- *
  * @author Tuong
  */
-public class BillingAddressDaoImpl extends AbstractDao<BillingAddress> implements BillingAddressDao{
-    
+public class BillingAddressDaoImpl extends AbstractDao<BillingAddress> implements BillingAddressDao {
+
 }

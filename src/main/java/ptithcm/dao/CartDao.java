@@ -8,9 +8,8 @@ package ptithcm.dao;
 import ptithcm.entity.Cart;
 
 /**
- *
  * @author Tuong
  */
-public interface CartDao extends GenericDao<Cart>{
-    
+public interface CartDao extends GenericDao<Cart> {
+
 }
