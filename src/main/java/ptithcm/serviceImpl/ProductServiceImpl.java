@@ -41,6 +41,4 @@ public class ProductServiceImpl implements ProductService {
     public Product getProductById(long l) {
         return productDao.findOne(l);
     }
-
-
 }

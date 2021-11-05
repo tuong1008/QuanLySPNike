@@ -5,7 +5,6 @@
  */
 package ptithcm.dao;
 
-
 /**
  * @author Tuong
  */

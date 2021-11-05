@@ -35,7 +35,6 @@ body {
     width: auto;
 }
 
-
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
@@ -98,10 +97,8 @@ body {
     letter-spacing: -1px;
 }
 
-
 /* RESPONSIVE CSS
 -------------------------------------------------- */
-
 @media (min-width: 768px) {
     /* Navbar positioning foo */
     .navbar-wrapper {

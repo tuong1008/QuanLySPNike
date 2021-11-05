@@ -19,7 +19,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-
 @Controller
 @RequestMapping("/admin")
 public class AdminProduct {
@@ -30,15 +29,12 @@ public class AdminProduct {
 
     @RequestMapping(value = "/product/addProduct.htm", method = RequestMethod.GET)
     public String addProduct(Model model) {
-
-
         Product product = new Product();
         product.setProductStatus("Brand New");
         model.addAttribute("product", product);
         model.addAttribute("categoryList", product.getCategoryList());
         return "admin/addProduct";
     }
-
 
     @RequestMapping(value = "/product/addProduct.htm", method = RequestMethod.POST)
     public String addProductPost(@ModelAttribute("product") Product product, BindingResult result, Model model, HttpServletRequest request) {
@@ -69,11 +65,8 @@ public class AdminProduct {
 
             e.printStackTrace();
         }
-
-
         return "redirect:/admin/productManagement/1.htm";
     }
-
 
     @RequestMapping("/product/updateProduct/{productId}.htm")
     public String updateProduct(@PathVariable("productId") long productId, Model model) {
@@ -83,10 +76,7 @@ public class AdminProduct {
         model.addAttribute("product", product);
         model.addAttribute("categoryList", product.getCategoryList());
         return "admin/updateProduct";
-
-
     }
-
 
     @RequestMapping(value = "/product/updateProduct.htm", method = RequestMethod.POST)
     public String updateProductPost(@ModelAttribute("product") Product product, BindingResult result, HttpServletRequest request) {
@@ -95,19 +85,13 @@ public class AdminProduct {
 
             return "admin/addProduct";
         }
-
-
         MultipartFile productImage = product.getProductImage();
         String rootDir = request.getSession().getServletContext().getRealPath("/");
         path = Paths.get(rootDir + "\\resources\\images\\" + product.getProductId() + ".png");
-
-
         if (productImage != null && !productImage.isEmpty()) {
 
             //System.out.println("OKKKK--------------------");
             try {
-
-
                 productImage.transferTo(new File(path.toString()));
 
                 //System.out.println("IMage Save at:"+path.toString());
@@ -117,14 +101,9 @@ public class AdminProduct {
                 throw new RuntimeException("Product image saving failed", e);
             }
         }
-
-
         productService.updateProduct(product);
-
-
         return "redirect:/admin/productManagement/1.htm";
     }
-
 
     @RequestMapping("/product/deleteProduct/{productId}.htm")
     public String deleteProduct(@PathVariable("productId") long productId, Model model, HttpServletRequest request) throws Exception {
@@ -140,12 +119,8 @@ public class AdminProduct {
                 } catch (IOException e) {
 
                     e.printStackTrace();
-
-
                 }
             }
-
-
             Product productToDel = productService.getProductById(productId);
 
             productService.deleteProduct(productToDel);
@@ -156,8 +131,6 @@ public class AdminProduct {
         }
 
         return "redirect:/admin/productManagement/1.htm";
-
-
     }
 //	
 //

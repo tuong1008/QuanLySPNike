@@ -3,11 +3,8 @@ package ptithcm.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 
-
 @Entity
 public class CartItem implements Serializable {
-
-
     private static final long serialVersionUID = 2L;
 
     @Id
@@ -17,14 +14,10 @@ public class CartItem implements Serializable {
     @ManyToOne//with cart
     @JoinColumn(name = "cartId")//primaru key of cart
     private Cart cart;
-
-
     @ManyToOne//with cartitem
     @JoinColumn(name = "productId")
 
     private Product product;
-
-
     private int quantity;
     private double totalPrice;
 
@@ -67,6 +60,4 @@ public class CartItem implements Serializable {
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
-
-
 }

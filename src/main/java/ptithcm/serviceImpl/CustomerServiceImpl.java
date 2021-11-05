@@ -1,56 +1,57 @@
 package ptithcm.serviceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import ptithcm.dao.CustomerDao;
 import ptithcm.entity.Customer;
 import ptithcm.service.CustomerService;
 
 import java.util.List;
 
-
+@Transactional
 public class CustomerServiceImpl implements CustomerService {
-
     @Autowired
     private CustomerDao customerDao;
 
 //	@Autowired
 //    private PasswordEncoder passwordEncoder;
 
-
     @Override
     public void addCustomer(Customer customer) {
         customerDao.save(customer);
     }
 
-
     @Override
-    public Customer findCustomerByUsername(String username) {
-
-        return customerDao.findUserByusername(username);
+    public void updateCustomer(Customer customer) {
+        try {
+            customerDao.update(customer);
+        } catch (Exception ignored) {
+            ignored.printStackTrace();
+        }
     }
 
+    @Override
+    public void deleteCustomer(Customer customer) {
+        customerDao.delete(customer);
+    }
+
+    @Override
+    public Customer findCustomersByUsername(String username) {
+        return customerDao.findByUsername(username);
+    }
 
     @Override
     public List<Customer> getAllCustomers() {
-
-//		return (List<Customer>) customerDao.findAll();
-        return null;
+        return customerDao.findAll();
     }
-
 
     @Override
-    public Customer getCustomerBycustomerId(long customerId) {
-
-//		return customerDao.findOne(customerId);
-        return null;
+    public Customer getCustomerById(long customerId) {
+        return customerDao.findById(customerId);
     }
-
 
     @Override
-    public Customer findCustomerByusernameAndpassword(String username, String password) {
-
-        return customerDao.findCustomerByUsernameAndPassword(username, password);
+    public Customer findCustomerByUsernameAndpassword(String username, String password) {
+        return customerDao.findByUsernameAndPassword(username, password);
     }
-
-
 }

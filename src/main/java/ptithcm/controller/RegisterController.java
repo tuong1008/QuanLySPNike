@@ -14,7 +14,6 @@ import ptithcm.service.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
-
 @Controller
 public class RegisterController {
 
@@ -34,25 +33,18 @@ public class RegisterController {
 
     @RequestMapping("/register.htm")
     public String registerCustomer(Model model) {
-
-
         Customer customer = new Customer();
         BillingAddress billingAddress = new BillingAddress();
         ShippingAddress shippingAddress = new ShippingAddress();
         customer.setBillingAddress(billingAddress);
         customer.setShippingAddress(shippingAddress);
-
-
         model.addAttribute("customer", customer);
 
         return "customer/registerCustomer";
     }
 
-
     @RequestMapping(value = "/register.htm", method = RequestMethod.POST)
     public String registerCustomerPost(@Valid @ModelAttribute("customer") Customer customer, BindingResult result, @RequestParam(name = "update", required = false) String update, @RequestParam(name = "oldUserId", required = false) Long oldUserId, Model model, HttpServletRequest request) {
-
-
         if (result.hasErrors()) {
             return "customer/registerCustomer";
         }
@@ -73,19 +65,13 @@ public class RegisterController {
 //		}
 
         //System.out.println("--------------------------update:"+update+" ------------"+oldUserId);
-
-
         if (update != null && update.equalsIgnoreCase("update")) {
-
-
-            Customer oldCustomer = customerService.getCustomerBycustomerId(oldUserId);
+            Customer oldCustomer = customerService.getCustomerById(oldUserId);
 
             customer.getBillingAddress().setBillingAddressId(oldCustomer.getBillingAddress().getBillingAddressId());
             customer.getShippingAddress().setShippingAddressId(oldCustomer.getShippingAddress().getShippingAddressId());
             billingAddressService.addBillingAddress(customer.getBillingAddress());
             shippingAddressService.addShippingAddress(customer.getShippingAddress());
-
-
             String oldUsername = oldCustomer.getUsername();
 
             oldCustomer.setBillingAddress(customer.getBillingAddress());
@@ -98,19 +84,11 @@ public class RegisterController {
             oldCustomer.setCustomerEmailAddress(customer.getCustomerEmailAddress());
             oldCustomer.setCustomerName(customer.getCustomerName());
             oldCustomer.setCustomerPhoneNumber(customer.getCustomerPhoneNumber());
-
-
             customerService.addCustomer(oldCustomer);
-
-
             Authorities authorities = authoritiesService.findAuthoritiesByusername(oldUsername);
             authorities.setAuthorityType("ROLE_USER");
             authorities.setUsername(oldCustomer.getUsername());
-
-
             authoritiesService.addAuthorities(authorities);
-
-
             Cart cart = oldCustomer.getCart();
 //			cart.setCustomer(oldCustomer);
             cart.setGrandTotal(0);
@@ -129,16 +107,10 @@ public class RegisterController {
             shippingAddressService.addShippingAddress(customer.getShippingAddress());
 
             customer.setEnabled(true);
-
-
             Authorities authorities = new Authorities();
             authorities.setAuthorityType("ROLE_USER");
             authorities.setUsername(customer.getUsername());
-
-
             authoritiesService.addAuthorities(authorities);
-
-
             Cart cart = new Cart();
 //			cart.setCustomer(customer);
             cart.setGrandTotal(0);
@@ -147,20 +119,15 @@ public class RegisterController {
 
             customer.setCart(cart);
             customerService.addCustomer(customer);
-
-
             autoLogin(customer, request);
         }
 
         return "customer/registerCustomerSuccess";
     }
 
-
     private void autoLogin(Customer customer, HttpServletRequest request) {
 
     }
-
-
 //	@RequestMapping("/customer/update")
 //	public String customerUpdate(){
 //		

@@ -5,34 +5,24 @@
 <c:url var="prevUrl" value="/admin/productManagement/${currentPageNumber - 1}.htm"/>
 <c:url var="nextUrl" value="/admin/productManagement/${currentPageNumber + 1}.htm"/>
 <div class="container-wrapper">
-
     <div class="container">
-
         <c:if test="${not empty message}">
         <script>
             alert("${message}");
         </script>
-
         </c:if>
         <div class="page-header">
             <h1>Product Inventory Page:${pageContext.request.userPrincipal.name}</h1>
-
             <p class="lead">This is product inventory page</p>
             <a class="btn btn-primary" href="<c:url value="/admin/product/addProduct.htm"/>">Add New Product</a>
-
             <c:if test="${not empty search}">
                 <a class="btn btn-primary" href="<c:url value="/admin/productManagement/1.htm"/>">See All Product</a>
-
             </c:if>
         </div>
-
-
         <div class="container">
             <div class=row>
-
                 <div class="searchBox">
-
-                    <form class="form-inline" action="<c:url value="/admin/productManagement/search/1" />"
+                    <form class="form-inline" action="<c:url value="/admin/productManagement/search/1"/>"
                           method="post">
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                         <div class="form-group">
@@ -43,15 +33,10 @@
                         <input type="hidden" value="category" name="search">
                         <button type="submit" class="btn btn-primary">Search Product</button>
                     </form>
-
                 </div>
-
             </div>
-
         </div>
-
         <table class="table table-striped table-hover table-bordered">
-
             <thead>
             <tr class="bg-success">
                 <th>Photo Thumb</th>
@@ -61,13 +46,9 @@
                 <th>Price</th>
                 <th>Operation</th>
             </tr>
-
             </thead>
-
             <c:forEach items="${products}" var="product">
                 <tr>
-
-
                     <td><img style="width:50%" alt="image"
                              src="<c:url value="/resources/images/${product.productId}.png"/>"/></td>
                     <td class="success">${product.productName}</td>
@@ -81,27 +62,16 @@
                                 class="glyphicon glyphicon-remove"></span></a>
                         <a href=" <c:url value="/admin/product/updateProduct/${product.productId}.htm"/>"><span
                                 class="glyphicon glyphicon-pencil"></span></a>
-
                     </td>
-
-
                 </tr>
             </c:forEach>
-
-
         </table>
-
-
         <div class="Page navigation text-center">
             <ul class="pagination">
-
-
                 <c:choose>
                     <c:when test="${currentPageNumber == 1}">
                         <li class="disabled"><a href="#">&lt;&lt;</a></li>
                         <li class="disabled"><a href="#">&lt;</a></li>
-
-
                     </c:when>
                     <c:otherwise>
                         <li><a href="${firstUrl}">&lt;&lt;</a></li>
@@ -131,5 +101,4 @@
                 </c:choose>
             </ul>
         </div>
-
-        <%@include file="/WEB-INF/views/template/footer.jsp" %>
+<%@include file="/WEB-INF/views/template/footer.jsp" %>

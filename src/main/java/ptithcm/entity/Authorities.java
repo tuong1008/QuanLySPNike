@@ -39,6 +39,4 @@ public class Authorities {
     public void setAuthorityType(String authorityType) {
         this.authorityType = authorityType;
     }
-
-
 }

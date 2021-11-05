@@ -7,7 +7,6 @@ import java.io.Serializable;
 
 @Entity
 public class ShippingAddress implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -16,15 +15,7 @@ public class ShippingAddress implements Serializable {
 
     @NotEmpty
     @Column(columnDefinition = "nvarchar(255)")
-    private String strretName;
-
-    @NotEmpty
-    @Column(columnDefinition = "nvarchar(255)")
-    private String apartmentNumber;
-
-    @NotEmpty
-    @Column(columnDefinition = "nvarchar(255)")
-    private String city;
+    private String address;
 
     @NotEmpty
     @Column(columnDefinition = "nvarchar(255)")
@@ -32,10 +23,19 @@ public class ShippingAddress implements Serializable {
 
     @NotEmpty
     @Column(columnDefinition = "nvarchar(255)")
+    private String city;
+
+    @NotEmpty
+    @Column(columnDefinition = "nvarchar(255)")
     private String country;
 
     @NotEmpty
+    @Column(columnDefinition = "varchar(255)")
     private String zipCode;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
     public long getShippingAddressId() {
         return shippingAddressId;
@@ -45,28 +45,12 @@ public class ShippingAddress implements Serializable {
         this.shippingAddressId = shippingAddressId;
     }
 
-    public String getStrretName() {
-        return strretName;
+    public String getAddress() {
+        return address;
     }
 
-    public void setStrretName(String strretName) {
-        this.strretName = strretName;
-    }
-
-    public String getApartmentNumber() {
-        return apartmentNumber;
-    }
-
-    public void setApartmentNumber(String apartmentNumber) {
-        this.apartmentNumber = apartmentNumber;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getDistrict() {
@@ -75,6 +59,14 @@ public class ShippingAddress implements Serializable {
 
     public void setDistrict(String district) {
         this.district = district;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getCountry() {
@@ -92,5 +84,4 @@ public class ShippingAddress implements Serializable {
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
-
 }

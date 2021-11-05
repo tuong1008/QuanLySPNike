@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ptithcm.entity.Product;
 import ptithcm.service.ProductService;
 
-
 @Controller
 @RequestMapping("/product")
 public class ProductController {
@@ -16,7 +15,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-//	@RequestMapping("/productList/{productCategory}/{pageNumber}.htm")
+    //	@RequestMapping("/productList/{productCategory}/{pageNumber}.htm")
 //	public String getProductByCategory(@PathVariable("pageNumber")int pageNumber,@PathVariable("productCategory")String productCategory,Model model){
 //		
 //		
@@ -104,20 +103,14 @@ public class ProductController {
 //		
 //		return "productList";
 //	}
-
-
     @RequestMapping("/viewProduct/{productId}.htm")
     public String ProductDetailPage(@PathVariable("productId") long productId, Model model) {
 
         Product product = productService.getProductById(productId);
-
-
         model.addAttribute("product", product);
         model.addAttribute("search", "search");
         return "customer/productDetail";
     }
-
-
 //	public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
 //			Exception ex) {
 //		ModelAndView modelAndView=new ModelAndView();

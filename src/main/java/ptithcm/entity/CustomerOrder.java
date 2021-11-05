@@ -23,61 +23,47 @@ public class CustomerOrder implements Serializable {
     @OneToOne
     @JoinColumn(name = "shippingAddressId")
     private ShippingAddress shippingAddress;
-
-
     @OneToOne
     @JoinColumn(name = "billingAddressId")
     private BillingAddress billingAddress;
-
 
     public long getCustomerOrderId() {
         return customerOrderId;
     }
 
-
     public void setCustomerOrderId(long customerOrderId) {
         this.customerOrderId = customerOrderId;
     }
-
 
     public Cart getCart() {
         return cart;
     }
 
-
     public void setCart(Cart cart) {
         this.cart = cart;
     }
-
 
     public Customer getCustomer() {
         return customer;
     }
 
-
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
-
 
     public ShippingAddress getShippingAddress() {
         return shippingAddress;
     }
 
-
     public void setShippingAddress(ShippingAddress shippingAddress) {
         this.shippingAddress = shippingAddress;
     }
-
 
     public BillingAddress getBillingAddress() {
         return billingAddress;
     }
 
-
     public void setBillingAddress(BillingAddress billingAddress) {
         this.billingAddress = billingAddress;
     }
-
-
 }

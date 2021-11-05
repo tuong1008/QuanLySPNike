@@ -48,7 +48,7 @@ public class HomeController {
 
     @RequestMapping(value = "/login.htm", method = RequestMethod.POST)
     public String login(HttpServletRequest request, ModelMap model, @ModelAttribute("customer") Customer customer) throws ServletException {
-        Customer temp = customerService.findCustomerByusernameAndpassword(customer.getUsername(), customer.getPassword());
+        Customer temp = customerService.findCustomerByUsernameAndpassword(customer.getUsername(), customer.getPassword());
         if (temp != null) {
             String role = authoritiesService.getRole(customer.getUsername());
 //           request.login(customer.getUsername(), customer.getPassword());
@@ -64,8 +64,6 @@ public class HomeController {
                 int currentPageNumber = pageNumber;
                 int beginIndex = Math.max(1, currentPageNumber - 6);
                 int endIndex = Math.min(beginIndex + 10, totalPages);
-
-
                 model.addAttribute("products", page);
                 model.addAttribute("totalPages", totalPages);
                 model.addAttribute("currentPageNumber", currentPageNumber);

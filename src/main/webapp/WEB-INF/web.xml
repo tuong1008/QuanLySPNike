@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
@@ -9,7 +8,8 @@
             30
         </session-timeout>
     </session-config>
-    <display-name>Java5</display-name>
+    <display-name>NikeShop</display-name>
+
     <servlet>
         <servlet-name>spring</servlet-name>
         <servlet-class>
@@ -21,6 +21,7 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>spring</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -38,6 +39,7 @@
             <param-value>true</param-value>
         </init-param>
     </filter>
+
     <filter-mapping>
         <filter-name>utf8</filter-name>
         <url-pattern>/*</url-pattern>

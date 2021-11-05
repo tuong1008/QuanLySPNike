@@ -11,8 +11,6 @@ public interface ProductDao extends GenericDao<Product> {
     Product findOne(long id);
 
     long getTotalProduct();
-
-
 //	@Query("SELECT t FROM Product t WHERE t.productCategory = :category AND t.productModel LIKE %:searchTerm%  OR  t.productCategory = :category AND t.productBrand LIKE %:searchTerm%")
 //	Page<Product> findAllProductByBrandOrModel(@Param("searchTerm")String searchTerm,@Param("category")String category,Pageable pageable);
 //	

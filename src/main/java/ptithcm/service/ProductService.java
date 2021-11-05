@@ -5,8 +5,6 @@ import ptithcm.entity.Product;
 import java.util.List;
 
 public interface ProductService {
-
-
     List<Product> getAllProduct(Integer pageNumber);
 
     long getTotalProduct();
@@ -18,6 +16,4 @@ public interface ProductService {
     String deleteProduct(Product product);
 
     Product getProductById(long id);
-
-
 }

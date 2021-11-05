@@ -61,6 +61,4 @@ public class ProductDaoImpl extends AbstractDao<Product> implements ProductDao {
         }
         return list.get(0);
     }
-
-
 }

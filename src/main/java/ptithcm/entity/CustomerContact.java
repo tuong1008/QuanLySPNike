@@ -51,6 +51,4 @@ public class CustomerContact {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
-
-
 }

@@ -10,10 +10,7 @@ import java.io.Serializable;
 
 @Entity
 public class Customer implements Serializable {
-
-
     private static final long serialVersionUID = 3L;
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +20,6 @@ public class Customer implements Serializable {
     @Size(min = 5, max = 30)
     @Column(columnDefinition = "nvarchar(255)")
     private String customerName;
-
 
     @NotEmpty
     @Email
@@ -39,8 +35,6 @@ public class Customer implements Serializable {
     @NotEmpty
     //@Size(min=6,max=30)
     private String password;
-
-
     private boolean enabled;
 
     @Valid
@@ -136,6 +130,4 @@ public class Customer implements Serializable {
     public void setCart(Cart cart) {
         this.cart = cart;
     }
-
-
 }

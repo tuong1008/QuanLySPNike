@@ -2,14 +2,15 @@ package ptithcm.controller.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ptithcm.entity.Customer;
 import ptithcm.entity.Product;
+import ptithcm.service.CustomerService;
 import ptithcm.service.ProductService;
 
 import java.util.List;
-
 
 @Controller
 @RequestMapping("/admin")
@@ -18,16 +19,16 @@ public class AdminHome {
     @Autowired
     private ProductService productService;
 
+    @Autowired
+    private CustomerService customerService;
+
     @RequestMapping
     public String adminPage() {
-
         return "admin";
     }
 
     @RequestMapping("/productManagement/{pageNumber}.htm")
-    public String productManagement(@PathVariable Integer pageNumber, Model model) {
-
-
+    public String productManagement(@PathVariable Integer pageNumber, ModelMap model) {
         List<Product> page = productService.getAllProduct(pageNumber);
         long totalProducts = productService.getTotalProduct();
 
@@ -37,8 +38,6 @@ public class AdminHome {
         int currentPageNumber = pageNumber;
         int beginIndex = Math.max(1, currentPageNumber - 6);
         int endIndex = Math.min(beginIndex + 10, totalPages);
-
-
         model.addAttribute("products", page);
         model.addAttribute("totalPages", totalPages);
         model.addAttribute("currentPageNumber", currentPageNumber);
@@ -48,8 +47,7 @@ public class AdminHome {
         return "admin/productInventory";
     }
 
-
-//	@RequestMapping(value="/productManagement/search/{pageNumber}",method=RequestMethod.POST)
+    //	@RequestMapping(value="/productManagement/search/{pageNumber}",method=RequestMethod.POST)
 //	public String productSearch(@RequestParam("searchTerm")String searchTerm,@PathVariable Integer pageNumber,Model model){
 //		
 //		
@@ -78,33 +76,23 @@ public class AdminHome {
 //		model.addAttribute("search","search");
 //		return "productInventory";
 //	}
-//	
-//	
-//	
-//	@RequestMapping("/customerManagement")
-//	public String customerManagement(Model model){
-//		
-//		
-//		List<Customer> customers=customerService.getAllCustomers();
-//		model.addAttribute("customers",customers);
-//		
-//		return "customerManagement";
-//	}
-//	
-//	
-//	@RequestMapping("/customerManagement/address/{customerId}")
-//	public String customerShippingBillingAddress(@PathVariable("customerId")long customerId,Model model){
-//		
-//		
-//		 Customer customer=customerService.getCustomerBycustomerId(customerId);
-//		
-//		 model.addAttribute("customer",customer);
-//		 
-//		return "customerAddressDetail";
-//	}
-//	
-//	
-//	
+
+    @RequestMapping("/customerManagement")
+    public String customerManagement(ModelMap model) {
+        List<Customer> customers = customerService.getAllCustomers();
+        model.addAttribute("customers", customers);
+
+        return "admin/customerMgmt";
+    }
+
+    @RequestMapping("/customerManagement/address/{customerId}")
+    public String customerShippingBillingAddress(@PathVariable("customerId") long customerId, ModelMap model) {
+        Customer customer = customerService.getCustomerById(customerId);
+        model.addAttribute("customer", customer);
+
+        return "admin/customerAddr";
+    }
+
 //	@RequestMapping("/customerOrder")
 //	public String customerOrder(Model model){
 //		

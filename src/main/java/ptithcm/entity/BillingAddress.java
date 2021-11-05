@@ -16,19 +16,7 @@ public class BillingAddress implements Serializable {
 
     @NotEmpty
     @Column(columnDefinition = "nvarchar(255)")
-    private String strretName;
-
-    @NotEmpty
-    @Column(columnDefinition = "nvarchar(255)")
-    private String apartmentNumber;
-
-    @NotEmpty
-    @Column(columnDefinition = "nvarchar(255)")
     private String city;
-
-    @NotEmpty
-    @Column(columnDefinition = "nvarchar(255)")
-    private String district;
 
     @NotEmpty
     @Column(columnDefinition = "nvarchar(255)")
@@ -45,36 +33,12 @@ public class BillingAddress implements Serializable {
         this.billingAddressId = billingAddressId;
     }
 
-    public String getStrretName() {
-        return strretName;
-    }
-
-    public void setStrretName(String strretName) {
-        this.strretName = strretName;
-    }
-
-    public String getApartmentNumber() {
-        return apartmentNumber;
-    }
-
-    public void setApartmentNumber(String apartmentNumber) {
-        this.apartmentNumber = apartmentNumber;
-    }
-
     public String getCity() {
         return city;
     }
 
     public void setCity(String city) {
         this.city = city;
-    }
-
-    public String getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(String district) {
-        this.district = district;
     }
 
     public String getCountry() {
