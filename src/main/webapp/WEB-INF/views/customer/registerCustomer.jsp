@@ -91,7 +91,8 @@
                 <div class="form-group has-success">
                     <label class="col-xs-3 control-label" for="password">Password:</label>
                     <div class="col-xs-9">
-                        <form:password path="password" class="form-control" placeholder="Enter password" id="password"/>
+                        <form:password showPassword="true" path="password" class="form-control"
+                                       placeholder="Enter password" id="password"/>
                     </div>
                 </div>
                 <div class="form-group has-success">
@@ -267,7 +268,7 @@
                     <label class="col-xs-3 control-label"></label>
                     <div class="col-xs-9">
                         <input type="submit" value="Submit" class="btn btn-default">
-                        <a href="<c:url value="/"/>" class="btn btn-default">Cancel</a>
+                        <a href="<c:url value="/" />" class="btn btn-default">Cancel</a>
                     </div>
                 </div>
             </form:form>

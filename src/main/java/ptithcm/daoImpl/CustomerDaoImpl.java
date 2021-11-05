@@ -9,8 +9,6 @@ import ptithcm.dao.CustomerDao;
 import ptithcm.entity.Customer;
 
 import java.util.List;
-
-
 @Transactional
 public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDao {
     @Autowired

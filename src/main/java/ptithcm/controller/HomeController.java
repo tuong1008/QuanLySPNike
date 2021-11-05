@@ -48,7 +48,7 @@ public class HomeController {
 
     @RequestMapping(value = "/login.htm", method = RequestMethod.POST)
     public String login(HttpServletRequest request, ModelMap model, @ModelAttribute("customer") Customer customer) throws ServletException {
-        Customer temp = customerService.findCustomerByUsernameAndpassword(customer.getUsername(), customer.getPassword());
+        Customer temp = customerService.findCustomerByUsernameAndPassword(customer.getUsername(), customer.getPassword());
         if (temp != null) {
             String role = authoritiesService.getRole(customer.getUsername());
 //           request.login(customer.getUsername(), customer.getPassword());

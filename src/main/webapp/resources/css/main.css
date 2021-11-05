@@ -99,8 +99,6 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
-
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -262,11 +260,7 @@ textarea {
         page-break-after: avoid;
     }
 }
-
-
 /*  CSS START HERE   */
-
-
 /* LOGO STYLE */
 .navbartop {
     position: absolute;
@@ -294,8 +288,6 @@ textarea {
     margin-top: 80px;
     /* margin-bottom: 300px; */
 }
-
-
 .form-layout {
     margin: auto;
     margin-top: 100px;
@@ -333,8 +325,6 @@ textarea {
     text-align: center;
     background-color: #000000;
 }
-
-
 .productImage {
     margin-top: 10px;
     width: 100%;
@@ -438,8 +428,6 @@ textarea {
     font-size: 42px;
     margin-left: -159px;
 }
-
-
 /* FOOTER */
 .clientheading {
     margin-bottom: 60px;
@@ -454,8 +442,6 @@ textarea {
     padding: 8px 8px;
     text-transform: uppercase;
 }
-
-
 .testimonial {
     padding: 70px 0;
 }
@@ -573,8 +559,6 @@ textarea {
     float: right;
     margin-right: 50px;
 }
-
-
 .foootersection {
     background: #333;
     color: #fff;
@@ -584,8 +568,6 @@ textarea {
 .foootersection p {
     font-size: 20px;
 }
-
-
 @font-face {
     font-family: 'Siyam Rupali';
     src: url('fonts/SiyamRupali.eot?version=1.070');

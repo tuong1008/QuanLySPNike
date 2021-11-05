@@ -14,8 +14,7 @@ public class CustomerServiceImpl implements CustomerService {
     private CustomerDao customerDao;
 
 //	@Autowired
-//    private PasswordEncoder passwordEncoder;
-
+//  private PasswordEncoder passwordEncoder;
     @Override
     public void addCustomer(Customer customer) {
         customerDao.save(customer);
@@ -36,7 +35,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer findCustomersByUsername(String username) {
+    public Customer findCustomerByUsername(String username) {
         return customerDao.findByUsername(username);
     }
 
@@ -51,7 +50,8 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer findCustomerByUsernameAndpassword(String username, String password) {
+    public Customer findCustomerByUsernameAndPassword(String username, String password) {
         return customerDao.findByUsernameAndPassword(username, password);
     }
+
 }

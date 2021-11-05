@@ -1,13 +1,11 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ include file="/WEB-INF/views/template/header.jsp"%>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ include file="/WEB-INF/views/template/header.jsp" %>
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
             <h1>Customer Management</h1>
         </div>
-
         <table class="table table-striped table-hover">
             <thead>
             <tr class="bg-success">
@@ -34,5 +32,4 @@
                 </tr>
             </c:forEach>
         </table>
-
-<%@ include file="/WEB-INF/views/template/footer.jsp"%>
+<%@ include file="/WEB-INF/views/template/footer.jsp" %>

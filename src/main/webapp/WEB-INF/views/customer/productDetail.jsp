@@ -11,7 +11,7 @@
         <div class="container" ng-app="cartApp">
             <div class="row">
                 <div class="col-md-5 image">
-                    <img src="<c:url value="/resources/images/${product.productId}.png"/>" alt="${product.productId}"
+                    <img src="<c:url value="/resources/images/${product.productId}.png" />" alt="image"
                          style="width:100%"/>
                 </div>
                 <div class="col-md-5 product-details">
@@ -27,13 +27,13 @@
                         <c:set var="url" scope="page" value="/admin/productManagement/1"/>
                     </c:if>
                     <p ng-controller="cartCtrl">
-                        <a href="<c:url value = "${url}"/>" class="btn btn-primary btn-md">Back</a>
+                        <a href="<c:url value = "${url}" />" class="btn btn-primary btn-md">Back</a>
                         <c:if test="${sessionScope.username!=null}">
                             <c:if test="${sessionScope.username!='admin'}">
                                 <a href="#" class="btn btn-warning btn-large"
                                    ng-click="addToCart('${product.productId}')"><span
                                         class="glyphicon glyphicon-shopping-cart"></span> Order Now</a>
-                                <a href="<spring:url value="/customer/cart"/>" class="btn btn-success btn-md"><span
+                                <a href="<spring:url value="/customer/cart.htm" />" class="btn btn-success btn-md"><span
                                         class="glyphicon glyphicon-hand-right"></span> View Cart</a>
                             </c:if>
                         </c:if>
@@ -41,5 +41,6 @@
                 </div>
             </div>
         </div>
-        <script src="<c:url value="/resources/js/controller.js"/> "></script>
+        <!-- My -->
+        <script src="<c:url value="/resources/js/controller.js" /> "></script>
         <%@ include file="/WEB-INF/views/template/footer.jsp" %>

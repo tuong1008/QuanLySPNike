@@ -23,4 +23,8 @@ public class ShippingAddressServiceImpl implements ShippingAddressService {
         return shippingAddressDao.save(shippingAddress);
     }
 
+    @Override
+    public String removeShippingAddress(ShippingAddress shippingAddress) {
+        return shippingAddressDao.delete(shippingAddress);
+    }
 }

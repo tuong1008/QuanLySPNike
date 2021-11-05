@@ -23,4 +23,8 @@ public class BillingAddressServiceImpl implements BillingAddressService {
         return billingAddressDao.save(billingAddress);
     }
 
+    @Override
+    public String removeBillingAddress(BillingAddress billingAddress) {
+        return billingAddressDao.delete(billingAddress);
+    }
 }

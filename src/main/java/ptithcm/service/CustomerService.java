@@ -11,11 +11,12 @@ public interface CustomerService {
 
     void deleteCustomer(Customer customer);
 
-    Customer findCustomersByUsername(String username);
+    Customer findCustomerByUsername(String username);
 
     Customer getCustomerById(long customerId);
 
-    Customer findCustomerByUsernameAndpassword(String username, String password);
+    Customer findCustomerByUsernameAndPassword(String username, String password);
 
     List<Customer> getAllCustomers();
+
 }

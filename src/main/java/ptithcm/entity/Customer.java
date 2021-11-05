@@ -1,5 +1,6 @@
 package ptithcm.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -11,7 +12,6 @@ import java.io.Serializable;
 @Entity
 public class Customer implements Serializable {
     private static final long serialVersionUID = 3L;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long customerId;
@@ -20,7 +20,6 @@ public class Customer implements Serializable {
     @Size(min = 5, max = 30)
     @Column(columnDefinition = "nvarchar(255)")
     private String customerName;
-
     @NotEmpty
     @Email
     private String customerEmailAddress;
@@ -48,6 +47,7 @@ public class Customer implements Serializable {
     private BillingAddress billingAddress;
 
     @OneToOne
+    @JsonBackReference
     @JoinColumn(name = "cartId")
     private Cart cart;
 

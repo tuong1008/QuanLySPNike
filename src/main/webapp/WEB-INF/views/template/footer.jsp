@@ -16,15 +16,15 @@
                             </div>
                             <div class="col-md-4 contact2">
                                 <i class="fa fa-map-marker "></i>
-<%--                                <p class="roadno">--%>
-<%--                                           <span>--%>
-<%--                                           Dhaka<br>--%>
-<%--                                        Chittagong<br>--%>
-<%--                                        Khulna<br>--%>
-<%--                                        Times Square<br>--%>
-<%--                                        NY<br>--%>
-<%--                                        </span>--%>
-<%--                                </p>--%>
+                                <%--                                <p class="roadno">--%>
+                                <%--                                           <span>--%>
+                                <%--                                           Dhaka<br>--%>
+                                <%--                                        Chittagong<br>--%>
+                                <%--                                        Khulna<br>--%>
+                                <%--                                        Times Square<br>--%>
+                                <%--                                        NY<br>--%>
+                                <%--                                        </span>--%>
+                                <%--                                </p>--%>
                             </div>
                         </div>
                     </div>

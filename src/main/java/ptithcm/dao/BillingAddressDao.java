@@ -10,6 +10,7 @@ import ptithcm.entity.BillingAddress;
 /**
  * @author Tuong
  */
-public interface BillingAddressDao extends GenericDao<BillingAddress> {
+
+public interface BillingAddressDao extends GenericDao<BillingAddress>{
 
 }

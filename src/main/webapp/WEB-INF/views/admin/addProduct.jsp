@@ -8,7 +8,7 @@
             <p class="lead">Fill the below information to add a product</p>
         </div>
         <div class="form-layout">
-            <form:form action="/admin/product/addProduct.htm"
+            <form:form action="${pageContext.request.contextPath}/admin/product/addProduct.htm"
                        enctype="multipart/form-data" method="post" modelAttribute="product" class="form-horizontal">
                 <div class="row">
                     <label class="col-xs-3 control-label"></label>
@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="productName">Product Name:</label>
+                    <label class="col-xs-3 control-label" for="productName">Product Name :</label>
                     <div class="col-xs-9">
                         <form:input path="productName" class="form-control" placeholder="Enter Product Name"
                                     id="productName"/>
@@ -139,7 +139,7 @@
                     <label class="col-xs-3 control-label"></label>
                     <div class="col-xs-9">
                         <input type="submit" value="Submit" class="btn btn-default">
-                        <a href="<c:url value="/admin/productManagement"/>" class="btn btn-default">Cancel</a>
+                        <a href="<c:url value="/admin/productManagement" />" class="btn btn-default">Cancel</a>
                     </div>
                 </div>
             </form:form>

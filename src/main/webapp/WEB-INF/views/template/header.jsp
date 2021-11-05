@@ -13,6 +13,7 @@
     <title>Green Online Shop</title>
     <!-- Bootstrap core CSS -->
     <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
+    <!-- FONT AWESOME -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- normalize css -->
     <link href="<c:url value="/resources/css/normalize.css"/>" rel="stylesheet">
@@ -22,9 +23,9 @@
     <link href="<c:url value="/resources/css/main.css"/>" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="<c:url value="/resources/css/carousel.css"/>" rel="stylesheet">
-    <base href="${pageContext.request.contextPath}/">
 </head>
-
+<!-- NAVBAR
+================================================== -->
 <body>
 <div class="navbar-wrapper" style="margin-top:0;">
     <div class="container">
@@ -41,14 +42,13 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li>
-                            <a href="#"><img src="<c:url value="/resources/images/logo.png"/>" alt="logo" class="logo"></a>
-                        </li>
-                        <li class=""><a href="#">Nike Online Shop</a></li>
-                        <li><a href="<c:url value="/trang-chu.htm"/>">Home</a></li>
-                        <li><a href="<c:url value="/product/productList/Laptop/1.htm"/>">Products</a></li>
-                        <li><a href="<c:url value="/about.htm"/>">About</a></li>
-                        <li><a href="<c:url value="/contact.htm"/>">Contact</a></li>
+                        <li><a href="#"> <img src="<c:url value="/resources/images/logo.png"/>" alt="logo" class="logo">
+                        </a></li>
+                        <li class=""><a href="#">Green Online Shop</a></li>
+                        <li><a href="<c:url value="/trang-chu.htm" />">Home</a></li>
+                        <li><a href="<c:url value="/product/productList/Laptop/1.htm" />">Products</a></li>
+                        <li><a href="<c:url value="/about.htm" />">About</a></li>
+                        <li><a href="<c:url value="/contact.htm" />">Contact</a></li>
                     </ul>
                     <ul class="nav navbar-nav pull-right">
                         <!-- <li><a href="?lang=en">English</a></li>
@@ -62,11 +62,11 @@
                                         <span class="glyphicon glyphicon-user"></span> <span class="caret">   </span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="<c:url value="/customer/update"/>">Update Account</a></li>
+                                        <li><a href="<c:url value="/customer/update.htm"/>">Update Account</a></li>
                                     </ul>
                                 </li>
                             </c:if>
-                            <li><a href="<c:url value="/logout.htm"/>">Logout</a></li>
+                            <li><a href="<c:url value="/logout.htm" />">Logout</a></li>
                             <c:if test="${sessionScope.username!='admin'}">
                                 <li><a href="<c:url value="/customer/cart"/>">Cart</a></li>
                             </c:if>
