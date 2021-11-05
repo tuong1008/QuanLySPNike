@@ -1,5 +1,6 @@
 package ptithcm.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -25,8 +26,9 @@ public class Cart implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long cartId;
 	
-	@OneToMany(mappedBy="cart",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-	private List<CartItem> cartItems;
+	@OneToMany(mappedBy="cart",fetch=FetchType.EAGER)
+        @JsonManagedReference
+	private List<CartItem> cartItem;
 	
 	private double grandTotal;
 	
@@ -49,14 +51,14 @@ public class Cart implements Serializable{
 
 
 
-	public List<CartItem> getCartItems() {
-		return cartItems;
+	public List<CartItem> getCartItem() {
+		return cartItem;
 	}
 
 
 
-	public void setCartItems(List<CartItem> cartItems) {
-		this.cartItems = cartItems;
+	public void setCartItem(List<CartItem> cartItem) {
+		this.cartItem = cartItem;
 	}
 
 

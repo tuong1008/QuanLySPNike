@@ -69,7 +69,7 @@
          <div class="product-single">
                 <div class=" text-center productColumn">
                  <div class=" img-responsive productImage">
-          <img class="img-circle" src="<c:url value='/resources/images/laptop.jpg'/>" alt="Generic placeholder image" width="180" height="180">
+          <img class="img-circle" src="<c:url value='/resources/images/athletics.jpg'/>" alt="Generic placeholder image" width="180" height="180">
                     
                  </div>
                  
@@ -77,9 +77,9 @@
              
              
              <div class="product-desc">
-                <h2>Laptop</h2>
+                <h2>Athletics Shoes</h2>
           <p>Get latest Dell,HP,Acer laptop with  discount.</p>
-          <p><a class="btn btn-success btn-lg" href="<c:url  value='/product/productList/Laptop/1'/>" role="button">View Product List </a></p>
+          <p><a class="btn btn-success btn-lg" href="<c:url  value='/product/productList/Athletics/1'/>" role="button">View Product List </a></p>
              </div>
              </div>
         
@@ -92,7 +92,7 @@
 	          <div class="product-single">
 	                <div class=" text-center productColumn">
 	                  <div class=" img-responsive productImage">
-	          <img class="img-circle" src="<c:url value='/resources/images/mobile.jpg'/>" alt="Generic placeholder image" width="140" height="140">
+	          <img class="img-circle" src="<c:url value='/resources/images/bags.jpg'/>" alt="Generic placeholder image" width="140" height="140">
 	                    
 	                 </div>
 	                 
@@ -100,9 +100,9 @@
 	             
 	             
 	             <div class="product-desc">
-	                  <h2>Mobile</h2>
+	                  <h2>Bags</h2>
 			          <p>Get latest Samsung,iphone,HTC mobile</p>
-			          <p><a class="btn btn-success btn-lg" href="<c:url  value='/product/productList/Mobile/1'/>" role="button">View Product List</a></p>
+			          <p><a class="btn btn-success btn-lg" href="<c:url  value='/product/productList/Bags/1'/>" role="button">View Product List</a></p>
 	        
 	             </div>
 	             </div>
@@ -116,7 +116,7 @@
           <div class="product-single">
 	                <div class=" text-center productColumn">
 	                  <div class=" img-responsive productImage">
-          <img class="img-circle" src="<c:url value='/resources/images/camera.jpg'/>" alt="Generic placeholder image" width="140" height="140">
+          <img class="img-circle" src="<c:url value='/resources/images/football.jpg'/>" alt="Generic placeholder image" width="140" height="140">
 	                    
 	                 </div>
 	                 
@@ -124,9 +124,9 @@
 	             
 	             
 	             <div class="product-desc">
-	                  <h2>Camera</h2>
+	                  <h2>Football Boots</h2>
 			          <p>Get Samsung ,Canon brand top Camera</p>
-			          <p><a class="btn btn-success btn-lg" href="<c:url  value='/product/productList/Camera/1'/>" role="button">View Product List</a></p>
+			          <p><a class="btn btn-success btn-lg" href="<c:url  value='/product/productList/Football/1'/>" role="button">View Product List</a></p>
 			          
 	        
 	             </div>
@@ -154,7 +154,7 @@
           <div class="product-single">
 	                <div class=" text-center productColumn">
 	                  <div class=" img-responsive productImage">
-          <img class="img-circle" src="<c:url value="/resources/images/tv.jpg"/>" alt="Generic placeholder image" width="190" height="190">
+          <img class="img-circle" src="<c:url value="/resources/images/hats.jpg"/>" alt="Generic placeholder image" width="190" height="190">
 	                    
 	                 </div>
 	                 
@@ -162,9 +162,9 @@
 	             
 	             
 	             <div class="product-desc">
-	                  <h2>TV</h2>
+	                  <h2>Hats</h2>
 			          <p>Get Samsung ,Sony,Google Top</p>
-			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/Tv/1"/>" role="button">View Product List</a></p>
+			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/Hats/1"/>" role="button">View Product List</a></p>
 			          
 	        
 	             </div>
@@ -181,7 +181,7 @@
           <div class="product-single">
 	                <div class=" text-center productColumn">
 	                  <div class=" img-responsive productImage">
-          <img class="img-circle" src="<c:url value="/resources/images/refrigerator.jpg"/>" alt="Generic placeholder image" width="140" height="140">
+          <img class="img-circle" src="<c:url value="/resources/images/jogger.jpg"/>" alt="Generic placeholder image" width="140" height="140">
 	                    
 	                 </div>
 	                 
@@ -189,9 +189,9 @@
 	             
 	             
 	             <div class="product-desc">
-	                  <h2>Refrigerator</h2>
+	                  <h2>Jogger Pants</h2>
 			          <p>Get Top Brands Refigerator</p>
-			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/Refrigerator/1"/>" role="button">View Product List</a></p>
+			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/Jogger/1"/>" role="button">View Product List</a></p>
 			          
 	        
 	             </div>
@@ -206,7 +206,7 @@
              <div class="product-single">
 	                <div class=" text-center productColumn">
 	                  <div class=" img-responsive productImage">
-          <img class="img-circle" src="<c:url value="/resources/images/tablet.jpg"/>" alt="Generic placeholder image" width="190" height="190">
+          <img class="img-circle" src="<c:url value="/resources/images/lifestyle.jpg"/>" alt="Generic placeholder image" width="190" height="190">
 	                    
 	                 </div>
 	                 
@@ -214,9 +214,9 @@
 	             
 	             
 	             <div class="product-desc">
-	                  <h2>Tablet</h2>
+	                  <h2>Lifestyle Shoes</h2>
 			          <p>Get Top Brands Tablet</p>
-			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/Tablet/1"/>" role="button">View Product List</a></p>
+			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/Lifestyle/1"/>" role="button">View Product List</a></p>
 			          
 	        
 	             </div>
@@ -239,7 +239,7 @@
           <div class="product-single">
 	                <div class=" text-center productColumn">
 	                  <div class=" img-responsive productImage">
-          <img class="img-circle" src="<c:url value="/resources/images/micro%20oven.jpg"/>" alt="Generic placeholder image" width="190" height="190">
+          <img class="img-circle" src="<c:url value="/resources/images/long.jpg"/>" alt="Generic placeholder image" width="190" height="190">
 	                    
 	                 </div>
 	                 
@@ -247,9 +247,9 @@
 	             
 	             
 	             <div class="product-desc">
-	                  <h2>MicroOven</h2>
+	                  <h2>Long Sleeve Shirts</h2>
 			          <p>Get Top Brands MicroOven</p>
-			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/MicroOven/1"/>" role="button">View Product List</a></p>
+			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/LongSleeve/1"/>" role="button">View Product List</a></p>
 			          
 	        
 	             </div>
@@ -264,7 +264,7 @@
           <div class="product-single">
 	                <div class=" text-center productColumn">
 	                  <div class=" img-responsive productImage">
-          <img class="img-circle" src="<c:url value="/resources/images/dvd.jpg"/>" alt="Generic placeholder image" width="140" height="140">
+          <img class="img-circle" src="<c:url value="/resources/images/polos.jpg"/>" alt="Generic placeholder image" width="140" height="140">
 	                    
 	                 </div>
 	                 
@@ -272,9 +272,9 @@
 	             
 	             
 	             <div class="product-desc">
-	                  <h2>Dvd Player</h2>
+	                  <h2>Polos</h2>
 			          <p>Get Top Brands DVD</p>
-			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/DvdPlayer/1"/>" role="button">View Product List</a></p>
+			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/Polos/1"/>" role="button">View Product List</a></p>
 			          
 	        
 	             </div>
@@ -289,7 +289,7 @@
                  <div class="product-single">
 	                <div class=" text-center productColumn">
 	                  <div class=" img-responsive productImage">
-          <img class="img-circle" src="<c:url value="/resources/images/fan.jpg"/>" alt="Generic placeholder image" width="190" height="190">
+          <img class="img-circle" src="<c:url value="/resources/images/running.jpg"/>" alt="Generic placeholder image" width="190" height="190">
 	                    
 	                 </div>
 	                 
@@ -297,9 +297,9 @@
 	             
 	             
 	             <div class="product-desc">
-	                  <h2>Fan</h2>
+	                  <h2>Running Shoes</h2>
 			          <p>Get Top Brands Fan</p>
-			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/Fan/1"/>" role="button">View Product List</a></p>
+			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/Running/1"/>" role="button">View Product List</a></p>
 			          
 	        
 	             </div>
@@ -325,7 +325,7 @@
           <div class="product-single">
 	                <div class=" text-center productColumn">
 	                  <div class=" img-responsive productImage">
-          <img class="img-circle" src="<c:url value="/resources/images/printer.jpg"/>" alt="Generic placeholder image" width="190" height="190">
+          <img class="img-circle" src="<c:url value="/resources/images/shorts.jpg"/>" alt="Generic placeholder image" width="190" height="190">
 	                    
 	                 </div>
 	                 
@@ -333,9 +333,9 @@
 	             
 	             
 	             <div class="product-desc">
-	                  <h2>Printer</h2>
+	                  <h2>Shorts</h2>
 			          <p>Get Different Top Brands Fan</p>
-			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/Printer/1"/>" role="button">View Product List</a></p>
+			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/Shorts/1"/>" role="button">View Product List</a></p>
 			          
 	        
 	             </div>
@@ -350,7 +350,7 @@
            <div class="product-single">
 	                <div class=" text-center productColumn">
 	                  <div class=" img-responsive productImage">
-          <img class="img-circle" src="<c:url value="/resources/images/desktop.jpg"/>" alt="Generic placeholder image" width="140" height="140">
+          <img class="img-circle" src="<c:url value="/resources/images/sleeveless.jpg"/>" alt="Generic placeholder image" width="140" height="140">
 	                    
 	                 </div>
 	                 
@@ -358,9 +358,9 @@
 	             
 	             
 	             <div class="product-desc">
-	                  <h2>Desktop</h2>
+	                  <h2>Sleeveless & Tank Tops</h2>
 			          <p>Get Different Top Brands Desktop</p>
-			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/Desktop/1"/>" role="button">View Product List</a></p>
+			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/Sleeveless/1"/>" role="button">View Product List</a></p>
 			          
 	        
 	             </div>
@@ -377,7 +377,7 @@
              <div class="product-single">
 	                <div class=" text-center productColumn">
 	                  <div class=" img-responsive productImage">
-          <img class="img-circle" src="<c:url value="/resources/images/washing%20machines.jpg"/>" alt="Generic placeholder image" width="190" height="190">
+          <img class="img-circle" src="<c:url value="/resources/images/socks.jpg"/>" alt="Generic placeholder image" width="190" height="190">
 	                    
 	                 </div>
 	                 
@@ -385,9 +385,9 @@
 	             
 	             
 	             <div class="product-desc">
-	                  <h2>Washing Machine</h2>
+	                  <h2>Socks</h2>
 			          <p>Get Different Top Brands Washing Machine</p>
-			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/Washing Machine/1"/>" role="button">View Product List</a></p>
+			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/Socks/1"/>" role="button">View Product List</a></p>
 			          
 	        
 	             </div>
@@ -411,7 +411,7 @@
           <div class="product-single">
 	                <div class=" text-center productColumn">
 	                  <div class=" img-responsive productImage">
-          <img class="img-circle" src="<c:url value="/resources/images/ipad.jpg"/>" alt="Generic placeholder image" width="190" height="190">
+          <img class="img-circle" src="<c:url value="/resources/images/training.jpg"/>" alt="Generic placeholder image" width="190" height="190">
 	                    
 	                 </div>
 	                 
@@ -419,9 +419,9 @@
 	             
 	             
 	             <div class="product-desc">
-	                  <h2>iPad</h2>
+	                  <h2>Training & Gym Shoes</h2>
 			          <p>Get  latest iPad </p>
-			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/ipad/1"/>" role="button">View Product List</a></p>
+			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/Training/1"/>" role="button">View Product List</a></p>
 			          
 	        
 	             </div>
@@ -436,7 +436,7 @@
           <div class="product-single">
 	                <div class=" text-center productColumn">
 	                  <div class=" img-responsive productImage">
-          <img class="img-circle" src="<c:url value="/resources/images/game%20consol.jpg"/>" alt="Generic placeholder image" width="140" height="140">
+          <img class="img-circle" src="<c:url value="/resources/images/trousers.jpg"/>" alt="Generic placeholder image" width="140" height="140">
 	                    
 	                 </div>
 	                 
@@ -444,9 +444,9 @@
 	             
 	             
 	             <div class="product-desc">
-	                  <h2>Gaming Console</h2>
+	                  <h2>Trousers</h2>
 			          <p>Get  Top Brand gaming console  </p>
-			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/Game console/1"/>" role="button">View Product List</a></p>
+			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/Trousers/1"/>" role="button">View Product List</a></p>
 			          
 	        
 	             </div>
@@ -462,7 +462,7 @@
              <div class="product-single">
 	                <div class=" text-center productColumn">
 	                  <div class=" img-responsive productImage">
-          <img class="img-circle" src="<c:url value="/resources/images/router.jpg"/>" alt="Generic placeholder image" width="190" height="190">
+          <img class="img-circle" src="<c:url value="/resources/images/tshirts.jpg"/>" alt="Generic placeholder image" width="190" height="190">
 	                    
 	                 </div>
 	                 
@@ -470,9 +470,9 @@
 	             
 	             
 	             <div class="product-desc">
-	                  <h2>Router</h2>
+	                  <h2>T-Shirts</h2>
 			          <p>Get  Top Brand Router  </p>
-			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/Router/1"/>" role="button">View Product List</a></p>
+			          <p><a class="btn btn-success btn-lg" href="<c:url  value="/product/productList/TShirts/1"/>" role="button">View Product List</a></p>
 			          
 	        
 	             </div>

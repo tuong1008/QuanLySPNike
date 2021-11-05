@@ -1,5 +1,6 @@
 package ptithcm.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 import javax.persistence.Column;
 
@@ -61,6 +62,7 @@ public class Customer implements Serializable{
 	private BillingAddress billingAddress  ; 
 	
 	@OneToOne
+        @JsonBackReference
 	@JoinColumn(name="cartId")
 	private Cart cart;
 

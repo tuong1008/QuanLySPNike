@@ -20,8 +20,8 @@ public class CustomerServiceImpl implements CustomerService{
 	
 	
 	@Override
-	public void addCustomer(Customer customer) {
-		customerDao.save(customer);
+	public String addCustomer(Customer customer) {
+		return customerDao.save(customer);
 	}
 
 	
@@ -53,6 +53,11 @@ public class CustomerServiceImpl implements CustomerService{
 		
 		return customerDao.findCustomerByUsernameAndPassword(username, password);
 	}
+
+        @Override
+        public String updateCustomer(Customer cstmr) {
+            return customerDao.update(cstmr);
+        }
 
 	
 	

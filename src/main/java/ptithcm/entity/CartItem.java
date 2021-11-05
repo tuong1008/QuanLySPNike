@@ -1,8 +1,10 @@
 package ptithcm.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,6 +25,7 @@ public class CartItem implements Serializable{
 	
 	@ManyToOne//with cart
 	@JoinColumn(name="cartId")//primaru key of cart
+        @JsonBackReference
 	private Cart cart;
 	
 	

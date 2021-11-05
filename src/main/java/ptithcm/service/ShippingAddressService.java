@@ -13,4 +13,5 @@ import ptithcm.entity.ShippingAddress;
  */
 public interface ShippingAddressService {
     String addShippingAddress(ShippingAddress shippingAddress);
+    String removeShippingAddress(ShippingAddress shippingAddress);
 }

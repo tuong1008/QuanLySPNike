@@ -134,7 +134,7 @@
 					<label class="col-xs-3 control-label" for="password">Password:</label>
 					<div class="col-xs-9">
 						
-					   <form:password path="password" class="form-control" placeholder="Enter password" id="password" />
+                                            <form:password showPassword="true" path="password" class="form-control" placeholder="Enter password" id="password" />
 					</div>
 				</div>
 				

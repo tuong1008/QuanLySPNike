@@ -137,7 +137,7 @@
 					  
 				     <form:select path="productCategory" >
 					   <form:option value="NONE" label="--- Select ---"/>
-					   <form:options items="${categoryList}" />
+					   <form:options items="${categoryList}"/>
 					</form:select>
 					  
 					     

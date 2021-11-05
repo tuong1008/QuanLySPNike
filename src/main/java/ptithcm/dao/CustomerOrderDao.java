@@ -5,12 +5,15 @@
  */
 package ptithcm.dao;
 
+import java.util.List;
 import ptithcm.entity.Cart;
+import ptithcm.entity.CustomerOrder;
 
 /**
  *
  * @author Tuong
  */
-public interface CartDao extends GenericDao<Cart>{
-    Cart findOne(long cartId);
+public interface CustomerOrderDao extends GenericDao<CustomerOrder>{
+    List<CustomerOrder> findAll();
+    CustomerOrder findOne(long customerOrderId);    
 }

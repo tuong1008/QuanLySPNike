@@ -10,9 +10,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.HandlerExceptionResolver;
+import ptithcm.entity.Cart;
+import ptithcm.entity.CustomerOrder;
 
 import ptithcm.entity.Product;
+import ptithcm.service.BillingAddressService;
+import ptithcm.service.CartItemService;
+import ptithcm.service.CartService;
+import ptithcm.service.CustomerOrderService;
 import ptithcm.service.ProductService;
+import ptithcm.service.ShippingAddressService;
 
 
 
@@ -23,6 +30,21 @@ public class AdminHome{
 
 	@Autowired
 	private ProductService productService;
+        
+        @Autowired
+        private CartItemService cartItemService;
+        
+        @Autowired
+        private CustomerOrderService customerOrderService;
+        
+        @Autowired
+        private CartService cartService;
+        
+        @Autowired
+        private ShippingAddressService shippingAddressService;
+        
+        @Autowired
+        private BillingAddressService billingAddressService;
 	
 	@RequestMapping
 	public String adminPage(){
@@ -113,46 +135,47 @@ public class AdminHome{
 //	
 //	
 //	
-//	@RequestMapping("/customerOrder")
-//	public String customerOrder(Model model){
-//		
-//		
-//		List<CustomerOrder> customerOrders=customerOrderService.getAllCustomerOrder();
-//		model.addAttribute("orders",customerOrders);
-//		return "orderList";
-//	}
-//	
-//	
-//	
-//	@RequestMapping("/customerOrder/deletOrder/{customerOrderId}")
-//	public String deleteCustomerOrder(@PathVariable("customerOrderId")long customerOrderId,Model model){
-//		
-//		
-//		CustomerOrder customerOrder=customerOrderService.getCustomerOrderById(customerOrderId);
-//		
-//		Cart cart=customerOrder.getCart();
-//		cartItemService.removeAllCartItems(cart);
-//		customerOrderService.deleteCustomerOrderById(customerOrderId);
-//		
-//		return "redirect:/admin/customerOrder";
-//	}
-//	
-//	
-//	
-//	@RequestMapping("/customerOrder/productList/{customerOrderId}")
-//	public String getCustomerOrderProduct(@PathVariable("customerOrderId")long customerOrderId,Model model){
-//		
-//		
-//		CustomerOrder customerOrder=customerOrderService.getCustomerOrderById(customerOrderId);
-//		
-//		
-//		//List<CartItem> cartItems=customerOrder.getCart().getCartItems();
-//		
-//		
-//		model.addAttribute("order",customerOrder);
-//		
-//		return "orderDetails";
-//	}
+	@RequestMapping("/customerOrder.htm")
+	public String customerOrder(Model model){
+		
+		
+		List<CustomerOrder> customerOrders=customerOrderService.getAllCustomerOrder();
+		model.addAttribute("orders",customerOrders);
+		return "admin/orderList";
+	}
+	
+	
+	
+	@RequestMapping("/customerOrder/deleteOrder/{customerOrderId}.htm")
+	public String deleteCustomerOrder(@PathVariable("customerOrderId")long customerOrderId,Model model){
+		
+		
+		CustomerOrder customerOrder=customerOrderService.getCustomerOrderById(customerOrderId);
+		
+		customerOrderService.removeCustomerOrder(customerOrder);
+		cartService.removeCart(customerOrder.getCart());
+                shippingAddressService.removeShippingAddress(customerOrder.getShippingAddress());
+                billingAddressService.removeBillingAddress(customerOrder.getBillingAddress());
+		
+		return "redirect:/admin/customerOrder.htm";
+	}
+	
+	
+	
+	@RequestMapping("/customerOrder/productList/{customerOrderId}.htm")
+	public String getCustomerOrderProduct(@PathVariable("customerOrderId")long customerOrderId,Model model){
+		
+		
+		CustomerOrder customerOrder=customerOrderService.getCustomerOrderById(customerOrderId);
+		
+		
+		//List<CartItem> cartItems=customerOrder.getCart().getCartItems();
+		
+		
+		model.addAttribute("order",customerOrder);
+		
+		return "admin/orderDetails";
+	}
 //	
 //	
 //	

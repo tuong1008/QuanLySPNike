@@ -78,7 +78,7 @@
 								     <span class="glyphicon glyphicon-user"></span>  <span class="caret" >   </span>
 								    </a>
 								    <ul class="dropdown-menu">
-								        <li> <a href="<c:url value="/customer/update"/>">Update Account</a>  </li>
+								        <li> <a href="<c:url value="/customer/update.htm"/>">Update Account</a>  </li>
 								    </ul>
 								  </li>
 					     

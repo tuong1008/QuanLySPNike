@@ -97,53 +97,33 @@ public class RegisterController{
 		if (update!=null && update.equalsIgnoreCase("update")) {
 			
 			
-			
-			Customer oldCustomer=customerService.getCustomerBycustomerId(oldUserId);
-			
-			customer.getBillingAddress().setBillingAddressId(oldCustomer.getBillingAddress().getBillingAddressId());
-			customer.getShippingAddress().setShippingAddressId(oldCustomer.getShippingAddress().getShippingAddressId());
+			String username = request.getSession().getAttribute("username").toString();
+			Customer oldCustomer=customerService.findCustomerByUsername(username);
+                        
 			billingAddressService.addBillingAddress(customer.getBillingAddress());
 			shippingAddressService.addShippingAddress(customer.getShippingAddress());
-			
-			
-			String oldUsername=oldCustomer.getUsername();
-			
+                        
+			BillingAddress oldBillingAddress=oldCustomer.getBillingAddress();
+                        ShippingAddress oldShippingAddress=oldCustomer.getShippingAddress();
 			oldCustomer.setBillingAddress(customer.getBillingAddress());
 			oldCustomer.setShippingAddress(customer.getShippingAddress());
-			oldCustomer.setEnabled(true);
-			oldCustomer.setBillingAddress(customer.getBillingAddress());
-			oldCustomer.setShippingAddress(customer.getShippingAddress());
-			oldCustomer.setUsername(customer.getUsername());
-			oldCustomer.setPassword(customer.getPassword());
+			
+                        if (!oldCustomer.getPassword().equals(customer.getPassword())
+                            && customer.getPassword().length()!=0){
+                            oldCustomer.setPassword(customer.getPassword());
+                        }
 			oldCustomer.setCustomerEmailAddress(customer.getCustomerEmailAddress());
 			oldCustomer.setCustomerName(customer.getCustomerName());
 			oldCustomer.setCustomerPhoneNumber(customer.getCustomerPhoneNumber());
 			
 			
-			customerService.addCustomer(oldCustomer);
-			
-			
-			Authorities authorities=authoritiesService.findAuthoritiesByusername(oldUsername);
-			authorities.setAuthorityType("ROLE_USER");
-			authorities.setUsername(oldCustomer.getUsername());
-			
-			
-			
-			authoritiesService.addAuthorities(authorities);
-			
-			
-			Cart cart=oldCustomer.getCart();
-//			cart.setCustomer(oldCustomer);
-			cart.setGrandTotal(0);
-			
-			cartService.addCart(cart);
-			
-			oldCustomer.setCart(cart);
-			customerService.addCustomer(oldCustomer);
+			customerService.updateCustomer(oldCustomer);
 			
 			autoLogin(oldCustomer,request);
-			
-			return "customer/updateCustomerSuccess";
+			billingAddressService.removeBillingAddress(oldBillingAddress);
+                        shippingAddressService.removeShippingAddress(oldShippingAddress);
+                        model.addAttribute("message", "Update Successfully!");
+			return "customer/success_page";
 					 
 		}
 		
@@ -174,9 +154,10 @@ public class RegisterController{
 			
 			
 			autoLogin(customer,request);
+                        model.addAttribute("message", "Register Successfully!");
+        		return "customer/success_page";
 		}
 		
-		return "customer/registerCustomerSuccess";
 	}
 
 
@@ -187,29 +168,29 @@ public class RegisterController{
 	
 	
 	
-//	@RequestMapping("/customer/update")
-//	public String customerUpdate(){
-//		
-//		return "updateCustomer";
-//	}
-//	
-//	
-//	@RequestMapping(value="/customer/update",method=RequestMethod.POST)
-//	public String customerUpdatePost(@RequestParam("username")String username,@RequestParam("password")String password,Model model){
-//		
-//		Customer customer=customerService.findCustomerByusernameAndpassword(username, password);
-//		
-//		if (customer==null) {
-//			
-//			return "updateCustomer";
-//		}
-//		
-//		model.addAttribute("customer",customer);
-//		
-//		
-//		model.addAttribute("update","update");
-//		return "registerCustomer";
-//	}
+	@RequestMapping("/customer/update.htm")
+	public String customerUpdate(){
+		
+		return "customer/updateCustomer";
+	}
+	
+	
+	@RequestMapping(value="/customer/update.htm",method=RequestMethod.POST)
+	public String customerUpdatePost(@RequestParam("username")String username,@RequestParam("password")String password,Model model){
+		
+		Customer customer=customerService.findCustomerByusernameAndpassword(username, password);
+		
+		if (customer==null) {
+			
+			return "customer/updateCustomer";
+		}
+		
+		model.addAttribute("customer",customer);
+		
+		
+		model.addAttribute("update","update");
+		return "customer/registerCustomer";
+	}
 //	
 //	
 //	

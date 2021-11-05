@@ -1,5 +1,7 @@
 package ptithcm.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
@@ -61,12 +63,14 @@ public class Product implements Serializable{
 	@NotNull
 	private  Double discount;
 	@Transient
+        @JsonBackReference
 	private MultipartFile productImage;
 	
 	@Transient
+        @JsonBackReference
 	private Map<String, String> categoryList;
 	
-	
+	@JsonBackReference
 	@OneToMany(mappedBy="product",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	private List<CartItem> cartItems;
 	
@@ -108,21 +112,21 @@ public class Product implements Serializable{
 		
 		
 	    categoryList=new HashMap<>();
-		categoryList.put("Laptop", "Laptop");
-		categoryList.put("Mobile", "Mobile");
-		categoryList.put("Camera", "Camera");
-		categoryList.put("TV", "TV");
-		categoryList.put("Refrigerator", "Refrigerator");
-		categoryList.put("Tablet", "Tablet");
-		categoryList.put("Micro Oven", "MicroOven");
-		categoryList.put("DVD Player", "DVDPlayer");
-		categoryList.put("Fan", "Fan");
-		categoryList.put("Printer", "Printer");
-		categoryList.put("Desktop", "Desktop");
-		categoryList.put("Washing Machine", "Washing Machine");
-		categoryList.put("ipad", "ipad");
-		categoryList.put("Game console", "Game console");
-		categoryList.put("Router", "Router");
+		categoryList.put("Lifestyle", "Lifestyle Shoes");
+		categoryList.put("Running", "Running Shoes");
+		categoryList.put("Football", "Football Boots");
+		categoryList.put("TShirts", "T-Shirts");
+		categoryList.put("LongSleeve", "Long Sleeve Shirts");
+		categoryList.put("Sleeveless", "Sleeveless & Tank Tops");
+		categoryList.put("Polos", "Polos");
+		categoryList.put("Shorts", "Shorts");
+		categoryList.put("Jogger", "Jogger Pants");
+		categoryList.put("Bags", "Bags");
+		categoryList.put("Hats", "Hats");
+		categoryList.put("Socks", "Socks");
+		categoryList.put("Trousers", "Trousers");
+		categoryList.put("Training", "Training & Gym Shoes");
+		categoryList.put("Athletics", "Athletics Shoes");
 	}
 
 

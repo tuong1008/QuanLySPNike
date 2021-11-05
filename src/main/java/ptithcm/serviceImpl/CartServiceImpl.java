@@ -23,5 +23,20 @@ public class CartServiceImpl implements CartService{
     public String addCart(Cart cart) {
         return cartDao.save(cart);
     }
+
+    @Override
+    public Cart getCartById(long cartId) {
+        return cartDao.findOne(cartId);
+    }
+
+    @Override
+    public String updateCart(Cart cart) {
+        return cartDao.update(cart);
+    }
+
+    @Override
+    public String removeCart(Cart cart) {
+        return cartDao.delete(cart);
+    }
     
 }

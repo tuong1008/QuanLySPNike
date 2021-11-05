@@ -6,7 +6,10 @@ import ptithcm.entity.Customer;
 
 public interface CustomerService {
 
-	public void addCustomer(Customer customer);
+	public String addCustomer(Customer customer);
+        
+        public String updateCustomer(Customer customer);
+        
 	public Customer findCustomerByUsername(String username);
 	
 	List<Customer> getAllCustomers();

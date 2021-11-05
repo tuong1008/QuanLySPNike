@@ -43,7 +43,7 @@
 					           <c:if test="${sessionScope.username!='admin'}">
 					           
 					            <a href="#" class="btn btn-warning btn-large" ng-click="addToCart('${product.productId}')"><span class="glyphicon glyphicon-shopping-cart"></span> Order Now</a>
-					            <a href="<spring:url value="/customer/cart" />" class="btn btn-success btn-md"><span class="glyphicon glyphicon-hand-right"></span> View Cart</a>
+					            <a href="<spring:url value="/customer/cart.htm" />" class="btn btn-success btn-md"><span class="glyphicon glyphicon-hand-right"></span> View Cart</a>
 					           
 					           </c:if>
 					           

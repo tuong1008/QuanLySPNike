@@ -5,11 +5,14 @@
  */
 package ptithcm.dao;
 
-import ptithcm.entity.BillingAddress;
+import java.util.List;
+import ptithcm.entity.CartItem;
 
 /**
  *
  * @author Tuong
  */
-public interface BillingAddressDao extends GenericDao<BillingAddress>{
+public interface CartItemDao extends GenericDao<CartItem>{
+    List<CartItem> findByCartId(long cartId);
+    CartItem findOne(long cartItemId);
 }

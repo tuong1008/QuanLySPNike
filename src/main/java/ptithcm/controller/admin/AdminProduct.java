@@ -47,7 +47,7 @@ public class AdminProduct{
 	
 	
 	@RequestMapping(value="/product/addProduct.htm",method=RequestMethod.POST)
-	public String addProductPost( @ModelAttribute("product")Product product,BindingResult result,Model model,HttpServletRequest request){
+	public String addProductPost(@Valid @ModelAttribute("product")Product product,BindingResult result,Model model,HttpServletRequest request){
 		
 		try {
 			if (result.hasErrors()) {
