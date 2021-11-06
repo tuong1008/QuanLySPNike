@@ -1,4 +1,3 @@
-<%--<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>--%>
 <div class="container">
     <section class="address">
         <diV class="container">
@@ -16,15 +15,6 @@
                             </div>
                             <div class="col-md-4 contact2">
                                 <i class="fa fa-map-marker "></i>
-                                <%--                                <p class="roadno">--%>
-                                <%--                                           <span>--%>
-                                <%--                                           Dhaka<br>--%>
-                                <%--                                        Chittagong<br>--%>
-                                <%--                                        Khulna<br>--%>
-                                <%--                                        Times Square<br>--%>
-                                <%--                                        NY<br>--%>
-                                <%--                                        </span>--%>
-                                <%--                                </p>--%>
                             </div>
                         </div>
                     </div>

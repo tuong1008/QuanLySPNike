@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-    <title>Green Online Shop</title>
+    <title>Nike Shop</title>
     <!-- Bootstrap core CSS -->
     <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
     <!-- FONT AWESOME -->
@@ -23,9 +23,8 @@
     <link href="<c:url value="/resources/css/main.css"/>" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="<c:url value="/resources/css/carousel.css"/>" rel="stylesheet">
+    <base href="${pageContext.servletContext.contextPath}/">
 </head>
-<!-- NAVBAR
-================================================== -->
 <body>
 <div class="navbar-wrapper" style="margin-top:0;">
     <div class="container">
@@ -42,13 +41,16 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="#"> <img src="<c:url value="/resources/images/logo.png"/>" alt="logo" class="logo">
-                        </a></li>
-                        <li class=""><a href="#">Green Online Shop</a></li>
+                        <li>
+                            <a href="">
+                                <img src="<c:url value="/resources/images/logo.png"/>" alt="logo" class="logo">
+                            </a>
+                        </li>
+                        <li class=""><a href="">Nike Online Shop</a></li>
                         <li><a href="<c:url value="/trang-chu.htm" />">Home</a></li>
                         <li><a href="<c:url value="/product/productList/Laptop/1.htm" />">Products</a></li>
-                        <li><a href="<c:url value="/about.htm" />">About</a></li>
-                        <li><a href="<c:url value="/contact.htm" />">Contact</a></li>
+                        <li><a href="<c:url value="/about.htm"/>">About</a></li>
+                        <li><a href="<c:url value="/contact.htm"/>">Contact</a></li>
                     </ul>
                     <ul class="nav navbar-nav pull-right">
                         <!-- <li><a href="?lang=en">English</a></li>
