@@ -1,4 +1,5 @@
 package ptithcm.controller;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import ptithcm.entity.*;
 import ptithcm.service.*;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -34,9 +36,11 @@ public class RegisterController {
         Customer customer = new Customer();
         BillingAddress billingAddress = new BillingAddress();
         ShippingAddress shippingAddress = new ShippingAddress();
+
         customer.setBillingAddress(billingAddress);
         customer.setShippingAddress(shippingAddress);
         model.addAttribute("customer", customer);
+
         return "customer/registerCustomer";
     }
 
@@ -49,12 +53,16 @@ public class RegisterController {
         if (update != null && update.equalsIgnoreCase("update")) {
             String username = request.getSession().getAttribute("username").toString();
             Customer oldCustomer = customerService.findCustomerByUsername(username);
+
             billingAddressService.addBillingAddress(customer.getBillingAddress());
             shippingAddressService.addShippingAddress(customer.getShippingAddress());
+
             BillingAddress oldBillingAddress = oldCustomer.getBillingAddress();
             ShippingAddress oldShippingAddress = oldCustomer.getShippingAddress();
+
             oldCustomer.setBillingAddress(customer.getBillingAddress());
             oldCustomer.setShippingAddress(customer.getShippingAddress());
+
             if (!oldCustomer.getPassword().equals(customer.getPassword())
                     && customer.getPassword().length() != 0) {
                 oldCustomer.setPassword(customer.getPassword());
@@ -67,6 +75,7 @@ public class RegisterController {
             autoLogin(oldCustomer, request);
             billingAddressService.removeBillingAddress(oldBillingAddress);
             shippingAddressService.removeShippingAddress(oldShippingAddress);
+
             model.addAttribute("message", "Update Successfully!");
             return "customer/success_page";
         } else {

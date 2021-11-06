@@ -5,21 +5,21 @@
  */
 package ptithcm.serviceImpl;
 
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import ptithcm.dao.CartItemDao;
 import ptithcm.entity.CartItem;
 import ptithcm.service.CartItemService;
 
+import java.util.List;
+
 /**
- *
  * @author Tuong
  */
-public class CartItemServiceImpl implements CartItemService{
+public class CartItemServiceImpl implements CartItemService {
 
     @Autowired
     CartItemDao cartItemDao;
-    
+
     @Override
     public String addCartItem(CartItem cartItem) {
         return cartItemDao.save(cartItem);
@@ -44,5 +44,5 @@ public class CartItemServiceImpl implements CartItemService{
     public String deleteCartItem(CartItem cartItem) {
         return cartItemDao.delete(cartItem);
     }
-    
+
 }

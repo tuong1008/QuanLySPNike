@@ -64,6 +64,7 @@ public class HomeController {
                 int currentPageNumber = pageNumber;
                 int beginIndex = Math.max(1, currentPageNumber - 6);
                 int endIndex = Math.min(beginIndex + 10, totalPages);
+
                 model.addAttribute("products", page);
                 model.addAttribute("totalPages", totalPages);
                 model.addAttribute("currentPageNumber", currentPageNumber);

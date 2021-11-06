@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context
@@ -15,7 +15,7 @@ http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
 
     <!-- Spring MVC Annotation -->
-    <context:annotation-config />
+    <context:annotation-config/>
     <mvc:annotation-driven>
         <mvc:message-converters>
             <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
@@ -23,10 +23,10 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
         </mvc:message-converters>
     </mvc:annotation-driven>
     <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
-        <property name="favorPathExtension" value="false" />
+        <property name="favorPathExtension" value="false"/>
     </bean>
     <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager"/>
-    <mvc:resources  mapping="/images/**" location="/images/" cache-period="31556926"/>
+    <mvc:resources mapping="/images/**" location="/images/" cache-period="31556926"/>
     <!--<bean
           class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>-->
     <!-- Cấu hình view -->
@@ -43,7 +43,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
             <mvc:mapping path="/user/edit**"/>
             <mvc:mapping path="/order/**"/>
             <mvc:exclude-mapping path="/home/contact.htm"/>
-            <bean class="poly.interceptor.LoggerInterceptor" />
+            <bean class="poly.interceptor.LoggerInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 
@@ -101,7 +101,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
           p:password="123"/>
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="maxUploadSize" value="268435456" />
+        <property name="maxUploadSize" value="268435456"/>
     </bean>
 
 </beans>

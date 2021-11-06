@@ -12,5 +12,6 @@ import ptithcm.entity.BillingAddress;
  */
 public interface BillingAddressService {
     String addBillingAddress(BillingAddress billingAddress);
+
     String removeBillingAddress(BillingAddress billingAddress);
 }

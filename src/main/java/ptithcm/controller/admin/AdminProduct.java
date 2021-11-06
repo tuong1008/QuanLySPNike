@@ -1,4 +1,5 @@
 package ptithcm.controller.admin;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import ptithcm.entity.Product;
 import ptithcm.service.ProductService;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.File;
@@ -24,6 +26,7 @@ public class AdminProduct {
     private Path path;
     @Autowired
     private ProductService productService;
+
     @RequestMapping(value = "/product/addProduct.htm", method = RequestMethod.GET)
     public String addProduct(Model model) {
         Product product = new Product();
@@ -32,6 +35,7 @@ public class AdminProduct {
         model.addAttribute("categoryList", product.getCategoryList());
         return "admin/addProduct";
     }
+
     @RequestMapping(value = "/product/addProduct.htm", method = RequestMethod.POST)
     public String addProductPost(@Valid @ModelAttribute("product") Product product, BindingResult result, Model model, HttpServletRequest request) {
         try {

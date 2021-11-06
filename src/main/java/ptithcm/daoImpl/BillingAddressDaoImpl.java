@@ -5,17 +5,12 @@
  */
 package ptithcm.daoImpl;
 
-import java.util.List;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 import ptithcm.dao.BillingAddressDao;
 import ptithcm.entity.BillingAddress;
-import ptithcm.entity.Product;
 
 /**
  * @author Tuong
  */
 
-public class BillingAddressDaoImpl extends AbstractDao<BillingAddress> implements BillingAddressDao{
+public class BillingAddressDaoImpl extends AbstractDao<BillingAddress> implements BillingAddressDao {
 }

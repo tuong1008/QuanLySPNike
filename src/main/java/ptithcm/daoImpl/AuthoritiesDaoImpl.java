@@ -20,6 +20,7 @@ public class AuthoritiesDaoImpl extends AbstractDao<Authorities> implements Auth
         Transaction t = session.beginTransaction();
         Query query = session.createQuery(hql);
         query.setParameter("username", username);
+
         List<Authorities> list = query.list();
         t.commit();
         if (list.isEmpty()) {

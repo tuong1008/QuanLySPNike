@@ -5,7 +5,7 @@ cartApp.controller("cartCtrl", function ($scope, $http) {
     $scope.refreshCart = function () {
         $http.get('/PTITHCMS1L7/rest/cart/' + $scope.cartId + '.htm').success(function (data) {
             $scope.cart = data;
-        });gitgit
+        });
     };
 
     $scope.clearCart = function () {
