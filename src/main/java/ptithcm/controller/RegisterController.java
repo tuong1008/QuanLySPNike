@@ -124,7 +124,6 @@ public class RegisterController{
                         shippingAddressService.removeShippingAddress(oldShippingAddress);
                         model.addAttribute("message", "Update Successfully!");
 			return "customer/success_page";
-					 
 		}
 		
 		else {
@@ -150,12 +149,18 @@ public class RegisterController{
 			cartService.addCart(cart);
 			
 			customer.setCart(cart);
-			customerService.addCustomer(customer);
-			
-			
-			autoLogin(customer,request);
-                        model.addAttribute("message", "Register Successfully!");
-        		return "customer/success_page";
+			String error = customerService.addCustomer(customer);
+                        
+                        if (error==null){
+                            autoLogin(customer,request);
+                            model.addAttribute("message", "Register Successfully!");
+                            return "customer/success_page";
+                        }
+                        else{
+                            model.addAttribute("error", error);
+                            return "customer/registerCustomer";
+                        }
+
 		}
 		
 	}

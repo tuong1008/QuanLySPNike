@@ -46,10 +46,10 @@ public class AdminHome{
         @Autowired
         private BillingAddressService billingAddressService;
 	
-	@RequestMapping
+	@RequestMapping("/home.htm")
 	public String adminPage(){
 		
-		return "admin";
+		return "admin/index";
 	}
 	
 	@RequestMapping("/productManagement/{pageNumber}.htm")

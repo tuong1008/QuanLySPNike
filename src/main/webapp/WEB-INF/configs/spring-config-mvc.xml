@@ -43,13 +43,20 @@ class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
 <context:component-scan base-package="ptithcm.controller, ptithcm.entity"/>
 <mvc:interceptors>
     <mvc:interceptor>
-        <mvc:mapping path="/home/**"/>
-        <mvc:mapping path="/user/logoff**"/>
-        <mvc:mapping path="/user/change**"/>
-        <mvc:mapping path="/user/edit**"/>
+        <mvc:mapping path="/login**"/>
+        <mvc:mapping path="/logout**"/>
+        <mvc:mapping path="/customer/**"/>
+        <mvc:mapping path="/rest/cart/**"/>
         <mvc:mapping path="/order/**"/>
-        <mvc:exclude-mapping path="/home/contact.htm"/>
+        <mvc:mapping path="/register**"/>
+        <!--<mvc:mapping path="/admin/**"/>-->
+        <!--<mvc:exclude-mapping path="/home/contact.htm"/>-->
         <bean class="poly.interceptor.LoggerInterceptor" />
+    </mvc:interceptor>
+    <mvc:interceptor>
+        <mvc:mapping path="/admin/**"/>
+        <!--<mvc:exclude-mapping path="/home/contact.htm"/>-->
+        <bean class="poly.interceptor.AdminInterceptor" />
     </mvc:interceptor>
 </mvc:interceptors>
 

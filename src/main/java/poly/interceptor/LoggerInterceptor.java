@@ -24,13 +24,31 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter{
     
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        System.out.println("preHandle");
-        return true;
-    }
-
-    @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        System.out.println("postHandle");
+        /**
+         * Nếu register.htm thì cho qua
+         * Không vào được những trang cần login
+         * Login rồi mà login nữa 
+         * Đã đăng nhập và tiếp tục ấn đăng ký
+         */
+        System.out.println("LoggerIntercep preHandle");
+        HttpSession session = request.getSession();
+        if (session.getAttribute("username") == null){
+            if (request.getRequestURI().contains("/register.htm")
+                    ||request.getRequestURI().contains("/login.htm")){
+                return true;
+            }
+            else {
+                response.sendRedirect(request.getContextPath() + "/login.htm");
+                return false;
+            }
+        }
+        else if (request.getRequestURI().contains("/login.htm")
+                ||request.getRequestURI().contains("/register.htm")){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
     @Override

@@ -8,6 +8,7 @@ package ptithcm.controller;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -36,23 +37,10 @@ public class HomeController {
     ProductService productService;
     
     @RequestMapping("/trang-chu.htm")
-	public String homePage(){
-		return "customer/index";
-    }
-    @RequestMapping(value="/login.htm", method = RequestMethod.GET)
-   public String login(ModelMap model){
-           model.addAttribute("customer", new Customer());
-       return "customer/login";
-   }
-   @RequestMapping(value="/login.htm", method = RequestMethod.POST)
-   public String login(HttpServletRequest request, ModelMap model, @ModelAttribute("customer") Customer customer) throws ServletException{
-       Customer temp = customerService.findCustomerByusernameAndpassword(customer.getUsername(), customer.getPassword());
-       if (temp!=null){
-           String role = authoritiesService.getRole(customer.getUsername());
-//           request.login(customer.getUsername(), customer.getPassword());
-           request.getSession().setAttribute("username", customer.getUsername());
-           if (role.equals("ROLE_USER")){
-               int pageNumber=1;
+	public String homePage(HttpServletRequest request,
+                HttpServletResponse response,
+                ModelMap model){
+		int pageNumber=1;
                List<Product> page=productService.getAllProduct(pageNumber);
 		long totalProducts=productService.getTotalProduct();
 
@@ -69,10 +57,24 @@ public class HomeController {
 		model.addAttribute("currentPageNumber",currentPageNumber);
 		model.addAttribute("beginIndex",beginIndex);
 		model.addAttribute("endIndex",endIndex);
-               return "customer/productList";
+                return "customer/productList";
+    }
+    @RequestMapping(value="/login.htm", method = RequestMethod.GET)
+   public String login(ModelMap model){
+           model.addAttribute("customer", new Customer());
+       return "customer/login";
+   }
+   @RequestMapping(value="/login.htm", method = RequestMethod.POST)
+   public String login(HttpServletRequest request, ModelMap model, @ModelAttribute("customer") Customer customer) throws ServletException{
+       Customer temp = customerService.findCustomerByusernameAndpassword(customer.getUsername(), customer.getPassword());
+       if (temp!=null){
+           request.getSession().setAttribute("username", customer.getUsername());
+           String role = authoritiesService.getRole(customer.getUsername());
+           if (role.equals("ROLE_USER")){
+               return "redirect:/trang-chu.htm";
            }
            else{
-                return "admin/index";
+               return "redirect:/admin/home.htm";
            }
        }
        else{

@@ -35,6 +35,7 @@ public class Customer implements Serializable{
 	
 	@NotEmpty
 	@Email
+        @Column(unique = true)
 	private String customerEmailAddress;
 	
 	@NotEmpty
@@ -42,6 +43,7 @@ public class Customer implements Serializable{
 	
 	@NotEmpty
 	@Size(min=5,max=30)
+        @Column(unique = true)
 	private String username;
 	
 	@NotEmpty
