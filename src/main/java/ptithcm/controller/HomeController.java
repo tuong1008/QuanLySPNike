@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMethod;
 import ptithcm.entity.Customer;
 import ptithcm.entity.Product;
+import ptithcm.exceptions.PageNotFoundException;
 import ptithcm.service.AuthoritiesService;
 import ptithcm.service.CustomerService;
 import ptithcm.service.ProductService;
@@ -83,11 +84,30 @@ public class HomeController {
            return "customer/login";
        }
    }
-   
 
     @RequestMapping(value = "/logout.htm", method = RequestMethod.GET)
     public String logoutPage(HttpServletRequest request) throws ServletException {
         request.getSession().removeAttribute("username");
         return "redirect:/login.htm?logout";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
+    }
+
+    @RequestMapping(value = "/error404", method = RequestMethod.GET)
+    public String error404(HttpServletRequest request) throws PageNotFoundException {
+        String s = "";
+        if (s.isEmpty()) {
+            System.out.println("NOT FOUND ERROR");
+            throw new PageNotFoundException("Page not found!!");
+        }
+        return "customer/login";
+    }
+
+    @RequestMapping(value = "/error500", method = RequestMethod.GET)
+    public String error500(HttpServletRequest request) throws Exception {
+        String s = "";
+        if (s.isEmpty()) {
+            System.out.println("ERROR");
+            throw new Exception("What?!!");
+        }
+        return "customer/login";
     }
 }
