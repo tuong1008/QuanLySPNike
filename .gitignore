@@ -1,0 +1,11 @@
+# Netbeans
+nb-configuration.xml
+build/
+nbbuild/
+dist/
+nbdist/
+# IDEA
+target/
+*.iml
+.idea
+out/

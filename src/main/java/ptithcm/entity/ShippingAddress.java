@@ -1,17 +1,12 @@
 package ptithcm.entity;
 
-import java.io.Serializable;
-import javax.persistence.Column;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 public class ShippingAddress implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -20,11 +15,7 @@ public class ShippingAddress implements Serializable {
 
     @NotEmpty
     @Column(columnDefinition = "nvarchar(255)")
-    private String strretName;
-
-    @NotEmpty
-    @Column(columnDefinition = "nvarchar(255)")
-    private String apartmentNumber;
+    private String address;
 
     @NotEmpty
     @Column(columnDefinition = "nvarchar(255)")
@@ -32,14 +23,15 @@ public class ShippingAddress implements Serializable {
 
     @NotEmpty
     @Column(columnDefinition = "nvarchar(255)")
-    private String district;
-
-    @NotEmpty
-    @Column(columnDefinition = "nvarchar(255)")
     private String country;
 
     @NotEmpty
+    @Column(columnDefinition = "varchar(255)")
     private String zipCode;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
     public long getShippingAddressId() {
         return shippingAddressId;
@@ -49,20 +41,12 @@ public class ShippingAddress implements Serializable {
         this.shippingAddressId = shippingAddressId;
     }
 
-    public String getStrretName() {
-        return strretName;
+    public String getAddress() {
+        return address;
     }
 
-    public void setStrretName(String strretName) {
-        this.strretName = strretName;
-    }
-
-    public String getApartmentNumber() {
-        return apartmentNumber;
-    }
-
-    public void setApartmentNumber(String apartmentNumber) {
-        this.apartmentNumber = apartmentNumber;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getCity() {
@@ -71,14 +55,6 @@ public class ShippingAddress implements Serializable {
 
     public void setCity(String city) {
         this.city = city;
-    }
-
-    public String getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(String district) {
-        this.district = district;
     }
 
     public String getCountry() {
@@ -96,5 +72,4 @@ public class ShippingAddress implements Serializable {
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
-
 }

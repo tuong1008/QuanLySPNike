@@ -19,13 +19,10 @@ html {
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-family: 'Roboto Slab', serif;
-   
-
 }
 
-
-header.headsection.navbar-fixed-top{
-   position: relative;
+header.headsection.navbar-fixed-top {
+    position: relative;
 }
 
 /*
@@ -46,10 +43,6 @@ header.headsection.navbar-fixed-top{
     text-shadow: none;
 }
 
-/*
- * A better looking default horizontal rule
- */
-
 hr {
     display: block;
     height: 1px;
@@ -59,9 +52,9 @@ hr {
     padding: 0;
 }
 
-ul{
-   margin: 0;
-   padding: 0;
+ul {
+    margin: 0;
+    padding: 0;
 }
 
 /*
@@ -70,12 +63,7 @@ ul{
  * https://github.com/h5bp/html5-boilerplate/issues/440
  */
 
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
+audio, canvas, iframe, img, svg, video {
     vertical-align: middle;
 }
 
@@ -111,23 +99,6 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -213,9 +184,9 @@ textarea {
 }
 
 @media print,
-       (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 1.25dppx),
-       (min-resolution: 120dpi) {
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
     /* Style adjustments for high resolution devices */
 }
 
@@ -232,14 +203,13 @@ textarea {
     *:first-letter,
     *:first-line {
         background: transparent !important;
-        color: #000 !important; /* Black prints faster:
-                                   http://www.sanbeiji.com/archives/953 */
+        color: #000 !important;
+        /* Black prints faster: http://www.sanbeiji.com/archives/953 */
         box-shadow: none !important;
         text-shadow: none !important;
     }
 
-    a,
-    a:visited {
+    a, a:visited {
         text-decoration: underline;
     }
 
@@ -255,14 +225,12 @@ textarea {
      * Don't show links that are fragment identifiers,
      * or use the `javascript:` pseudo protocol
      */
-
     a[href^="#"]:after,
     a[href^="javascript:"]:after {
         content: "";
     }
 
-    pre,
-    blockquote {
+    pre, blockquote {
         border: 1px solid #999;
         page-break-inside: avoid;
     }
@@ -271,13 +239,11 @@ textarea {
      * Printing Tables:
      * http://css-discuss.incutio.com/wiki/Printing_Tables
      */
-
     thead {
         display: table-header-group;
     }
 
-    tr,
-    img {
+    tr, img {
         page-break-inside: avoid;
     }
 
@@ -285,65 +251,54 @@ textarea {
         max-width: 100% !important;
     }
 
-    p,
-    h2,
-    h3 {
+    p, h2, h3 {
         orphans: 3;
         widows: 3;
     }
 
-    h2,
-    h3 {
+    h2, h3 {
         page-break-after: avoid;
     }
 }
-
-
-
-
-
 /*  CSS START HERE   */
-
-
 /* LOGO STYLE */
 .navbartop {
-   position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 20;
-      width: 100%;
-       margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
+    width: 100%;
+    margin: auto;
 }
-.logo{
+
+.logo {
     width: 30px;
     height: auto;
     margin-top: -5px;
 }
+
 .nabtop {
-   margin-top: 0;
+    margin-top: 0;
 }
 
-.container-wrapper{
-	
-	height: 80%;
-	margin: auto;
-	margin-top: 80px;
-	/* margin-bottom: 300px; */
-	
+.container-wrapper {
+    height: 80%;
+    margin: auto;
+    margin-top: 80px;
+    /* margin-bottom: 300px; */
 }
-
-
-.form-layout{
-	
-	margin:auto;
-	margin-top:100px;
+.form-layout {
+    margin: auto;
+    margin-top: 100px;
     width: 60%;
-   
+
 }
-.title{
-	text-align: center;
+
+.title {
+    text-align: center;
 }
+
 .table {
     table-layout: fixed;
     overflow: auto;
@@ -356,14 +311,13 @@ textarea {
 .table td {
     text-align: center;
     background: whitesmoke;
-
-   
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.productList-heading{
-	width: 80%;
+
+.productList-heading {
+    width: 80%;
 }
 
 .Product-category {
@@ -371,69 +325,65 @@ textarea {
     text-align: center;
     background-color: #000000;
 }
+.productImage {
+    margin-top: 10px;
+    width: 100%;
+    height: auto;
 
-
-
-
-.productImage{
-	margin-top: 10px;
-	width: 100%;
-	height: auto;
-	
 }
 
-.productColumn{
-	height: 200px;
+.productColumn {
+    height: 200px;
 }
 
-.product-single{
-	 border: 1px solid #ddd7d7;
-	 text-align: center;
-	 margin-bottom: 10px;
-	 margin-right: 5px;
+.product-single {
+    border: 1px solid #ddd7d7;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-right: 5px;
 }
 
-.product-desc{
+.product-desc {
 
-	margin-bottom: 10px;
-	
-	background-color: #edecec;
-}
-.product-desc a{
-	margin-bottom: 5px;
+    margin-bottom: 10px;
+
+    background-color: #edecec;
 }
 
-.product-desc h2{
-	    color: #18C9D2;
+.product-desc a {
+    margin-bottom: 5px;
 }
 
-.product-desc h3{
-	color: rgb(13, 89, 208);
+.product-desc h2 {
+    color: #18C9D2;
+}
+
+.product-desc h3 {
+    color: rgb(13, 89, 208);
     /* font-size: 1.1em; */
     font-weight: 900;
 }
 
-.product-details{
-	     margin-top:16px;
-	     border: 1px solid #aebbbb;
-	     width: 600px;
+.product-details {
+    margin-top: 16px;
+    border: 1px solid #aebbbb;
+    width: 600px;
 }
 
-.product-details .desc-title{
-	color: #18C9D2;
+.product-details .desc-title {
+    color: #18C9D2;
     font-size: 20px;
     font-weight: 400;
 }
 
-.product-details p{
-	color: #18CA17;
-	font-size: 15px;
+.product-details p {
+    color: #18CA17;
     font-size: 15px;
-    
 }
-.image{
-	margin-right: 45px;
-	margin-top: 15px;
+
+.image {
+    margin-right: 45px;
+    margin-top: 15px;
 }
 
 .image img {
@@ -443,111 +393,106 @@ textarea {
     -o-transition: all 1s ease; /* Opera */
     transition: all 1s ease;
 }
+
 .image:hover img {
-	
-    -webkit-transform:scale(1.15); /* Safari and Chrome */
-    -moz-transform:scale(1.15); /* Firefox */
-    -ms-transform:scale(1.15); /* IE 9 */
-    -o-transform:scale(1.15); /* Opera */
-     transform:scale(1.15);
-     
-    
+    -webkit-transform: scale(1.15); /* Safari and Chrome */
+    -moz-transform: scale(1.15); /* Firefox */
+    -ms-transform: scale(1.15); /* IE 9 */
+    -o-transform: scale(1.15); /* Opera */
+    transform: scale(1.15);
 }
 
-.message{
-	border: 2px solid  #808000;
-	margin-bottom: 100px;
+.message {
+    border: 2px solid #808000;
+    margin-bottom: 100px;
 }
 
-.message .info{
-	margin: 15px;
-	
-	word-wrap: break-word;
-	
+.message .info {
+    margin: 15px;
+    word-wrap: break-word;
 }
 
-.message .operation{
-	
-	margin-left: 10px;
-	margin-bottom: 16px;
+.message .operation {
+    margin-left: 10px;
+    margin-bottom: 16px;
 }
 
-.searchBox{
-	
-	margin-bottom: 40px;
+.searchBox {
+    margin-bottom: 40px;
     margin-left: 20%;
 }
-.no-product{
-	text-align: center;
+
+.no-product {
+    text-align: center;
     color: crimson;
     font-size: 42px;
     margin-left: -159px;
 }
-
-
 /* FOOTER */
 .clientheading {
-   margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 
-.clientheading h2{
-   background:#51b105;
-   color: #fff;
-   max-width: 500px;
-   margin: 0 auto;
-   font-weight: bold;
-   padding: 8px 8px;
-   text-transform: uppercase;
+.clientheading h2 {
+    background: #51b105;
+    color: #fff;
+    max-width: 500px;
+    margin: 0 auto;
+    font-weight: bold;
+    padding: 8px 8px;
+    text-transform: uppercase;
 }
-
-
 .testimonial {
-   padding: 70px 0;
+    padding: 70px 0;
 }
 
 .clientimg {
-   
-}
-.clientimg img{
-   width: 100%;
+
 }
 
-.clientSpeech{
-   margin-top: 20px;
-   
+.clientimg img {
+    width: 100%;
 }
-.clientSpeech i{
-   font-size: 50px;
-   color: #E6E6E6;
-   margin-left: 20px;
+
+.clientSpeech {
+    margin-top: 20px;
+
 }
-.clientSpeech p{
-   color: #8C8B8B;
-   font-size: 20px;
-   text-align: center;
-   
+
+.clientSpeech i {
+    font-size: 50px;
+    color: #E6E6E6;
+    margin-left: 20px;
+}
+
+.clientSpeech p {
+    color: #8C8B8B;
+    font-size: 20px;
+    text-align: center;
+
 }
 
 .user1testimonial {
-   margin-bottom: 50px;
+    margin-bottom: 50px;
     border: 1px solid #bfaaaa;
 }
 
 .user1testimonial2 {
-   margin-bottom: 50px;
-   border: 1px solid #bfaaaa;
+    margin-bottom: 50px;
+    border: 1px solid #bfaaaa;
 }
 
 .address {
-   
-   padding: 75px 0;
+
+    padding: 75px 0;
 }
 
 .addresstitle {
- padding: 45px;  
+    padding: 45px;
 }
-.addresstitle h2{
- background: #51b105;
+
+.addresstitle h2 {
+    background: #51b105;
     color: #fff;
     text-align: center;
     max-width: 357px;
@@ -558,79 +503,76 @@ textarea {
 }
 
 .showroom {
-   
+
 }
 
-.showroom i{
- background: #e6e6e6;
-   font-size: 30px;
-   border-radius: 50px;
-   padding: 10px 14px;
-   color: #fff;
+.showroom i {
+    background: #e6e6e6;
+    font-size: 30px;
+    border-radius: 50px;
+    padding: 10px 14px;
+    color: #fff;
 }
 
-.showroom .contactNum{
-      color: #939292;
+.showroom .contactNum {
+    color: #939292;
     font-size: 20px;
-   
+
 }
-.showroom .contactNum span{
-      margin-left: 10px;
+
+.showroom .contactNum span {
+    margin-left: 10px;
 }
-.showroom .contactNum2 span{
-      margin-left: 5px;
-   color: #939292;
+
+.showroom .contactNum2 span {
+    margin-left: 5px;
+    color: #939292;
     font-size: 20px;
 }
 
 .social {
-   padding-top: 85px;
+    padding-top: 85px;
 }
 
-.social i{
-   background: #e6e6e6;
-   padding: 10px 20px;
-   font-size: 20px;
-   margin-right: 8px;
-   color: #fff;
-   border-radius: 50px;
+.social i {
+    background: #e6e6e6;
+    padding: 10px 20px;
+    font-size: 20px;
+    margin-right: 8px;
+    color: #fff;
+    border-radius: 50px;
 }
 
 .mymap {
-   
+
 }
 
- #map {
-      width: 400px;
-      height: 400px;
-    }
+#map {
+    width: 400px;
+    height: 400px;
+}
 
 .roadno {
-     color: #939292;
+    color: #939292;
     font-size: 20px;
     margin-left: 3px;
-   float: right;
-   margin-right: 50px;
+    float: right;
+    margin-right: 50px;
 }
-
-
 .foootersection {
-   background: #333;
-   color: #fff;
-   padding: 12px 0;
+    background: #333;
+    color: #fff;
+    padding: 12px 0;
 }
 
-.foootersection p{
-   font-size: 20px;
+.foootersection p {
+    font-size: 20px;
 }
-
-
-
-
 @font-face {
-  font-family: 'Siyam Rupali';
-  src: url('fonts/SiyamRupali.eot?version=1.070');
-  src: local('Siyam Rupali'), url('fonts/SiyamRupali.woff?version=1.070') format('woff'),       url('/resources/fonts/Siyamrupali_1_070ship.ttf') format('truetype');
-  font-style: normal;
-  /* unicode-range: U+0980-09FF; */ /* //Bangla Range (source: http://www.unicode.org/charts/PDF/U0980.pdf‎‎) */
+    font-family: 'Siyam Rupali';
+    src: url('fonts/SiyamRupali.eot?version=1.070');
+    src: local('Siyam Rupali'), url('fonts/SiyamRupali.woff?version=1.070') format('woff'), url('/resources/fonts/Siyamrupali_1_070ship.ttf') format('truetype');
+    font-style: normal;
+    /* unicode-range: U+0980-09FF; */
+    /* //Bangla Range (source: http://www.unicode.org/charts/PDF/U0980.pdf‎‎) */
 }

@@ -1,6 +1,5 @@
 <%@include file="/WEB-INF/views/template/header.jsp" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header title">
@@ -8,7 +7,7 @@
             <p class="lead">Fill the below information to create account</p>
         </div>
         <div class="form-layout">
-            <form:form action="${pageContext.request.contextPath}/register.htm" method="post" modelAttribute="customer"
+            <form:form action="${pageContext.request.contextPath}/register" method="post" commandName="customer"
                        class="form-horizontal">
                 <div class="form-group has-success">
                     <label class="col-xs-3 control-label"></label>
@@ -20,8 +19,8 @@
                             <label class="label-danger">${usernameMsg}</label>
                         </c:if>
                         <c:if test="${not empty update }">
-                            <input name="update" type="hidden" value="update">
-                            <input name="oldUserId" type="hidden" value="${customer.customerId}">
+                            <input name="update" hidden="true" value="update">
+                            <input name="oldUserId" hidden="true" value="${customer.customerId}">
                         </c:if>
                     </div>
                 </div>
@@ -60,14 +59,14 @@
                 <div class="row">
                     <label class="col-xs-3 control-label" for="customerName"></label>
                     <div class="col-xs-9">
-                        <form:errors path="customerPhoneNumber" cssStyle="color: #ff0000"/>
+                        <form:errors path="custometPhoneNumber" cssStyle="color: #ff0000"/>
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="customerPhoneNumber">Phone Number:</label>
+                    <label class="col-xs-3 control-label" for="custometPhoneNumber">Phone Number:</label>
                     <div class="col-xs-9">
-                        <form:input path="customerPhoneNumber" class="form-control" placeholder="Enter Phone Number"
-                                    id="customerPhoneNumber"/>
+                        <form:input path="custometPhoneNumber" class="form-control" placeholder="Enter Phone Number"
+                                    id="custometPhoneNumber"/>
                     </div>
                 </div>
                 <div class="row">
@@ -91,8 +90,7 @@
                 <div class="form-group has-success">
                     <label class="col-xs-3 control-label" for="password">Password:</label>
                     <div class="col-xs-9">
-                        <form:password showPassword="true" path="password" class="form-control"
-                                       placeholder="Enter password" id="password"/>
+                        <form:password path="password" class="form-control" placeholder="Enter password" id="password"/>
                     </div>
                 </div>
                 <div class="form-group has-success">
@@ -104,14 +102,53 @@
                 <div class="row">
                     <label class="col-xs-3 control-label" for="customerName"></label>
                     <div class="col-xs-9">
+                        <form:errors path="billingAddress.strretName" cssStyle="color: #ff0000"/>
+                    </div>
+                </div>
+                <div class="form-group has-success">
+                    <label class="col-xs-3 control-label" for="billingAddress.strretName">Street Name:</label>
+                    <div class="col-xs-9">
+                        <form:input path="billingAddress.strretName" class="form-control"
+                                    placeholder="Enter Street Name" id="billingAddress.strretName"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-xs-3 control-label" for="customerName"></label>
+                    <div class="col-xs-9">
+                        <form:errors path="billingAddress.apartmentNumber" cssStyle="color: #ff0000"/>
+                    </div>
+                </div>
+                <div class="form-group has-success">
+                    <label class="col-xs-3 control-label" for="billingAddress.apartmentNumber">Apartment Number:</label>
+                    <div class="col-xs-9">
+                        <form:input path="billingAddress.apartmentNumber" class="form-control"
+                                    placeholder="Enter Apartment Number" id="billingAddress.apartmentNumber"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-xs-3 control-label" for="customerName"></label>
+                    <div class="col-xs-9">
                         <form:errors path="billingAddress.city" cssStyle="color: #ff0000"/>
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="billingAddress.city">Street Name:</label>
+                    <label class="col-xs-3 control-label" for="billingAddress.city">City:</label>
                     <div class="col-xs-9">
-                        <form:input path="billingAddress.city" class="form-control"
-                                    placeholder="Enter Street Name" id="billingAddress.city"/>
+                        <form:input path="billingAddress.city" class="form-control" placeholder="Enter City"
+                                    id="billingAddress.city"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-xs-3 control-label" for="customerName"></label>
+                    <div class="col-xs-9">
+                        <form:errors path="billingAddress.state" cssStyle="color: #ff0000"/>
+                    </div>
+                </div>
+                <div class="form-group has-success">
+                    <label class="col-xs-3 control-label" for="billingAddress.state">State:</label>
+                    <div class="col-xs-9">
+                        <form:input path="billingAddress.state" class="form-control" placeholder="Enter State"
+                                    id="billingAddress.state"/>
                     </div>
                 </div>
                 <div class="row">
@@ -121,10 +158,10 @@
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="billingAddress.country">Apartment Number:</label>
+                    <label class="col-xs-3 control-label" for="billingAddress.country">Country:</label>
                     <div class="col-xs-9">
-                        <form:input path="billingAddress.country" class="form-control"
-                                    placeholder="Enter Apartment Number" id="billingAddress.country"/>
+                        <form:input path="billingAddress.country" class="form-control" placeholder="Enter Country"
+                                    id="billingAddress.country"/>
                     </div>
                 </div>
                 <div class="row">
@@ -134,9 +171,9 @@
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="billingAddress.zipCode">City:</label>
+                    <label class="col-xs-3 control-label" for="billingAddress.zipCode">Zip Code:</label>
                     <div class="col-xs-9">
-                        <form:input path="billingAddress.zipCode" class="form-control" placeholder="Enter City"
+                        <form:input path="billingAddress.zipCode" class="form-control" placeholder="Enter Zip Code"
                                     id="billingAddress.zipCode"/>
                     </div>
                 </div>
@@ -149,14 +186,28 @@
                 <div class="row">
                     <label class="col-xs-3 control-label" for="customerName"></label>
                     <div class="col-xs-9">
-                        <form:errors path="shippingAddress.address" cssStyle="color: #ff0000"/>
+                        <form:errors path="shippingAddress.strretName" cssStyle="color: #ff0000"/>
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="shippingAddress.address">Street Name:</label>
+                    <label class="col-xs-3 control-label" for="shippingAddress.strretName">Street Name:</label>
                     <div class="col-xs-9">
-                        <form:input path="shippingAddress.address" class="form-control"
-                                    placeholder="Enter Street Name" id="shippingAddress.address"/>
+                        <form:input path="shippingAddress.strretName" class="form-control"
+                                    placeholder="Enter Street Name" id="shippingAddress.strretName"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-xs-3 control-label" for="customerName"></label>
+                    <div class="col-xs-9">
+                        <form:errors path="shippingAddress.apartmentNumber" cssStyle="color: #ff0000"/>
+                    </div>
+                </div>
+                <div class="form-group has-success">
+                    <label class="col-xs-3 control-label" for="shippingAddress.apartmentNumber">Apartment
+                        Number:</label>
+                    <div class="col-xs-9">
+                        <form:input path="shippingAddress.apartmentNumber" class="form-control"
+                                    placeholder="Enter Apartment Number" id="shippingAddress.apartmentNumber"/>
                     </div>
                 </div>
                 <div class="row">
@@ -170,6 +221,19 @@
                     <div class="col-xs-9">
                         <form:input path="shippingAddress.city" class="form-control" placeholder="Enter City"
                                     id="shippingAddress.city"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-xs-3 control-label" for="customerName"></label>
+                    <div class="col-xs-9">
+                        <form:errors path="shippingAddress.state" cssStyle="color: #ff0000"/>
+                    </div>
+                </div>
+                <div class="form-group has-success">
+                    <label class="col-xs-3 control-label" for="shippingAddress.state">State:</label>
+                    <div class="col-xs-9">
+                        <form:input path="shippingAddress.state" class="form-control" placeholder="Enter State"
+                                    id="shippingAddress.state"/>
                     </div>
                 </div>
                 <div class="row">

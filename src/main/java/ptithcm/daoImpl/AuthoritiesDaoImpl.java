@@ -1,22 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ptithcm.daoImpl;
 
-import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import ptithcm.dao.AuthoritiesDao;
 import ptithcm.entity.Authorities;
 
+import java.util.List;
+
 /**
- *
  * @author Tuong
  */
-public class AuthoritiesDaoImpl extends AbstractDao<Authorities> implements AuthoritiesDao{
+public class AuthoritiesDaoImpl extends AbstractDao<Authorities> implements AuthoritiesDao {
 
     @Override
     public Authorities findOne(String username) {
@@ -25,12 +20,13 @@ public class AuthoritiesDaoImpl extends AbstractDao<Authorities> implements Auth
         Transaction t = session.beginTransaction();
         Query query = session.createQuery(hql);
         query.setParameter("username", username);
-        List<Authorities> list= query.list();
+
+        List<Authorities> list = query.list();
         t.commit();
-        if (list.isEmpty()){
+        if (list.isEmpty()) {
             return null;
         }
         return list.get(0);
     }
-    
+
 }

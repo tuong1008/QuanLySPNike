@@ -11,14 +11,13 @@ import ptithcm.entity.Cart;
 import ptithcm.service.CartService;
 
 /**
- *
  * @author Tuong
  */
-public class CartServiceImpl implements CartService{
+public class CartServiceImpl implements CartService {
 
     @Autowired
     CartDao cartDao;
-    
+
     @Override
     public String addCart(Cart cart) {
         return cartDao.save(cart);
@@ -38,5 +37,4 @@ public class CartServiceImpl implements CartService{
     public String removeCart(Cart cart) {
         return cartDao.delete(cart);
     }
-    
 }

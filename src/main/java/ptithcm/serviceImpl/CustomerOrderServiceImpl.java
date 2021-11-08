@@ -5,21 +5,21 @@
  */
 package ptithcm.serviceImpl;
 
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import ptithcm.dao.CustomerOrderDao;
 import ptithcm.entity.CustomerOrder;
 import ptithcm.service.CustomerOrderService;
 
+import java.util.List;
+
 /**
- *
  * @author Tuong
  */
-public class CustomerOrderServiceImpl implements CustomerOrderService{
+public class CustomerOrderServiceImpl implements CustomerOrderService {
 
     @Autowired
     CustomerOrderDao customerOrderDao;
-    
+
     @Override
     public String addCustomerOrder(CustomerOrder customerOrder) {
         return customerOrderDao.save(customerOrder);
@@ -39,5 +39,5 @@ public class CustomerOrderServiceImpl implements CustomerOrderService{
     public String removeCustomerOrder(CustomerOrder co) {
         return customerOrderDao.delete(co);
     }
-    
+
 }

@@ -5,16 +5,19 @@
  */
 package ptithcm.service;
 
-import java.util.List;
 import ptithcm.entity.CustomerOrder;
 
+import java.util.List;
+
 /**
- *
  * @author Tuong
  */
 public interface CustomerOrderService {
     String addCustomerOrder(CustomerOrder customerOrder);
+
     List<CustomerOrder> getAllCustomerOrder();
+
     CustomerOrder getCustomerOrderById(long customerOrderId);
+
     String removeCustomerOrder(CustomerOrder customerOrder);
 }

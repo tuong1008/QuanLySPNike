@@ -5,15 +5,10 @@
  */
 package ptithcm.controller;
 
-import java.util.List;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import ptithcm.entity.Customer;
 import ptithcm.entity.Product;
@@ -21,15 +16,21 @@ import ptithcm.service.AuthoritiesService;
 import ptithcm.service.CustomerService;
 import ptithcm.service.ProductService;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
 /**
- *
  * @author Tuong
  */
 @Controller
 public class HomeController {
     @Autowired
     CustomerService customerService;
-    
+
     @Autowired
     AuthoritiesService authoritiesService;
     
@@ -66,7 +67,7 @@ public class HomeController {
    }
    @RequestMapping(value="/login.htm", method = RequestMethod.POST)
    public String login(HttpServletRequest request, ModelMap model, @ModelAttribute("customer") Customer customer) throws ServletException{
-       Customer temp = customerService.findCustomerByusernameAndpassword(customer.getUsername(), customer.getPassword());
+       Customer temp = customerService.findCustomerByUsernameAndPassword(customer.getUsername(), customer.getPassword());
        if (temp!=null){
            request.getSession().setAttribute("username", customer.getUsername());
            String role = authoritiesService.getRole(customer.getUsername());
@@ -82,9 +83,11 @@ public class HomeController {
            return "customer/login";
        }
    }
-   @RequestMapping(value="/logout.htm", method = RequestMethod.GET)
-	public String logoutPage (HttpServletRequest request) throws ServletException {
-		request.getSession().removeAttribute("username");
-		return "redirect:/login.htm?logout";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
-	}
+   
+
+    @RequestMapping(value = "/logout.htm", method = RequestMethod.GET)
+    public String logoutPage(HttpServletRequest request) throws ServletException {
+        request.getSession().removeAttribute("username");
+        return "redirect:/login.htm?logout";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
+    }
 }

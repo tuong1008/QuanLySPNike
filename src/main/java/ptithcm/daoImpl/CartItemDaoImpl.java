@@ -5,7 +5,6 @@
  */
 package ptithcm.daoImpl;
 
-import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,16 +14,17 @@ import org.springframework.transaction.annotation.Transactional;
 import ptithcm.dao.CartItemDao;
 import ptithcm.entity.CartItem;
 
+import java.util.List;
+
 /**
- *
  * @author Tuong
  */
 @Transactional
-public class CartItemDaoImpl extends AbstractDao<CartItem> implements CartItemDao{
+public class CartItemDaoImpl extends AbstractDao<CartItem> implements CartItemDao {
 
     @Autowired
     SessionFactory sessionFactory;
-    
+
     @Override
     public List<CartItem> findByCartId(long cartId) {
         Session session = sessionFactory.getCurrentSession();
@@ -32,9 +32,10 @@ public class CartItemDaoImpl extends AbstractDao<CartItem> implements CartItemDa
         Transaction t = session.beginTransaction();
         Query query = session.createQuery(hql);
         query.setParameter("cartId", cartId);
-        List<CartItem> list= query.list();
+
+        List<CartItem> list = query.list();
         t.commit();
-        if (list.isEmpty()){
+        if (list.isEmpty()) {
             return null;
         }
         return list;
@@ -47,12 +48,13 @@ public class CartItemDaoImpl extends AbstractDao<CartItem> implements CartItemDa
         Transaction t = session.beginTransaction();
         Query query = session.createQuery(hql);
         query.setParameter("cartItemId", cartItemId);
-        List<CartItem> list= query.list();
+
+        List<CartItem> list = query.list();
         t.commit();
-        if (list.isEmpty()){
+        if (list.isEmpty()) {
             return null;
         }
         return list.get(0);
     }
-    
+
 }

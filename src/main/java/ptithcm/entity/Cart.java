@@ -1,93 +1,58 @@
 package ptithcm.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-
 
 @Entity
-public class Cart implements Serializable{
+public class Cart implements Serializable {
 
-	
-	
-	
-	private static final long serialVersionUID = 3L;
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long cartId;
-	
-	@OneToMany(mappedBy="cart",fetch=FetchType.EAGER)
-        @JsonManagedReference
-	private List<CartItem> cartItem;
-	
-	private double grandTotal;
-	
-	
-	
-	
-	
+    private static final long serialVersionUID = 3L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long cartId;
 
+    @OneToMany(mappedBy = "cart", fetch = FetchType.EAGER)
+    @JsonManagedReference
+    private List<CartItem> cartItem;
 
-	public long getCartId() {
-		return cartId;
-	}
+    private double grandTotal;
 
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<CartItem> cartItems;
 
+    public long getCartId() {
+        return cartId;
+    }
 
-	public void setCartId(long cartId) {
-		this.cartId = cartId;
-	}
+    public List<CartItem> getCartItem() {
+        return cartItem;
+    }
 
+    public void setCartItem(List<CartItem> cartItem) {
+        this.cartItem = cartItem;
+    }
 
+    public void setCartId(long cartId) {
+        this.cartId = cartId;
+    }
 
-	public List<CartItem> getCartItem() {
-		return cartItem;
-	}
+    public List<CartItem> getCartItems() {
+        return cartItems;
+    }
 
+    public void setCartItems(List<CartItem> cartItems) {
+        this.cartItems = cartItems;
+    }
 
+    public double getGrandTotal() {
+        return grandTotal;
+    }
 
-	public void setCartItem(List<CartItem> cartItem) {
-		this.cartItem = cartItem;
-	}
-
-
-
-		public double getGrandTotal() {
-		return grandTotal;
-	}
-
-
-
-	public void setGrandTotal(double grandTotal) {
-		this.grandTotal = grandTotal;
-	}
-
-
-
-//	@Override
-//	public String toString() {
-//		return "Cart [cartId=" + cartId + ", cartItems=" + cartItems + ", customer=" + customer + ", grandTotal="
-//				+ grandTotal + "]";
-//	}
-
-
-
-	
-
-
-
-	
-	
-	
+    public void setGrandTotal(double grandTotal) {
+        this.grandTotal = grandTotal;
+    }
 }

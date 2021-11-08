@@ -1,66 +1,57 @@
 package ptithcm.serviceImpl;
 
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.crypto.password.PasswordEncoder;
-
-
+import org.springframework.transaction.annotation.Transactional;
 import ptithcm.dao.CustomerDao;
 import ptithcm.entity.Customer;
 import ptithcm.service.CustomerService;
 
+import java.util.List;
 
-public class CustomerServiceImpl implements CustomerService{
+@Transactional
+public class CustomerServiceImpl implements CustomerService {
+    @Autowired
+    private CustomerDao customerDao;
 
-        @Autowired
-        private CustomerDao customerDao;
-	
 //	@Autowired
-//    private PasswordEncoder passwordEncoder;
-	
-	
-	@Override
-	public String addCustomer(Customer customer) {
-		return customerDao.save(customer);
-	}
+//  private PasswordEncoder passwordEncoder;
+    @Override
+    public void addCustomer(Customer customer) {
+        customerDao.save(customer);
+    }
 
-	
-	@Override
-	public Customer findCustomerByUsername(String username) {
-		
-		return customerDao.findUserByusername(username);
-	}
+    @Override
+    public void updateCustomer(Customer customer) {
+        try {
+            customerDao.update(customer);
+        } catch (Exception ignored) {
+            ignored.printStackTrace();
+    }
+    }
 
-	
-	@Override
-	public List<Customer> getAllCustomers() {
-		
-//		return (List<Customer>) customerDao.findAll();
-                return null;
-	}
+    @Override
+    public void deleteCustomer(Customer customer) {
+        customerDao.delete(customer);
+    }
 
-	
-	@Override
-	public Customer getCustomerBycustomerId(long customerId) {
-		
-//		return customerDao.findOne(customerId);
-                return null;
-	}
+    @Override
+    public Customer findCustomerByUsername(String username) {
+        return customerDao.findByUsername(username);
+    }
 
-	
-	@Override
-	public Customer findCustomerByusernameAndpassword(String username, String password) {
-		
-		return customerDao.findCustomerByUsernameAndPassword(username, password);
-	}
+    @Override
+    public List<Customer> getAllCustomers() {
+        return customerDao.findAll();
+    }
 
-        @Override
-        public String updateCustomer(Customer cstmr) {
-            return customerDao.update(cstmr);
-        }
+    @Override
+    public Customer getCustomerById(long customerId) {
+        return customerDao.findById(customerId);
+    }
 
-	
-	
-	
-	
+    @Override
+    public Customer findCustomerByUsernameAndPassword(String username, String password) {
+        return customerDao.findByUsernameAndPassword(username, password);
+    }
+
 }

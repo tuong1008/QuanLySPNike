@@ -10,14 +10,13 @@ import ptithcm.dao.AuthoritiesDao;
 import ptithcm.entity.Authorities;
 
 /**
- *
  * @author Tuong
  */
-public class AuthoritiesServiceImpl implements ptithcm.service.AuthoritiesService{
+public class AuthoritiesServiceImpl implements ptithcm.service.AuthoritiesService {
 
     @Autowired
     AuthoritiesDao authoritiesDao;
-    
+
     @Override
     public String addAuthorities(Authorities authorities) {
         return authoritiesDao.save(authorities);
@@ -32,5 +31,5 @@ public class AuthoritiesServiceImpl implements ptithcm.service.AuthoritiesServic
     public String getRole(String username) {
         return authoritiesDao.findOne(username).getAuthorityType();
     }
-    
+
 }

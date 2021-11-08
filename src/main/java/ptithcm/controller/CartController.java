@@ -1,52 +1,36 @@
-package ptithcm.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+package ptithcm.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.HandlerExceptionResolver;
-import org.springframework.web.servlet.ModelAndView;
 import ptithcm.entity.Customer;
 import ptithcm.service.CustomerService;
 
-
-
-
-
-
+import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/customer/cart")
-public class CartController{
+public class CartController {
+    @Autowired
+    private CustomerService customerService;
 
-	
-	
-	 @Autowired
-	    private CustomerService customerService;
+    @RequestMapping
+    public String getCart(HttpServletRequest request) {
+        String activeUser = request.getSession().getAttribute("username").toString();
+        Customer customer = customerService.findCustomerByUsername(activeUser);
+        long cartId = customer.getCart().getCartId();
 
-	    @RequestMapping
-	    public String getCart(HttpServletRequest request){
-                String activeUser=request.getSession().getAttribute("username").toString();
-	    	Customer customer = customerService.findCustomerByUsername(activeUser);
-	        long cartId = customer.getCart().getCartId();
+        return "redirect:/customer/cart/" + cartId + ".htm";
+    }
 
-	        return "redirect:/customer/cart/" + cartId +".htm";
-	    }
+    @RequestMapping("/{cartId}.htm")
+    public String getCartRedirect(@PathVariable(value = "cartId") long cartId, Model model) {
+        model.addAttribute("cartId", cartId);
 
-	    @RequestMapping("/{cartId}.htm")
-	    public String getCartRedirect(@PathVariable (value = "cartId") long cartId, Model model){
-	        model.addAttribute("cartId", cartId);
-
-	        return "customer/cart";
-	    }
-
-	
-	    
-	    
-	  
+        return "customer/cart";
+    }
 //		public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
 //				Exception ex) {
 //			ModelAndView modelAndView=new ModelAndView();
@@ -59,5 +43,5 @@ public class CartController{
 //			
 //			return modelAndView;
 //		}
-	
+
 }

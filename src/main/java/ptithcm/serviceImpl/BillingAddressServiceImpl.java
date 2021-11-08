@@ -11,14 +11,13 @@ import ptithcm.entity.BillingAddress;
 import ptithcm.service.BillingAddressService;
 
 /**
- *
  * @author Tuong
  */
-public class BillingAddressServiceImpl implements BillingAddressService{
+public class BillingAddressServiceImpl implements BillingAddressService {
 
     @Autowired
     BillingAddressDao billingAddressDao;
-    
+
     @Override
     public String addBillingAddress(BillingAddress billingAddress) {
         return billingAddressDao.save(billingAddress);
@@ -28,5 +27,4 @@ public class BillingAddressServiceImpl implements BillingAddressService{
     public String removeBillingAddress(BillingAddress billingAddress) {
         return billingAddressDao.delete(billingAddress);
     }
-    
 }

@@ -8,39 +8,35 @@ import javax.persistence.Id;
 @Entity
 public class Authorities {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long authoritiesId;
-	
-	private String username;
-	
-	private String authorityType;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long authoritiesId;
 
-	public long getAuthoritiesId() {
-		return authoritiesId;
-	}
+    private String username;
 
-	public void setAuthoritiesId(long authoritiesId) {
-		this.authoritiesId = authoritiesId;
-	}
+    private String authorityType;
 
-	public String getUsername() {
-		return username;
-	}
+    public long getAuthoritiesId() {
+        return authoritiesId;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public void setAuthoritiesId(long authoritiesId) {
+        this.authoritiesId = authoritiesId;
+    }
 
-	public String getAuthorityType() {
-		return authorityType;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public void setAuthorityType(String authorityType) {
-		this.authorityType = authorityType;
-	}
-	
-	
-	
-	
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getAuthorityType() {
+        return authorityType;
+    }
+
+    public void setAuthorityType(String authorityType) {
+        this.authorityType = authorityType;
+    }
 }
