@@ -1,11 +1,8 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" %>
-<html>
-<head>
-    <title>Oops</title>
-</head>
-<body>
-<h1>Error</h1>
-<img src="<c:url value="/resources/images/error.gif"/>" alt="404 not found">
-</body>
-</html>
+<jsp:include flush="true" page="/WEB-INF/views/template/header.jsp">
+    <jsp:param name="title" value="SERVER ERROR"/>
+</jsp:include>
+
+<h1>SERVER ERROR</h1>
+<img src="resources/images/error.gif" alt="404 not found">
+
+<%@include file="/WEB-INF/views/template/footer.jsp" %>

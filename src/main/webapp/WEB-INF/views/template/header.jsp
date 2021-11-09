@@ -9,8 +9,15 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-    <title>Nike Shop</title>
+    <link rel="icon" href="resource/images/favicon.ico">
+    <c:choose>
+        <c:when test="${!empty param.title}">
+            <title>${param.title}</title>
+        </c:when>
+        <c:otherwise>
+            <title>Nike Online Shop</title>
+        </c:otherwise>
+    </c:choose>
     <!-- Bootstrap core CSS -->
     <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
     <!-- FONT AWESOME -->
@@ -43,7 +50,7 @@
                     <ul class="nav navbar-nav">
                         <li>
                             <a href="">
-                                <img src="<c:url value="/resources/images/logo.png"/>" alt="logo" class="logo">
+                                <img src="<c:url value="/resources/images/nike-logo.svg"/>" alt="logo" class="logo">
                             </a>
                         </li>
                         <li class=""><a href="">Nike Online Shop</a></li>

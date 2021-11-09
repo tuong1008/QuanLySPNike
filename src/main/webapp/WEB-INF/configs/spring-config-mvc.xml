@@ -2,17 +2,15 @@
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xmlns="http://www.springframework.org/schema/beans"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-4.3.xsd
-http://www.springframework.org/schema/tx
-http://www.springframework.org/schema/tx/spring-tx.xsd
 http://www.springframework.org/schema/mvc
-http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!-- Spring MVC Annotation -->
     <context:annotation-config/>
@@ -20,39 +18,39 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
         <mvc:message-converters>
             <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
             <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
-   </mvc:message-converters>
-</mvc:annotation-driven>
-<bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
-    <property name="favorPathExtension" value="false" />
-</bean>
-<mvc:annotation-driven content-negotiation-manager="contentNegotiationManager"/>
-<mvc:resources  mapping="/images/**" location="/images/" cache-period="31556926"/>
-<!--<bean
-      class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>-->
-<!-- Cấu hình view -->
-<bean id="viewResolver"
-p:prefix="/WEB-INF/views/" p:suffix=".jsp"
-class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
-<!-- Cấu hình package chứa các controller -->
-<context:component-scan base-package="ptithcm.controller, ptithcm.entity"/>
-<mvc:interceptors>
-    <mvc:interceptor>
-        <mvc:mapping path="/login**"/>
-        <mvc:mapping path="/logout**"/>
-        <mvc:mapping path="/customer/**"/>
-        <mvc:mapping path="/rest/cart/**"/>
-        <mvc:mapping path="/order/**"/>
-        <mvc:mapping path="/register**"/>
-        <!--<mvc:mapping path="/admin/**"/>-->
-        <!--<mvc:exclude-mapping path="/home/contact.htm"/>-->
-        <bean class="poly.interceptor.LoggerInterceptor" />
-    </mvc:interceptor>
-    <mvc:interceptor>
-        <mvc:mapping path="/admin/**"/>
-        <!--<mvc:exclude-mapping path="/home/contact.htm"/>-->
-        <bean class="poly.interceptor.AdminInterceptor" />
-    </mvc:interceptor>
-</mvc:interceptors>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="favorPathExtension" value="false"/>
+    </bean>
+    <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager"/>
+    <mvc:resources mapping="/images/**" location="resources/images/" cache-period="31556926"/>
+    <!--<bean
+          class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>-->
+    <!-- Cấu hình view -->
+    <bean id="viewResolver"
+          p:prefix="/WEB-INF/views/" p:suffix=".jsp"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
+    <!-- Cấu hình package chứa các controller -->
+    <context:component-scan base-package="ptithcm.controller, ptithcm.entity"/>
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/login**"/>
+            <mvc:mapping path="/logout**"/>
+            <mvc:mapping path="/customer/**"/>
+            <mvc:mapping path="/rest/cart/**"/>
+            <mvc:mapping path="/order/**"/>
+            <mvc:mapping path="/register**"/>
+            <!--<mvc:mapping path="/admin/**"/>-->
+            <!--<mvc:exclude-mapping path="/home/contact.htm"/>-->
+            <bean class="poly.interceptor.LoggerInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/**"/>
+            <!--<mvc:exclude-mapping path="/home/contact.htm"/>-->
+            <bean class="poly.interceptor.AdminInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
     <bean id="customerDao" class="ptithcm.daoImpl.CustomerDaoImpl"/>
     <bean id="customerService" class="ptithcm.serviceImpl.CustomerServiceImpl"/>
@@ -78,36 +76,33 @@ class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
     <bean id="customerOrderDao" class="ptithcm.daoImpl.CustomerOrderDaoImpl"/>
     <bean id="customerOrderService" class="ptithcm.serviceImpl.CustomerOrderServiceImpl"/>
 
-    <bean id="sessionFactory"
-          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
-                <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
-<!--                <prop key="hibernate.hbm2ddl.auto">update</prop>-->
-                <prop key="hibernate.current_session_context_class">thread</prop>
-                <prop key="hibernate.hbm2ddl.import_files">resource/script.sql</prop>
-
-                <prop key="hibernate.connection.useUnicode">true</prop>
-                <prop key="hibernate.connection.CharSet">latin1</prop>
-                <prop key="hibernate.connection.characterEncoding">latin1</prop>
-                <prop key="hibernate.hbm2ddl.import_files">data.sql</prop>
-            </props>
-        </property>
-        <property name="packagesToScan" value="ptithcm.entity"/>
-    </bean>
-    <bean id="transactionManager"
-          class="org.springframework.orm.hibernate4.HibernateTransactionManager"
-          p:sessionFactory-ref="sessionFactory"/>
-    <tx:annotation-driven transaction-manager="transactionManager"/>
-    <bean id="dataSource"
-          class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-          p:driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-          p:url="jdbc:sqlserver://localhost:1433;Database=QLSP"
-          p:username="sa"
-          p:password="123"/>
+        <bean id="sessionFactory"
+              class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+            <property name="dataSource" ref="dataSource"/>
+            <property name="hibernateProperties">
+                <props>
+                    <prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+                    <prop key="hibernate.show_sql">true</prop>
+                    <prop key="hibernate.hbm2ddl.auto">none</prop>
+                    <prop key="hibernate.current_session_context_class">thread</prop>
+                    <prop key="hibernate.connection.useUnicode">true</prop>
+                    <prop key="hibernate.connection.CharSet">latin1</prop>
+                    <prop key="hibernate.connection.characterEncoding">latin1</prop>
+<!--                    <prop key="hibernate.hbm2ddl.import_files">data.sql</prop>-->
+                </props>
+            </property>
+            <property name="packagesToScan" value="ptithcm.entity"/>
+        </bean>
+        <bean id="transactionManager"
+              class="org.springframework.orm.hibernate4.HibernateTransactionManager"
+              p:sessionFactory-ref="sessionFactory"/>
+        <tx:annotation-driven transaction-manager="transactionManager"/>
+        <bean id="dataSource"
+              class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+              p:driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+              p:url="jdbc:sqlserver://localhost:1433;Database=QLSP"
+              p:username="sa"
+              p:password="123"/>
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="268435456"/>
