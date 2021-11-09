@@ -45,4 +45,9 @@ public class CartItemServiceImpl implements CartItemService {
         return cartItemDao.delete(cartItem);
     }
 
+    @Override
+    public void removeAllCartItems(long l) {
+        cartItemDao.removeAllByCartId(l);
+    }
+
 }

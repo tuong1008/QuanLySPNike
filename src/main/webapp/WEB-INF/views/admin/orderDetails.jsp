@@ -20,13 +20,11 @@
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <address>
                                     <strong>Shipping Address</strong><br/>
-                                        ${order.shippingAddress.strretName}
+                                        ${order.shippingAddress.address}
                                     <br/>
-                                        ${order.shippingAddress.apartmentNumber}
+                                        ${order.shippingAddress.city},${order.shippingAddress.country}
                                     <br/>
-                                        ${order.shippingAddress.city},${order.shippingAddress.district}
-                                    <br/>
-                                        ${order.shippingAddress.country},${order.shippingAddress.zipCode}
+                                        ${order.shippingAddress.zipCode}
                                     <br/>
                                 </address>
                             </div>
@@ -35,13 +33,9 @@
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <address>
                                     <strong>Billing Address</strong><br/>
-                                        ${order.billingAddress.strretName}
+                                        ${order.billingAddress.city},${order.billingAddress.country}
                                     <br/>
-                                        ${order.billingAddress.apartmentNumber}
-                                    <br/>
-                                        ${order.billingAddress.city},${order.billingAddress.district}
-                                    <br/>
-                                        ${order.billingAddress.country},${order.billingAddress.zipCode}
+                                        ${order.billingAddress.zipCode}
                                     <br/>
                                 </address>
                             </div>

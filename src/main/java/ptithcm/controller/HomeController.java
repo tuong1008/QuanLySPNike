@@ -38,27 +38,8 @@ public class HomeController {
     ProductService productService;
     
     @RequestMapping("/trang-chu.htm")
-	public String homePage(HttpServletRequest request,
-                HttpServletResponse response,
-                ModelMap model){
-		int pageNumber=1;
-               List<Product> page=productService.getAllProduct(pageNumber);
-		long totalProducts=productService.getTotalProduct();
-
-                int totalPages=(int) Math.ceil(totalProducts/10.0); //mỗi page có 10 dòng
-                if (totalProducts==0) totalPages=1;
-                
-		int currentPageNumber=pageNumber;
-		int beginIndex=Math.max(1, currentPageNumber-6);
-		int endIndex=Math.min(beginIndex+10, totalPages);
-		
-		
-                model.addAttribute("products",page);
-		model.addAttribute("totalPages",totalPages);
-		model.addAttribute("currentPageNumber",currentPageNumber);
-		model.addAttribute("beginIndex",beginIndex);
-		model.addAttribute("endIndex",endIndex);
-                return "customer/productList";
+	public String homePage(){
+            return "customer/index";
     }
     @RequestMapping(value="/login.htm", method = RequestMethod.GET)
    public String login(ModelMap model){

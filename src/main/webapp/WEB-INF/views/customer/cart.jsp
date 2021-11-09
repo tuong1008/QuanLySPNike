@@ -1,4 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="/WEB-INF/views/template/header.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <div class="container-wrapper">
@@ -16,6 +17,10 @@
                 <div>
                     <a class="btn btn-danger pull-left" ng-click="clearCart()"><span
                             class="glyphicon glyphicon-remove-sign"></span> Clear Cart</a>
+                            
+<!--                    <a ng-if="cart.cartItem.length==0" style="opacity: 0.5" class="btn btn-danger pull-left"><span
+                            class="glyphicon glyphicon-remove-sign"></span> Clear Cartt</a>-->
+                    
                     <a href="<spring:url value="/order/${cartId}.htm" />" class="btn btn-success pull-right"><span
                             class="glyphicon glyphicon-shopping-cart"></span> Check out</a>
                 </div>
@@ -33,7 +38,7 @@
                         <td>{{item.product.productPrice}}</td>
                         <td>{{item.quantity}}</td>
                         <td>{{item.totalPrice}}</td>
-                        <td><a href="#" class="label label-danger" ng-click="removeFromCart(item.cartItemId)"><span
+                        <td><a href="" class="label label-danger" ng-click="removeFromCart(item.cartItemId)"><span
                                 class="glyphicon glyphicon-remove"></span>remove</a></td>
                     </tr>
                     <tr>
@@ -44,8 +49,6 @@
                         <th></th>
                     </tr>
                 </table>
-                <a href="<spring:url value="/product/productList/Laptop/1" />" class="btn btn-default">Continue
-                    Shopping</a>
             </div>
         </section>
         <!-- My -->

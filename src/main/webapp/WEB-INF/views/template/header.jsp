@@ -46,9 +46,14 @@
                                 <img src="<c:url value="/resources/images/logo.png"/>" alt="logo" class="logo">
                             </a>
                         </li>
-                        <li class=""><a href="">Nike Online Shop</a></li>
-                        <li><a href="<c:url value="/trang-chu.htm" />">Home</a></li>
-                        <li><a href="<c:url value="/product/productList/Laptop/1.htm" />">Products</a></li>
+                        <li class=""><a style="cursor: text;color: #fff;background-color: transparent;" href="">Nike Online Shop</a></li>
+                        <c:if test="${sessionScope.username =='admin'}">
+                            <li><a href="<c:url value="/admin/home.htm"/>">Home</a></li>
+                        </c:if>
+                        <c:if test="${sessionScope.username !='admin'}">
+                            <li><a href="<c:url value="/trang-chu.htm" />">Home</a></li>
+                        </c:if>
+                        <li><a href="<c:url value="/product/productList.htm" />">Products</a></li>
                         <li><a href="<c:url value="/about.htm"/>">About</a></li>
                         <li><a href="<c:url value="/contact.htm"/>">Contact</a></li>
                     </ul>
@@ -56,7 +61,7 @@
                         <!-- <li><a href="?lang=en">English</a></li>
                             <li><a href="?lang=bn">Bangla</a></li> -->
                         <c:if test="${sessionScope.username!=null}">
-                            <li><a>Welcome:${sessionScope.username} </a></li>
+                            <li><a style="color: #fff;background-color: transparent;">Welcome:${sessionScope.username} </a></li>
                             <c:if test="${sessionScope.username!='admin'}">
                                 <li role="presentation" class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
@@ -70,10 +75,7 @@
                             </c:if>
                             <li><a href="<c:url value="/logout.htm" />">Logout</a></li>
                             <c:if test="${sessionScope.username!='admin'}">
-                                <li><a href="<c:url value="/customer/cart"/>">Cart</a></li>
-                            </c:if>
-                            <c:if test="${sessionScope.username =='admin'}">
-                                <li><a href="<c:url value="/admin"/>">Admin</a></li>
+                                <li><a href="<c:url value="/customer/cart.htm"/>">Cart</a></li>
                             </c:if>
                         </c:if>
                         <c:if test="${sessionScope.username == null}">
