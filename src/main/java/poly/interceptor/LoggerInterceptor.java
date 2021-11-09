@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
+import ptithcm.exceptions.PageNotFoundException;
 
 @Transactional
 public class LoggerInterceptor extends HandlerInterceptorAdapter {
@@ -42,7 +43,7 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
         }
         else if (request.getRequestURI().contains("/login.htm")
                 ||request.getRequestURI().contains("/register.htm")){
-            return false;
+            throw new PageNotFoundException("Logout Required!");
         }
         else{
             return true;
