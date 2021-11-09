@@ -2,17 +2,15 @@
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xmlns="http://www.springframework.org/schema/beans"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-4.3.xsd
-http://www.springframework.org/schema/tx
-http://www.springframework.org/schema/tx/spring-tx.xsd
 http://www.springframework.org/schema/mvc
-http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!-- Spring MVC Annotation -->
     <context:annotation-config/>
@@ -20,39 +18,39 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
         <mvc:message-converters>
             <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
             <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
-   </mvc:message-converters>
-</mvc:annotation-driven>
-<bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
-    <property name="favorPathExtension" value="false" />
-</bean>
-<mvc:annotation-driven content-negotiation-manager="contentNegotiationManager"/>
-<mvc:resources  mapping="/images/**" location="/images/" cache-period="31556926"/>
-<!--<bean
-      class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>-->
-<!-- Cấu hình view -->
-<bean id="viewResolver"
-p:prefix="/WEB-INF/views/" p:suffix=".jsp"
-class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
-<!-- Cấu hình package chứa các controller -->
-<context:component-scan base-package="ptithcm.controller, ptithcm.entity"/>
-<mvc:interceptors>
-    <mvc:interceptor>
-        <mvc:mapping path="/login**"/>
-        <mvc:mapping path="/logout**"/>
-        <mvc:mapping path="/customer/**"/>
-        <mvc:mapping path="/rest/cart/**"/>
-        <mvc:mapping path="/order/**"/>
-        <mvc:mapping path="/register**"/>
-        <!--<mvc:mapping path="/admin/**"/>-->
-        <!--<mvc:exclude-mapping path="/home/contact.htm"/>-->
-        <bean class="poly.interceptor.LoggerInterceptor" />
-    </mvc:interceptor>
-    <mvc:interceptor>
-        <mvc:mapping path="/admin/**"/>
-        <!--<mvc:exclude-mapping path="/home/contact.htm"/>-->
-        <bean class="poly.interceptor.AdminInterceptor" />
-    </mvc:interceptor>
-</mvc:interceptors>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="favorPathExtension" value="false"/>
+    </bean>
+    <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager"/>
+    <mvc:resources mapping="/images/**" location="resources/images/" cache-period="31556926"/>
+    <!--<bean
+          class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>-->
+    <!-- Cấu hình view -->
+    <bean id="viewResolver"
+          p:prefix="/WEB-INF/views/" p:suffix=".jsp"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
+    <!-- Cấu hình package chứa các controller -->
+    <context:component-scan base-package="ptithcm.controller, ptithcm.entity"/>
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/login**"/>
+            <mvc:mapping path="/logout**"/>
+            <mvc:mapping path="/customer/**"/>
+            <mvc:mapping path="/rest/cart/**"/>
+            <mvc:mapping path="/order/**"/>
+            <mvc:mapping path="/register**"/>
+            <!--<mvc:mapping path="/admin/**"/>-->
+            <!--<mvc:exclude-mapping path="/home/contact.htm"/>-->
+            <bean class="poly.interceptor.LoggerInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/**"/>
+            <!--<mvc:exclude-mapping path="/home/contact.htm"/>-->
+            <bean class="poly.interceptor.AdminInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
     <bean id="customerDao" class="ptithcm.daoImpl.CustomerDaoImpl"/>
     <bean id="customerService" class="ptithcm.serviceImpl.CustomerServiceImpl"/>
