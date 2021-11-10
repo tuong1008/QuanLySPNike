@@ -30,9 +30,12 @@
     <link href="<c:url value="/resources/css/main.css"/>" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="<c:url value="/resources/css/carousel.css"/>" rel="stylesheet">
+    <script src="resources/js/jquery-1.12.4.min.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
     <base href="${pageContext.servletContext.contextPath}/">
 </head>
 <body>
+<div style="min-height: 90vh">
 <div class="navbar-wrapper" style="margin-top:0;">
     <div class="container">
         <nav class="navbar navbar-inverse navbar-fixed-top">

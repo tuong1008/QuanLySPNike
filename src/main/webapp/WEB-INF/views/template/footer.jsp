@@ -1,46 +1,31 @@
-<div class="container">
-    <section class="address">
-        <diV class="container">
-            <div class="row">
-                <div class="addresstitle">
-                    <h2>Contact Us</h2>
-                </div>
-                <div class="col-md-8">
-                    <div class="showroom">
-                        <div class="row">
-                            <div class="col-md-4 contact1">
-                                <p class="contactNum"><i class="fa fa-phone "></i><span>1234-1234</span></p>
-                                <p class="contactNum2"><i class="fa fa-envelope-o "></i>
-                                    <span>shop@gmail.com</span></p>
-                            </div>
-                            <div class="col-md-4 contact2">
-                                <i class="fa fa-map-marker "></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="social">
-                        <i class="fa fa-facebook-official" aria-hidden="true"></i>
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                        <i class="fa fa-google-plus" aria-hidden="true"></i>
-                        <i class="fa fa-linkedin" aria-hidden="true"></i>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="mymap">
-                        <div id="map"></div>
-                    </div>
-                </div>
-            </div>
-        </diV>
-    </section>
-    <footer class="foootersection text-center">
-        <p>&copy; Copyright</p>
+<%--close header div--%>
+</div>
+<div class="container my-5">
+    <footer class="bg-dark text-center text-white">
+        <div class="container p-4 pb-0">
+            <section class="mb-4">
+                <a class="btn btn-outline-light btn-floating m-1" href="#" role="button">
+                    <i class="fa fa-facebook fa-2x"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" href="#" role="button">
+                    <i class="fa fa-twitter-square fa-2x"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" href="#" role="button">
+                    <i class="fa fa-instagram fa-2x"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" href="#" role="button">
+                    <i class="fa fa-linkedin-square fa-2x"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" href="#" role="button">
+                    <i class="fa fa-github-alt fa-2x"></i>
+                </a>
+            </section>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0,0,0,0.2);">
+            <i class="fa fa-copyright"></i>2021 Copyright:
+            <a class="text-white" href="https://mdbootstrap.com/">NikeShop.vn</a>
+        </div>
     </footer>
 </div>
-<script>
-    window.jQuery ||
-    document.write('<script src="<c:url value="/resources/js/jquery-1.12.4.min.js"/>"><\/script>')
-</script>
-<script src="<c:url value='/resources/js/bootstrap.min.js'/>"></script>
 </body>
 </html>
