@@ -50,12 +50,14 @@ public class CartItemController {
         List<CartItem> cartItems = cart.getCartItem();
 
         double grandTotal = cart.getGrandTotal();
-        //IF PRODUCT ALREADAY EXIST IN CART THEN INCRESE ITS QUANTITY
+        //IF PRODUCT ALREADAY EXIST IN CART THEN INCREASE ITS QUANTITY
 
         for (int i = 0; i < cartItems.size(); i++) {
             if (product.getProductId() == cartItems.get(i).getProduct().getProductId()) {
                 CartItem cartItem = cartItems.get(i);
                 cartItem.setQuantity(cartItem.getQuantity() + 1);
+                product.setUnitInStock(product.getUnitInStock()-1);
+                productService.updateProduct(product);
                 cartItem.setTotalPrice(product.getProductPrice() * cartItem.getQuantity());
                 cartItemService.updateCartItem(cartItem);
                 grandTotal += product.getProductPrice();
@@ -68,6 +70,8 @@ public class CartItemController {
         CartItem cartItem = new CartItem();
         cartItem.setProduct(product);
         cartItem.setQuantity(1);
+        product.setUnitInStock(product.getUnitInStock()-1);
+        productService.updateProduct(product);
         cartItem.setTotalPrice(product.getProductPrice() * cartItem.getQuantity());
         cartItem.setCart(cart);
         cartItemService.addCartItem(cartItem);
@@ -92,6 +96,11 @@ public class CartItemController {
         double grandTotal = cart.getGrandTotal();
         grandTotal = grandTotal - cartItem.getTotalPrice();
         cart.setGrandTotal(grandTotal);
+        
+        Product product = cartItem.getProduct();
+        product.setUnitInStock(product.getUnitInStock()+cartItem.getQuantity());
+        
+        productService.updateProduct(product);
 
         cartService.updateCart(cart);
 //		System.out.println("C:"+cartItem.getTotalPrice());
@@ -100,18 +109,31 @@ public class CartItemController {
         cartItemService.deleteCartItem(cartItem);
 //		System.out.println("c:hpoihpoifihihitih-----------");
     }
-//	
-//	
-//	//REMOVE CART/CLEAR CART
-//	
-//	@RequestMapping(value="/{cartId}",method=RequestMethod.DELETE)
-//	@ResponseStatus(value=HttpStatus.OK)
-//	public void clearCart(@PathVariable(value="cartId")int cartId){
-//		
-//		Cart cart=cartService.getCartById(cartId);
-//		cartItemService.removeAllCartItems(cart);
-//		
-//	}
+	
+	
+	//REMOVE CART/CLEAR CART
+	
+	@RequestMapping(value="/{cartId}.htm",method=RequestMethod.DELETE)
+	@ResponseStatus(value=HttpStatus.OK)
+	public void clearCart(HttpServletRequest request, @PathVariable(value="cartId")int cartId){
+            String activeUser = request.getSession().getAttribute("username").toString();
+            Customer customer = customerService.findCustomerByUsername(activeUser);
+
+            
+            
+            Cart cart = customer.getCart();
+            List<CartItem> cartItems = cart.getCartItem();
+            for (int i = 0; i < cartItems.size(); i++) {
+                CartItem cartItem = cartItems.get(i);
+                Product product = cartItem.getProduct();
+                product.setUnitInStock(product.getUnitInStock()+cartItem.getQuantity());
+                productService.updateProduct(product);
+            }
+            cart.setGrandTotal(0);
+
+            cartService.updateCart(cart);
+            cartItemService.removeAllCartItems(cartId);
+	}
 //
 //	
 //	//EXCEPTION HANDLING

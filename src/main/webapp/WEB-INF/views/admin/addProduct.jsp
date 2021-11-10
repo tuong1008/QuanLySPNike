@@ -139,7 +139,7 @@
                     <label class="col-xs-3 control-label"></label>
                     <div class="col-xs-9">
                         <input type="submit" value="Submit" class="btn btn-default">
-                        <a href="<c:url value="/admin/productManagement" />" class="btn btn-default">Cancel</a>
+                        <a href="<c:url value="/admin/productManagement/1.htm" />" class="btn btn-default">Cancel</a>
                     </div>
                 </div>
             </form:form>

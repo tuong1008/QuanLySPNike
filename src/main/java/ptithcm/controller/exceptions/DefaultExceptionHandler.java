@@ -1,6 +1,7 @@
 package ptithcm.controller.exceptions;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -10,8 +11,9 @@ import ptithcm.exceptions.PageNotFoundException;
 public class DefaultExceptionHandler {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(value = PageNotFoundException.class)
-    public String handle404(Exception e) {
+    public String handle404(Exception e, Model model) {
         System.out.println("Page not found");
+        model.addAttribute("message", e.getMessage());
         return "error/404";
     }
 

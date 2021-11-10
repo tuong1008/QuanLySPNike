@@ -6,7 +6,7 @@
             <p class="lead">This is a administrator page!</p>
         </div>
         <c:if test="${sessionScope.username!=null}">
-            Welcome :${sessionScope.username} | <a href="<c:url value="/logout"/>">Logout</a>
+            Welcome :${sessionScope.username} | <a href="<c:url value="/logout.htm"/>">Logout</a>
         </c:if>
         <h3>
             <a href="<c:url value="/admin/productManagement/1.htm"/>">Product Management</a>

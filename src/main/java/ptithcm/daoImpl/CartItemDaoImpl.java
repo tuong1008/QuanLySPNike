@@ -57,4 +57,19 @@ public class CartItemDaoImpl extends AbstractDao<CartItem> implements CartItemDa
         return list.get(0);
     }
 
+    @Override
+    public void removeAllByCartId(long cartId) {
+        Session session = sessionFactory.getCurrentSession();
+        String hql = "delete CartItem c where c.cart.cartId = :id";
+        Transaction t = session.beginTransaction();
+        Query query = session.createQuery(hql);
+        query.setParameter("id", cartId);
+
+        int result = query.executeUpdate();
+        t.commit();
+        if (result > 0) {
+            System.out.println("Expensive CartItem was removed");
+        }
+    }
+
 }
