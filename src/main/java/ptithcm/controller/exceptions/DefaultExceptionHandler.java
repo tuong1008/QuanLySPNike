@@ -17,11 +17,11 @@ public class DefaultExceptionHandler {
         return "error/404";
     }
 
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    @ExceptionHandler(value = Exception.class)
-    public String defaultHandler(Exception e) {
-        System.out.println("Page not found");
-        return "error/500";
-    }
+//    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+//    @ExceptionHandler(value = Exception.class)
+//    public String defaultHandler(Exception e) {
+//        System.out.println("Page not found");
+//        return "error/500";
+//    }
 
 }

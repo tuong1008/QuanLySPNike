@@ -8,6 +8,7 @@ package ptithcm.serviceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import ptithcm.dao.CartDao;
 import ptithcm.entity.Cart;
+import ptithcm.entity.Product;
 import ptithcm.service.CartService;
 
 /**
@@ -36,5 +37,10 @@ public class CartServiceImpl implements CartService {
     @Override
     public String removeCart(Cart cart) {
         return cartDao.delete(cart);
+    }
+
+    @Override
+    public Product checkAndUpdateProductsInCart(Cart cart) {
+        return cartDao.checkAndUpdateProductsInCart(cart);
     }
 }

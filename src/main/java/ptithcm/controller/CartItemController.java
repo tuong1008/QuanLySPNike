@@ -56,7 +56,6 @@ public class CartItemController {
             if (product.getProductId() == cartItems.get(i).getProduct().getProductId()) {
                 CartItem cartItem = cartItems.get(i);
                 cartItem.setQuantity(cartItem.getQuantity() + 1);
-                product.setUnitInStock(product.getUnitInStock()-1);
                 productService.updateProduct(product);
                 cartItem.setTotalPrice(product.getProductPrice() * cartItem.getQuantity());
                 cartItemService.updateCartItem(cartItem);
@@ -70,7 +69,6 @@ public class CartItemController {
         CartItem cartItem = new CartItem();
         cartItem.setProduct(product);
         cartItem.setQuantity(1);
-        product.setUnitInStock(product.getUnitInStock()-1);
         productService.updateProduct(product);
         cartItem.setTotalPrice(product.getProductPrice() * cartItem.getQuantity());
         cartItem.setCart(cart);
@@ -96,11 +94,6 @@ public class CartItemController {
         double grandTotal = cart.getGrandTotal();
         grandTotal = grandTotal - cartItem.getTotalPrice();
         cart.setGrandTotal(grandTotal);
-        
-        Product product = cartItem.getProduct();
-        product.setUnitInStock(product.getUnitInStock()+cartItem.getQuantity());
-        
-        productService.updateProduct(product);
 
         cartService.updateCart(cart);
 //		System.out.println("C:"+cartItem.getTotalPrice());
@@ -122,13 +115,6 @@ public class CartItemController {
             
             
             Cart cart = customer.getCart();
-            List<CartItem> cartItems = cart.getCartItem();
-            for (int i = 0; i < cartItems.size(); i++) {
-                CartItem cartItem = cartItems.get(i);
-                Product product = cartItem.getProduct();
-                product.setUnitInStock(product.getUnitInStock()+cartItem.getQuantity());
-                productService.updateProduct(product);
-            }
             cart.setGrandTotal(0);
 
             cartService.updateCart(cart);

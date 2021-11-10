@@ -6,6 +6,7 @@
 package ptithcm.service;
 
 import ptithcm.entity.Cart;
+import ptithcm.entity.Product;
 
 /**
  * @author Tuong
@@ -18,4 +19,6 @@ public interface CartService {
     String removeCart(Cart cart);
 
     Cart getCartById(long cartId);
+    
+    Product checkAndUpdateProductsInCart(Cart cart);
 }

@@ -25,6 +25,13 @@
                             class="glyphicon glyphicon-shopping-cart"></span> Check out</a>
                 </div>
                 <br/><br/><br/>
+                <div class="col-xs-12">
+                    <c:if test="${not empty error}">
+                        <div class="error" style="color:#ff0000">
+                            ${error}
+                        </div>
+                    </c:if>
+                </div>
                 <table class="table table-hover">
                     <tr>
                         <th>Product</th>

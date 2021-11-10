@@ -1,5 +1,6 @@
 package ptithcm.controller;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,9 +14,15 @@ import ptithcm.service.CustomerOrderService;
 import ptithcm.service.CustomerService;
 
 import javax.servlet.http.HttpServletRequest;
+import ptithcm.entity.CartItem;
+import ptithcm.entity.Product;
+import ptithcm.service.ProductService;
 
 @Controller
 public class OrderController {
+    @Autowired
+    ProductService productService;
+    
     @Autowired
     private CustomerService customerService;
 
@@ -31,28 +38,35 @@ public class OrderController {
     @RequestMapping("/order/{cartId}.htm")
     public String createOrder(Model model, @PathVariable("cartId") long cartId, HttpServletRequest request) {
 
-        CustomerOrder customerOrder = new CustomerOrder();
-
         Cart cart = cartService.getCartById(cartId);
-        customerOrder.setCart(cart);
-        String username = request.getSession().getAttribute("username").toString();
-        Customer customer = customerService.findCustomerByUsername(username);
+            
+        Product productMakeError = cartService.checkAndUpdateProductsInCart(cart);
+        if (productMakeError==null) {
+            CustomerOrder customerOrder = new CustomerOrder();
 
-        customerOrder.setCustomer(customer);
-        customerOrder.setBillingAddress(customer.getBillingAddress());
-        customerOrder.setShippingAddress(customer.getShippingAddress());
-        customerOrderService.addCustomerOrder(customerOrder);
-        //new cart after order successfully
-        Cart newCart = new Cart();
-        newCart.setGrandTotal(0);
+            customerOrder.setCart(cart);
+            String username = request.getSession().getAttribute("username").toString();
+            Customer customer = customerService.findCustomerByUsername(username);
 
-        cartService.addCart(newCart);
+            customerOrder.setCustomer(customer);
+            customerOrder.setBillingAddress(customer.getBillingAddress());
+            customerOrder.setShippingAddress(customer.getShippingAddress());
+            customerOrderService.addCustomerOrder(customerOrder);
+            //new cart after order successfully
+            Cart newCart = new Cart();
+            newCart.setGrandTotal(0);
 
-        customer.setCart(newCart);
-        customerService.updateCustomer(customer);
+            cartService.addCart(newCart);
 
-        model.addAttribute("message", "Order Successfully!");
-        return "customer/success_page";
+            customer.setCart(newCart);
+            customerService.updateCustomer(customer);
+
+            model.addAttribute("message", "Order Successfully!");
+            return "customer/success_page";
+        } else {
+            model.addAttribute("error", "Error! Unit in stock "+productMakeError.getProductName()+" is "+productMakeError.getUnitInStock());
+            return "customer/cart";
+        }
     }
 //	public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
 //			Exception ex) {

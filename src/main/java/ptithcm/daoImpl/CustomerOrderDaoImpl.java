@@ -12,12 +12,19 @@ import ptithcm.dao.CustomerOrderDao;
 import ptithcm.entity.CustomerOrder;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import ptithcm.dao.ProductDao;
+import ptithcm.entity.CartItem;
+import ptithcm.entity.Product;
 
 /**
  * @author Tuong
  */
 public class CustomerOrderDaoImpl extends AbstractDao<CustomerOrder> implements CustomerOrderDao {
 
+    @Autowired
+    private ProductDao productDao;
+    
     @Override
     public List<CustomerOrder> findAll() {
         Session session = sessionFactory.getCurrentSession();
