@@ -9,7 +9,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="resource/images/favicon.ico">
+    <link rel="icon" href="resources/images/favicon.ico">
     <c:choose>
         <c:when test="${!empty param.title}">
             <title>${param.title}</title>
@@ -18,20 +18,11 @@
             <title>Nike Online Shop</title>
         </c:otherwise>
     </c:choose>
-    <!-- Bootstrap core CSS -->
-    <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
-    <!-- FONT AWESOME -->
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- normalize css -->
-    <%--    <link href="<c:url value="/resources/css/normalize.css"/>" rel="stylesheet">--%>
-    <!-- Angular.JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
-    <!-- main css -->
     <link href="<c:url value="/resources/css/main.css"/>" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <%--    <link href="<c:url value="/resources/css/carousel.css"/>" rel="stylesheet">--%>
-    <script src="resources/js/jquery-1.12.4.min.js"></script>
-    <script src="resources/js/bootstrap.min.js"></script>
+    <link href="<c:url value="/resources/css/style.css"/>" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
     <base href="${pageContext.servletContext.contextPath}/">
 </head>
 <body>
@@ -42,9 +33,8 @@
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon">??</span>
+            <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item active">
