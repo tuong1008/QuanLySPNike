@@ -23,78 +23,78 @@
     <!-- FONT AWESOME -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- normalize css -->
-    <link href="<c:url value="/resources/css/normalize.css"/>" rel="stylesheet">
+    <%--    <link href="<c:url value="/resources/css/normalize.css"/>" rel="stylesheet">--%>
     <!-- Angular.JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
     <!-- main css -->
     <link href="<c:url value="/resources/css/main.css"/>" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="<c:url value="/resources/css/carousel.css"/>" rel="stylesheet">
+    <%--    <link href="<c:url value="/resources/css/carousel.css"/>" rel="stylesheet">--%>
     <script src="resources/js/jquery-1.12.4.min.js"></script>
     <script src="resources/js/bootstrap.min.js"></script>
     <base href="${pageContext.servletContext.contextPath}/">
 </head>
 <body>
-<div style="min-height: 90vh">
-<div class="navbar-wrapper" style="margin-top:0;">
-    <div class="container">
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                            aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <a href="">
-                                <img src="<c:url value="/resources/images/nike-logo.svg"/>" alt="logo" class="logo">
+<div style="min-height: 95vh">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="">
+            <img src="<c:url value="/resources/images/nike-logo.svg"/>" alt="logo" class="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">??</span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item active">
+                    <c:if test="${sessionScope.username =='admin'}">
+                        <a class="nav-link" href="<c:url value="/admin/home.htm"/>">Home</a>
+                    </c:if>
+                    <c:if test="${sessionScope.username !='admin'}">
+                        <a class="nav-link" href="<c:url value="/trang-chu.htm" />">Home</a>
+                    </c:if>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-">
+                    <a class="nav-link" href="">Products</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto me-lg-4">
+                <c:if test="${sessionScope.username!=null}">
+                    <li class="nav-item"><a
+                            style="color: #fff;background-color: transparent;">Welcome:${sessionScope.username} </a>
+                    </li>
+                    <c:if test="${sessionScope.username!='admin'}">
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                               aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-user"></span> <span class="caret">   </span>
                             </a>
-                        </li>
-                        <li class=""><a style="cursor: text;color: #fff;background-color: transparent;" href="">Nike Online Shop</a></li>
-                        <c:if test="${sessionScope.username =='admin'}">
-                            <li><a href="<c:url value="/admin/home.htm"/>">Home</a></li>
-                        </c:if>
-                        <c:if test="${sessionScope.username !='admin'}">
-                            <li><a href="<c:url value="/trang-chu.htm" />">Home</a></li>
-                        </c:if>
-                        <li><a href="<c:url value="/product/productList.htm" />">Products</a></li>
-                        <li><a href="<c:url value="/about.htm"/>">About</a></li>
-                        <li><a href="<c:url value="/contact.htm"/>">Contact</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav pull-right">
-                        <!-- <li><a href="?lang=en">English</a></li>
-                            <li><a href="?lang=bn">Bangla</a></li> -->
-                        <c:if test="${sessionScope.username!=null}">
-                            <li><a style="color: #fff;background-color: transparent;">Welcome:${sessionScope.username} </a></li>
-                            <c:if test="${sessionScope.username!='admin'}">
-                                <li role="presentation" class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                                       aria-haspopup="true" aria-expanded="false">
-                                        <span class="glyphicon glyphicon-user"></span> <span class="caret">   </span>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="<c:url value="/customer/update.htm"/>">Update Account</a></li>
-                                    </ul>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link" href="<c:url value="/customer/update.htm"/>">Update Account</a>
                                 </li>
-                            </c:if>
-                            <li><a href="<c:url value="/logout.htm" />">Logout</a></li>
-                            <c:if test="${sessionScope.username!='admin'}">
-                                <li><a href="<c:url value="/customer/cart.htm"/>">Cart</a></li>
-                            </c:if>
-                        </c:if>
-                        <c:if test="${sessionScope.username == null}">
-                            <li><a href="<c:url  value="/login.htm"/>">Login</a></li>
-                            <li><a href="<c:url  value="/register.htm"/>">Register</a></li>
-                        </c:if>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
-</div>
+                            </ul>
+                        </li>
+                    </c:if>
+                    <li class="nav-item"><a class="nav-link" href="<c:url value="/logout.htm" />">Logout</a></li>
+                    <c:if test="${sessionScope.username!='admin'}">
+                        <li class="nav-item"><a class="nav-link" href="<c:url value="/customer/cart.htm"/>">Cart</a>
+                        </li>
+                    </c:if>
+                </c:if>
+                <c:if test="${sessionScope.username == null}">
+                    <li class="nav-item"><a class="nav-link" href="<c:url value="/login.htm"/>">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<c:url value="/register.htm"/>">Register</a></li>
+                </c:if>
+            </ul>
+        </div>
+    </nav>

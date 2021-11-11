@@ -1,6 +1,6 @@
 <%--close header div--%>
 </div>
-<div class="container my-5">
+<div class="my-5 container-fluid; width: 100%;">
     <footer class="bg-dark text-center text-white">
         <div class="container p-4 pb-0">
             <section class="mb-4">
@@ -21,7 +21,7 @@
                 </a>
             </section>
         </div>
-        <div class="text-center p-3" style="background-color: rgba(0,0,0,0.2);">
+        <div class="text-center p-3">
             <i class="fa fa-copyright"></i>2021 Copyright:
             <a class="text-white" href="https://mdbootstrap.com/">NikeShop.vn</a>
         </div>

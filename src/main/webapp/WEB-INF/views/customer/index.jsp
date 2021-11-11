@@ -1,20 +1,13 @@
 <%@include file="/WEB-INF/views/template/header.jsp" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<!-- Carousel
-================================================== -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" hidden>
     <div class="carousel-inner" role="listbox">
         <div class="item active">
             <img class="first-slide" src="<c:url value='/resources/images/banner14_1.jpg'/>" alt="First slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Green Online Shop</h1>
+                    <h1>Nike Online Shop</h1>
                     <p>Buy Latest Product safely</p>
                     <p><a class="btn btn-lg btn-primary" href="<c:url  value='/register'/>" role="button">Sign up
                         today</a></p>
@@ -53,12 +46,49 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-<!-- /.carousel -->
-<!-- Marketing messaging and featurettes
-================================================== -->
-<!-- Wrap the rest of the page in another container to center all the content. -->
+
+<%--new carousel--%>
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100" src="<c:url value='/resources/images/banner14_1.jpg'/>" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h>Nike Online Shop</h>
+                <p>Buy Latest Products</p>
+                <p><a class="btn btn-lg btn-primary" href="<c:url  value='/register'/>" role="button">Sign up now bitches!</a></p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="<c:url value='/resources/images/banner12_1.jpg'/>" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>Some representative placeholder content for the second slide.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="<c:url value='/resources/images/banner13_1.jpg'/>" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Some representative placeholder content for the third slide.</p>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
 <div class="container marketing">
-    <!-- Three columns of text below the carousel -->
     <div class="row">
         <div class="col-lg-4">
             <div class="product-single">
@@ -216,7 +246,6 @@
     </div>
 </div>
 <div class="container marketing">
-    <!-- Three columns of text below the carousel -->
     <div class="row">
         <div class="col-lg-4">
             <div class="product-single">
@@ -269,7 +298,6 @@
     </div>
 </div>
 <div class="container marketing">
-    <!-- Three columns of text below the carousel -->
     <div class="row">
         <div class="col-lg-4">
             <div class="product-single">
@@ -321,6 +349,7 @@
         </div><!-- /.col-lg-4 -->
     </div>
 </div>
+
 <div class="container">
     <section class="testimonial">
         <div class="container">
