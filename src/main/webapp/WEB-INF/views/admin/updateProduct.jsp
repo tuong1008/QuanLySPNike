@@ -11,6 +11,12 @@
             <form:form action="${pageContext.request.contextPath}/admin/product/updateProduct.htm" method="post"
                        modelAttribute="product" enctype="multipart/form-data" class="form-horizontal">
                 <form:hidden path="productId" value="${product.productId}"/>
+                <div class="row">
+                    <label class="col-xs-3 control-label"></label>
+                    <div class="col-xs-9">
+                        <form:errors path="productName" cssStyle="color: #ff0000"/>
+                    </div>
+                </div>
                 <div class="form-group has-success">
                     <label class="col-xs-3 control-label" for="productName">Product Name :</label>
                     <div class="col-xs-9">
@@ -18,18 +24,10 @@
                                     id="productName"/>
                     </div>
                 </div>
-                <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="productBrand">Product Brand :</label>
+                <div class="row">
+                    <label class="col-xs-3 control-label"></label>
                     <div class="col-xs-9">
-                        <form:input path="productBrand" class="form-control" placeholder="Enter Product Brand"
-                                    id="productBrand"/>
-                    </div>
-                </div>
-                <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="productModel">Product Model :</label>
-                    <div class="col-xs-9">
-                        <form:input path="productModel" class="form-control" placeholder="Enter Product model"
-                                    id="productModel"/>
+                        <form:errors path="productPrice" cssStyle="color: #ff0000"/>
                     </div>
                 </div>
                 <div class="form-group has-success">
@@ -39,6 +37,12 @@
                                     id="productPrice"/>
                     </div>
                 </div>
+                <div class="row">
+                    <label class="col-xs-3 control-label"></label>
+                    <div class="col-xs-9">
+                        <form:errors path="unitInStock" cssStyle="color: #ff0000"/>
+                    </div>
+                </div>
                 <div class="form-group has-success">
                     <label class="col-xs-3 control-label" for="unitInStock">Product Stock :</label>
                     <div class="col-xs-9">
@@ -46,17 +50,10 @@
                                     id="unitInStock"/>
                     </div>
                 </div>
-                <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="productStatus">Product Status :</label>
+                <div class="row">
+                    <label class="col-xs-3 control-label"></label>
                     <div class="col-xs-9">
-                        <label class="checkbox-inline">
-                            <form:radiobutton path="productStatus" id="productStatus" value="Brand New"/>
-                            Brand New
-                        </label>
-                        <label class="checkbox-inline">
-                            <form:radiobutton path="productStatus" id="productStatus" value="Old"/>
-                            Old
-                        </label>
+                        <form:errors path="productCategory" cssStyle="color: #ff0000"/>
                     </div>
                 </div>
                 <div class="form-group has-success">
@@ -68,18 +65,17 @@
                         </form:select>
                     </div>
                 </div>
+                <div class="row">
+                    <label class="col-xs-3 control-label"></label>
+                    <div class="col-xs-9">
+                        <form:errors path="productDescription" cssStyle="color: #ff0000"/>
+                    </div>
+                </div>
                 <div class="form-group has-success">
                     <label class="col-xs-3 control-label" for="productDescription">Product Description :</label>
                     <div class="col-xs-9">
                         <form:input path="productDescription" class="form-control"
                                     placeholder="Enter Product Description" id="productDescription"/>
-                    </div>
-                </div>
-                <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="discount">Product Discount(%):</label>
-                    <div class="col-xs-9">
-                        <form:input path="discount" class="form-control" placeholder="Enter Product Discount"
-                                    id="discount"/>
                     </div>
                 </div>
                 <div class="form-group has-success">
@@ -92,7 +88,7 @@
                     <label class="col-xs-3 control-label"></label>
                     <div class="col-xs-9">
                         <input type="submit" value="Submit" class="btn btn-default">
-                        <a href="<c:url value="/admin/productManagement"/>" class="btn btn-default">Cancel</a>
+                        <a href="<c:url value="/admin/productManagement/1.htm" />" class="btn btn-default">Cancel</a>
                     </div>
                 </div>
             </form:form>

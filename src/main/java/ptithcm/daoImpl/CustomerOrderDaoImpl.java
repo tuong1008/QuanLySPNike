@@ -12,9 +12,11 @@ import ptithcm.dao.CustomerOrderDao;
 import ptithcm.entity.CustomerOrder;
 
 import java.util.List;
+import org.hibernate.criterion.MatchMode;
 import org.springframework.beans.factory.annotation.Autowired;
 import ptithcm.dao.ProductDao;
 import ptithcm.entity.CartItem;
+import ptithcm.entity.Customer;
 import ptithcm.entity.Product;
 
 /**
@@ -80,6 +82,37 @@ public class CustomerOrderDaoImpl extends AbstractDao<CustomerOrder> implements 
         String hql = "select count(*) FROM CustomerOrder C";
         Transaction t = session.beginTransaction();
         Query query = session.createQuery(hql);
+        long results = (long) query.uniqueResult();
+        t.commit();
+
+        return results;
+    }
+
+    @Override
+    public List<CustomerOrder> findAllOrderByUsernameOrEmail(String searchTerm, int pageNumber) {
+        Session session = sessionFactory.getCurrentSession();
+        String hql = "FROM CustomerOrder t WHERE t.customer.username LIKE :searchTerm OR t.customer.customerEmailAddress LIKE :searchTerm";
+        Transaction t = session.beginTransaction();
+        Query query = session.createQuery(hql);
+        query.setParameter("searchTerm", MatchMode.ANYWHERE.toMatchString(searchTerm));
+        query.setFirstResult((pageNumber - 1) * 10); //trang 1, từ 0
+        query.setMaxResults(pageNumber * 10); //đến 9
+
+        List<CustomerOrder> list = query.list();
+        t.commit();
+        if (list.isEmpty()) {
+            return null;
+        }
+        return list;
+    }
+
+    @Override
+    public long getTotalOrderByUsernameOrEmail(String searchTerm) {
+        Session session = sessionFactory.getCurrentSession();
+        String hql = "select count(*) FROM CustomerOrder t WHERE t.customer.username LIKE :searchTerm OR t.customer.customerEmailAddress LIKE :searchTerm";
+        Transaction t = session.beginTransaction();
+        Query query = session.createQuery(hql);
+        query.setParameter("searchTerm", MatchMode.ANYWHERE.toMatchString(searchTerm));
         long results = (long) query.uniqueResult();
         t.commit();
 

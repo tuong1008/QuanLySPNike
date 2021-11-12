@@ -46,4 +46,34 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getAllProductInStock(Integer pageNumber) {
         return productDao.getAllProductInStock(pageNumber);
     }
+
+    @Override
+    public List<Product> findAllProductByNameorCategory(String string, int i) {
+        return productDao.findAllProductByNameorCategory(string, i);
+    }
+
+    @Override
+    public long getTotalProductByNameorCategory(String string) {
+        return productDao.getTotalProductByNameorCategory(string);
+    }
+
+    @Override
+    public List<Product> getAllProductByCategoryInStock(String string, int i) {
+        return productDao.getAllProductByCategoryInStock(string, i);
+    }
+
+    @Override
+    public long getTotalProductByCategoryInStock(String string) {
+        return productDao.getTotalProductByCategoryInStock(string);
+    }
+
+    @Override
+    public List<Product> findAllProductByNameInStock(String string, int i) {
+        return productDao.findAllProductByNameInStock(string, i);
+    }
+
+    @Override
+    public long getTotalProductByNameInStock(String string) {
+        return productDao.getTotalProductByNameInStock(string);
+    }
 }

@@ -26,32 +26,6 @@
                 <div class="row">
                     <label class="col-xs-3 control-label"></label>
                     <div class="col-xs-9">
-                        <form:errors path="productBrand" cssStyle="color: #ff0000"/>
-                    </div>
-                </div>
-                <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="productBrand">Product Brand :</label>
-                    <div class="col-xs-9">
-                        <form:input path="productBrand" class="form-control" placeholder="Enter Product Brand"
-                                    id="productBrand"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-xs-3 control-label"></label>
-                    <div class="col-xs-9">
-                        <form:errors path="productModel" cssStyle="color: #ff0000"/>
-                    </div>
-                </div>
-                <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="productModel">Product Model :</label>
-                    <div class="col-xs-9">
-                        <form:input path="productModel" class="form-control" placeholder="Enter Product model"
-                                    id="productModel"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-xs-3 control-label"></label>
-                    <div class="col-xs-9">
                         <form:errors path="productPrice" cssStyle="color: #ff0000"/>
                     </div>
                 </div>
@@ -73,19 +47,6 @@
                     <div class="col-xs-9">
                         <form:input path="unitInStock" class="form-control" placeholder="Enter Product Unit in Stock"
                                     id="unitInStock"/>
-                    </div>
-                </div>
-                <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="productStatus">Product Status :</label>
-                    <div class="col-xs-9">
-                        <label class="checkbox-inline">
-                            <form:radiobutton path="productStatus" id="productStatus" value="Brand New"/>
-                            Brand New
-                        </label>
-                        <label class="checkbox-inline">
-                            <form:radiobutton path="productStatus" id="productStatus" value="Old"/>
-                            Old
-                        </label>
                     </div>
                 </div>
                 <div class="row">
@@ -114,19 +75,6 @@
                     <div class="col-xs-9">
                         <form:input path="productDescription" class="form-control"
                                     placeholder="Enter Product Description" id="productDescription"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-xs-3 control-label"></label>
-                    <div class="col-xs-9">
-                        <form:errors path="discount" cssStyle="color: #ff0000"/>
-                    </div>
-                </div>
-                <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="discount">Product Discount(%):</label>
-                    <div class="col-xs-9">
-                        <form:input path="discount" class="form-control" placeholder="Enter Product Discount"
-                                    id="discount"/>
                     </div>
                 </div>
                 <div class="form-group has-success">

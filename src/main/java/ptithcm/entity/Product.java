@@ -21,12 +21,6 @@ public class Product implements Serializable {
     @NotEmpty
     @Column(columnDefinition = "nvarchar(255)")
     private String productName;
-    @NotEmpty
-    @Column(columnDefinition = "nvarchar(255)")
-    private String productBrand;
-    @NotEmpty
-    @Column(columnDefinition = "nvarchar(255)")
-    private String productModel;
 
     @Range(min = 0)
     @NotNull
@@ -37,16 +31,10 @@ public class Product implements Serializable {
     private Integer unitInStock;
     @Column(columnDefinition = "nvarchar(255)")
     private String productCategory;
-    @NotEmpty
+    
     @Column(columnDefinition = "nvarchar(255)")
     private String productDescription;
-
-    @Column(columnDefinition = "nvarchar(255)")
-    private String productStatus;
-
-    @Range(min = 0)
-    @NotNull
-    private Double discount;
+    
     @Transient
     @JsonBackReference
     private MultipartFile productImage;
@@ -67,19 +55,15 @@ public class Product implements Serializable {
     public void setCartItems(List<CartItem> cartItems) {
         this.cartItems = cartItems;
     }
-    public Product(String productName, String productBrand, String productModel, double productPrice, int unitInStock,
-                   String productCategory, String productDescription, String productStatus, double discount,
+    public Product(String productName, double productPrice, int unitInStock,
+                   String productCategory, String productDescription,
                    MultipartFile productImage) {
         super();
         this.productName = productName;
-        this.productBrand = productBrand;
-        this.productModel = productModel;
         this.productPrice = productPrice;
         this.unitInStock = unitInStock;
         this.productCategory = productCategory;
         this.productDescription = productDescription;
-        this.productStatus = productStatus;
-        this.discount = discount;
         this.productImage = productImage;
     }
     public Product() {
@@ -100,6 +84,7 @@ public class Product implements Serializable {
         categoryList.put("Trousers", "Trousers");
         categoryList.put("Training", "Training & Gym Shoes");
         categoryList.put("Athletics", "Athletics Shoes");
+        categoryList.put("Sandals", "Sandals & Slides");
     }
     public long getProductId() {
         return productId;
@@ -113,18 +98,7 @@ public class Product implements Serializable {
     public void setProductName(String productName) {
         this.productName = productName;
     }
-    public String getProductBrand() {
-        return productBrand;
-    }
-    public void setProductBrand(String productBrand) {
-        this.productBrand = productBrand;
-    }
-    public String getProductModel() {
-        return productModel;
-    }
-    public void setProductModel(String productModel) {
-        this.productModel = productModel;
-    }
+  
     public String getProductCategory() {
         return productCategory;
     }
@@ -137,12 +111,7 @@ public class Product implements Serializable {
     public void setProductDescription(String productDescription) {
         this.productDescription = productDescription;
     }
-    public String getProductStatus() {
-        return productStatus;
-    }
-    public void setProductStatus(String productStatus) {
-        this.productStatus = productStatus;
-    }
+  
     public Double getProductPrice() {
         return productPrice;
     }
@@ -154,12 +123,6 @@ public class Product implements Serializable {
     }
     public void setUnitInStock(Integer unitInStock) {
         this.unitInStock = unitInStock;
-    }
-    public Double getDiscount() {
-        return discount;
-    }
-    public void setDiscount(Double discount) {
-        this.discount = discount;
     }
     public MultipartFile getProductImage() {
         return productImage;
