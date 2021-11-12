@@ -64,10 +64,22 @@ public class AdminHome {
         return "admin/productInventory";
     }
 
-    @RequestMapping("/customerManagement.htm")
-    public String customerManagement(ModelMap model) {
-        List<Customer> customers = customerService.getAllCustomers();
+    @RequestMapping("/customerManagement/{pageNumber}.htm")
+    public String customerManagement(@PathVariable Integer pageNumber, ModelMap model) {
+        List<Customer> customers = customerService.getAllCustomers(pageNumber);
+        long totalCustomers = customerService.getTotalCustomers();
+        
+        int totalPages = (int) Math.ceil(totalCustomers / 10.0); //mỗi page có 10 dòng
+        if (totalCustomers == 0) totalPages = 1;
+
+        int currentPageNumber = pageNumber;
+        int beginIndex = Math.max(1, currentPageNumber - 6);
+        int endIndex = Math.min(beginIndex + 10, totalPages);
         model.addAttribute("customers", customers);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("currentPageNumber", currentPageNumber);
+        model.addAttribute("beginIndex", beginIndex);
+        model.addAttribute("endIndex", endIndex);
 
         return "admin/customerMgmt";
     }
@@ -80,10 +92,23 @@ public class AdminHome {
         return "admin/customerAddr";
     }
 
-    @RequestMapping("/customerOrder.htm")
-    public String customerOrder(ModelMap model) {
-        List<CustomerOrder> customerOrders = customerOrderService.getAllCustomerOrder();
+    @RequestMapping("/customerOrder/{pageNumber}.htm")
+    public String customerOrder(@PathVariable Integer pageNumber, ModelMap model) {
+        List<CustomerOrder> customerOrders = customerOrderService.getAllCustomerOrders(pageNumber);
+        long totalCustomers = customerOrderService.getTotalCustomerOrders();
+        
+        int totalPages = (int) Math.ceil(totalCustomers / 10.0); //mỗi page có 10 dòng
+        if (totalCustomers == 0) totalPages = 1;
+
+        int currentPageNumber = pageNumber;
+        int beginIndex = Math.max(1, currentPageNumber - 6);
+        int endIndex = Math.min(beginIndex + 10, totalPages);
         model.addAttribute("orders", customerOrders);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("currentPageNumber", currentPageNumber);
+        model.addAttribute("beginIndex", beginIndex);
+        model.addAttribute("endIndex", endIndex);
+        
         return "admin/orderList";
     }
 

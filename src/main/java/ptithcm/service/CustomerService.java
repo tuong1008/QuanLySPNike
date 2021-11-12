@@ -17,6 +17,8 @@ public interface CustomerService {
 
     Customer findCustomerByUsernameAndPassword(String username, String password);
 
-    List<Customer> getAllCustomers();
+    List<Customer> getAllCustomers(Integer pageNumber);
+    
+    long getTotalCustomers();
 
 }

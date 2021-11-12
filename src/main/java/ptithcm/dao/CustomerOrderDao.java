@@ -16,4 +16,8 @@ public interface CustomerOrderDao extends GenericDao<CustomerOrder> {
     List<CustomerOrder> findAll();
 
     CustomerOrder findOne(long customerOrderId);
+    
+    List<CustomerOrder> getAllCustomerOrders(Integer pageNumber);
+    
+    long getTotalCustomerOrders();
 }

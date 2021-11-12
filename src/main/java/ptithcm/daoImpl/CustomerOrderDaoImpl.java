@@ -57,4 +57,33 @@ public class CustomerOrderDaoImpl extends AbstractDao<CustomerOrder> implements 
         return list.get(0);
     }
 
+    @Override
+    public List<CustomerOrder> getAllCustomerOrders(Integer pageNumber) {
+        Session session = sessionFactory.getCurrentSession();
+        String hql = "FROM CustomerOrder C";
+        Transaction t = session.beginTransaction();
+        Query query = session.createQuery(hql);
+        query.setFirstResult((pageNumber - 1) * 10); //trang 1, từ 0
+        query.setMaxResults(pageNumber * 10); //đến 9
+
+        List<CustomerOrder> list = query.list();
+        t.commit();
+        if (list.isEmpty()) {
+            return null;
+        }
+        return list;
+    }
+
+    @Override
+    public long getTotalCustomerOrders() {
+        Session session = sessionFactory.getCurrentSession();
+        String hql = "select count(*) FROM CustomerOrder C";
+        Transaction t = session.beginTransaction();
+        Query query = session.createQuery(hql);
+        long results = (long) query.uniqueResult();
+        t.commit();
+
+        return results;
+    }
+
 }

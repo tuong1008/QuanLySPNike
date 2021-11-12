@@ -10,6 +10,7 @@ import ptithcm.entity.Customer;
 
 import java.util.List;
 import org.hibernate.Transaction;
+import ptithcm.entity.Product;
 
 @Transactional
 public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDao {
@@ -75,5 +76,34 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
             return null;
         }
         return list;
+    }
+
+    @Override
+    public List<Customer> getAllCustomers(Integer pageNumber) {
+        Session session = sessionFactory.getCurrentSession();
+        String hql = "FROM Customer C";
+        Transaction t = session.beginTransaction();
+        Query query = session.createQuery(hql);
+        query.setFirstResult((pageNumber - 1) * 10); //trang 1, từ 0
+        query.setMaxResults(pageNumber * 10); //đến 9
+
+        List<Customer> list = query.list();
+        t.commit();
+        if (list.isEmpty()) {
+            return null;
+        }
+        return list;
+    }
+
+    @Override
+    public long getTotalCustomers() {
+        Session session = sessionFactory.getCurrentSession();
+        String hql = "select count(*) FROM Customer C";
+        Transaction t = session.beginTransaction();
+        Query query = session.createQuery(hql);
+        long results = (long) query.uniqueResult();
+        t.commit();
+
+        return results;
     }
 }

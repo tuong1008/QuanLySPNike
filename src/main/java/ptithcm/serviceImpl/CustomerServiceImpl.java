@@ -36,11 +36,6 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<Customer> getAllCustomers() {
-        return customerDao.findAll();
-    }
-
-    @Override
     public Customer getCustomerById(long customerId) {
         return customerDao.findById(customerId);
     }
@@ -48,6 +43,16 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Customer findCustomerByUsernameAndPassword(String username, String password) {
         return customerDao.findByUsernameAndPassword(username, password);
+    }
+
+    @Override
+    public List<Customer> getAllCustomers(Integer intgr) {
+        return customerDao.getAllCustomers(intgr);
+    }
+
+    @Override
+    public long getTotalCustomers() {
+        return customerDao.getTotalCustomers();
     }
 
 }

@@ -15,9 +15,11 @@ import java.util.List;
 public interface CustomerOrderService {
     String addCustomerOrder(CustomerOrder customerOrder);
 
-    List<CustomerOrder> getAllCustomerOrder();
-
     CustomerOrder getCustomerOrderById(long customerOrderId);
 
     String removeCustomerOrder(CustomerOrder customerOrder);
+    
+    List<CustomerOrder> getAllCustomerOrders(Integer pageNumber);
+    
+    long getTotalCustomerOrders();
 }

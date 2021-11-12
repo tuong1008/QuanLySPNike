@@ -26,11 +26,6 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
     }
 
     @Override
-    public List<CustomerOrder> getAllCustomerOrder() {
-        return customerOrderDao.findAll();
-    }
-
-    @Override
     public CustomerOrder getCustomerOrderById(long l) {
         return customerOrderDao.findOne(l);
     }
@@ -38,6 +33,16 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
     @Override
     public String removeCustomerOrder(CustomerOrder co) {
         return customerOrderDao.delete(co);
+    }
+
+    @Override
+    public List<CustomerOrder> getAllCustomerOrders(Integer intgr) {
+        return customerOrderDao.getAllCustomerOrders(intgr);
+    }
+
+    @Override
+    public long getTotalCustomerOrders() {
+        return customerOrderDao.getTotalCustomerOrders();
     }
 
 }
