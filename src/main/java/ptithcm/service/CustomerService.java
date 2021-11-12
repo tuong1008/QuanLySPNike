@@ -5,9 +5,9 @@ import ptithcm.entity.Customer;
 import java.util.List;
 
 public interface CustomerService {
-    void addCustomer(Customer customer);
+    String addCustomer(Customer customer);
 
-    void updateCustomer(Customer customer);
+    String updateCustomer(Customer customer);
 
     void deleteCustomer(Customer customer);
 

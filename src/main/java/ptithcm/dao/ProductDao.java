@@ -7,6 +7,8 @@ import java.util.List;
 public interface ProductDao extends GenericDao<Product> {
 
     List<Product> getAllProduct(Integer pageNumber);
+    
+    List<Product> getAllProductInStock(Integer pageNumber);
 
     Product findOne(long id);
 

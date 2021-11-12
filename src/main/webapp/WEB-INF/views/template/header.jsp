@@ -56,7 +56,7 @@
                     </c:if>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Products</a>
+                    <a class="nav-link" href="<c:url value="/product/productList.htm" />">Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>

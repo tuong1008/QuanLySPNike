@@ -16,17 +16,13 @@ public class CustomerServiceImpl implements CustomerService {
 //	@Autowired
 //  private PasswordEncoder passwordEncoder;
     @Override
-    public void addCustomer(Customer customer) {
-        customerDao.save(customer);
+    public String addCustomer(Customer customer) {
+        return customerDao.save(customer);
     }
 
     @Override
-    public void updateCustomer(Customer customer) {
-        try {
-            customerDao.update(customer);
-        } catch (Exception ignored) {
-            ignored.printStackTrace();
-    }
+    public String updateCustomer(Customer customer) {
+        return customerDao.update(customer);
     }
 
     @Override

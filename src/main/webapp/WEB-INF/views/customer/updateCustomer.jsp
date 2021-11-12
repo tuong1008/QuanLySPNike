@@ -17,6 +17,16 @@
                     </div>
                 </div>
                 <div class="form-group has-success">
+                    <label class="col-xs-3 control-label"></label>
+                    <div class="col-xs-9">
+                        <c:if test="${not empty error}">
+                            <div class="error" style="color:#ff0000">
+                                    ${error}
+                            </div>
+                        </c:if>
+                    </div>
+                </div>
+                <div class="form-group has-success">
                     <label class="col-xs-3 control-label" for="username">Username :</label>
                     <div class="col-xs-9">
                         <input type="text" class="form-control" placeholder="Enter Username" name="username"

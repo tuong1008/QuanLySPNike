@@ -54,7 +54,7 @@ public class RegisterController {
         if (update != null && update.equalsIgnoreCase("update")) {
             String username = request.getSession().getAttribute("username").toString();
             Customer oldCustomer = customerService.findCustomerByUsername(username);
-
+            
             billingAddressService.addBillingAddress(customer.getBillingAddress());
             shippingAddressService.addShippingAddress(customer.getShippingAddress());
 
@@ -72,13 +72,17 @@ public class RegisterController {
             oldCustomer.setCustomerName(customer.getCustomerName());
             oldCustomer.setCustomerPhoneNumber(customer.getCustomerPhoneNumber());
 
-            customerService.updateCustomer(oldCustomer);
-            autoLogin(oldCustomer, request);
-            billingAddressService.removeBillingAddress(oldBillingAddress);
-            shippingAddressService.removeShippingAddress(oldShippingAddress);
+            String error = customerService.updateCustomer(oldCustomer);
+            if (error == null) {
+                billingAddressService.removeBillingAddress(oldBillingAddress);
+                shippingAddressService.removeShippingAddress(oldShippingAddress);
+                model.addAttribute("message", "Register Successfully!");
+                return "customer/success_page";
+            } else {
+                model.addAttribute("error", error);
+                return "customer/registerCustomer";
+            }
 
-            model.addAttribute("message", "Update Successfully!");
-            return "customer/success_page";
         } else {
             billingAddressService.addBillingAddress(customer.getBillingAddress());
             shippingAddressService.addShippingAddress(customer.getShippingAddress());
@@ -97,22 +101,16 @@ public class RegisterController {
             cartService.addCart(cart);
 
             customer.setCart(cart);
-            customerService.addCustomer(customer);
-//			String error =customerService.addCustomer(customer);
-//                        
-//                        if (error==null){
-//                            autoLogin(customer,request);
-//                            model.addAttribute("message", "Register Successfully!");
-//                            return "customer/success_page";
-//                        }
-//                        else{
-//                            model.addAttribute("error", error);
-//                            return "customer/registerCustomer";
-//                        }
+            String error = customerService.addCustomer(customer);
 
-            autoLogin(customer, request);
-            model.addAttribute("message", "Register Successfully!");
-            return "customer/success_page";
+            if (error == null) {
+                autoLogin(customer, request);
+                model.addAttribute("message", "Register Successfully!");
+                return "customer/success_page";
+            } else {
+                model.addAttribute("error", error);
+                return "customer/registerCustomer";
+            }
         }
     }
 
@@ -125,9 +123,11 @@ public class RegisterController {
     }
 
     @RequestMapping(value = "/customer/update.htm", method = RequestMethod.POST)
-    public String customerUpdatePost(@RequestParam("username") String username, @RequestParam("password") String password, Model model) {
+    public String customerUpdatePost(HttpServletRequest request, @RequestParam("username") String username, @RequestParam("password") String password, Model model) {
         Customer customer = customerService.findCustomerByUsernameAndPassword(username, password);
-        if (customer == null) {
+        String currentUsername=request.getSession().getAttribute("username").toString();
+        if (customer == null||!(username.equals(currentUsername))) {
+            model.addAttribute("error", "Username or password invaild!");
             return "customer/updateCustomer";
         }
         model.addAttribute("customer", customer);

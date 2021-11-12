@@ -31,9 +31,10 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
          */
         System.out.println("LoggerIntercep preHandle");
         HttpSession session = request.getSession();
+        String updateParam=request.getParameter("update");
         if (session.getAttribute("username") == null){
-            if (request.getRequestURI().contains("/register.htm")
-                    ||request.getRequestURI().contains("/login.htm")){
+            if ((request.getRequestURI().equals("/NikeShop/register.htm")&&updateParam==null)
+                    ||request.getRequestURI().equals("/NikeShop/login.htm")){
                 return true;
             }
             else {
@@ -41,8 +42,8 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
                 return false;
             }
         }
-        else if (request.getRequestURI().contains("/login.htm")
-                ||request.getRequestURI().contains("/register.htm")){
+        else if (request.getRequestURI().equals("/NikeShop/login.htm")
+                ||(request.getRequestURI().equals("/NikeShop/register.htm")&&updateParam==null)){
             throw new PageNotFoundException("Logout Required!");
         }
         else{

@@ -65,4 +65,21 @@ public class ProductDaoImpl extends AbstractDao<Product> implements ProductDao {
         }
         return list.get(0);
     }
+
+    @Override
+    public List<Product> getAllProductInStock(Integer pageNumber) {
+        Session session = sessionFactory.getCurrentSession();
+        String hql = "FROM Product C where C.unitInStock<>0";
+        Transaction t = session.beginTransaction();
+        Query query = session.createQuery(hql);
+        query.setFirstResult((pageNumber - 1) * 10); //trang 1, từ 0
+        query.setMaxResults(pageNumber * 10); //đến 9
+
+        List<Product> list = query.list();
+        t.commit();
+        if (list.isEmpty()) {
+            return null;
+        }
+        return list;
+    }
 }

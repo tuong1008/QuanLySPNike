@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface ProductService {
     List<Product> getAllProduct(Integer pageNumber);
+    
+    List<Product> getAllProductInStock(Integer pageNumber);
 
     long getTotalProduct();
 

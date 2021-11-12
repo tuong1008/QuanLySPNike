@@ -13,12 +13,11 @@
                 <div class="form-group has-success">
                     <label class="col-xs-3 control-label"></label>
                     <div class="col-xs-9">
-                        <c:if test="${not empty emailMsg }">
-                            <label class="label-danger">${emailMsg}</label>
+
+                        <c:if test="${not empty error }">
+                            <label class="label-danger">${error}</label>
                         </c:if>
-                        <c:if test="${not empty usernameMsg }">
-                            <label class="label-danger">${usernameMsg}</label>
-                        </c:if>
+					   
                         <c:if test="${not empty update }">
                             <input name="update" type="hidden" value="update">
                             <input name="oldUserId" type="hidden" value="${customer.customerId}">

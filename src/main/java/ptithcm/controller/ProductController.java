@@ -99,7 +99,7 @@ public class ProductController {
 	@RequestMapping("/productList.htm")
 	public String getAllProduct(ModelMap model){
 		int pageNumber=1;
-                List<Product> page=productService.getAllProduct(pageNumber);
+                List<Product> page=productService.getAllProductInStock(pageNumber);
 		long totalProducts=productService.getTotalProduct();
 
                 int totalPages=(int) Math.ceil(totalProducts/10.0); //mỗi page có 10 dòng

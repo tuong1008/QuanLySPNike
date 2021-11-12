@@ -41,4 +41,9 @@ public class ProductServiceImpl implements ProductService {
     public Product getProductById(long l) {
         return productDao.findOne(l);
     }
+
+    @Override
+    public List<Product> getAllProductInStock(Integer pageNumber) {
+        return productDao.getAllProductInStock(pageNumber);
+    }
 }

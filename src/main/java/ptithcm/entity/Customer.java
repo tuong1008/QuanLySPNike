@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
-public class Customer implements Serializable {
+public class Customer implements Serializable{
 
     private static final long serialVersionUID = 3L;
 
