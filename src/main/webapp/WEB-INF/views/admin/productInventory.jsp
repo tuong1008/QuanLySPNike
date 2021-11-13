@@ -36,15 +36,15 @@
             </div>
         </div>
         <br>
-        <table class="table table-striped table-hover table-bordered">
+        <table class="table table-striped table-hover table-bordered" data-sortable>
             <thead>
                 <tr class="bg-success">
-                    <th>Photo Thumb</th>
+                    <th data-sortable="false">Photo Thumb</th>
                     <th>Product Name</th>
                     <th>Category</th>
                     <th>Unit in Stock</th>
                     <th>Price</th>
-                    <th>Operation</th>
+                    <th data-sortable="false">Operation</th>
                 </tr>
             </thead>
             <c:forEach items="${products}" var="product">

@@ -31,15 +31,15 @@
             </div>
         </div>
                     <br>
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover" data-sortable>
             <thead>
             <tr class="bg-success">
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Username</th>
-                <th>Enabled</th>
-                <th>Shipping Address & Billing Address</th>
+                <th data-sortable="false">Enabled</th>
+                <th data-sortable="false">Shipping Address & Billing Address</th>
             </tr>
             </thead>
             <c:forEach items="${customers}" var="customer">

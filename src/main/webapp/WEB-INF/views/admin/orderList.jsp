@@ -33,7 +33,7 @@
         </div>
         <br>
         <c:set var="sl" value="1"/>
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover" data-sortable>
             <thead>
             <tr class="bg-success">
                 <th>SL No.</th>
@@ -41,9 +41,9 @@
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Username</th>
-                <th>Enabled</th>
-                <th>Orderdetails</th>
-                <th>Operation</th>
+                <th data-sortable="false">Enabled</th>
+                <th data-sortable="false">Orderdetails</th>
+                <th data-sortable="false">Operation</th>
             </tr>
             </thead>
             <c:forEach items="${orders}" var="order">
