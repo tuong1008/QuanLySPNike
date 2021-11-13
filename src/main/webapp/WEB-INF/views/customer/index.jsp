@@ -3,12 +3,12 @@
 
 <div id="introCarousel" class="carousel slide carousel-dark" data-bs-ride="carousel">
     <div class="carousel-indicators">
-        <button type="button" data-bs-target="#introCarousel" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#introCarousel" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#introCarousel" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
+        <Product List type="Product List" data-bs-target="#introCarousel" data-bs-slide-to="0" class="active"
+                 aria-current="true" aria-label="Slide 1"></Product List>
+        <Product List type="Product List" data-bs-target="#introCarousel" data-bs-slide-to="1"
+                 aria-label="Slide 2"></Product List>
+        <Product List type="Product List" data-bs-target="#introCarousel" data-bs-slide-to="2"
+                 aria-label="Slide 3"></Product List>
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active" data-bs-interval="2000">
@@ -16,7 +16,9 @@
             <div class="carousel-caption d-none d-md-block">
                 <h5>Nike Online Shop</h5>
                 <p>Buy Latest Products</p>
-                <p><a class="btn btn-lg btn-primary" href="<c:url value='/register'/>" role="button">Sign up now!</a></p>
+                <p><a class="btn btn-lg btn-primary" href="<c:url value='/register'/>" role="Product List">Sign up
+                    now!</a>
+                </p>
             </div>
         </div>
         <div class="carousel-item" data-bs-interval="2000">
@@ -34,271 +36,235 @@
             </div>
         </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#introCarousel" data-bs-slide="prev">
+    <Product List class="carousel-control-prev" type="Product List" data-bs-target="#introCarousel"
+             data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Prev</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#introCarousel" data-bs-slide="next">
+    </Product List>
+    <Product List class="carousel-control-next" type="Product List" data-bs-target="#introCarousel"
+             data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
-    </button>
+    </Product List>
 </div>
 
-<div class="container marketing">
-    <div class="row">
-        <div class="col-lg-4">
-            <div class="product-single">
-                <div class=" text-center productColumn">
-                    <div class="img-responsive productImage">
-                        <img class="img-circle" src="<c:url value='/resources/images/athletics.jpg'/>"
-                             alt="Generic placeholder image" width="180" height="180">
-                    </div>
+<div class="container mt-4">
+    <div class="row align-items-center">
+        <div class="col-md-4">
+            <div class="card text-center h-100">
+                <div class="bg-image hover-overlay ripple align-items-center" data-mdb-ripple-color="light">
+                    <img class="rounded-circle" src="<c:url value='/resources/images/athletics.jpg'/>"
+                         alt="image" width="140" height="140">
+                    <a href="#">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
                 </div>
-                <div class="product-desc">
-                    <h2>Athletics Shoes</h2>
-                    <p>Get latest Dell,HP,Acer laptop with discount.</p>
-                    <p><a class="btn btn-success btn-lg" href="<c:url value='/product/productList/Athletics/1'/>"
-                          role="button">View Product List</a></p>
+                <div class="card-body">
+                    <a href="<c:url value='/product/productList/Athletics/1.htm'/>" class="btn btn-dark">Athletic shoes</a>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
-            <div class="product-single">
-                <div class=" text-center productColumn">
-                    <div class=" img-responsive productImage">
-                        <img class="img-circle" src="<c:url value='/resources/images/bags.jpg'/>"
-                             alt="Generic placeholder image" width="140" height="140">
-                    </div>
+        <div class="col-md-4">
+            <div class="card text-center h-100">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img class="rounded-circle" src="<c:url value='/resources/images/bags.jpg'/>"
+                         alt="image" width="140" height="140">
+                    <a href="#">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
                 </div>
-                <div class="product-desc">
-                    <h2>Bags</h2>
-                    <p>Get latest Samsung,iphone,HTC mobile</p>
-                    <p><a class="btn btn-success btn-lg" href="<c:url value='/product/productList/Bags/1'/>"
-                          role="button">View Product List</a></p>
+                <div class="card-body">
+                    <a href="<c:url value='/product/productList/Bags/1.htm'/>" class="btn btn-dark">Bags</a>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
-            <div class="product-single">
-                <div class=" text-center productColumn">
-                    <div class=" img-responsive productImage">
-                        <img class="img-circle" src="<c:url value='/resources/images/football.jpg'/>"
-                             alt="Generic placeholder image" width="140" height="140">
-                    </div>
+        <div class="col-md-4">
+            <div class="card text-center h-100">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img class="rounded-circle" src="<c:url value='/resources/images/football.jpg'/>"
+                         alt="image" width="140" height="140">
+                    <a href="#">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
                 </div>
-                <div class="product-desc">
-                    <h2>Football Boots</h2>
-                    <p>Get Samsung ,Canon brand top Camera</p>
-                    <p><a class="btn btn-success btn-lg" href="<c:url value='/product/productList/Football/1'/>"
-                          role="button">View Product List</a></p>
+                <div class="card-body">
+                    <a href="<c:url value='/product/productList/Football/1.htm'/>" class="btn btn-dark">Football Boots</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="container marketing">
-    <div class="row">
-        <div class="col-lg-4">
-            <div class="product-single">
-                <div class=" text-center productColumn">
-                    <div class=" img-responsive productImage">
-                        <img class="img-circle" src="<c:url value="/resources/images/hats.jpg"/>"
-                             alt="Generic placeholder image" width="190" height="190">
-                    </div>
+    <div class="row align-items-center">
+        <div class="col-md-4">
+            <div class="card text-center h-100">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img class="rounded-circle" src="<c:url value="/resources/images/lifestyle.jpg"/>"
+                         alt="image" width="140" height="140">
+                    <a href="#">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
                 </div>
-                <div class="product-desc">
-                    <h2>Hats</h2>
-                    <p>Get Samsung ,Sony,Google Top</p>
-                    <p><a class="btn btn-success btn-lg" href="<c:url value="/product/productList/Hats/1"/>"
-                          role="button">View Product List</a></p>
+                <div class="card-body">
+                    <a href="<c:url value="/product/productList/Lifestyle/1.htm"/>" class="btn btn-dark">Lifestyle shoes</a>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
-            <div class="product-single">
-                <div class=" text-center productColumn">
-                    <div class=" img-responsive productImage">
-                        <img class="img-circle" src="<c:url value="/resources/images/jogger.jpg"/>"
-                             alt="Generic placeholder image" width="140" height="140">
-                    </div>
+        <div class="col-md-4">
+            <div class="card text-center h-100">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img class="rounded-circle" src="<c:url value="/resources/images/running.jpg"/>"
+                         alt="image" width="140" height="140">
+                    <a href="#">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
                 </div>
-                <div class="product-desc">
-                    <h2>Jogger Pants</h2>
-                    <p>Get Top Brands Refigerator</p>
-                    <p><a class="btn btn-success btn-lg" href="<c:url value="/product/productList/Jogger/1"/>"
-                          role="button">View Product List</a></p>
+                <div class="card-body">
+                    <a href="<c:url value="/product/productList/Running/1.htm"/>" class="btn btn-dark">Running shoes</a>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
-            <div class="product-single">
-                <div class=" text-center productColumn">
-                    <div class=" img-responsive productImage">
-                        <img class="img-circle" src="<c:url value="/resources/images/lifestyle.jpg"/>"
-                             alt="Generic placeholder image" width="190" height="190">
-                    </div>
+        <div class="col-md-4">
+            <div class="card text-center h-100">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img class="rounded-circle" src="<c:url value="/resources/images/socks.jpg"/>"
+                         alt="image" width="140" height="140">
+                    <a href="#">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
                 </div>
-                <div class="product-desc">
-                    <h2>Lifestyle Shoes</h2>
-                    <p>Get Top Brands Tablet</p>
-                    <p><a class="btn btn-success btn-lg" href="<c:url value="/product/productList/Lifestyle/1"/>"
-                          role="button">View Product List</a></p>
+                <div class="card-body">
+                    <a href="<c:url value="/product/productList/Socks/1.htm"/>" class="btn btn-dark">Socks</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="container marketing">
-    <div class="row">
-        <div class="col-lg-4">
-            <div class="product-single">
-                <div class=" text-center productColumn">
-                    <div class=" img-responsive productImage">
-                        <img class="img-circle" src="<c:url value="/resources/images/long.jpg"/>"
-                             alt="Generic placeholder image" width="190" height="190">
-                    </div>
+    <div class="row align-items-center">
+        <div class="col-md-4">
+            <div class="card text-center h-100">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img class="rounded-circle" src="<c:url value="/resources/images/hats.jpg"/>"
+                         alt="image" width="140" height="140">
+                    <a href="#">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
                 </div>
-                <div class="product-desc">
-                    <h2>Long Sleeve Shirts</h2>
-                    <p>Get Top Brands MicroOven</p>
-                    <p><a class="btn btn-success btn-lg" href="<c:url value="/product/productList/LongSleeve/1"/>"
-                          role="button">View Product List</a></p>
+                <div class="card-body">
+                    <a href="<c:url value="/product/productList/Hats/1.htm"/>" class="btn btn-dark">Caps</a>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
-            <div class="product-single">
-                <div class=" text-center productColumn">
-                    <div class=" img-responsive productImage">
-                        <img class="img-circle" src="<c:url value="/resources/images/polos.jpg"/>"
-                             alt="Generic placeholder image" width="140" height="140">
-                    </div>
+        <div class="col-md-4">
+            <div class="card text-center h-100">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img class="rounded-circle" src="<c:url value="/resources/images/trousers.jpg"/>"
+                         alt="image" width="140" height="140">
+                    <a href="#">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
                 </div>
-                <div class="product-desc">
-                    <h2>Polos</h2>
-                    <p>Get Top Brands DVD</p>
-                    <p><a class="btn btn-success btn-lg" href="<c:url value="/product/productList/Polos/1"/>"
-                          role="button">View Product List</a></p>
+                <div class="card-body">
+                    <a href="<c:url value="/product/productList/Trousers/1.htm"/>" class="btn btn-dark">Trousers</a>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
-            <div class="product-single">
-                <div class=" text-center productColumn">
-                    <div class=" img-responsive productImage">
-                        <img class="img-circle" src="<c:url value="/resources/images/running.jpg"/>"
-                             alt="Generic placeholder image" width="190" height="190">
-                    </div>
+        <div class="col-md-4">
+            <div class="card text-center h-100">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img class="rounded-circle" src="<c:url value="/resources/images/long.jpg"/>"
+                         alt="image" width="140" height="140">
+                    <a href="#">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
                 </div>
-                <div class="product-desc">
-                    <h2>Running Shoes</h2>
-                    <p>Get Top Brands Fan</p>
-                    <p><a class="btn btn-success btn-lg" href="<c:url value="/product/productList/Running/1"/>"
-                          role="button">View Product List</a></p>
+                <div class="card-body">
+                    <a href="<c:url value="/product/productList/LongSleeve/1.htm"/>" class="btn btn-dark">Long sleeve shirts</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="container marketing">
-    <div class="row">
-        <div class="col-lg-4">
-            <div class="product-single">
-                <div class=" text-center productColumn">
-                    <div class=" img-responsive productImage">
-                        <img class="img-circle" src="<c:url value="/resources/images/shorts.jpg"/>"
-                             alt="Generic placeholder image" width="190" height="190">
-                    </div>
+    <div class="row align-items-center">
+        <div class="col-md-4">
+            <div class="card text-center h-100">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img class="rounded-circle" src="<c:url value="/resources/images/polos.jpg"/>"
+                         alt="image" width="140" height="140">
+                    <a href="#">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
                 </div>
-                <div class="product-desc">
-                    <h2>Shorts</h2>
-                    <p>Get Different Top Brands Fan</p>
-                    <p><a class="btn btn-success btn-lg" href="<c:url value="/product/productList/Shorts/1"/>"
-                          role="button">View Product List</a></p>
+                <div class="card-body">
+                    <a href="<c:url value="/product/productList/Polos/1.htm"/>" class="btn btn-dark">Polos</a>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
-            <div class="product-single">
-                <div class=" text-center productColumn">
-                    <div class=" img-responsive productImage">
-                        <img class="img-circle" src="<c:url value="/resources/images/sleeveless.jpg"/>"
-                             alt="Generic placeholder image" width="140" height="140">
-                    </div>
+        <div class="col-md-4">
+            <div class="card text-center h-100">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img class="rounded-circle" src="<c:url value="/resources/images/shorts.jpg"/>"
+                         alt="image" width="140" height="140">
+                    <a href="#">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
                 </div>
-                <div class="product-desc">
-                    <h2>Sleeveless & Tank Tops</h2>
-                    <p>Get Different Top Brands Desktop</p>
-                    <p><a class="btn btn-success btn-lg" href="<c:url value="/product/productList/Sleeveless/1"/>"
-                          role="button">View Product List</a></p>
+                <div class="card-body">
+                    <a href="<c:url value="/product/productList/Shorts/1.htm"/>" class="btn btn-dark">Shorts</a>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
-            <div class="product-single">
-                <div class=" text-center productColumn">
-                    <div class=" img-responsive productImage">
-                        <img class="img-circle" src="<c:url value="/resources/images/socks.jpg"/>"
-                             alt="Generic placeholder image" width="190" height="190">
-                    </div>
+        <div class="col-md-4">
+            <div class="card text-center h-100">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img class="rounded-circle" src="<c:url value="/resources/images/sleeveless.jpg"/>"
+                         alt="image" width="140" height="140">
+                    <a href="#">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
                 </div>
-                <div class="product-desc">
-                    <h2>Socks</h2>
-                    <p>Get Different Top Brands Washing Machine</p>
-                    <p><a class="btn btn-success btn-lg" href="<c:url value="/product/productList/Socks/1"/>"
-                          role="button">View Product List</a></p>
+                <div class="card-body">
+                    <a href="<c:url value="/product/productList/Sleeveless/1.htm"/>" class="btn btn-dark">Sleeveless & Tank tops</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="container marketing">
-    <div class="row">
-        <div class="col-lg-4">
-            <div class="product-single">
-                <div class=" text-center productColumn">
-                    <div class=" img-responsive productImage">
-                        <img class="img-circle" src="<c:url value="/resources/images/training.jpg"/>"
-                             alt="Generic placeholder image" width="190" height="190">
-                    </div>
+    <div class="row align-items-center">
+        <div class="col-md-4">
+            <div class="card text-center h-100">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img class="rounded-circle" src="<c:url value="/resources/images/jogger.jpg"/>"
+                         alt="image" width="140" height="140">
+                    <a href="#">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
                 </div>
-                <div class="product-desc">
-                    <h2>Training & Gym Shoes</h2>
-                    <p>Get latest iPad </p>
-                    <p><a class="btn btn-success btn-lg" href="<c:url value="/product/productList/Training/1"/>"
-                          role="button">View Product List</a></p>
+                <div class="card-body">
+                    <a href="<c:url value="/product/productList/Jogger/1.htm"/>" class="btn btn-dark">Jogger pants</a>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
-            <div class="product-single">
-                <div class=" text-center productColumn">
-                    <div class=" img-responsive productImage">
-                        <img class="img-circle" src="<c:url value="/resources/images/trousers.jpg"/>"
-                             alt="Generic placeholder image" width="140" height="140">
-                    </div>
+        <div class="col-md-4">
+            <div class="card text-center h-100">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img class="rounded-circle" src="<c:url value="/resources/images/training.jpg"/>"
+                         alt="image" width="140" height="140">
+                    <a href="#">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
                 </div>
-                <div class="product-desc">
-                    <h2>Trousers</h2>
-                    <p>Get Top Brand gaming console </p>
-                    <p><a class="btn btn-success btn-lg" href="<c:url value="/product/productList/Trousers/1"/>"
-                          role="button">View Product List</a></p>
+                <div class="card-body">
+                    <a href="<c:url value="/product/productList/Training/1.htm"/>" class="btn btn-dark">Training shoes</a>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
-            <div class="product-single">
-                <div class=" text-center productColumn">
-                    <div class=" img-responsive productImage">
-                        <img class="img-circle" src="<c:url value="/resources/images/tshirts.jpg"/>"
-                             alt="Generic placeholder image" width="190" height="190">
-                    </div>
+        <div class="col-md-4">
+            <div class="card text-center h-100">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img class="rounded-circle" src="<c:url value="/resources/images/tshirts.jpg"/>"
+                         alt="image" width="140" height="140">
+                    <a href="#">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
                 </div>
-                <div class="product-desc">
-                    <h2>T-Shirts</h2>
-                    <p>Get Top Brand Router </p>
-                    <p><a class="btn btn-success btn-lg" href="<c:url value="/product/productList/TShirts/1"/>"
-                          role="button">View Product List</a></p>
+                <div class="card-body">
+                    <a href="<c:url value="/product/productList/TShirts/1.htm"/>" class="btn btn-dark">T-Shirts</a>
                 </div>
             </div>
         </div>
@@ -308,39 +274,35 @@
 <div class="container">
     <section class="testimonial">
         <div class="container">
-            <div class="clientheading text-center">
-                <h2>What our Clients say</h2>
+            <div class="text-center">
+                <h2 class="display-3 fst-italic lh-1 mb-4">Our reviews</h2>
             </div>
-            <div class="row user1testimonial">
+            <div class="row mt-4">
                 <div class="col-md-2">
-                    <div class="clientimg">
-                        <img class="img-circle" src="<c:url value="/resources/images/user1.jpg"/>"
-                             alt="Generic placeholder image" width="140" height="140">
+                        <img class="rounded-circle" src="<c:url value="/resources/images/user1.jpg"/>"
+                             alt="image" width="90" height="90">
+                </div>
+                <div class="col-md-10">
+                    <blockquote class="blockquote">
+                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                        <p>Lorem ipsum dolor atque culpa deserunt fuga magni molestias nostrum obcaecati possimus,
+                            quaerat quasi quo repellat saepe ut voluptatem? Deleniti explicabo quae quisquam!</p>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-2">
+                    <div>
+                        <img class="rounded-circle" src="<c:url value="/resources/images/user2.jpg"/>"
+                             alt="image" width="90" height="90">
                     </div>
                 </div>
                 <div class="col-md-10">
-                    <div class="clientSpeech">
+                    <blockquote class="blockquote">
                         <i class="fa fa-quote-left" aria-hidden="true"></i>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Alias aspernatur, atque culpa deserunt fuga magni molestias nostrum obcaecati possimus, quaerat quasi quo repellat saepe ut voluptatem?
-                            Deleniti explicabo quae quisquam!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row user1testimonial2">
-                <div class="col-md-2">
-                    <div class="clientimg">
-                        <img class="img-circle" src="<c:url value="/resources/images/user2.jpg"/>"
-                             alt="Generic placeholder image" width="140" height="140">
-                    </div>
-                </div>
-                <div class="col-md-10">
-                    <div class="clientSpeech">
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Alias aspernatur, atque culpa deserunt fuga magni molestias nostrum obcaecati possimus, quaerat quasi quo repellat saepe ut voluptatem?
-                            Deleniti explicabo quae quisquam!</p>
-                    </div>
+                        <p>Alias aspernatur, atque culpa deserunt fuga magni molestias nostrum obcaecati possimus,
+                            quaerat quasi quo repellat saepe ut voluptatem? Deleniti explicabo quae quisquam!</p>
+                    </blockquote>
                 </div>
             </div>
         </div>

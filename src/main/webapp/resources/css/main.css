@@ -433,54 +433,15 @@ textarea {
     margin-bottom: 60px;
 }
 
-.clientheading h2 {
-    background: #51b105;
-    color: #fff;
-    max-width: 500px;
-    margin: 0 auto;
-    font-weight: bold;
-    padding: 8px 8px;
-    text-transform: uppercase;
-}
-.testimonial {
-    padding: 70px 0;
-}
-
-.clientimg {
-
-}
-
-.clientimg img {
-    width: 100%;
-}
-
-.clientSpeech {
-    margin-top: 20px;
-
-}
-
-.clientSpeech i {
-    font-size: 50px;
-    color: #E6E6E6;
-    margin-left: 20px;
-}
-
-.clientSpeech p {
-    color: #8C8B8B;
-    font-size: 20px;
-    text-align: center;
-
-}
-
-.user1testimonial {
-    margin-bottom: 50px;
-    border: 1px solid #bfaaaa;
-}
-
-.user1testimonial2 {
-    margin-bottom: 50px;
-    border: 1px solid #bfaaaa;
-}
+/*.clientheading h2 {*/
+/*    background: #51b105;*/
+/*    color: #fff;*/
+/*    max-width: 500px;*/
+/*    margin: 0 auto;*/
+/*    font-weight: bold;*/
+/*    padding: 8px 8px;*/
+/*    text-transform: uppercase;*/
+/*}*/
 
 .address {
 
