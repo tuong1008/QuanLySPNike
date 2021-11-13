@@ -45,4 +45,14 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
         return customerOrderDao.getTotalCustomerOrders();
     }
 
+    @Override
+    public List<CustomerOrder> findAllOrderByUsernameOrEmail(String string, int i) {
+        return customerOrderDao.findAllOrderByUsernameOrEmail(string, i);
+    }
+
+    @Override
+    public long getTotalOrderByUsernameOrEmail(String string) {
+        return customerOrderDao.getTotalOrderByUsernameOrEmail(string);
+    }
+
 }

@@ -10,7 +10,27 @@
     <div class="container">
         <div class="page-header">
             <h1>Customer Management</h1>
+            <c:if test="${not empty search}">
+                <a class="btn btn-primary" href="<c:url value="/admin/customerManagement/1.htm"/>">See All Customers</a>
+            </c:if>
         </div>
+        <div class="container">
+            <div class=row>
+
+                <form class="form-inline" action="<c:url value="/admin/customerManagement/search/1.htm"/>"
+                      method="post">
+                    <!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
+                    <div class="d-flex justify-content-center align-items-center">
+                        <input type="text" name="searchTerm" class="form-control" style="width:300px"
+                               id="inputEmail" placeholder="Enter Username or Email">
+                        <input type="hidden" value="category" name="search">
+                        <button type="submit" class="btn btn-primary">Search Product</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+                    <br>
         <table class="table table-striped table-hover">
             <thead>
             <tr class="bg-success">
@@ -31,43 +51,43 @@
                     <td>${customer.enabled}</td>
                     <td>
                         <a href=" <spring:url value="/admin/customerManagement/address/${customer.customerId}.htm"/>">
-                            <span class="glyphicon glyphicon-info-sign"></span>
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
                         </a>
                     </td>
                 </tr>
             </c:forEach>
         </table>
-        <div class="Page navigation text-center">
+        <div class="d-flex justify-content-center">
             <ul class="pagination">
                 <c:choose>
                     <c:when test="${currentPageNumber == 1}">
-                        <li class="disabled"><a href="#">&lt;&lt;</a></li>
-                        <li class="disabled"><a href="#">&lt;</a></li>
+                        <li class="page-item disabled"><a class="page-link" href=""><i class="fa fa-fast-backward" aria-hidden="true"></i></a></li>
+                        <li class="page-item disabled"><a class="page-link" href=""><i class="fa fa-step-backward" aria-hidden="true"></i></a></li>
                     </c:when>
                     <c:otherwise>
-                        <li><a href="${firstUrl}">&lt;&lt;</a></li>
-                        <li><a href="${prevUrl}">&lt;</a></li>
+                        <li class="page-item"><a class="page-link" href="${firstUrl}"><i class="fa fa-fast-backward" aria-hidden="true"></i></a></li>
+                        <li class="page-item"><a class="page-link" href="${prevUrl}"><i class="fa fa-step-backward" aria-hidden="true"></i></a></li>
                     </c:otherwise>
                 </c:choose>
                 <c:forEach var="i" begin="${beginIndex}" end="${endIndex}">
                     <c:url var="pageUrl" value="/admin/customerManagement/${i}.htm"/>
                     <c:choose>
                         <c:when test="${i == currentPageNumber}">
-                            <li class="active"><a href="${pageUrl}"><c:out value="${i}"/></a></li>
+                            <li class="page-item active"><a class="page-link" href="${pageUrl}"><c:out value="${i}"/></a></li>
                         </c:when>
                         <c:otherwise>
-                            <li><a href="${pageUrl}"><c:out value="${i}"/></a></li>
+                            <li class="page-item"><a class="page-link" href="${pageUrl}"><c:out value="${i}"/></a></li>
                         </c:otherwise>
                     </c:choose>
                 </c:forEach>
                 <c:choose>
                     <c:when test="${currentPageNumber == totalPages}">
-                        <li class="disabled"><a href="#">&gt;</a></li>
-                        <li class="disabled"><a href="#">&gt;&gt;</a></li>
+                        <li class="page-item disabled"><a class="page-link" href=""><i class="fa fa-step-forward" aria-hidden="true"></i></a></li>
+                        <li class="page-item disabled"><a class="page-link" href=""><i class="fa fa-fast-forward" aria-hidden="true"></i></a></li>
                     </c:when>
                     <c:otherwise>
-                        <li><a href="${nextUrl}">&gt;</a></li>
-                        <li><a href="${lastUrl}">&gt;&gt;</a></li>
+                        <li class="page-item"><a class="page-link" href="${nextUrl}"><i class="fa fa-step-forward" aria-hidden="true"></i></a></li>
+                        <li class="page-item"><a class="page-link" href="${lastUrl}"><i class="fa fa-fast-forward" aria-hidden="true"></i></a></li>
                     </c:otherwise>
                 </c:choose>
             </ul>

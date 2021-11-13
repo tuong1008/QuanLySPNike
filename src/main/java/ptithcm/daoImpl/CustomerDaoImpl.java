@@ -10,6 +10,7 @@ import ptithcm.entity.Customer;
 
 import java.util.List;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.MatchMode;
 import ptithcm.entity.Product;
 
 @Transactional
@@ -101,6 +102,37 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
         String hql = "select count(*) FROM Customer C";
         Transaction t = session.beginTransaction();
         Query query = session.createQuery(hql);
+        long results = (long) query.uniqueResult();
+        t.commit();
+
+        return results;
+    }
+
+    @Override
+    public List<Customer> findAllCustomerByUsernameOrEmail(String searchTerm, int pageNumber) {
+        Session session = sessionFactory.getCurrentSession();
+        String hql = "FROM Customer t WHERE t.username LIKE :searchTerm OR t.customerEmailAddress LIKE :searchTerm";
+        Transaction t = session.beginTransaction();
+        Query query = session.createQuery(hql);
+        query.setParameter("searchTerm", MatchMode.ANYWHERE.toMatchString(searchTerm));
+        query.setFirstResult((pageNumber - 1) * 10); //trang 1, từ 0
+        query.setMaxResults(pageNumber * 10); //đến 9
+
+        List<Customer> list = query.list();
+        t.commit();
+        if (list.isEmpty()) {
+            return null;
+        }
+        return list;
+    }
+
+    @Override
+    public long getTotalCustomerByUsernameOrEmail(String searchTerm) {
+        Session session = sessionFactory.getCurrentSession();
+        String hql = "select count(*) FROM Customer t WHERE t.username LIKE :searchTerm OR t.customerEmailAddress LIKE :searchTerm";
+        Transaction t = session.beginTransaction();
+        Query query = session.createQuery(hql);
+        query.setParameter("searchTerm", MatchMode.ANYWHERE.toMatchString(searchTerm));
         long results = (long) query.uniqueResult();
         t.commit();
 

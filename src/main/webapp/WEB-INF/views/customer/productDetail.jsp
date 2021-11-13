@@ -17,14 +17,13 @@
                 <div class="col-md-5 product-details">
                     <p><strong class="desc-title col-md-4">Name </strong>: ${product.productName}</p>
                     <p><strong class="desc-title col-md-4">Description </strong> :${product.productDescription}</p>
-                    <p><strong class="desc-title col-md-4">Model</strong>: ${product.productModel}</p>
+                    <p><strong class="desc-title col-md-4">Unit in Stock</strong>: ${product.unitInStock}</p>
                     <p><strong class="desc-title col-md-4">Category</strong>: ${product.productCategory}</p>
-                    <p><strong class="desc-title col-md-4">Condition</strong>: ${product.productStatus}</p>
                     <p><strong class="desc-title col-md-4">Price:</strong> : ${product.productPrice} USD</p>
                     <br/>
                     <c:set var="url" scope="page" value="/product/productList/${product.productCategory}/1.htm"/>
                     <c:if test="${sessionScope.username=='admin'}">
-                        <c:set var="url" scope="page" value="/admin/productManagement/1"/>
+                        <c:set var="url" scope="page" value="/admin/productManagement/1.htm"/>
                     </c:if>
                     <p ng-controller="cartCtrl">
                         <a href="<c:url value = "${url}" />" class="btn btn-primary btn-md">Back</a>

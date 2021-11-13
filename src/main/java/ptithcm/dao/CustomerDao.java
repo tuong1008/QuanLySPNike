@@ -16,4 +16,8 @@ public interface CustomerDao extends GenericDao<Customer> {
     List<Customer> getAllCustomers(Integer pageNumber);
     
     long getTotalCustomers();
+    
+    List<Customer> findAllCustomerByUsernameOrEmail(String searchTerm, int pagaNumber);
+    
+    long getTotalCustomerByUsernameOrEmail(String searchTerm);
 }

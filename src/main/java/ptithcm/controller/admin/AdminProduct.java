@@ -30,7 +30,6 @@ public class AdminProduct {
     @RequestMapping(value = "/product/addProduct.htm", method = RequestMethod.GET)
     public String addProduct(Model model) {
         Product product = new Product();
-        product.setProductStatus("Brand New");
         model.addAttribute("product", product);
         model.addAttribute("categoryList", product.getCategoryList());
         return "admin/addProduct";
@@ -71,7 +70,7 @@ public class AdminProduct {
     }
 
     @RequestMapping(value = "/product/updateProduct.htm", method = RequestMethod.POST)
-    public String updateProductPost(@ModelAttribute("product") Product product, BindingResult result, HttpServletRequest request) {
+    public String updateProductPost(@Valid @ModelAttribute("product") Product product, BindingResult result, HttpServletRequest request) {
         if (result.hasErrors()) {
             return "admin/addProduct";
         }
@@ -112,4 +111,5 @@ public class AdminProduct {
         }
         return "redirect:/admin/productManagement/1.htm";
     }
+    
 }

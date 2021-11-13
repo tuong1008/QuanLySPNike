@@ -1,63 +1,63 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@include file="/WEB-INF/views/template/header.jsp" %>
-<c:url var="firstUrl" value="/product/productList/${productCategory}/1"/>
-<c:url var="lastUrl" value="/product/productList/${productCategory}/${totalPages}"/>
-<c:url var="prevUrl" value="/product/productList/${productCategory}/${currentPageNumber - 1}"/>
-<c:url var="nextUrl" value="/product/productList/${productCategory}/${currentPageNumber + 1}"/>
+<c:url var="firstUrl" value="/product/productList/${productCategory}/1.htm"/>
+<c:url var="lastUrl" value="/product/productList/${productCategory}/${totalPages}.htm"/>
+<c:url var="prevUrl" value="/product/productList/${productCategory}/${currentPageNumber - 1}.htm"/>
+<c:url var="nextUrl" value="/product/productList/${productCategory}/${currentPageNumber + 1}.htm"/>
 <div class="container-wrapper">
     <div class="container">
         <div class=row>
             <div class="col-md-3">
                 <h1 class="Product-category">Product Category</h1>
                 <div class="list-group popular-product">
-                    <a href="<c:url  value="/product/productList/MicroOven/1"/>" class="list-group-item">Micro Oven </a>
-                    <a href="<c:url  value="/product/productList/DvdPlayer/1"/>" class="list-group-item">DVD PLayer</a>
-                    <a href="<c:url  value="/product/productList/Fan/1"/>" class="list-group-item">Fan</a>
-                    <a href="<c:url  value="/product/productList/Printer/1"/>" class="list-group-item">Printer</a>
-                    <a href="<c:url  value="/product/productList/Desktop/1"/>" class="list-group-item">Desktop </a>
-                    <a href="<c:url  value="/product/productList/Washing Machine/1"/>" class="list-group-item">Washing
-                        Machine </a>
-                    <a href="<c:url  value="/product/productList/ipad/1"/>" class="list-group-item">ipad </a>
-                    <a href="<c:url  value="/product/productList/Game console/1"/>" class="list-group-item">Geaming
-                        console </a>
+                    <a href="<c:url  value="/product/productList/Lifestyle/1.htm"/>" class="list-group-item">Lifestyle Shoes</a>
+                    <a href="<c:url  value="/product/productList/Running/1.htm"/>" class="list-group-item">Running Shoes</a>
+                    <a href="<c:url  value="/product/productList/Football/1.htm"/>" class="list-group-item">Football Boots</a>
+                    <a href="<c:url  value="/product/productList/TShirts/1.htm"/>" class="list-group-item">T-Shirts</a>
+                    <a href="<c:url  value="/product/productList/LongSleeve/1.htm"/>" class="list-group-item">Long Sleeve Shirts</a>
+                    <a href="<c:url  value="/product/productList/Sleeveless/1.htm"/>" class="list-group-item">Sleeveless & Tank Tops</a>
+                    <a href="<c:url  value="/product/productList/Polos/1.htm"/>" class="list-group-item">Polos</a>
+                    <a href="<c:url  value="/product/productList/Shorts/1.htm"/>" class="list-group-item">Shorts</a>
                 </div>
             </div>
             <div class="jumbotron col-md-6">
-                <h1>Green Online Shop</h1>
-                <p>Select your favourite product and buy with 10% discount</p>
+                <h1>Nike Online Shop</h1>
+                <p>Select your favourite product and buy</p>
             </div>
             <div class="col-md-3">
                 <h1 class="Product-category">Product Category</h1>
                 <div class="list-group popular-product">
-                    <a href="<c:url  value="/product/productList/Laptop/1"/>" class="list-group-item">Laptop</a>
-                    <a href="<c:url  value="/product/productList/Mobile/1"/>" class="list-group-item">Mobile </a>
-                    <a href="<c:url  value="/product/productList/Camera/1"/>" class="list-group-item ">Camera</a>
-                    <a href="<c:url  value="/product/productList/Tv/1"/>" class="list-group-item">Tv </a>
-                    <a href="<c:url  value="/product/productList/Refrigerator/1"/>"
-                       class="list-group-item">Refrigerator </a>
-                    <a href="<c:url  value="/product/productList/Tablet/1"/>" class="list-group-item">Tablet </a>
-                    <a href="<c:url  value="/product/productList/MicroOven/1"/>" class="list-group-item">Micro Oven </a>
-                    <a href="<c:url  value="/product/productList/Router/1"/>" class="list-group-item">Router </a>
+                    <a href="<c:url  value="/product/productList/Jogger/1.htm"/>" class="list-group-item">Jogger Pants</a>
+                    <a href="<c:url  value="/product/productList/Bags/1.htm"/>" class="list-group-item">Bags</a>
+                    <a href="<c:url  value="/product/productList/Hats/1.htm"/>" class="list-group-item ">Hats</a>
+                    <a href="<c:url  value="/product/productList/Socks/1.htm"/>" class="list-group-item">Socks</a>
+                    <a href="<c:url  value="/product/productList/Trousers/1.htm"/>" class="list-group-item">Trousers</a>
+                    <a href="<c:url  value="/product/productList/Training/1.htm"/>" class="list-group-item">Training & Gym Shoes</a>
+                    <a href="<c:url  value="/product/productList/Athletics/1.htm"/>" class="list-group-item">Athletics Shoes</a>
+                    <a href="<c:url  value="/product/productList/Sandals/1.htm"/>" class="list-group-item">Sandals & Slides</a>
                 </div>
             </div>
+        </div>
+        <div class="page-header">
+            <c:if test="${not empty search}">
+                <a class="btn btn-primary" href="<c:url value="/product/productList.htm"/>">See All Products</a>
+            </c:if>
         </div>
         <div class="container">
             <div class=row>
-                <div class="searchBox">
-                    <form class="form-inline" action="<c:url value="/product/productList/${productCategory}/1"/>"
-                          method="post">
-                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                        <div class="form-group">
-                            <label for="inputEmail">Search more ${productCategory} :</label>
-                            <input type="text" name="searchTerm" class="form-control" id="inputEmail"
-                                   placeholder="Enter Brand , model name">
-                        </div>
-                        <input type="hidden" value="search" name="search">
+                <form class="form-inline" action="<c:url value="/product/search/1.htm"/>"
+                      method="post">
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <input type="text" name="searchTerm" class="form-control" style="width:300px"
+                               id="inputEmail" placeholder="Enter Product Name">
+                        <input type="hidden" value="category" name="search">
                         <button type="submit" class="btn btn-primary">Search Product</button>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
+        <br>
         <section class="productsection">
             <div class="container">
                 <c:if test="${not empty msg}">
@@ -76,7 +76,7 @@
                                     </div>
                                 </div>
                                 <div class="product-desc">
-                                    <h2>${product.productModel}</h2>
+                                    <h2>${product.productName}</h2>
                                     <h3>${product.productPrice} USD</h3>
                                     <a href=" <c:url  value="/product/viewProduct/${product.productId}.htm"/>"
                                        class="btn btn-info btn-lg">View Detail</a>
@@ -87,43 +87,41 @@
                 </div>
             </div>
         </section>
-        <c:if test="${empty msg}">
-            <div class="Page navigation text-center">
-                <ul class="pagination">
-                    <c:choose>
-                        <c:when test="${currentPageNumber == 1}">
-                            <li class="disabled"><a href="#">&lt;&lt;</a></li>
-                            <li class="disabled"><a href="#">&lt;</a></li>
-                        </c:when>
-                        <c:otherwise>
-                            <li><a href="${firstUrl}">&lt;&lt;</a></li>
-                            <li><a href="${prevUrl}">&lt;</a></li>
-                        </c:otherwise>
-                    </c:choose>
-                    <c:forEach var="i" begin="${beginIndex}" end="${endIndex}">
-                        <c:url var="pageUrl" value="/product/productList/${productCategory}/${i}"/>
-                        <c:choose>
-                            <c:when test="${i == currentPageNumber}">
-                                <li class="active"><a href="${pageUrl}"><c:out value="${i}"/></a></li>
+        <div class="d-flex justify-content-center">
+            <ul class="pagination">
+                <c:choose>
+                    <c:when test="${currentPageNumber == 1}">
+                        <li class="page-item disabled"><a class="page-link" href=""><i class="fa fa-fast-backward" aria-hidden="true"></i></a></li>
+                        <li class="page-item disabled"><a class="page-link" href=""><i class="fa fa-step-backward" aria-hidden="true"></i></a></li>
                             </c:when>
                             <c:otherwise>
-                                <li><a href="${pageUrl}"><c:out value="${i}"/></a></li>
+                        <li class="page-item"><a class="page-link" href="${firstUrl}"><i class="fa fa-fast-backward" aria-hidden="true"></i></a></li>
+                        <li class="page-item"><a class="page-link" href="${prevUrl}"><i class="fa fa-step-backward" aria-hidden="true"></i></a></li>
+                            </c:otherwise>
+                        </c:choose>
+                        <c:forEach var="i" begin="${beginIndex}" end="${endIndex}">
+                            <c:url var="pageUrl" value="/product/productList/${productCategory}/${i}.htm"/>
+                            <c:choose>
+                                <c:when test="${i == currentPageNumber}">
+                            <li class="page-item active"><a class="page-link" href="${pageUrl}"><c:out value="${i}"/></a></li>
+                            </c:when>
+                            <c:otherwise>
+                            <li class="page-item"><a class="page-link" href="${pageUrl}"><c:out value="${i}"/></a></li>
                             </c:otherwise>
                         </c:choose>
                     </c:forEach>
                     <c:choose>
                         <c:when test="${currentPageNumber == totalPages}">
-                            <li class="disabled"><a href="#">&gt;</a></li>
-                            <li class="disabled"><a href="#">&gt;&gt;</a></li>
-                        </c:when>
-                        <c:otherwise>
-                            <li><a href="${nextUrl}">&gt;</a></li>
-                            <li><a href="${lastUrl}">&gt;&gt;</a></li>
-                        </c:otherwise>
-                    </c:choose>
-                </ul>
-            </div>
-        </c:if>
+                        <li class="page-item disabled"><a class="page-link" href=""><i class="fa fa-step-forward" aria-hidden="true"></i></a></li>
+                        <li class="page-item disabled"><a class="page-link" href=""><i class="fa fa-fast-forward" aria-hidden="true"></i></a></li>
+                            </c:when>
+                            <c:otherwise>
+                        <li class="page-item"><a class="page-link" href="${nextUrl}"><i class="fa fa-step-forward" aria-hidden="true"></i></a></li>
+                        <li class="page-item"><a class="page-link" href="${lastUrl}"><i class="fa fa-fast-forward" aria-hidden="true"></i></a></li>
+                            </c:otherwise>
+                        </c:choose>
+            </ul>
+        </div>
     </div>
 </div>
 <%@include file="/WEB-INF/views/template/footer.jsp" %>
