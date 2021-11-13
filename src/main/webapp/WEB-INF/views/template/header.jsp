@@ -27,8 +27,8 @@
     <base href="${pageContext.servletContext.contextPath}/">
 </head>
 <body>
-<div style="min-height: 95vh">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div style="min-height: 95vh">
+    <nav class="px-3 navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="">
             <img src="<c:url value="/resources/images/nike-logo.svg"/>" alt="logo" class="logo">
         </a>
@@ -55,27 +55,22 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
-                <li class="nav-">
+                <li class="nav-item">
                     <a class="nav-link" href="">Products</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto me-lg-4">
                 <c:if test="${sessionScope.username!=null}">
-                    <li class="nav-item"><a
-                            style="color: #fff;background-color: transparent;">Welcome:${sessionScope.username} </a>
-                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" href="#" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">Welcome:${sessionScope.username}
+                        </a>
                     <c:if test="${sessionScope.username!='admin'}">
-                        <li role="presentation" class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                               aria-haspopup="true" aria-expanded="false">
-                                <span class="glyphicon glyphicon-user"></span> <span class="caret">   </span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="<c:url value="/customer/update.htm"/>">Update Account</a>
-                                </li>
-                            </ul>
-                        </li>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="<c:url value="/customer/update.htm"/>">Update Account</a></li>
+                        </ul>
                     </c:if>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="<c:url value="/logout.htm" />">Logout</a></li>
                     <c:if test="${sessionScope.username!='admin'}">
                         <li class="nav-item"><a class="nav-link" href="<c:url value="/customer/cart.htm"/>">Cart</a>
