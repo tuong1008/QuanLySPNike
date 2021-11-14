@@ -26,6 +26,11 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
     }
 
     @Override
+    public List<CustomerOrder> getAllCustomerOrder() {
+        return customerOrderDao.findAll();
+    }
+
+    @Override
     public CustomerOrder getCustomerOrderById(long l) {
         return customerOrderDao.findOne(l);
     }

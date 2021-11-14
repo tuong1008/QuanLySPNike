@@ -21,9 +21,6 @@ public class Cart implements Serializable {
 
     private double grandTotal;
 
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<CartItem> cartItems;
-
     public long getCartId() {
         return cartId;
     }
@@ -38,14 +35,6 @@ public class Cart implements Serializable {
 
     public void setCartId(long cartId) {
         this.cartId = cartId;
-    }
-
-    public List<CartItem> getCartItems() {
-        return cartItems;
-    }
-
-    public void setCartItems(List<CartItem> cartItems) {
-        this.cartItems = cartItems;
     }
 
     public double getGrandTotal() {
