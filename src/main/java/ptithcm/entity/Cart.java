@@ -25,16 +25,16 @@ public class Cart implements Serializable {
         return cartId;
     }
 
+    public void setCartId(long cartId) {
+        this.cartId = cartId;
+    }
+
     public List<CartItem> getCartItem() {
         return cartItem;
     }
 
     public void setCartItem(List<CartItem> cartItem) {
         this.cartItem = cartItem;
-    }
-
-    public void setCartId(long cartId) {
-        this.cartId = cartId;
     }
 
     public double getGrandTotal() {

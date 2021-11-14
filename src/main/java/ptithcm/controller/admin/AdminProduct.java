@@ -111,5 +111,5 @@ public class AdminProduct {
         }
         return "redirect:/admin/productManagement/1.htm";
     }
-    
+
 }

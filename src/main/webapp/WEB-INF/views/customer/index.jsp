@@ -279,8 +279,8 @@
             </div>
             <div class="row mt-4">
                 <div class="col-md-2">
-                        <img class="rounded-circle" src="<c:url value="/resources/images/user1.jpg"/>"
-                             alt="image" width="90" height="90">
+                    <img class="rounded-circle" src="<c:url value="/resources/images/user1.jpg"/>"
+                         alt="image" width="90" height="90">
                 </div>
                 <div class="col-md-10">
                     <blockquote class="blockquote">

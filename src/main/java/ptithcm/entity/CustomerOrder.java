@@ -1,9 +1,10 @@
 package ptithcm.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class CustomerOrder implements Serializable {
@@ -15,9 +16,9 @@ public class CustomerOrder implements Serializable {
     private long customerOrderId;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(pattern="HH:mm:ss dd/MM/yyyy")
+    @DateTimeFormat(pattern = "HH:mm:ss dd/MM/yyyy")
     private Date timeOrder;
-    
+
     @OneToOne
     @JoinColumn(name = "cartId")
     private Cart cart;
@@ -80,6 +81,6 @@ public class CustomerOrder implements Serializable {
     public void setTimeOrder(Date timeOrder) {
         this.timeOrder = timeOrder;
     }
-    
-    
+
+
 }

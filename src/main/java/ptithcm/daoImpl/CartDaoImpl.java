@@ -7,24 +7,23 @@ package ptithcm.daoImpl;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import ptithcm.dao.CartDao;
 import ptithcm.entity.Cart;
-
-import java.util.List;
 import ptithcm.entity.CartItem;
 import ptithcm.entity.Product;
 import ptithcm.service.ProductService;
+
+import java.util.List;
 
 /**
  * @author Tuong
  */
 @Transactional
 public class CartDaoImpl extends AbstractDao<Cart> implements CartDao {
-    
+
     @Autowired
     ProductService productService;
 
@@ -59,7 +58,7 @@ public class CartDaoImpl extends AbstractDao<Cart> implements CartDao {
             query.setParameter("id", cartItem.getProduct().getProductId());
             List<Product> list = query.list();
             Product product = list.get(0);
-            
+
             int unitInStock = product.getUnitInStock() - cartItem.getQuantity();
             if (unitInStock >= 0) {
                 //update unit in stock of product
@@ -77,5 +76,5 @@ public class CartDaoImpl extends AbstractDao<Cart> implements CartDao {
         return null;
     }
 
-    
+
 }

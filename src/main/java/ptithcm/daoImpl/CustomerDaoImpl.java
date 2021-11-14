@@ -3,15 +3,14 @@ package ptithcm.daoImpl;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.criterion.MatchMode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import ptithcm.dao.CustomerDao;
 import ptithcm.entity.Customer;
 
 import java.util.List;
-import org.hibernate.Transaction;
-import org.hibernate.criterion.MatchMode;
-import ptithcm.entity.Product;
 
 @Transactional
 public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDao {

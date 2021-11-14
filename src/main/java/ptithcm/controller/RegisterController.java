@@ -54,7 +54,7 @@ public class RegisterController {
         if (update != null && update.equalsIgnoreCase("update")) {
             String username = request.getSession().getAttribute("username").toString();
             Customer oldCustomer = customerService.findCustomerByUsername(username);
-            
+
             billingAddressService.addBillingAddress(customer.getBillingAddress());
             shippingAddressService.addShippingAddress(customer.getShippingAddress());
 
@@ -125,8 +125,8 @@ public class RegisterController {
     @RequestMapping(value = "/customer/update.htm", method = RequestMethod.POST)
     public String customerUpdatePost(HttpServletRequest request, @RequestParam("username") String username, @RequestParam("password") String password, Model model) {
         Customer customer = customerService.findCustomerByUsernameAndPassword(username, password);
-        String currentUsername=request.getSession().getAttribute("username").toString();
-        if (customer == null||!(username.equals(currentUsername))) {
+        String currentUsername = request.getSession().getAttribute("username").toString();
+        if (customer == null || !(username.equals(currentUsername))) {
             model.addAttribute("error", "Username or password invaild!");
             return "customer/updateCustomer";
         }
