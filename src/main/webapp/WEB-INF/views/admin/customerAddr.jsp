@@ -8,8 +8,8 @@
             <p class="lead">Here is address of ${customer.customerName}</p>
         </div>
         <h1>Shipping Address</h1>
-        <table class="table table-striped table-hover">
-            <thead>
+        <table class="table table-striped table-hover table-borderless">
+            <thead class="table-dark">
             <tr class="bg-success">
                 <th>Street Name</th>
                 <th>City</th>
@@ -25,8 +25,8 @@
             </tr>
         </table>
         <h1>Billing Address</h1>
-        <table class="table table-striped table-hover">
-            <thead>
+        <table class="table table-striped table-hover table-borderless">
+            <thead class="table-dark">>
             <tr class="bg-success">
                 <th>City</th>
                 <th>Country</th>
@@ -39,4 +39,6 @@
                 <td>${customer.billingAddress.zipCode}</td>
             </tr>
         </table>
+    </div>
+</div>
 <%@ include file="/WEB-INF/views/template/footer.jsp" %>

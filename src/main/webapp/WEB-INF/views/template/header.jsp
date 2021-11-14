@@ -54,15 +54,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Products</a>
-                </li>
             </ul>
             <ul class="navbar-nav ms-auto me-lg-4">
                 <c:if test="${sessionScope.username!=null}">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" href="#" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">Welcome:${sessionScope.username}
+                    <li class="nav-item">
+                        <a class="nav-link" id="navbarDropdownMenuLink" href="#" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">${sessionScope.username}
                         </a>
                     <c:if test="${sessionScope.username!='admin'}">
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
