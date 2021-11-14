@@ -8,12 +8,12 @@ package ptithcm.daoImpl;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.MatchMode;
 import org.springframework.transaction.annotation.Transactional;
 import ptithcm.dao.ProductDao;
 import ptithcm.entity.Product;
 
 import java.util.List;
-import org.hibernate.criterion.MatchMode;
 
 /**
  * @author Tuong

@@ -1,7 +1,5 @@
 package ptithcm.controller;
 
-import java.util.List;
-import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import ptithcm.entity.Product;
 import ptithcm.service.ProductService;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/product")
@@ -42,31 +42,31 @@ public class ProductController {
 
         return "customer/productList";
     }
-    @RequestMapping(value="/search/{pageNumber}.htm",method=RequestMethod.POST)
-    public String productSearch(@RequestParam("searchTerm")String searchTerm,@PathVariable Integer pageNumber,ModelMap model){
-		List<Product> page=productService.findAllProductByNameInStock(searchTerm, pageNumber);
-                long totalProducts = productService.getTotalProductByNameInStock(searchTerm);
-		
-                
-                int totalPages = (int) Math.ceil(totalProducts / 10.0); //mỗi page có 10 dòng
-                if (totalProducts == 0) totalPages = 1;
 
-                int currentPageNumber = pageNumber;
-                int beginIndex = Math.max(1, currentPageNumber - 6);
-                int endIndex = Math.min(beginIndex + 10, totalPages);
-                model.addAttribute("products", page);
-                model.addAttribute("totalPages", totalPages);
-                model.addAttribute("currentPageNumber", currentPageNumber);
-                model.addAttribute("beginIndex", beginIndex);
-                model.addAttribute("endIndex", endIndex);
-                
-                model.addAttribute("search","search");
-                return "customer/productList";
-	}
-	
-	
-	
-//	
+    @RequestMapping(value = "/search/{pageNumber}.htm", method = RequestMethod.POST)
+    public String productSearch(@RequestParam("searchTerm") String searchTerm, @PathVariable Integer pageNumber, ModelMap model) {
+        List<Product> page = productService.findAllProductByNameInStock(searchTerm, pageNumber);
+        long totalProducts = productService.getTotalProductByNameInStock(searchTerm);
+
+
+        int totalPages = (int) Math.ceil(totalProducts / 10.0); //mỗi page có 10 dòng
+        if (totalProducts == 0) totalPages = 1;
+
+        int currentPageNumber = pageNumber;
+        int beginIndex = Math.max(1, currentPageNumber - 6);
+        int endIndex = Math.min(beginIndex + 10, totalPages);
+        model.addAttribute("products", page);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("currentPageNumber", currentPageNumber);
+        model.addAttribute("beginIndex", beginIndex);
+        model.addAttribute("endIndex", endIndex);
+
+        model.addAttribute("search", "search");
+        return "customer/productList";
+    }
+
+
+    //
 //	
 //	
 //	
@@ -108,27 +108,28 @@ public class ProductController {
 //	
 //	
 //	
-	@RequestMapping("/productList.htm")
-	public String getAllProduct(ModelMap model){
-		int pageNumber=1;
-                List<Product> page=productService.getAllProductInStock(pageNumber);
-		long totalProducts=productService.getTotalProduct();
+    @RequestMapping("/productList.htm")
+    public String getAllProduct(ModelMap model) {
+        int pageNumber = 1;
+        List<Product> page = productService.getAllProductInStock(pageNumber);
+        long totalProducts = productService.getTotalProduct();
 
-                int totalPages=(int) Math.ceil(totalProducts/10.0); //mỗi page có 10 dòng
-                if (totalProducts==0) totalPages=1;
-                
-		int currentPageNumber=pageNumber;
-		int beginIndex=Math.max(1, currentPageNumber-6);
-		int endIndex=Math.min(beginIndex+10, totalPages);
-		
-		
-                model.addAttribute("products",page);
-		model.addAttribute("totalPages",totalPages);
-		model.addAttribute("currentPageNumber",currentPageNumber);
-		model.addAttribute("beginIndex",beginIndex);
-		model.addAttribute("endIndex",endIndex);
-                return "customer/productList";
-	}
+        int totalPages = (int) Math.ceil(totalProducts / 10.0); //mỗi page có 10 dòng
+        if (totalProducts == 0) totalPages = 1;
+
+        int currentPageNumber = pageNumber;
+        int beginIndex = Math.max(1, currentPageNumber - 6);
+        int endIndex = Math.min(beginIndex + 10, totalPages);
+
+
+        model.addAttribute("products", page);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("currentPageNumber", currentPageNumber);
+        model.addAttribute("beginIndex", beginIndex);
+        model.addAttribute("endIndex", endIndex);
+        return "customer/productList";
+    }
+
     @RequestMapping("/viewProduct/{productId}.htm")
     public String ProductDetailPage(@PathVariable("productId") long productId, Model model) {
 

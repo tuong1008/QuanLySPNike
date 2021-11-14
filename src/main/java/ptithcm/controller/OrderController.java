@@ -1,10 +1,5 @@
 package ptithcm.controller;
 
-import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,23 +8,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ptithcm.entity.Cart;
 import ptithcm.entity.Customer;
 import ptithcm.entity.CustomerOrder;
+import ptithcm.entity.Product;
+import ptithcm.exporter.OrderExcelExporter;
 import ptithcm.service.CartService;
 import ptithcm.service.CustomerOrderService;
 import ptithcm.service.CustomerService;
+import ptithcm.service.ProductService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.springframework.web.bind.annotation.GetMapping;
-import ptithcm.entity.CartItem;
-import ptithcm.entity.Product;
-import ptithcm.exporter.OrderExcelExporter;
-import ptithcm.service.ProductService;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 @Controller
 public class OrderController {
     @Autowired
     ProductService productService;
-    
+
     @Autowired
     private CustomerService customerService;
 
@@ -46,9 +44,9 @@ public class OrderController {
     public String createOrder(Model model, @PathVariable("cartId") long cartId, HttpServletRequest request) {
 
         Cart cart = cartService.getCartById(cartId);
-            
+
         Product productMakeError = cartService.checkAndUpdateProductsInCart(cart);
-        if (productMakeError==null) {
+        if (productMakeError == null) {
             CustomerOrder customerOrder = new CustomerOrder();
 
             customerOrder.setCart(cart);
@@ -72,27 +70,27 @@ public class OrderController {
             model.addAttribute("message", "Order Successfully!");
             return "customer/success_page";
         } else {
-            model.addAttribute("error", "Error! Unit in stock "+productMakeError.getProductName()+" is "+productMakeError.getUnitInStock());
+            model.addAttribute("error", "Error! Unit in stock " + productMakeError.getProductName() + " is " + productMakeError.getUnitInStock());
             return "customer/cart";
         }
     }
-    
+
     @RequestMapping("/order/excel.htm")
     public void exportToExcel(HttpServletResponse response) throws IOException {
         response.setContentType("application/octet-stream");
         DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
         String currentDateTime = dateFormatter.format(new Date());
-         
+
         String headerKey = "Content-Disposition";
         String headerValue = "attachment; filename=orders_" + currentDateTime + ".xlsx";
         response.setHeader(headerKey, headerValue);
-         
+
         List<CustomerOrder> listOrders = customerOrderService.getAllCustomerOrder();
-         
+
         OrderExcelExporter excelExporter = new OrderExcelExporter(listOrders);
-         
-        excelExporter.export(response);    
-    }  
+
+        excelExporter.export(response);
+    }
 //	public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
 //			Exception ex) {
 //		ModelAndView modelAndView=new ModelAndView();

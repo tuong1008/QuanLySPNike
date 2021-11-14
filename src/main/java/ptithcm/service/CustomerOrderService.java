@@ -18,14 +18,14 @@ public interface CustomerOrderService {
     CustomerOrder getCustomerOrderById(long customerOrderId);
 
     String removeCustomerOrder(CustomerOrder customerOrder);
-    
+
     List<CustomerOrder> getAllCustomerOrder();
-    
+
     List<CustomerOrder> getAllCustomerOrders(Integer pageNumber);
-    
+
     long getTotalCustomerOrders();
-    
+
     List<CustomerOrder> findAllOrderByUsernameOrEmail(String searchTerm, int pageNumber);
-    
+
     long getTotalOrderByUsernameOrEmail(String searchTerm);
 }

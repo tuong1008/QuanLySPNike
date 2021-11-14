@@ -7,14 +7,13 @@ package poly.interceptor;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import ptithcm.exceptions.PageNotFoundException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
-import ptithcm.exceptions.PageNotFoundException;
 
 @Transactional
 public class LoggerInterceptor extends HandlerInterceptorAdapter {
@@ -31,22 +30,19 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
          */
         System.out.println("LoggerIntercep preHandle");
         HttpSession session = request.getSession();
-        String updateParam=request.getParameter("update");
-        if (session.getAttribute("username") == null){
-            if ((request.getRequestURI().equals("/NikeShop/register.htm")&&updateParam==null)
-                    ||request.getRequestURI().equals("/NikeShop/login.htm")){
+        String updateParam = request.getParameter("update");
+        if (session.getAttribute("username") == null) {
+            if ((request.getRequestURI().equals("/NikeShop/register.htm") && updateParam == null)
+                    || request.getRequestURI().equals("/NikeShop/login.htm")) {
                 return true;
-            }
-            else {
+            } else {
                 response.sendRedirect(request.getContextPath() + "/login.htm");
                 return false;
             }
-        }
-        else if (request.getRequestURI().equals("/NikeShop/login.htm")
-                ||(request.getRequestURI().equals("/NikeShop/register.htm")&&updateParam==null)){
+        } else if (request.getRequestURI().equals("/NikeShop/login.htm")
+                || (request.getRequestURI().equals("/NikeShop/register.htm") && updateParam == null)) {
             throw new PageNotFoundException("Logout Required!");
-        }
-        else{
+        } else {
             return true;
         }
     }

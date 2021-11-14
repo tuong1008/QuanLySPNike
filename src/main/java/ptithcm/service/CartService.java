@@ -19,6 +19,6 @@ public interface CartService {
     String removeCart(Cart cart);
 
     Cart getCartById(long cartId);
-    
+
     Product checkAndUpdateProductsInCart(Cart cart);
 }

@@ -14,5 +14,6 @@ import ptithcm.entity.Product;
 
 public interface CartDao extends GenericDao<Cart> {
     Cart findOne(long cartId);
+
     Product checkAndUpdateProductsInCart(Cart cart);
 }

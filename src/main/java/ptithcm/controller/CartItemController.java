@@ -16,6 +16,7 @@ import ptithcm.service.ProductService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+
 @Controller
 @RequestMapping("/rest/cart")
 public class CartItemController {
@@ -102,24 +103,23 @@ public class CartItemController {
         cartItemService.deleteCartItem(cartItem);
 //		System.out.println("c:hpoihpoifihihitih-----------");
     }
-	
-	
-	//REMOVE CART/CLEAR CART
-	
-	@RequestMapping(value="/{cartId}.htm",method=RequestMethod.DELETE)
-	@ResponseStatus(value=HttpStatus.OK)
-	public void clearCart(HttpServletRequest request, @PathVariable(value="cartId")int cartId){
-            String activeUser = request.getSession().getAttribute("username").toString();
-            Customer customer = customerService.findCustomerByUsername(activeUser);
 
-            
-            
-            Cart cart = customer.getCart();
-            cart.setGrandTotal(0);
 
-            cartService.updateCart(cart);
-            cartItemService.removeAllCartItems(cartId);
-	}
+    //REMOVE CART/CLEAR CART
+
+    @RequestMapping(value = "/{cartId}.htm", method = RequestMethod.DELETE)
+    @ResponseStatus(value = HttpStatus.OK)
+    public void clearCart(HttpServletRequest request, @PathVariable(value = "cartId") int cartId) {
+        String activeUser = request.getSession().getAttribute("username").toString();
+        Customer customer = customerService.findCustomerByUsername(activeUser);
+
+
+        Cart cart = customer.getCart();
+        cart.setGrandTotal(0);
+
+        cartService.updateCart(cart);
+        cartItemService.removeAllCartItems(cartId);
+    }
 //
 //	
 //	//EXCEPTION HANDLING

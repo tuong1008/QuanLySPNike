@@ -8,16 +8,13 @@ package ptithcm.daoImpl;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.MatchMode;
+import org.springframework.beans.factory.annotation.Autowired;
 import ptithcm.dao.CustomerOrderDao;
+import ptithcm.dao.ProductDao;
 import ptithcm.entity.CustomerOrder;
 
 import java.util.List;
-import org.hibernate.criterion.MatchMode;
-import org.springframework.beans.factory.annotation.Autowired;
-import ptithcm.dao.ProductDao;
-import ptithcm.entity.CartItem;
-import ptithcm.entity.Customer;
-import ptithcm.entity.Product;
 
 /**
  * @author Tuong
@@ -26,7 +23,7 @@ public class CustomerOrderDaoImpl extends AbstractDao<CustomerOrder> implements 
 
     @Autowired
     private ProductDao productDao;
-    
+
     @Override
     public List<CustomerOrder> findAll() {
         Session session = sessionFactory.getCurrentSession();

@@ -13,7 +13,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private CustomerDao customerDao;
 
-//	@Autowired
+    //	@Autowired
 //  private PasswordEncoder passwordEncoder;
     @Override
     public String addCustomer(Customer customer) {

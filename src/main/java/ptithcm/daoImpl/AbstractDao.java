@@ -5,7 +5,6 @@
  */
 package ptithcm.daoImpl;
 
-import java.sql.SQLException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
