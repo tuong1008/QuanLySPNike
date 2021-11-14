@@ -19,6 +19,8 @@ public interface CustomerOrderService {
 
     String removeCustomerOrder(CustomerOrder customerOrder);
     
+    List<CustomerOrder> getAllCustomerOrder();
+    
     List<CustomerOrder> getAllCustomerOrders(Integer pageNumber);
     
     long getTotalCustomerOrders();

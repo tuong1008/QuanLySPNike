@@ -24,8 +24,6 @@ import ptithcm.service.ProductService;
  */
 @Transactional
 public class CartDaoImpl extends AbstractDao<Cart> implements CartDao {
-    @Autowired
-    SessionFactory sessionFactory;
     
     @Autowired
     ProductService productService;

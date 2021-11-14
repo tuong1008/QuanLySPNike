@@ -17,6 +17,13 @@
                             <h1>Receipt</h1>
                         </div>
                         <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 text-end">
+                                <strong>Time Order</strong><br/>
+                                        <fmt:formatDate pattern = "HH:mm:ss dd/MM/yyyy" 
+                                        value = "${order.timeOrder}"/>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <address>
                                     <strong>Shipping Address</strong><br/>

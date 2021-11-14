@@ -1,5 +1,9 @@
 package ptithcm.controller;
 
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,8 +18,11 @@ import ptithcm.service.CustomerOrderService;
 import ptithcm.service.CustomerService;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.springframework.web.bind.annotation.GetMapping;
 import ptithcm.entity.CartItem;
 import ptithcm.entity.Product;
+import ptithcm.exporter.OrderExcelExporter;
 import ptithcm.service.ProductService;
 
 @Controller
@@ -48,6 +55,7 @@ public class OrderController {
             String username = request.getSession().getAttribute("username").toString();
             Customer customer = customerService.findCustomerByUsername(username);
 
+            customerOrder.setTimeOrder(new Date(System.currentTimeMillis()));
             customerOrder.setCustomer(customer);
             customerOrder.setBillingAddress(customer.getBillingAddress());
             customerOrder.setShippingAddress(customer.getShippingAddress());
@@ -68,6 +76,23 @@ public class OrderController {
             return "customer/cart";
         }
     }
+    
+    @RequestMapping("/order/excel.htm")
+    public void exportToExcel(HttpServletResponse response) throws IOException {
+        response.setContentType("application/octet-stream");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+         
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=orders_" + currentDateTime + ".xlsx";
+        response.setHeader(headerKey, headerValue);
+         
+        List<CustomerOrder> listOrders = customerOrderService.getAllCustomerOrder();
+         
+        OrderExcelExporter excelExporter = new OrderExcelExporter(listOrders);
+         
+        excelExporter.export(response);    
+    }  
 //	public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
 //			Exception ex) {
 //		ModelAndView modelAndView=new ModelAndView();

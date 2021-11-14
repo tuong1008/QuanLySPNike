@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="/WEB-INF/views/template/header.jsp" %>
 <c:url var="firstUrl" value="/admin/customerOrder/1.htm"/>
 <c:url var="lastUrl" value="/admin/customerOrder/${totalPages}.htm"/>
@@ -14,6 +15,7 @@
             <c:if test="${not empty search}">
                 <a class="btn btn-primary" href="<c:url value="/admin/customerOrder/1.htm"/>">See All Orders</a>
             </c:if>
+            <a class="btn btn-primary pull-right" href="<c:url value="/order/excel.htm"/>">Export Excel</a>
         </div>
         <div class="container">
             <div class=row>
@@ -36,14 +38,14 @@
         <table class="table table-striped table-hover" data-sortable>
             <thead>
             <tr class="bg-success">
-                <th>SL No.</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Username</th>
-                <th data-sortable="false">Enabled</th>
-                <th data-sortable="false">Orderdetails</th>
-                <th data-sortable="false">Operation</th>
+                <th style="width: 7%">SL No.</th>
+                <th style="width: 12.5%">Name</th>
+                <th style="width: 12.5%">Email</th>
+                <th style="width: 12.5%">Phone</th>
+                <th style="width: 12.5%">Username</th>
+                <th style="width: 18%">Time Order</th>
+                <th style="width: 12.5%" data-sortable="false">Orderdetails</th>
+                <th style="width: 12.5%" data-sortable="false">Operation</th>
             </tr>
             </thead>
             <c:forEach items="${orders}" var="order">
@@ -53,7 +55,8 @@
                     <td>${order.customer.customerEmailAddress}</td>
                     <td>${order.customer.customerPhoneNumber}</td>
                     <td>${order.customer.username}</td>
-                    <td>${order.customer.enabled}</td>
+                    <td><fmt:formatDate pattern = "HH:mm:ss dd/MM/yyyy" 
+                        value = "${order.timeOrder}"/></td>
                     <td><a class="btn btn-info"
                            href=" <spring:url value="/admin/customerOrder/productList/${order.customerOrderId}.htm"/>">See
                         Receipt</a></td>

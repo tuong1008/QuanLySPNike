@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import ptithcm.entity.CartItem;
 import ptithcm.entity.Customer;
 import ptithcm.entity.CustomerOrder;
 import ptithcm.entity.Product;
@@ -161,13 +162,21 @@ public class AdminHome {
     @RequestMapping("/customerOrder/deleteOrder/{customerOrderId}.htm")
     public String deleteCustomerOrder(@PathVariable("customerOrderId") long customerOrderId, ModelMap model) {
         CustomerOrder customerOrder = customerOrderService.getCustomerOrderById(customerOrderId);
+        List<CartItem> listItem = customerOrder.getCart().getCartItem();
+
+        for (CartItem item : listItem) {
+            Product product = item.getProduct();
+            product.setUnitInStock(product.getUnitInStock() + item.getQuantity());
+            productService.updateProduct(product);
+            cartItemService.deleteCartItem(item);
+        }
 
         customerOrderService.removeCustomerOrder(customerOrder);
         cartService.removeCart(customerOrder.getCart());
         shippingAddressService.removeShippingAddress(customerOrder.getShippingAddress());
         billingAddressService.removeBillingAddress(customerOrder.getBillingAddress());
 
-        return "redirect:/admin/customerOrder.htm";
+        return "redirect:/admin/customerOrder/1.htm";
     }
 
     @RequestMapping("/customerOrder/productList/{customerOrderId}.htm")
