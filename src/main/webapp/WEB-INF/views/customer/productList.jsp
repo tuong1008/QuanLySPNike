@@ -10,14 +10,14 @@
             <div class="col-md-3">
                 <h1 class="Product-category">Product Category</h1>
                 <div class="list-group popular-product">
-                    <a href="<c:url  value="/product/productList/Lifestyle/1.htm"/>" class="list-group-item">Lifestyle Shoes</a>
-                    <a href="<c:url  value="/product/productList/Running/1.htm"/>" class="list-group-item">Running Shoes</a>
-                    <a href="<c:url  value="/product/productList/Football/1.htm"/>" class="list-group-item">Football Boots</a>
-                    <a href="<c:url  value="/product/productList/TShirts/1.htm"/>" class="list-group-item">T-Shirts</a>
-                    <a href="<c:url  value="/product/productList/LongSleeve/1.htm"/>" class="list-group-item">Long Sleeve Shirts</a>
-                    <a href="<c:url  value="/product/productList/Sleeveless/1.htm"/>" class="list-group-item">Sleeveless & Tank Tops</a>
-                    <a href="<c:url  value="/product/productList/Polos/1.htm"/>" class="list-group-item">Polos</a>
-                    <a href="<c:url  value="/product/productList/Shorts/1.htm"/>" class="list-group-item">Shorts</a>
+                    <a href="<c:url value="/product/productList/Lifestyle/1.htm"/>" class="list-group-item">Lifestyle Shoes</a>
+                    <a href="<c:url value="/product/productList/Running/1.htm"/>" class="list-group-item">Running Shoes</a>
+                    <a href="<c:url value="/product/productList/Football/1.htm"/>" class="list-group-item">Football Boots</a>
+                    <a href="<c:url value="/product/productList/TShirts/1.htm"/>" class="list-group-item">T-Shirts</a>
+                    <a href="<c:url value="/product/productList/LongSleeve/1.htm"/>" class="list-group-item">Long Sleeve Shirts</a>
+                    <a href="<c:url value="/product/productList/Sleeveless/1.htm"/>" class="list-group-item">Sleeveless & Tank Tops</a>
+                    <a href="<c:url value="/product/productList/Polos/1.htm"/>" class="list-group-item">Polos</a>
+                    <a href="<c:url value="/product/productList/Shorts/1.htm"/>" class="list-group-item">Shorts</a>
                 </div>
             </div>
             <div class="jumbotron col-md-6">
@@ -27,14 +27,14 @@
             <div class="col-md-3">
                 <h1 class="Product-category">Product Category</h1>
                 <div class="list-group popular-product">
-                    <a href="<c:url  value="/product/productList/Jogger/1.htm"/>" class="list-group-item">Jogger Pants</a>
-                    <a href="<c:url  value="/product/productList/Bags/1.htm"/>" class="list-group-item">Bags</a>
-                    <a href="<c:url  value="/product/productList/Hats/1.htm"/>" class="list-group-item ">Hats</a>
-                    <a href="<c:url  value="/product/productList/Socks/1.htm"/>" class="list-group-item">Socks</a>
-                    <a href="<c:url  value="/product/productList/Trousers/1.htm"/>" class="list-group-item">Trousers</a>
-                    <a href="<c:url  value="/product/productList/Training/1.htm"/>" class="list-group-item">Training & Gym Shoes</a>
-                    <a href="<c:url  value="/product/productList/Athletics/1.htm"/>" class="list-group-item">Athletics Shoes</a>
-                    <a href="<c:url  value="/product/productList/Sandals/1.htm"/>" class="list-group-item">Sandals & Slides</a>
+                    <a href="<c:url value="/product/productList/Jogger/1.htm"/>" class="list-group-item">Jogger Pants</a>
+                    <a href="<c:url value="/product/productList/Bags/1.htm"/>" class="list-group-item">Bags</a>
+                    <a href="<c:url value="/product/productList/Hats/1.htm"/>" class="list-group-item ">Hats</a>
+                    <a href="<c:url value="/product/productList/Socks/1.htm"/>" class="list-group-item">Socks</a>
+                    <a href="<c:url value="/product/productList/Trousers/1.htm"/>" class="list-group-item">Trousers</a>
+                    <a href="<c:url value="/product/productList/Training/1.htm"/>" class="list-group-item">Training & Gym Shoes</a>
+                    <a href="<c:url value="/product/productList/Athletics/1.htm"/>" class="list-group-item">Athletics Shoes</a>
+                    <a href="<c:url value="/product/productList/Sandals/1.htm"/>" class="list-group-item">Sandals & Slides</a>
                 </div>
             </div>
         </div>
@@ -78,7 +78,7 @@
                                 <div class="product-desc">
                                     <h2>${product.productName}</h2>
                                     <h3>${product.productPrice} USD</h3>
-                                    <a href=" <c:url  value="/product/viewProduct/${product.productId}.htm"/>"
+                                    <a href=" <c:url value="/product/viewProduct/${product.productId}.htm"/>"
                                        class="btn btn-info btn-lg">View Detail</a>
                                 </div>
                             </div>
@@ -91,35 +91,48 @@
             <ul class="pagination">
                 <c:choose>
                     <c:when test="${currentPageNumber == 1}">
-                        <li class="page-item disabled"><a class="page-link" href=""><i class="fa fa-fast-backward" aria-hidden="true"></i></a></li>
-                        <li class="page-item disabled"><a class="page-link" href=""><i class="fa fa-step-backward" aria-hidden="true"></i></a></li>
-                            </c:when>
-                            <c:otherwise>
-                        <li class="page-item"><a class="page-link" href="${firstUrl}"><i class="fa fa-fast-backward" aria-hidden="true"></i></a></li>
-                        <li class="page-item"><a class="page-link" href="${prevUrl}"><i class="fa fa-step-backward" aria-hidden="true"></i></a></li>
-                            </c:otherwise>
-                        </c:choose>
-                        <c:forEach var="i" begin="${beginIndex}" end="${endIndex}">
-                            <c:url var="pageUrl" value="/product/productList/${productCategory}/${i}.htm"/>
-                            <c:choose>
-                                <c:when test="${i == currentPageNumber}">
-                            <li class="page-item active"><a class="page-link" href="${pageUrl}"><c:out value="${i}"/></a></li>
-                            </c:when>
-                            <c:otherwise>
-                            <li class="page-item"><a class="page-link" href="${pageUrl}"><c:out value="${i}"/></a></li>
-                            </c:otherwise>
-                        </c:choose>
-                    </c:forEach>
+                        <li class="page-item disabled">
+                            <a class="page-link" href=""><i class="fa fa-fast-backward" aria-hidden="true"></i></a></li>
+                        <li class="page-item disabled">
+                            <a class="page-link" href=""><i class="fa fa-step-backward" aria-hidden="true"></i></a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="page-item">
+                            <a class="page-link" href="${firstUrl}"><i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="${prevUrl}"><i class="fa fa-step-backward" aria-hidden="true"></i></a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
+                <c:forEach var="i" begin="${beginIndex}" end="${endIndex}">
+                    <c:url var="pageUrl" value="/product/productList/${productCategory}/${i}.htm"/>
                     <c:choose>
-                        <c:when test="${currentPageNumber == totalPages}">
-                        <li class="page-item disabled"><a class="page-link" href=""><i class="fa fa-step-forward" aria-hidden="true"></i></a></li>
-                        <li class="page-item disabled"><a class="page-link" href=""><i class="fa fa-fast-forward" aria-hidden="true"></i></a></li>
-                            </c:when>
-                            <c:otherwise>
-                        <li class="page-item"><a class="page-link" href="${nextUrl}"><i class="fa fa-step-forward" aria-hidden="true"></i></a></li>
-                        <li class="page-item"><a class="page-link" href="${lastUrl}"><i class="fa fa-fast-forward" aria-hidden="true"></i></a></li>
-                            </c:otherwise>
-                        </c:choose>
+                        <c:when test="${i == currentPageNumber}">
+                            <li class="page-item active">
+                                <a class="page-link" href="${pageUrl}"><c:out value="${i}"/></a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li class="page-item"><a class="page-link" href="${pageUrl}"><c:out value="${i}"/></a></li>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+                <c:choose>
+                    <c:when test="${currentPageNumber == totalPages}">
+                        <li class="page-item disabled">
+                            <a class="page-link" href=""><i class="fa fa-step-forward" aria-hidden="true"></i></a></li>
+                        <li class="page-item disabled">
+                            <a class="page-link" href=""><i class="fa fa-fast-forward" aria-hidden="true"></i></a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="page-item">
+                            <a class="page-link" href="${nextUrl}"><i class="fa fa-step-forward" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="${lastUrl}"><i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
             </ul>
         </div>
     </div>

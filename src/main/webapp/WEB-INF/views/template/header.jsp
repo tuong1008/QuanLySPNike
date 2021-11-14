@@ -6,7 +6,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="resources/images/favicon.ico">
@@ -18,11 +17,11 @@
             <title>Nike Online Shop</title>
         </c:otherwise>
     </c:choose>
-    <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="<c:url value="/resources/css/main.css"/>" rel="stylesheet">
-    <link href="<c:url value="/resources/css/style.css"/>" rel="stylesheet">
-    <link href="<c:url value="/resources/css/sortable-theme-minimal.css"/>" rel="stylesheet">
+    <link href="resources/css/main.css" rel="stylesheet">
+    <link href="resources/css/style.css" rel="stylesheet">
+    <link href="resources/css/sortable-theme-minimal.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
     <base href="${pageContext.servletContext.contextPath}/">
 </head>

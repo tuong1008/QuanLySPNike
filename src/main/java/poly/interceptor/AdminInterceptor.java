@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import ptithcm.exceptions.PageNotFoundException;
+import ptithcm.exceptions.UnauthorizedException;
 import ptithcm.service.AuthoritiesService;
 
 /**
@@ -33,6 +34,6 @@ public class AdminInterceptor extends HandlerInterceptorAdapter{
                 return true;
             }
         }
-        throw new PageNotFoundException("This page is for admins only!");
+        throw new UnauthorizedException("This page is for admins only!");
     }
 }

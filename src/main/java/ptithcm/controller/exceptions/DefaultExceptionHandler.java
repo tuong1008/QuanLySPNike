@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import ptithcm.exceptions.PageNotFoundException;
+import ptithcm.exceptions.UnauthorizedException;
 
 @ControllerAdvice
 public class DefaultExceptionHandler {
@@ -23,5 +24,13 @@ public class DefaultExceptionHandler {
 //        System.out.println("Page not found");
 //        return "error/500";
 //    }
+
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ExceptionHandler(value = UnauthorizedException.class)
+    public String handle401(Exception e, Model model) {
+        System.out.println("Unauthorized");
+        model.addAttribute("message", e.getMessage());
+        return "error/401";
+    }
 
 }
