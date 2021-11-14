@@ -60,4 +60,8 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
         return customerOrderDao.getTotalOrderByUsernameOrEmail(string);
     }
 
+    public long getTotalOrderByCustomerId(long customerId) {
+        return customerOrderDao.getTotalOrderByCustomerId(customerId);
+    }
+
 }

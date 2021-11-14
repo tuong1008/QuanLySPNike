@@ -28,4 +28,6 @@ public interface CustomerOrderService {
     List<CustomerOrder> findAllOrderByUsernameOrEmail(String searchTerm, int pageNumber);
 
     long getTotalOrderByUsernameOrEmail(String searchTerm);
+
+    long getTotalOrderByCustomerId(long customerId);
 }

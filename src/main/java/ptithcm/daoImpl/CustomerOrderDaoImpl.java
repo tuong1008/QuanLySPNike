@@ -116,4 +116,15 @@ public class CustomerOrderDaoImpl extends AbstractDao<CustomerOrder> implements 
         return results;
     }
 
+    public long getTotalOrderByCustomerId(long customerId) {
+        Session session = sessionFactory.getCurrentSession();
+        String hql = "select count(*) FROM CustomerOrder t WHERE t.cutomerid=:customerId";
+        Transaction t = session.beginTransaction();
+        Query query = session.createQuery(hql);
+        query.setParameter("customerId", customerId);
+        long results = (long) query.uniqueResult();
+        t.commit();
+
+        return results;
+    }
 }

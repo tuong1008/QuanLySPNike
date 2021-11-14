@@ -11,6 +11,7 @@ import ptithcm.entity.CartItem;
 import ptithcm.entity.Customer;
 import ptithcm.entity.CustomerOrder;
 import ptithcm.entity.Product;
+import ptithcm.exceptions.PageNotFoundException;
 import ptithcm.service.*;
 
 import java.util.List;
@@ -115,6 +116,22 @@ public class AdminHome {
         model.addAttribute("customer", customer);
 
         return "admin/customerAddr";
+    }
+
+    @RequestMapping("/customerManagement/delete/{customerId}")
+    public String deleteCustomer(@PathVariable("customerId") long customerId, ModelMap model) throws PageNotFoundException {
+        Customer customer = customerService.getCustomerById(customerId);
+
+        if (customer == null) {
+            throw new PageNotFoundException("Customer doesn't exist");
+        } else if (customerOrderService.getTotalOrderByCustomerId(customerId) == 0) {
+            customerService.deleteCustomer(customer);
+        } else {
+            customer.setEnabled(false);
+            customerService.updateCustomer(customer);
+            model.addAttribute("message", "Delete successfully");
+        }
+        return "redirect:/admin/customerManagement.htm";
     }
 
     @RequestMapping("/customerOrder/{pageNumber}.htm")

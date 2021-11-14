@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <base href="${pageContext.servletContext.contextPath}/">
     <link rel="icon" href="resources/images/favicon.ico">
     <c:choose>
         <c:when test="${!empty param.title}">
@@ -23,7 +24,6 @@
     <link href="resources/css/style.css" rel="stylesheet">
     <link href="resources/css/sortable-theme-minimal.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
-    <base href="${pageContext.servletContext.contextPath}/">
 </head>
 <body>
     <div style="min-height: 95vh">
