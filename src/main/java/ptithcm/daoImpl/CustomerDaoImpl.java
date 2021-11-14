@@ -81,7 +81,7 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
     @Override
     public List<Customer> getAllCustomers(Integer pageNumber) {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "FROM Customer C";
+        String hql = "FROM Customer C where C.username<>'admin'";
         Transaction t = session.beginTransaction();
         Query query = session.createQuery(hql);
         query.setFirstResult((pageNumber - 1) * 10); //trang 1, từ 0
@@ -110,7 +110,7 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
     @Override
     public List<Customer> findAllCustomerByUsernameOrEmail(String searchTerm, int pageNumber) {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "FROM Customer t WHERE t.username LIKE :searchTerm OR t.customerEmailAddress LIKE :searchTerm";
+        String hql = "FROM Customer t WHERE (t.username LIKE :searchTerm OR t.customerEmailAddress LIKE :searchTerm) and t.username<>'admin'";
         Transaction t = session.beginTransaction();
         Query query = session.createQuery(hql);
         query.setParameter("searchTerm", MatchMode.ANYWHERE.toMatchString(searchTerm));
