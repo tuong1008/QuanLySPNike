@@ -29,7 +29,7 @@
     <div style="min-height: 95vh">
     <nav class="px-3 navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="">
-            <img src="<c:url value="/resources/images/nike-logo.svg"/>" alt="logo" class="logo">
+            <img src="resources/images/nike-logo.svg" alt="logo" class="logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,14 +39,14 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item active">
                     <c:if test="${sessionScope.username =='admin'}">
-                        <a class="nav-link" href="<c:url value="/admin/home.htm"/>">Home</a>
+                        <a class="nav-link" href="admin/home.htm">Home</a>
                     </c:if>
                     <c:if test="${sessionScope.username !='admin'}">
-                        <a class="nav-link" href="<c:url value="/trang-chu.htm" />">Home</a>
+                        <a class="nav-link" href="trang-chu.htm" >Home</a>
                     </c:if>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/product/productList.htm" />">Products</a>
+                    <a class="nav-link" href="product/productList.htm" >Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
@@ -63,19 +63,22 @@
                         </a>
                     <c:if test="${sessionScope.username!='admin'}">
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="<c:url value="/customer/update.htm"/>">Update Account</a></li>
+                            <li><a class="dropdown-item" href="customer/update.htm">Update Account</a></li>
                         </ul>
                     </c:if>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="<c:url value="/logout.htm" />">Logout</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.htm" >Logout</a>
+                        <i class="fa fa-sign-out"></i>
+                    </li>
                     <c:if test="${sessionScope.username!='admin'}">
-                        <li class="nav-item"><a class="nav-link" href="<c:url value="/customer/cart.htm"/>">Cart</a>
+                        <li class="nav-item"><a class="nav-link" href="customer/cart.htm">Cart</a>
                         </li>
                     </c:if>
                 </c:if>
                 <c:if test="${sessionScope.username == null}">
-                    <li class="nav-item"><a class="nav-link" href="<c:url value="/login.htm"/>">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<c:url value="/register.htm"/>">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.htm">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.htm">Register</a></li>
                 </c:if>
             </ul>
         </div>

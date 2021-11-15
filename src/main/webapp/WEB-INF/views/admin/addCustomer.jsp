@@ -1,9 +1,11 @@
-<%@include file="/WEB-INF/views/template/header.jsp" %>
+<jsp:include flush="true" page="/WEB-INF/views/template/header.jsp">
+    <jsp:param name="title" value="Register"/>
+</jsp:include>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header title">
-            <h1>Register Customer</h1>
+            <h1>Register new customer</h1>
             <p class="lead">Fill the below information to create account</p>
         </div>
         <div class="form-layout">
@@ -37,9 +39,8 @@
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="customerName">Name :</label>
                     <div class="col-xs-9">
-                        <form:input path="customerName" class="form-control" placeholder="Enter Full Name"
+                        <form:input path="customerName" class="form-control" placeholder="Full Name"
                                     id="customerName"/>
                     </div>
                 </div>
@@ -50,9 +51,8 @@
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="customerEmailAddress">Email Address :</label>
                     <div class="col-xs-9">
-                        <form:input path="customerEmailAddress" class="form-control" placeholder="Enter Email Address"
+                        <form:input path="customerEmailAddress" class="form-control" placeholder="Email Address"
                                     id="customerEmailAddress"/>
                     </div>
                 </div>
@@ -63,9 +63,8 @@
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="custometPhoneNumber">Phone Number:</label>
                     <div class="col-xs-9">
-                        <form:input path="custometPhoneNumber" class="form-control" placeholder="Enter Phone Number"
+                        <form:input path="custometPhoneNumber" class="form-control" placeholder="Phone Number"
                                     id="custometPhoneNumber"/>
                     </div>
                 </div>
@@ -76,9 +75,8 @@
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="username">Username:</label>
                     <div class="col-xs-9">
-                        <form:input path="username" class="form-control" placeholder="Enter username" id="username"/>
+                        <form:input path="username" class="form-control" placeholder="username" id="username"/>
                     </div>
                 </div>
                 <div class="row">
@@ -88,9 +86,8 @@
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="password">Password:</label>
                     <div class="col-xs-9">
-                        <form:password path="password" class="form-control" placeholder="Enter password" id="password"/>
+                        <form:password path="password" class="form-control" placeholder="password" id="password"/>
                     </div>
                 </div>
                 <div class="form-group has-success">
@@ -102,14 +99,13 @@
                 <div class="row">
                     <label class="col-xs-3 control-label" for="customerName"></label>
                     <div class="col-xs-9">
-                        <form:errors path="billingAddress.strretName" cssStyle="color: #ff0000"/>
+                        <form:errors path="billingAddress.streetName" cssStyle="color: #ff0000"/>
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="billingAddress.strretName">Street Name:</label>
                     <div class="col-xs-9">
                         <form:input path="billingAddress.strretName" class="form-control"
-                                    placeholder="Enter Street Name" id="billingAddress.strretName"/>
+                                    placeholder="Street Name" id="billingAddress.strretName"/>
                     </div>
                 </div>
                 <div class="row">
@@ -119,10 +115,9 @@
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="billingAddress.apartmentNumber">Apartment Number:</label>
                     <div class="col-xs-9">
                         <form:input path="billingAddress.apartmentNumber" class="form-control"
-                                    placeholder="Enter Apartment Number" id="billingAddress.apartmentNumber"/>
+                                    placeholder="Apartment Number" id="billingAddress.apartmentNumber"/>
                     </div>
                 </div>
                 <div class="row">
@@ -132,9 +127,8 @@
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="billingAddress.city">City:</label>
                     <div class="col-xs-9">
-                        <form:input path="billingAddress.city" class="form-control" placeholder="Enter City"
+                        <form:input path="billingAddress.city" class="form-control" placeholder="City"
                                     id="billingAddress.city"/>
                     </div>
                 </div>
@@ -145,9 +139,8 @@
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="billingAddress.state">State:</label>
                     <div class="col-xs-9">
-                        <form:input path="billingAddress.state" class="form-control" placeholder="Enter State"
+                        <form:input path="billingAddress.state" class="form-control" placeholder="State"
                                     id="billingAddress.state"/>
                     </div>
                 </div>
@@ -158,9 +151,8 @@
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="billingAddress.country">Country:</label>
                     <div class="col-xs-9">
-                        <form:input path="billingAddress.country" class="form-control" placeholder="Enter Country"
+                        <form:input path="billingAddress.country" class="form-control" placeholder="Country"
                                     id="billingAddress.country"/>
                     </div>
                 </div>
@@ -171,9 +163,8 @@
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="billingAddress.zipCode">Zip Code:</label>
                     <div class="col-xs-9">
-                        <form:input path="billingAddress.zipCode" class="form-control" placeholder="Enter Zip Code"
+                        <form:input path="billingAddress.zipCode" class="form-control" placeholder="Zip Code"
                                     id="billingAddress.zipCode"/>
                     </div>
                 </div>
@@ -190,10 +181,9 @@
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="shippingAddress.strretName">Street Name:</label>
                     <div class="col-xs-9">
                         <form:input path="shippingAddress.strretName" class="form-control"
-                                    placeholder="Enter Street Name" id="shippingAddress.strretName"/>
+                                    placeholder="Street Name" id="shippingAddress.strretName"/>
                     </div>
                 </div>
                 <div class="row">
@@ -203,11 +193,9 @@
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="shippingAddress.apartmentNumber">Apartment
-                        Number:</label>
                     <div class="col-xs-9">
                         <form:input path="shippingAddress.apartmentNumber" class="form-control"
-                                    placeholder="Enter Apartment Number" id="shippingAddress.apartmentNumber"/>
+                                    placeholder="Apartment Number" id="shippingAddress.apartmentNumber"/>
                     </div>
                 </div>
                 <div class="row">
@@ -217,9 +205,8 @@
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="shippingAddress.city">City:</label>
                     <div class="col-xs-9">
-                        <form:input path="shippingAddress.city" class="form-control" placeholder="Enter City"
+                        <form:input path="shippingAddress.city" class="form-control" placeholder="City"
                                     id="shippingAddress.city"/>
                     </div>
                 </div>
@@ -230,9 +217,8 @@
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="shippingAddress.state">State:</label>
                     <div class="col-xs-9">
-                        <form:input path="shippingAddress.state" class="form-control" placeholder="Enter State"
+                        <form:input path="shippingAddress.state" class="form-control" placeholder="State"
                                     id="shippingAddress.state"/>
                     </div>
                 </div>
@@ -245,7 +231,7 @@
                 <div class="form-group has-success">
                     <label class="col-xs-3 control-label" for="shippingAddress.country">Country:</label>
                     <div class="col-xs-9">
-                        <form:input path="shippingAddress.country" class="form-control" placeholder="Enter Country"
+                        <form:input path="shippingAddress.country" class="form-control" placeholder="Country"
                                     id="shippingAddress.country"/>
                     </div>
                 </div>
@@ -256,18 +242,16 @@
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="shippingAddress.zipCode">Zip Code:</label>
                     <div class="col-xs-9">
-                        <form:input path="shippingAddress.zipCode" class="form-control" placeholder="Enter Zip Code"
+                        <form:input path="shippingAddress.zipCode" class="form-control" placeholder="Zip Code"
                                     id="shippingAddress.zipCode"/>
                     </div>
                 </div>
-                <div class="form-group has-success">
-                    <label class="col-xs-3 control-label"></label>
-                    <div class="col-xs-9">
-                        <input type="submit" value="Submit" class="btn btn-default">
-                        <a href="<c:url value="/" />" class="btn btn-default">Cancel</a>
+                <div class="col-xs-9">
+                    <div class="d-flex justify-content-center">
+                        <input type="submit" value="Submit" class="btn btn-dark btn-primary">
                     </div>
+                    <p class="text-center text-muted mt-5 mb-0">Already have an account? <a href="login.htm" class="fw-bold text-body"><u>Login</u></a></p>
                 </div>
             </form:form>
         </div>

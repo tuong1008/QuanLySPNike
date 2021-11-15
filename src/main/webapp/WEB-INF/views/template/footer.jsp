@@ -23,7 +23,7 @@
         </div>
         <div class="text-center p-3">
             <i class="fa fa-copyright"></i>2021 Copyright:
-            <a class="text-white" href="https://mdbootstrap.com/">NikeShop.vn</a>
+            <a class="text-white" href="">NikeShop.vn</a>
         </div>
     </footer>
 </div>
