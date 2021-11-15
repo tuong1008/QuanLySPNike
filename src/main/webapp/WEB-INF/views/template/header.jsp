@@ -26,7 +26,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
 </head>
 <body>
-    <div style="min-height: 95vh">
+<div class="main">
     <nav class="px-3 navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="">
             <img src="resources/images/nike-logo.svg" alt="logo" class="logo">
@@ -42,11 +42,11 @@
                         <a class="nav-link" href="admin/home.htm">Home</a>
                     </c:if>
                     <c:if test="${sessionScope.username !='admin'}">
-                        <a class="nav-link" href="trang-chu.htm" >Home</a>
+                        <a class="nav-link" href="trang-chu.htm">Home</a>
                     </c:if>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="product/productList.htm" >Products</a>
+                    <a class="nav-link" href="product/productList.htm">Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
@@ -61,14 +61,14 @@
                         <a class="nav-link" id="navbarDropdownMenuLink" href="#" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">${sessionScope.username}
                         </a>
-                    <c:if test="${sessionScope.username!='admin'}">
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="customer/update.htm">Update Account</a></li>
-                        </ul>
-                    </c:if>
+                        <c:if test="${sessionScope.username!='admin'}">
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="customer/update.htm">Update Account</a></li>
+                            </ul>
+                        </c:if>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="logout.htm" >Logout</a>
+                        <a class="nav-link" href="logout.htm">Logout</a>
                         <i class="fa fa-sign-out"></i>
                     </li>
                     <c:if test="${sessionScope.username!='admin'}">

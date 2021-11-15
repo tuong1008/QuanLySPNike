@@ -1,6 +1,29 @@
 :root {
     --pagi-color: #DFDFDF;
     --pagi-bg-color: #0C0C0C;
+    --footer-height: 158px;
+}
+
+html {
+    position:relative;
+    min-height: 100%;
+}
+
+html, body {
+    margin:0;
+    padding:0;
+}
+
+.main {
+    margin-bottom: var(--footer-height);
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--footer-height);
 }
 
 .carousel .carousel-item {
@@ -9,16 +32,15 @@
 
 .carousel-item > img {
     position: absolute;
-    object-fit:cover;
+    object-fit: cover;
     top: 0;
     left: 0;
     min-height: 900px;
-    mask-image: linear-gradient(130deg, rgba(0,0,0,0) 0%,rgb(0, 0, 0) 100%);
+    mask-image: linear-gradient(130deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
 }
 
 /*pagination*/
-.pagination > li > a
-{
+.pagination > li > a {
     background-color: white;
     color: var(--pagi-color);
 }
@@ -26,22 +48,19 @@
 .pagination > li > a:focus,
 .pagination > li > a:hover,
 .pagination > li > span:focus,
-.pagination > li > span:hover
-{
+.pagination > li > span:hover {
     color: var(--pagi-color);
     background-color: var(--pagi-bg-color);
     border-color: #ddd;
 }
 
-.pagination > .active > a
-{
+.pagination > .active > a {
     color: var(--pagi-color);
     background-color: #444444 !Important;
     border: solid 1px #444444 !Important;
 }
 
-.pagination > .active > a:hover
-{
+.pagination > .active > a:hover {
     background-color: #444444 !Important;
     border: solid 1px #444444;
 }

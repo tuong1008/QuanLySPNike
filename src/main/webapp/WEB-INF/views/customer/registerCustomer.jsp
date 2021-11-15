@@ -88,7 +88,7 @@
                                                 placeholder="City" id="billingAddress.city"/>
                                 </div>
                             </div>
-                            
+
                             <div class="form-outline mb-4">
                                 <div class="col-xs-9">
                                     <form:errors path="billingAddress.country" cssClass="text-danger"/>
@@ -151,7 +151,8 @@
                             <div class="d-flex justify-content-center mt-4">
                                 <input type="submit" value="Register" class="fs-5 text-uppercase btn btn-outline-dark btn-light">
                             </div>
-                            <p class="text-center text-muted mt-3 mb-4">Already have an account? <a href="login.htm" class="fw-bold text-body"><u>Login</u></a></p>
+                            <p class="text-center text-muted mt-3 mb-4">Already have an account?
+                                <a href="login.htm" class="fw-bold text-body"><u>Login</u></a></p>
                         </form:form>
                     </div>
                 </div>

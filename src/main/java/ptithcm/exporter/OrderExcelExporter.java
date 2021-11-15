@@ -25,8 +25,8 @@ import java.util.List;
  */
 public class OrderExcelExporter {
     private final XSSFWorkbook workbook;
-    private XSSFSheet sheet;
     private final List<CustomerOrder> listOrders;
+    private XSSFSheet sheet;
 
     public OrderExcelExporter(List<CustomerOrder> listOrders) {
         this.workbook = new XSSFWorkbook();

@@ -2,7 +2,7 @@
     <jsp:param name="title" value="404 ERROR"/>
 </jsp:include>
 <div class="display-1 lead text-center">
-    <h1>Unauthorized</h1>
+    <h1 class="fs-2">Unauthorized</h1>
 </div>
 <img src="resources/images/error.gif" alt="error.gif"">
 

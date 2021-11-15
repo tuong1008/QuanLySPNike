@@ -3,7 +3,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xmlns="http://www.springframework.org/schema/beans" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context
@@ -42,7 +42,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
             <mvc:mapping path="/order/**"/>
             <mvc:mapping path="/register**"/>
             <!--<mvc:mapping path="/admin/**"/>-->
-<!--        <mvc:exclude-mapping path="/register.htm?update**"/>-->
+            <!--        <mvc:exclude-mapping path="/register.htm?update**"/>-->
             <bean class="poly.interceptor.LoggerInterceptor"/>
         </mvc:interceptor>
         <mvc:interceptor>
@@ -83,7 +83,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
-<!--                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>-->
+                <!--                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>-->
                 <prop key="hibernate.hbm2ddl.auto">none</prop>
                 <prop key="hibernate.current_session_context_class">thread</prop>
                 <prop key="hibernate.hbm2ddl.import_files">resources/script.sql</prop>
@@ -113,6 +113,6 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basename" value="resources/i18n/messages"/>
     </bean>
-    
+
 
 </beans>
