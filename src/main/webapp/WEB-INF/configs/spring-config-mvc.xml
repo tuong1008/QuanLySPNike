@@ -110,4 +110,9 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
         <property name="maxUploadSize" value="268435456"/>
     </bean>
 
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="resources/i18n/messages"/>
+    </bean>
+    
+
 </beans>

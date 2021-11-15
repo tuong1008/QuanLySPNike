@@ -1,5 +1,5 @@
 <jsp:include flush="true" page="/WEB-INF/views/template/header.jsp">
-    <jsp:param name="title" value="Register"/>
+    <jsp:param name="title" value="Create new account"/>
 </jsp:include>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div class="container-wrapper">
@@ -14,13 +14,13 @@
                 <div class="form-group has-success">
                     <label class="col-xs-3 control-label"></label>
                     <div class="col-xs-9">
-                        <c:if test="${not empty emailMsg }">
+                        <c:if test="${not empty emailMsg}">
                             <label class="label-danger">${emailMsg}</label>
                         </c:if>
-                        <c:if test="${not empty usernameMsg }">
+                        <c:if test="${not empty usernameMsg}">
                             <label class="label-danger">${usernameMsg}</label>
                         </c:if>
-                        <c:if test="${not empty update }">
+                        <c:if test="${not empty update}">
                             <input name="update" hidden="true" value="update">
                             <input name="oldUserId" hidden="true" value="${customer.customerId}">
                         </c:if>
@@ -29,7 +29,7 @@
                 <div class="form-group has-success">
                     <label class="col-xs-3 control-label"></label>
                     <div class="col-xs-9">
-                        <h1>Basic Info :</h1>
+                        <h1 class="fs-4">Basic Info</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -93,7 +93,7 @@
                 <div class="form-group has-success">
                     <label class="col-xs-3 control-label"></label>
                     <div class="col-xs-9">
-                        <h1>Billing Address :</h1>
+                        <h1>Billing Address</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -171,7 +171,7 @@
                 <div class="form-group has-success">
                     <label class="col-xs-3 control-label"></label>
                     <div class="col-xs-9">
-                        <h1>Shipping Address :</h1>
+                        <h1>Shipping Address</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -251,7 +251,8 @@
                     <div class="d-flex justify-content-center">
                         <input type="submit" value="Submit" class="btn btn-dark btn-primary">
                     </div>
-                    <p class="text-center text-muted mt-5 mb-0">Already have an account? <a href="login.htm" class="fw-bold text-body"><u>Login</u></a></p>
+                    <p class="text-center text-muted mt-5 mb-0">Already have an account?
+                        <a href="login.htm" class="fw-bold text-body"><u>Login</u></a></p>
                 </div>
             </form:form>
         </div>

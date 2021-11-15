@@ -19,8 +19,8 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 text-end">
                                 <strong>Time Order</strong><br/>
-                                        <fmt:formatDate pattern = "HH:mm:ss dd/MM/yyyy" 
-                                        value = "${order.timeOrder}"/>
+                                <fmt:formatDate pattern="HH:mm:ss dd/MM/yyyy"
+                                                value="${order.timeOrder}"/>
                             </div>
                         </div>
                         <div class="row">

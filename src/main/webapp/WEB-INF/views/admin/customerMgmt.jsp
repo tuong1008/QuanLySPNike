@@ -11,7 +11,6 @@
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
-            <h1>Customer Management</h1>
             <c:if test="${not empty search}">
                 <a class="btn btn-primary" href="<c:url value="/admin/customerManagement/1.htm"/>">See All Customers</a>
             </c:if>

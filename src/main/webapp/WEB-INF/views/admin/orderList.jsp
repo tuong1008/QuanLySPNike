@@ -1,6 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="/WEB-INF/views/template/header.jsp" %>
 <c:url var="firstUrl" value="/admin/customerOrder/1.htm"/>
 <c:url var="lastUrl" value="/admin/customerOrder/${totalPages}.htm"/>
@@ -55,8 +55,8 @@
                     <td>${order.customer.customerEmailAddress}</td>
                     <td>${order.customer.customerPhoneNumber}</td>
                     <td>${order.customer.username}</td>
-                    <td><fmt:formatDate pattern = "HH:mm:ss dd/MM/yyyy" 
-                        value = "${order.timeOrder}"/></td>
+                    <td><fmt:formatDate pattern="HH:mm:ss dd/MM/yyyy"
+                                        value="${order.timeOrder}"/></td>
                     <td><a class="btn btn-info"
                            href=" <spring:url value="/admin/customerOrder/productList/${order.customerOrderId}.htm"/>">See
                         Receipt</a></td>
@@ -71,19 +71,26 @@
             <ul class="pagination">
                 <c:choose>
                     <c:when test="${currentPageNumber == 1}">
-                        <li class="page-item disabled"><a class="page-link" href=""><i class="fa fa-fast-backward" aria-hidden="true"></i></a></li>
-                        <li class="page-item disabled"><a class="page-link" href=""><i class="fa fa-step-backward" aria-hidden="true"></i></a></li>
+                        <li class="page-item disabled">
+                            <a class="page-link" href=""><i class="fa fa-fast-backward" aria-hidden="true"></i></a></li>
+                        <li class="page-item disabled">
+                            <a class="page-link" href=""><i class="fa fa-step-backward" aria-hidden="true"></i></a></li>
                     </c:when>
                     <c:otherwise>
-                        <li class="page-item"><a class="page-link" href="${firstUrl}"><i class="fa fa-fast-backward" aria-hidden="true"></i></a></li>
-                        <li class="page-item"><a class="page-link" href="${prevUrl}"><i class="fa fa-step-backward" aria-hidden="true"></i></a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="${firstUrl}"><i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="${prevUrl}"><i class="fa fa-step-backward" aria-hidden="true"></i></a>
+                        </li>
                     </c:otherwise>
                 </c:choose>
                 <c:forEach var="i" begin="${beginIndex}" end="${endIndex}">
                     <c:url var="pageUrl" value="/admin/customerOrder/${i}.htm"/>
                     <c:choose>
                         <c:when test="${i == currentPageNumber}">
-                            <li class="page-item active"><a class="page-link" href="${pageUrl}"><c:out value="${i}"/></a></li>
+                            <li class="page-item active">
+                                <a class="page-link" href="${pageUrl}"><c:out value="${i}"/></a></li>
                         </c:when>
                         <c:otherwise>
                             <li class="page-item"><a class="page-link" href="${pageUrl}"><c:out value="${i}"/></a></li>
@@ -92,14 +99,22 @@
                 </c:forEach>
                 <c:choose>
                     <c:when test="${currentPageNumber == totalPages}">
-                        <li class="page-item disabled"><a class="page-link" href=""><i class="fa fa-step-forward" aria-hidden="true"></i></a></li>
-                        <li class="page-item disabled"><a class="page-link" href=""><i class="fa fa-fast-forward" aria-hidden="true"></i></a></li>
+                        <li class="page-item disabled">
+                            <a class="page-link" href=""><i class="fa fa-step-forward" aria-hidden="true"></i></a></li>
+                        <li class="page-item disabled">
+                            <a class="page-link" href=""><i class="fa fa-fast-forward" aria-hidden="true"></i></a></li>
                     </c:when>
                     <c:otherwise>
-                        <li class="page-item"><a class="page-link" href="${nextUrl}"><i class="fa fa-step-forward" aria-hidden="true"></i></a></li>
-                        <li class="page-item"><a class="page-link" href="${lastUrl}"><i class="fa fa-fast-forward" aria-hidden="true"></i></a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="${nextUrl}"><i class="fa fa-step-forward" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="${lastUrl}"><i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+                        </li>
                     </c:otherwise>
                 </c:choose>
             </ul>
         </div>
+    </div>
+</div>
 <%@ include file="/WEB-INF/views/template/footer.jsp" %>
