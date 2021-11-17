@@ -8,6 +8,7 @@
 <c:url var="lastUrl" value="/admin/customerManagement/${totalPages}.htm"/>
 <c:url var="prevUrl" value="/admin/customerManagement/${currentPageNumber - 1}.htm"/>
 <c:url var="nextUrl" value="/admin/customerManagement/${currentPageNumber + 1}.htm"/>
+
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
@@ -17,21 +18,20 @@
         </div>
         <div class="container">
             <div class=row>
-
                 <form class="form-inline" action="<c:url value="/admin/customerManagement/search/1.htm"/>"
                       method="post">
                     <!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
                     <div class="d-flex justify-content-center align-items-center">
                         <input type="text" name="searchTerm" class="form-control" style="width:300px"
                                id="inputEmail" placeholder="Search Username or Email">
-                        <input type="hidden" value="category" name="search">
-                        <button type="submit" class="btn btn-primary btn-dark">Search Product</button>
+<%--                        <input type="hidden" value="category" name="search">--%>
+                        <button type="submit" class="btn btn-primary btn-dark">
+                            <i class="fa fa-search"></i>
+                        </button>
                     </div>
                 </form>
-
             </div>
         </div>
-        <br>
         <table class="table table-striped table-hover table-borderless" data-sortable>
             <thead class="table-dark">
             <tr class="bg-success">

@@ -85,7 +85,7 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
         Transaction t = session.beginTransaction();
         Query query = session.createQuery(hql);
         query.setFirstResult((pageNumber - 1) * 10); //trang 1, từ 0
-        query.setMaxResults(pageNumber * 10); //đến 9
+        query.setMaxResults(10); //đến 9
 
         List<Customer> list = query.list();
         t.commit();

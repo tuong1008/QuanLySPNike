@@ -226,4 +226,12 @@ public class AdminHome {
         model.addAttribute("search", "search");
         return "admin/productInventory";
     }
+
+    @RequestMapping("/messages/{pageNumber}")
+    public String getCustomerOrderProduct(@PathVariable("pageNumber") int pageNumber, ModelMap model) {
+        CustomerOrder customerOrder = customerOrderService.getCustomerOrderById(pageNumber);
+        model.addAttribute("order", customerOrder);
+
+        return "admin/orderDetails";
+    }
 }

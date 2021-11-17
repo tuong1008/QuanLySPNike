@@ -28,7 +28,6 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
          * Login rồi mà login nữa 
          * Đã đăng nhập và tiếp tục ấn đăng ký
          */
-        System.out.println("LoggerIntercep preHandle");
         HttpSession session = request.getSession();
         String updateParam = request.getParameter("update");
         if (session.getAttribute("username") == null) {
@@ -49,6 +48,5 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        System.out.println("afterCompletion");
     }
 }
