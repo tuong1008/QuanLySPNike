@@ -75,6 +75,4 @@ public class CartDaoImpl extends AbstractDao<Cart> implements CartDao {
         }
         return null;
     }
-
-
 }
