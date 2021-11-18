@@ -9,4 +9,4 @@
 
 <img src="resources/images/error.gif" alt="404 not found">
 
-<%@include file="/WEB-INF/views/template/footer.jsp" %>
+<%@include file="/WEB-INF/views/template/footer.jsp"%>

@@ -1,6 +1,6 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include flush="true" page="/WEB-INF/views/template/header.jsp">
     <jsp:param name="title" value="Customer Management"/>
 </jsp:include>
@@ -40,7 +40,8 @@
                 <th>Phone</th>
                 <th>Username</th>
                 <th data-sortable="false">Enabled</th>
-                <th class="text-center" data-sortable="false">Shipping Address & Billing Address</th>
+<%--                <th class="text-center" data-sortable="false">Shipping Address & Billing Address</th>--%>
+                <th data-sortable="false">Action</th>
             </tr>
             </thead>
             <c:forEach items="${customers}" var="customer">
@@ -50,10 +51,16 @@
                     <td>${customer.customerPhoneNumber}</td>
                     <td>${customer.username}</td>
                     <td>${customer.enabled}</td>
-                    <td class="text-center">
-                        <a href=" <spring:url value="/admin/customerManagement/address/${customer.customerId}.htm"/>">
-                            <i class="fa fa-info-circle" aria-hidden="true"></i>
-                        </a>
+<%--                    <td class="text-center">--%>
+<%--                        <a href=" <spring:url value="/admin/customerManagement/address/${customer.customerId}.htm"/>">--%>
+<%--                            <i class="fa fa-info-circle" aria-hidden="true"></i>--%>
+<%--                        </a>--%>
+<%--                    </td>--%>
+                    <td>
+                        <a href="<spring:url value="/admin/customerManagement/address/${customer.customerId}.htm"/>"
+                           class="settings" title="Settings" data-toggle="tooltip"><i class="fa fa-gear"></i></a>
+                        <a href="<spring:url value="/admin/customerManagement/delete/${customer.customerId}.htm"/>"
+                           class="delete" title="Delete" data-toggle="tooltip"><i class="fa fa-times-circle"></i></a>
                     </td>
                 </tr>
             </c:forEach>
@@ -108,4 +115,4 @@
         </div>
     </div>
 </div>
-<%@ include file="/WEB-INF/views/template/footer.jsp" %>
+<%@ include file="/WEB-INF/views/template/footer.jsp"%>

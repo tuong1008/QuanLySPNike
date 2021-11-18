@@ -1,7 +1,7 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ include file="/WEB-INF/views/template/header.jsp" %>
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ include file="/WEB-INF/views/template/header.jsp"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="container-wrapper">
     <div class="container">
         <section>
@@ -60,4 +60,4 @@
         </section>
         <!-- My -->
         <script src="<c:url value="/resources/js/controller.js" /> "></script>
-<%@ include file="/WEB-INF/views/template/footer.jsp" %>
+<%@ include file="/WEB-INF/views/template/footer.jsp"%>

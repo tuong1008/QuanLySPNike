@@ -1,4 +1,4 @@
-<%@include file="/WEB-INF/views/template/header.jsp" %>
+<%@include file="/WEB-INF/views/template/header.jsp"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <div id="introCarousel" class="carousel slide carousel-dark" data-bs-ride="carousel">
@@ -306,4 +306,4 @@
         </div>
     </section>
 </div>
-<%@include file="/WEB-INF/views/template/footer.jsp" %>
+<%@include file="/WEB-INF/views/template/footer.jsp"%>

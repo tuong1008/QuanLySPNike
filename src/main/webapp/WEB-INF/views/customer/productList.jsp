@@ -1,5 +1,5 @@
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%@include file="/WEB-INF/views/template/header.jsp" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@include file="/WEB-INF/views/template/header.jsp"%>
 <c:url var="firstUrl" value="/product/productList/${productCategory}/1.htm"/>
 <c:url var="lastUrl" value="/product/productList/${productCategory}/${totalPages}.htm"/>
 <c:url var="prevUrl" value="/product/productList/${productCategory}/${currentPageNumber - 1}.htm"/>
@@ -137,4 +137,4 @@
         </div>
     </div>
 </div>
-<%@include file="/WEB-INF/views/template/footer.jsp" %>
+<%@include file="/WEB-INF/views/template/footer.jsp"%>
