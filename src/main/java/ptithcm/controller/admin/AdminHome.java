@@ -43,7 +43,6 @@ public class AdminHome {
 
     @RequestMapping("/home.htm")
     public String adminPage() {
-
         return "admin/index";
     }
 
@@ -93,7 +92,6 @@ public class AdminHome {
         List<Customer> page = customerService.findAllCustomerByUsernameOrEmail(searchTerm, pageNumber);
         long totalProducts = customerService.getTotalCustomerByUsernameOrEmail(searchTerm);
 
-
         int totalPages = (int) Math.ceil(totalProducts / 10.0); //mỗi page có 10 dòng
         if (totalProducts == 0) totalPages = 1;
 
@@ -116,6 +114,14 @@ public class AdminHome {
         model.addAttribute("customer", customer);
 
         return "admin/customerAddr";
+    }
+
+    @RequestMapping("/customerManagement/{customerId}")
+    public String updateCustomer(@PathVariable("customerId") long customerId, ModelMap model) {
+        Customer customer = customerService.getCustomerById(customerId);
+        model.addAttribute("customer", customer);
+
+        return "redirect:/admin/updateCustomer";
     }
 
     @RequestMapping("/customerManagement/delete/{customerId}")
@@ -158,7 +164,6 @@ public class AdminHome {
     public String customerOrderSearch(@RequestParam("searchTerm") String searchTerm, @PathVariable("pageNumber") Integer pageNumber, ModelMap model) {
         List<CustomerOrder> page = customerOrderService.findAllOrderByUsernameOrEmail(searchTerm, pageNumber);
         long totalProducts = customerOrderService.getTotalOrderByUsernameOrEmail(searchTerm);
-
 
         int totalPages = (int) Math.ceil(totalProducts / 10.0); //mỗi page có 10 dòng
         if (totalProducts == 0) totalPages = 1;
@@ -209,7 +214,6 @@ public class AdminHome {
     public String productSearch(@RequestParam("searchTerm") String searchTerm, @PathVariable("pageNumber") Integer pageNumber, ModelMap model) {
         List<Product> page = productService.findAllProductByNameorCategory(searchTerm, pageNumber);
         long totalProducts = productService.getTotalProductByNameorCategory(searchTerm);
-
 
         int totalPages = (int) Math.ceil(totalProducts / 10.0); //mỗi page có 10 dòng
         if (totalProducts == 0) totalPages = 1;

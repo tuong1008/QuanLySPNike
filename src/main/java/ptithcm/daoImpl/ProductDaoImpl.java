@@ -28,7 +28,7 @@ public class ProductDaoImpl extends AbstractDao<Product> implements ProductDao {
         Transaction t = session.beginTransaction();
         Query query = session.createQuery(hql);
         query.setFirstResult((pageNumber - 1) * 10); //trang 1, từ 0
-        query.setMaxResults(pageNumber); //đến 9
+        query.setMaxResults(10); //đến 9
 
         List<Product> list = query.list();
         t.commit();
@@ -74,7 +74,7 @@ public class ProductDaoImpl extends AbstractDao<Product> implements ProductDao {
         Transaction t = session.beginTransaction();
         Query query = session.createQuery(hql);
         query.setFirstResult((pageNumber - 1) * 10); //trang 1, từ 0
-        query.setMaxResults(pageNumber); //đến 9
+        query.setMaxResults(10); //đến 9
 
         List<Product> list = query.list();
         t.commit();
@@ -92,7 +92,7 @@ public class ProductDaoImpl extends AbstractDao<Product> implements ProductDao {
         Query query = session.createQuery(hql);
         query.setParameter("searchTerm", MatchMode.ANYWHERE.toMatchString(searchTerm));
         query.setFirstResult((pageNumber - 1) * 10); //trang 1, từ 0
-        query.setMaxResults(pageNumber); //đến 9
+        query.setMaxResults(10); //đến 9
 
         List<Product> list = query.list();
         t.commit();
@@ -154,7 +154,7 @@ public class ProductDaoImpl extends AbstractDao<Product> implements ProductDao {
         Query query = session.createQuery(hql);
         query.setParameter("searchTerm", MatchMode.ANYWHERE.toMatchString(searchTerm));
         query.setFirstResult((pageNumber - 1) * 10); //trang 1, từ 0
-        query.setMaxResults(pageNumber); //đến 9
+        query.setMaxResults(10); //đến 9
 
         List<Product> list = query.list();
         t.commit();
