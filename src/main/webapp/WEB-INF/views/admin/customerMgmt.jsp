@@ -20,11 +20,10 @@
             <div class=row>
                 <form class="form-inline" action="<c:url value="/admin/customerManagement/search/1.htm"/>"
                       method="post">
-                    <!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
+<%--                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
                     <div class="d-flex justify-content-center align-items-center">
                         <input type="text" name="searchTerm" class="form-control" style="width:300px"
                                id="inputEmail" placeholder="Search Username or Email">
-<%--                        <input type="hidden" value="category" name="search">--%>
                         <button type="submit" class="btn btn-primary btn-dark">
                             <i class="fa fa-search"></i>
                         </button>
@@ -40,7 +39,6 @@
                 <th>Phone</th>
                 <th>Username</th>
                 <th data-sortable="false">Enabled</th>
-<%--                <th class="text-center" data-sortable="false">Shipping Address & Billing Address</th>--%>
                 <th data-sortable="false">Action</th>
             </tr>
             </thead>
@@ -50,17 +48,25 @@
                     <td>${customer.customerEmailAddress}</td>
                     <td>${customer.customerPhoneNumber}</td>
                     <td>${customer.username}</td>
-                    <td>${customer.enabled}</td>
-<%--                    <td class="text-center">--%>
-<%--                        <a href=" <spring:url value="/admin/customerManagement/address/${customer.customerId}.htm"/>">--%>
-<%--                            <i class="fa fa-info-circle" aria-hidden="true"></i>--%>
-<%--                        </a>--%>
-<%--                    </td>--%>
+                    <td>
+                        <c:choose>
+                            <c:when test="${customer.enabled==true}">
+                                <span class="status-true">
+                                    <i class="fa fa-circle"></i>
+                                </span>${customer.enabled}
+                            </c:when>
+                            <c:otherwise>
+                                <span class="status-false">
+                                    <i class="fa fa-circle"></i>
+                                </span>${customer.enabled}
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
                     <td>
                         <a href="<spring:url value="/admin/customerManagement/address/${customer.customerId}.htm"/>"
-                           class="settings" title="Settings" data-toggle="tooltip"><i class="fa fa-gear"></i></a>
+                           class="setting-icon" title="Settings" data-toggle="tooltip" data-placement="top"><i class="fa fa-gear"></i></a>
                         <a href="<spring:url value="/admin/customerManagement/delete/${customer.customerId}.htm"/>"
-                           class="delete" title="Delete" data-toggle="tooltip"><i class="fa fa-times-circle"></i></a>
+                           class="delete-icon" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-times-circle"></i></a>
                     </td>
                 </tr>
             </c:forEach>

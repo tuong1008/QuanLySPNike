@@ -37,7 +37,3 @@ cartApp.controller("cartCtrl", function ($scope, $http) {
         });
     };
 });
-
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-})

@@ -5,13 +5,13 @@
 }
 
 html {
-    position:relative;
+    position: relative;
     min-height: 100%;
 }
 
 html, body {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
 .main {
@@ -63,4 +63,21 @@ html, body {
 .pagination > .active > a:hover {
     background-color: #444444 !Important;
     border: solid 1px #444444;
+}
+
+/*table buttons*/
+.status-true {
+    color: #10c469;
+}
+
+.status-false {
+    color: #ff5b5b;
+}
+
+table.table td a.setting-icon {
+    color: #2196F3;
+}
+
+table.table td a.delete-icon {
+    color: #F44336;
 }

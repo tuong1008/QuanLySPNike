@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.Valid;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
@@ -29,11 +30,13 @@ public class Customer implements Serializable {
     private String customerEmailAddress;
 
     @NotEmpty
+    @Pattern(regexp = "[\\d]{1,15}")
     private String customerPhoneNumber;
 
     @NotEmpty
     @Size(min = 5, max = 30)
     @Column(unique = true)
+    @Pattern(regexp = "^[a-zA-Z0-9][a-zA-Z0-9_-]{3,30}")
     private String username;
 
     @NotEmpty

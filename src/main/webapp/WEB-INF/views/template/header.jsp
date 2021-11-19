@@ -1,6 +1,6 @@
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +19,6 @@
         </c:otherwise>
     </c:choose>
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
-<%--    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">--%>
     <link href="resources/css/font-awesome.min.css" rel="stylesheet">
     <link href="resources/css/main.css" rel="stylesheet">
     <link href="resources/css/style.css" rel="stylesheet">
@@ -37,7 +36,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-lg-0">
                 <li class="nav-item active">
                     <c:if test="${sessionScope.username =='admin'}">
                         <a class="nav-link" href="admin/home.htm">Home</a>
@@ -56,31 +55,37 @@
                     <a class="nav-link" href="#">Contact</a>
                 </li>
             </ul>
-            <ul class="navbar-nav ms-auto me-lg-4">
-                <c:if test="${sessionScope.username!=null}">
-                    <li class="nav-item">
-                        <a class="nav-link" id="navbarDropdownMenuLink" href="#" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">${sessionScope.username}
-                        </a>
-                        <c:if test="${sessionScope.username!='admin'}">
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="customer/update.htm">Update Account</a></li>
+            <ul class="navbar-nav ms-auto mb-lg-0">
+                <c:choose>
+                    <c:when test="${sessionScope.username!=null}">
+                        <li class="nav-item dropdown" aria-labelledby="navbarDropdown">
+                            <a class="nav-link" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    ${sessionScope.username}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="customer/update.htm">Update info</a></li>
                             </ul>
-                        </c:if>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout.htm">Logout</a>
-                        <i class="fa fa-sign-out"></i>
-                    </li>
-                    <c:if test="${sessionScope.username!='admin'}">
-                        <li class="nav-item"><a class="nav-link" href="customer/cart.htm">Cart</a>
                         </li>
-                    </c:if>
-                </c:if>
-                <c:if test="${sessionScope.username == null}">
-                    <li class="nav-item"><a class="nav-link" href="login.htm">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="register.htm">Register</a></li>
-                </c:if>
+                        <c:if test="${sessionScope.username!='admin'}">
+                            <li class="nav-item">
+                                <a class="nav-link" href="customer/cart.htm">
+                                    <button class="btn bg-dark border-0">
+                                        <i class="text-warning fs-2 fa fa-shopping-cart"></i>
+                                    </button>
+                                </a>
+                            </li>
+                        </c:if>
+                        <li class="nav-item">
+                            <button class="btn bg-dark border-0">
+                                <a class="nav-link" href="logout.htm"><i class="text-warning fs-2 fa fa-sign-out"></i></a>
+                            </button>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="nav-item"><a class="nav-link" href="login.htm">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="register.htm">Register</a></li>
+                    </c:otherwise>
+                </c:choose>
             </ul>
         </div>
     </nav>
