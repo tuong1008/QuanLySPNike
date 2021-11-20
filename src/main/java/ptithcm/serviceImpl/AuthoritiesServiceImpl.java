@@ -29,7 +29,12 @@ public class AuthoritiesServiceImpl implements ptithcm.service.AuthoritiesServic
 
     @Override
     public String getRole(String username) {
-        return authoritiesDao.findOne(username).getAuthorityType();
+        Authorities auth = authoritiesDao.findOne(username);
+        if (auth != null) {
+            return authoritiesDao.findOne(username).getAuthorityType();
+        } else {
+            return "";
+        }
     }
 
 }

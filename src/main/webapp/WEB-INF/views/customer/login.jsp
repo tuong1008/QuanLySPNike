@@ -17,8 +17,8 @@
                                     <div class="form-group has-success">
                                         <label class="col-xs-3 control-label"></label>
                                         <div class="col-xs-9">
-                                            <c:if test="${not empty error}">
-                                                <div class="error" style="color:#ff0000">
+                                            <c:if test="${!empty error}">
+                                                <div class="text-danger">
                                                         ${error}
                                                 </div>
                                             </c:if>
@@ -28,15 +28,17 @@
                                         <label class="col-xs-3 control-label"></label>
                                         <div class="col-xs-9">
                                             <c:if test="${not empty msg}">
-                                                <div class="msg">${msg}</div>
+                                                <div class="text-warning">${msg}</div>
                                             </c:if>
                                         </div>
                                     </div>
                                     <div class="form-outline form-white mb-4">
-                                        <form:input cssClass="form-control form-control-lg" type="text" class="form-control" path="username" placeholder="Username"/>
+                                        <form:input cssClass="form-control form-control-lg" type="text" class="form-control" path="username" placeholder="Username"
+                                                    autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
                                     </div>
                                     <div class="form-outline form-white mb-4">
-                                        <form:input cssClass="form-control form-control-lg" type="password" class="form-control" path="password" placeholder="Password"/>
+                                        <form:input cssClass="form-control form-control-lg" type="password" class="form-control" path="password" placeholder="Password"
+                                                    autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
                                     </div>
                                     <div class="d-flex justify-content-between">
                                         <label class="form-check-label">Remember Me:

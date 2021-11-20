@@ -52,7 +52,7 @@ public class HomeController {
         if (temp != null) {
             request.getSession().setAttribute("username", customer.getUsername());
             String role = authoritiesService.getRole(customer.getUsername());
-            if (role.equals("ROLE_USER")) {
+            if (role.equals("ROLE_USER") || role.isEmpty()) {
                 return "redirect:/trang-chu.htm";
             } else {
                 return "redirect:/admin/home.htm";

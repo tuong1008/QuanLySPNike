@@ -58,26 +58,26 @@
             <ul class="navbar-nav ms-auto mb-lg-0">
                 <c:choose>
                     <c:when test="${sessionScope.username!=null}">
-                        <li class="nav-item dropdown" aria-labelledby="navbarDropdown">
+                        <li class="nav-item dropdown justify-content-center">
                             <a class="nav-link" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     ${sessionScope.username}
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="customer/update.htm">Update info</a></li>
                             </ul>
                         </li>
                         <c:if test="${sessionScope.username!='admin'}">
                             <li class="nav-item">
                                 <a class="nav-link" href="customer/cart.htm">
-                                    <button class="btn bg-dark border-0">
-                                        <i class="text-warning fs-2 fa fa-shopping-cart"></i>
+                                    <button class="btn bg-dark border-0" data-bs-toggle="tooltip" data-bs-placement="top" title="View your cart">
+                                        <i class="text-warning fs-3 fa fa-shopping-cart"></i>
                                     </button>
                                 </a>
                             </li>
                         </c:if>
                         <li class="nav-item">
-                            <button class="btn bg-dark border-0">
-                                <a class="nav-link" href="logout.htm"><i class="text-warning fs-2 fa fa-sign-out"></i></a>
+                            <button class="btn bg-dark border-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Sign out">
+                                <a class="nav-link" href="logout.htm"><i class="text-warning fs-3 fa fa-sign-out"></i></a>
                             </button>
                         </li>
                     </c:when>

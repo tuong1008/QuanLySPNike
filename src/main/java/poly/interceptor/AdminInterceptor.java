@@ -28,14 +28,10 @@ public class AdminInterceptor extends HandlerInterceptorAdapter {
         Object username = session.getAttribute("username");
         if (username != null) {
             String role = authoritiesService.getRole(username.toString());
-
             if (!role.isEmpty()) {
                 return role.equals("ROLE_ADMIN");
-            } else {
-                throw new UnauthorizedException("This page is for admins only!");
             }
-        } else {
-            throw new UnauthorizedException("This page is for admins only!");
         }
+        throw new UnauthorizedException("This page is for admins only!");
     }
 }
