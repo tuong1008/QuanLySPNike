@@ -63,7 +63,7 @@
                         </c:choose>
                     </td>
                     <td>
-                        <a href="<spring:url value="/admin/customerManagement/address/${customer.customerId}.htm"/>"
+                        <a href="<spring:url value="/admin/customerManagement/update/${customer.customerId}.htm"/>"
                            class="setting-icon" title="Settings" data-toggle="tooltip" data-placement="top"><i class="fa fa-gear"></i></a>
                         <a href="<spring:url value="/admin/customerManagement/delete/${customer.customerId}.htm"/>"
                            class="delete-icon" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-times-circle"></i></a>

@@ -10,9 +10,9 @@
             <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                 <div class="card">
                     <div class="card-body p-5">
-                        <h2 class="text-uppercase text-center mb-3">Add new customer</h2>
-                        <form:form action="${pageContext.request.contextPath}/register.htm" method="post" modelAttribute="customer"
-                                   class="form-horizontal">
+                        <h2 class="text-uppercase text-center mb-3">Edit customer info</h2>
+                        <form:form action="admin/customerManagement/update/${customer.customerId}.htm"
+                                   method="post" modelAttribute="customer" class="form-horizontal">
                             <div class="form-outline mb-4">
                                 <div class="col-xs-9">
                                     <c:if test="${!empty error}">
@@ -35,7 +35,7 @@
                                     <form:errors path="customerName" cssClass="text-danger"/>
                                 </div>
                                 <div class="col-xs-9">
-                                    <form:input path="customerName" class="form-control" placeholder="Full name"
+                                    <form:input path="customerName" class="form-control" placeholder="${customer.customerName}"
                                                 id="customerName"/>
                                 </div>
                             </div>
@@ -44,7 +44,7 @@
                                     <form:errors path="customerEmailAddress" cssClass="text-danger"/>
                                 </div>
                                 <div class="col-xs-9">
-                                    <form:input path="customerEmailAddress" class="form-control" placeholder="Email"
+                                    <form:input path="customerEmailAddress" class="form-control" placeholder="${customer.customerEmailAddress}"
                                                 id="customerEmailAddress"/>
                                 </div>
                             </div>
@@ -53,8 +53,7 @@
                                     <form:errors path="customerPhoneNumber" cssClass="text-danger"/>
                                 </div>
                                 <div class="col-xs-9">
-                                    <form:input path="customerPhoneNumber" class="form-control" placeholder="Phone Number"
-                                                id="customerPhoneNumber"/>
+                                    <form:input path="customerPhoneNumber" class="form-control" placeholder="${customer.customerPhoneNumber}"/>
                                 </div>
                             </div>
                             <div class="form-outline mb-4">
@@ -62,7 +61,7 @@
                                     <form:errors path="username" cssClass="text-danger"/>
                                 </div>
                                 <div class="col-xs-9">
-                                    <form:input path="username" class="form-control" placeholder="Username" id="username"/>
+                                    <form:input path="username" class="form-control" placeholder="${customer.username}"/>
                                 </div>
                             </div>
                             <div class="form-outline mb-4">
@@ -71,7 +70,7 @@
                                 </div>
                                 <div class="col-xs-9">
                                     <form:password showPassword="true" path="password" class="form-control"
-                                                   placeholder="Password" id="password"/>
+                                                   placeholder="${customer.password}"/>
                                 </div>
                             </div>
                             <div class="form-outline mb-4">
@@ -84,8 +83,7 @@
                                     <form:errors path="billingAddress.city" cssClass="text-danger"/>
                                 </div>
                                 <div class="col-xs-9">
-                                    <form:input path="billingAddress.city" class="form-control"
-                                                placeholder="City" id="billingAddress.city"/>
+                                    <form:input path="billingAddress.city" class="form-control" placeholder="${customer.billingAddress.city}"/>
                                 </div>
                             </div>
 
@@ -94,8 +92,7 @@
                                     <form:errors path="billingAddress.country" cssClass="text-danger"/>
                                 </div>
                                 <div class="col-xs-9">
-                                    <form:input path="billingAddress.country" class="form-control"
-                                                placeholder="Country" id="billingAddress.country"/>
+                                    <form:input path="billingAddress.country" class="form-control" placeholder="customer.billingAddress.country"/>
                                 </div>
                             </div>
                             <div class="form-outline mb-4">
@@ -103,8 +100,7 @@
                                     <form:errors path="billingAddress.zipCode" cssClass="text-danger"/>
                                 </div>
                                 <div class="col-xs-9">
-                                    <form:input path="billingAddress.zipCode" class="form-control" placeholder="Zip code"
-                                                id="billingAddress.zipCode"/>
+                                    <form:input path="billingAddress.zipCode" class="form-control" placeholder="customer.billingAddress.zipCode"/>
                                 </div>
                             </div>
                             <div class="form-outline mb-4">
@@ -118,7 +114,7 @@
                                 </div>
                                 <div class="col-xs-9">
                                     <form:input path="shippingAddress.address" class="form-control"
-                                                placeholder="Address" id="shippingAddress.address"/>
+                                                placeholder="customer.shippingAddress.address"/>
                                 </div>
                             </div>
                             <div class="form-outline mb-4">
@@ -126,8 +122,7 @@
                                     <form:errors path="shippingAddress.city" cssClass="text-danger"/>
                                 </div>
                                 <div class="col-xs-9">
-                                    <form:input path="shippingAddress.city" class="form-control" placeholder="City"
-                                                id="shippingAddress.city"/>
+                                    <form:input path="shippingAddress.city" class="form-control" placeholder="customer.shippingAddress.city"/>
                                 </div>
                             </div>
                             <div class="form-outline mb-4">
@@ -135,8 +130,7 @@
                                     <form:errors path="shippingAddress.country" cssClass="text-danger"/>
                                 </div>
                                 <div class="col-xs-9">
-                                    <form:input path="shippingAddress.country" class="form-control" placeholder="Country"
-                                                id="shippingAddress.country"/>
+                                    <form:input path="shippingAddress.country" class="form-control" placeholder="customer.shippingAddress.country"/>
                                 </div>
                             </div>
                             <div class="form-outline mb-4">
@@ -144,8 +138,7 @@
                                     <form:errors path="shippingAddress.zipCode" cssClass="text-danger"/>
                                 </div>
                                 <div class="col-xs-9">
-                                    <form:input path="shippingAddress.zipCode" class="form-control" placeholder="Zip Code"
-                                                id="shippingAddress.zipCode"/>
+                                    <form:input path="shippingAddress.zipCode" class="form-control" placeholder="customer.shippingAddress.zipCode"/>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center mt-4">

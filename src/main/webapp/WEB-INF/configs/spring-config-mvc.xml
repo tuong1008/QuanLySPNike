@@ -24,9 +24,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
         <property name="favorPathExtension" value="false"/>
     </bean>
     <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager"/>
-    <mvc:resources mapping="/images/**" location="resources/images/" cache-period="31556926"/>
-    <!--<bean
-          class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>-->
+    <mvc:resources mapping="/resource/**" location="/resources/"/><!--cache-period="31556926"-->
     <!-- Cấu hình view -->
     <bean id="viewResolver"
           p:prefix="/WEB-INF/views/" p:suffix=".jsp"
@@ -110,6 +108,4 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basename" value="resources/i18n/messages"/>
     </bean>
-
-
 </beans>

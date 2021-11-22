@@ -3,10 +3,8 @@ package ptithcm.controller.admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import ptithcm.entity.CartItem;
 import ptithcm.entity.Customer;
 import ptithcm.entity.CustomerOrder;
@@ -14,6 +12,7 @@ import ptithcm.entity.Product;
 import ptithcm.exceptions.PageNotFoundException;
 import ptithcm.service.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -116,12 +115,21 @@ public class AdminHome {
         return "admin/customerAddr";
     }
 
-    @RequestMapping("/customerManagement/{customerId}")
+    @RequestMapping("/customerManagement/update/{customerId}")
     public String updateCustomer(@PathVariable("customerId") long customerId, ModelMap model) {
         Customer customer = customerService.getCustomerById(customerId);
         model.addAttribute("customer", customer);
 
-        return "redirect:/admin/updateCustomer";
+        return "admin/updateCustomer";
+    }
+
+    @RequestMapping(value = "/customerManagement/update/{customerId}", method = RequestMethod.POST)
+    public String updateCustomerPost(@Valid @ModelAttribute("customer") Customer customer, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/updateCustomer";
+        }
+        customerService.updateCustomer(customer);
+        return "redirect:/admin/customerManagement/1.htm";
     }
 
     @RequestMapping("/customerManagement/delete/{customerId}")

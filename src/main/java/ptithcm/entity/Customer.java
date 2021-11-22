@@ -46,12 +46,12 @@ public class Customer implements Serializable {
     private boolean enabled;
 
     @Valid
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "shippingAddressId")
     private ShippingAddress shippingAddress;
 
     @Valid
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "billingAddressId")
     private BillingAddress billingAddress;
 
