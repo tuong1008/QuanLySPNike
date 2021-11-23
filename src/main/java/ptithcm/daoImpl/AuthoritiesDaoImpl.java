@@ -16,9 +16,8 @@ public class AuthoritiesDaoImpl extends AbstractDao<Authorities> implements Auth
     @Override
     public Authorities findOne(String username) {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "FROM Authorities A WHERE A.username = :username";
-        Transaction t = session.beginTransaction();
-        Query query = session.createQuery(hql);
+                Transaction t = session.beginTransaction();
+        Query query = session.createQuery("FROM Authorities A WHERE A.username = :username");
         query.setParameter("username", username);
 
         List<Authorities> list = query.list();

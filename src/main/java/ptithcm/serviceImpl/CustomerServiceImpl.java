@@ -13,8 +13,9 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private CustomerDao customerDao;
 
-    //	@Autowired
-//  private PasswordEncoder passwordEncoder;
+//    @Autowired
+//    private PasswordEncoder passwordEncoder;
+
     @Override
     public String addCustomer(Customer customer) {
         return customerDao.save(customer);

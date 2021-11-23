@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import ptithcm.dao.CustomerDao;
 import ptithcm.entity.Customer;
+import ptithcm.service.CustomerService;
 
 import java.util.List;
 
@@ -18,12 +19,14 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
     @Autowired
     SessionFactory sessionFactory;
 
+    @Autowired
+    CustomerService customerService;
+
     @Override
     public Customer findByUsername(String username) {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "FROM Customer C WHERE C.username = :username";
-        Transaction t = session.beginTransaction();
-        Query query = session.createQuery(hql);
+                Transaction t = session.beginTransaction();
+        Query query = session.createQuery("FROM Customer C WHERE C.username = :username");
         query.setParameter("username", username);
         List<Customer> list = query.list();
         t.commit();
@@ -36,9 +39,8 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
     @Override
     public Customer findByUsernameAndPassword(String username, String password) {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "FROM Customer C WHERE C.username = :username and C.password = :password";
-        Transaction t = session.beginTransaction();
-        Query query = session.createQuery(hql);
+                Transaction t = session.beginTransaction();
+        Query query = session.createQuery("FROM Customer C WHERE C.username = :username and C.password = :password");
         query.setParameter("username", username);
         query.setParameter("password", password);
         List<Customer> list = query.list();
@@ -52,12 +54,12 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
     @Override
     public Customer findById(long customerId) {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "FROM Customer c WHERE c.customerId=:id";
         Transaction t = session.beginTransaction();
-        Query query = session.createQuery(hql);
+        Query query = session.createQuery("FROM Customer c WHERE c.customerId=:id");
         query.setParameter("id", customerId);
         List<Customer> list = query.list();
         t.commit();
+
         if (list.isEmpty()) {
             return null;
         }
@@ -67,9 +69,8 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
     @Override
     public List<Customer> findAll() {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "FROM Customer c";
-        Transaction t = session.beginTransaction();
-        Query query = session.createQuery(hql);
+                Transaction t = session.beginTransaction();
+        Query query = session.createQuery("FROM Customer c");
         List<Customer> list = query.list();
         t.commit();
         if (list.isEmpty()) {
@@ -81,9 +82,8 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
     @Override
     public List<Customer> getAllCustomers(Integer pageNumber) {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "FROM Customer C where C.username<>'admin'";
-        Transaction t = session.beginTransaction();
-        Query query = session.createQuery(hql);
+                Transaction t = session.beginTransaction();
+        Query query = session.createQuery("FROM Customer C where C.username<>'admin'");
         query.setFirstResult((pageNumber - 1) * 10);
         query.setMaxResults(10);
 
@@ -98,9 +98,8 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
     @Override
     public long getTotalCustomers() {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "select count(*) FROM Customer C";
-        Transaction t = session.beginTransaction();
-        Query query = session.createQuery(hql);
+                Transaction t = session.beginTransaction();
+        Query query = session.createQuery("select count(*) FROM Customer C");
         long results = (long) query.uniqueResult();
         t.commit();
 
@@ -110,9 +109,8 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
     @Override
     public List<Customer> findAllCustomerByUsernameOrEmail(String searchTerm, int pageNumber) {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "FROM Customer t WHERE (t.username LIKE :searchTerm OR t.customerEmailAddress LIKE :searchTerm) and t.username<>'admin'";
-        Transaction t = session.beginTransaction();
-        Query query = session.createQuery(hql);
+                Transaction t = session.beginTransaction();
+        Query query = session.createQuery("FROM Customer t WHERE (t.username LIKE :searchTerm OR t.customerEmailAddress LIKE :searchTerm) and t.username<>'admin'");
         query.setParameter("searchTerm", MatchMode.ANYWHERE.toMatchString(searchTerm));
         query.setFirstResult((pageNumber - 1) * 10); //trang 1, từ 0
         query.setMaxResults(10);
@@ -128,13 +126,36 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
     @Override
     public long getTotalCustomerByUsernameOrEmail(String searchTerm) {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "select count(*) FROM Customer t WHERE t.username LIKE :searchTerm OR t.customerEmailAddress LIKE :searchTerm";
         Transaction t = session.beginTransaction();
-        Query query = session.createQuery(hql);
+
+        Query query = session.createQuery(
+                "select count(*) FROM Customer t WHERE t.username LIKE :searchTerm OR t.customerEmailAddress LIKE :searchTerm");
         query.setParameter("searchTerm", MatchMode.ANYWHERE.toMatchString(searchTerm));
         long results = (long) query.uniqueResult();
         t.commit();
 
         return results;
+    }
+
+    public String update(Customer updated) {
+        Customer old = customerService.getCustomerById(updated.getCustomerId());
+
+        Session session = sessionFactory.getCurrentSession();
+        Transaction t = session.beginTransaction();
+
+        try {
+            old.merge(updated);
+            session.saveOrUpdate(old);
+            t.commit();
+        } catch (Exception e) {
+            t.rollback();
+            e.printStackTrace();
+            return e.getMessage();
+        } finally {
+            if (session.isOpen()) {
+                session.close();
+            }
+        }
+        return null;
     }
 }

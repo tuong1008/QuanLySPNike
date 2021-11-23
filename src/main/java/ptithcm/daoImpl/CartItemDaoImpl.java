@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ptithcm.daoImpl;
 
 import org.hibernate.Query;
@@ -28,9 +24,8 @@ public class CartItemDaoImpl extends AbstractDao<CartItem> implements CartItemDa
     @Override
     public List<CartItem> findByCartId(long cartId) {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "FROM CartItem C WHERE C.cart.cartId = :cartId";
-        Transaction t = session.beginTransaction();
-        Query query = session.createQuery(hql);
+                Transaction t = session.beginTransaction();
+        Query query = session.createQuery("FROM CartItem C WHERE C.cart.cartId = :cartId");
         query.setParameter("cartId", cartId);
 
         List<CartItem> list = query.list();
@@ -44,9 +39,8 @@ public class CartItemDaoImpl extends AbstractDao<CartItem> implements CartItemDa
     @Override
     public CartItem findOne(long cartItemId) {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "FROM CartItem C WHERE C.cartItemId = :cartItemId";
-        Transaction t = session.beginTransaction();
-        Query query = session.createQuery(hql);
+                Transaction t = session.beginTransaction();
+        Query query = session.createQuery("FROM CartItem C WHERE C.cartItemId = :cartItemId");
         query.setParameter("cartItemId", cartItemId);
 
         List<CartItem> list = query.list();
@@ -60,9 +54,8 @@ public class CartItemDaoImpl extends AbstractDao<CartItem> implements CartItemDa
     @Override
     public void removeAllByCartId(long cartId) {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "delete CartItem c where c.cart.cartId = :id";
-        Transaction t = session.beginTransaction();
-        Query query = session.createQuery(hql);
+                Transaction t = session.beginTransaction();
+        Query query = session.createQuery("delete CartItem c where c.cart.cartId = :id");
         query.setParameter("id", cartId);
 
         int result = query.executeUpdate();
@@ -71,5 +64,4 @@ public class CartItemDaoImpl extends AbstractDao<CartItem> implements CartItemDa
             System.out.println("Expensive CartItem was removed");
         }
     }
-
 }

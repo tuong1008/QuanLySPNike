@@ -12,6 +12,7 @@ import ptithcm.entity.Product;
 import ptithcm.exceptions.PageNotFoundException;
 import ptithcm.service.*;
 
+import javax.servlet.jsp.JspContext;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -124,10 +125,11 @@ public class AdminHome {
     }
 
     @RequestMapping(value = "/customerManagement/update/{customerId}", method = RequestMethod.POST)
-    public String updateCustomerPost(@Valid @ModelAttribute("customer") Customer customer, BindingResult result) {
+    public String updateCustomerPost(@Valid @ModelAttribute("customer") Customer customer, BindingResult result, ModelMap model) {
         if (result.hasErrors()) {
             return "admin/updateCustomer";
         }
+
         customerService.updateCustomer(customer);
         return "redirect:/admin/customerManagement/1.htm";
     }

@@ -11,6 +11,7 @@
                 <div class="card">
                     <div class="card-body p-5">
                         <h2 class="text-uppercase text-center mb-3">Edit customer info</h2>
+                        <%--@elvariable id="customer" type="ptithcm.entity.Customer"--%>
                         <form:form action="admin/customerManagement/update/${customer.customerId}.htm"
                                    method="post" modelAttribute="customer" class="form-horizontal">
                             <div class="form-outline mb-4">
@@ -92,7 +93,7 @@
                                     <form:errors path="billingAddress.country" cssClass="text-danger"/>
                                 </div>
                                 <div class="col-xs-9">
-                                    <form:input path="billingAddress.country" class="form-control" placeholder="customer.billingAddress.country"/>
+                                    <form:input path="billingAddress.country" class="form-control" placeholder="${customer.billingAddress.country}"/>
                                 </div>
                             </div>
                             <div class="form-outline mb-4">
@@ -100,7 +101,7 @@
                                     <form:errors path="billingAddress.zipCode" cssClass="text-danger"/>
                                 </div>
                                 <div class="col-xs-9">
-                                    <form:input path="billingAddress.zipCode" class="form-control" placeholder="customer.billingAddress.zipCode"/>
+                                    <form:input path="billingAddress.zipCode" class="form-control" placeholder="${customer.billingAddress.zipCode}"/>
                                 </div>
                             </div>
                             <div class="form-outline mb-4">
@@ -114,7 +115,7 @@
                                 </div>
                                 <div class="col-xs-9">
                                     <form:input path="shippingAddress.address" class="form-control"
-                                                placeholder="customer.shippingAddress.address"/>
+                                                placeholder="${customer.shippingAddress.address}"/>
                                 </div>
                             </div>
                             <div class="form-outline mb-4">
@@ -122,7 +123,7 @@
                                     <form:errors path="shippingAddress.city" cssClass="text-danger"/>
                                 </div>
                                 <div class="col-xs-9">
-                                    <form:input path="shippingAddress.city" class="form-control" placeholder="customer.shippingAddress.city"/>
+                                    <form:input path="shippingAddress.city" class="form-control" placeholder="${customer.shippingAddress.city}"/>
                                 </div>
                             </div>
                             <div class="form-outline mb-4">
@@ -130,7 +131,7 @@
                                     <form:errors path="shippingAddress.country" cssClass="text-danger"/>
                                 </div>
                                 <div class="col-xs-9">
-                                    <form:input path="shippingAddress.country" class="form-control" placeholder="customer.shippingAddress.country"/>
+                                    <form:input path="shippingAddress.country" class="form-control" placeholder="${customer.shippingAddress.country}"/>
                                 </div>
                             </div>
                             <div class="form-outline mb-4">
@@ -138,7 +139,7 @@
                                     <form:errors path="shippingAddress.zipCode" cssClass="text-danger"/>
                                 </div>
                                 <div class="col-xs-9">
-                                    <form:input path="shippingAddress.zipCode" class="form-control" placeholder="customer.shippingAddress.zipCode"/>
+                                    <form:input path="shippingAddress.zipCode" class="form-control" placeholder="${customer.shippingAddress.zipCode}"/>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center mt-4">

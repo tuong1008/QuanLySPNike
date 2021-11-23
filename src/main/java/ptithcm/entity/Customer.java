@@ -46,12 +46,12 @@ public class Customer implements Serializable {
     private boolean enabled;
 
     @Valid
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(orphanRemoval = true, cascade = {CascadeType.ALL})
     @JoinColumn(name = "shippingAddressId")
     private ShippingAddress shippingAddress;
 
     @Valid
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(orphanRemoval = true, cascade = {CascadeType.ALL})
     @JoinColumn(name = "billingAddressId")
     private BillingAddress billingAddress;
 
@@ -138,5 +138,17 @@ public class Customer implements Serializable {
 
     public void setCart(Cart cart) {
         this.cart = cart;
+    }
+
+    public void merge(Customer other) {
+        setCustomerName(other.customerName);
+        setCustomerEmailAddress(other.customerEmailAddress);
+        setCustomerPhoneNumber(other.customerPhoneNumber);
+        setUsername(other.username);
+        setPassword(other.password);
+        setEnabled(other.enabled);
+        this.billingAddress.merge(other.billingAddress);
+        this.shippingAddress.merge(other.shippingAddress);
+
     }
 }

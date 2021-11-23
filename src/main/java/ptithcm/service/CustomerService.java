@@ -21,7 +21,7 @@ public interface CustomerService {
 
     long getTotalCustomers();
 
-    List<Customer> findAllCustomerByUsernameOrEmail(String searchTerm, int pagaNumber);
+    List<Customer> findAllCustomerByUsernameOrEmail(String searchTerm, int pageNumber);
 
     long getTotalCustomerByUsernameOrEmail(String searchTerm);
 

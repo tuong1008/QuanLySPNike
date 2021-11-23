@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package poly.interceptor;
 
 import org.hibernate.SessionFactory;
@@ -20,14 +16,14 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
     @Autowired
     SessionFactory sessionFactory;
 
+    /**
+     * Nếu register.htm thì cho qua
+     * Không vào được những trang cần login
+     * Login rồi mà login nữa
+     * Đã đăng nhập và tiếp tục ấn đăng ký
+     */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        /**
-         * Nếu register.htm thì cho qua
-         * Không vào được những trang cần login
-         * Login rồi mà login nữa 
-         * Đã đăng nhập và tiếp tục ấn đăng ký
-         */
         HttpSession session = request.getSession();
         String updateParam = request.getParameter("update");
         if (session.getAttribute("username") == null) {
@@ -44,9 +40,5 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
         } else {
             return true;
         }
-    }
-
-    @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
     }
 }

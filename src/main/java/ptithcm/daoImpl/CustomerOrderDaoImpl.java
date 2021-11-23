@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ptithcm.daoImpl;
 
 import org.hibernate.Query;
@@ -27,9 +23,8 @@ public class CustomerOrderDaoImpl extends AbstractDao<CustomerOrder> implements 
     @Override
     public List<CustomerOrder> findAll() {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "FROM CustomerOrder C";
-        Transaction t = session.beginTransaction();
-        Query query = session.createQuery(hql);
+                Transaction t = session.beginTransaction();
+        Query query = session.createQuery("FROM CustomerOrder C");
 
         List<CustomerOrder> list = query.list();
         t.commit();
@@ -43,9 +38,8 @@ public class CustomerOrderDaoImpl extends AbstractDao<CustomerOrder> implements 
     @Override
     public CustomerOrder findOne(long customerOrderId) {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "FROM CustomerOrder C where C.customerOrderId = :customerOrderId";
-        Transaction t = session.beginTransaction();
-        Query query = session.createQuery(hql);
+                Transaction t = session.beginTransaction();
+        Query query = session.createQuery("FROM CustomerOrder C where C.customerOrderId = :customerOrderId");
         query.setParameter("customerOrderId", customerOrderId);
 
         List<CustomerOrder> list = query.list();
@@ -59,9 +53,8 @@ public class CustomerOrderDaoImpl extends AbstractDao<CustomerOrder> implements 
     @Override
     public List<CustomerOrder> getAllCustomerOrders(Integer pageNumber) {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "FROM CustomerOrder C";
-        Transaction t = session.beginTransaction();
-        Query query = session.createQuery(hql);
+                Transaction t = session.beginTransaction();
+        Query query = session.createQuery("FROM CustomerOrder C");
         query.setFirstResult((pageNumber - 1) * 10); //trang 1, từ 0
         query.setMaxResults(10); //đến 9
 
@@ -76,9 +69,8 @@ public class CustomerOrderDaoImpl extends AbstractDao<CustomerOrder> implements 
     @Override
     public long getTotalCustomerOrders() {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "select count(*) FROM CustomerOrder C";
-        Transaction t = session.beginTransaction();
-        Query query = session.createQuery(hql);
+                Transaction t = session.beginTransaction();
+        Query query = session.createQuery("select count(*) FROM CustomerOrder C");
         long results = (long) query.uniqueResult();
         t.commit();
 
@@ -88,9 +80,8 @@ public class CustomerOrderDaoImpl extends AbstractDao<CustomerOrder> implements 
     @Override
     public List<CustomerOrder> findAllOrderByUsernameOrEmail(String searchTerm, int pageNumber) {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "FROM CustomerOrder t WHERE t.customer.username LIKE :searchTerm OR t.customer.customerEmailAddress LIKE :searchTerm";
-        Transaction t = session.beginTransaction();
-        Query query = session.createQuery(hql);
+                Transaction t = session.beginTransaction();
+        Query query = session.createQuery("FROM CustomerOrder t WHERE t.customer.username LIKE :searchTerm OR t.customer.customerEmailAddress LIKE :searchTerm");
         query.setParameter("searchTerm", MatchMode.ANYWHERE.toMatchString(searchTerm));
         query.setFirstResult((pageNumber - 1) * 10); //trang 1, từ 0
         query.setMaxResults(10); //đến 9
@@ -106,9 +97,8 @@ public class CustomerOrderDaoImpl extends AbstractDao<CustomerOrder> implements 
     @Override
     public long getTotalOrderByUsernameOrEmail(String searchTerm) {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "select count(*) FROM CustomerOrder t WHERE t.customer.username LIKE :searchTerm OR t.customer.customerEmailAddress LIKE :searchTerm";
-        Transaction t = session.beginTransaction();
-        Query query = session.createQuery(hql);
+                Transaction t = session.beginTransaction();
+        Query query = session.createQuery("select count(*) FROM CustomerOrder t WHERE t.customer.username LIKE :searchTerm OR t.customer.customerEmailAddress LIKE :searchTerm");
         query.setParameter("searchTerm", MatchMode.ANYWHERE.toMatchString(searchTerm));
         long results = (long) query.uniqueResult();
         t.commit();
@@ -118,9 +108,8 @@ public class CustomerOrderDaoImpl extends AbstractDao<CustomerOrder> implements 
 
     public long getTotalOrderByCustomerId(long customerId) {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "select count(*) FROM CustomerOrder t WHERE t.cutomerid=:customerId";
-        Transaction t = session.beginTransaction();
-        Query query = session.createQuery(hql);
+                Transaction t = session.beginTransaction();
+        Query query = session.createQuery("select count(*) FROM CustomerOrder t WHERE t.customerid=:customerId");
         query.setParameter("customerId", customerId);
         long results = (long) query.uniqueResult();
         t.commit();

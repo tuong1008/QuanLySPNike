@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ptithcm.daoImpl;
 
 import org.hibernate.Query;
@@ -30,9 +26,8 @@ public class CartDaoImpl extends AbstractDao<Cart> implements CartDao {
     @Override
     public Cart findOne(long cartId) {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "FROM Cart C WHERE C.cartId = :cartId";
-        Transaction t = session.beginTransaction();
-        Query query = session.createQuery(hql);
+                Transaction t = session.beginTransaction();
+        Query query = session.createQuery("FROM Cart C WHERE C.cartId = :cartId");
         query.setParameter("cartId", cartId);
 
         List<Cart> list = query.list();
@@ -49,12 +44,11 @@ public class CartDaoImpl extends AbstractDao<Cart> implements CartDao {
         List<CartItem> cartItems = cart.getCartItem();
         Session session = sessionFactory.getCurrentSession();
         Transaction t = session.beginTransaction();
-        for (int i = 0; i < cartItems.size(); i++) {
-            CartItem cartItem = cartItems.get(i);
-            //Tìm lại trong CSDL để có được UnitInStock chính xác
-            String hql = "FROM Product P where P.productId = :id";
 
-            Query query = session.createQuery(hql);
+        for (CartItem cartItem : cartItems) {
+            //Tìm lại trong CSDL để có được UnitInStock chính xác
+
+            Query query = session.createQuery("FROM Product P where P.productId = :id");
             query.setParameter("id", cartItem.getProduct().getProductId());
             List<Product> list = query.list();
             Product product = list.get(0);
