@@ -1,7 +1,7 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ include file="/WEB-INF/views/template/header.jsp"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="/WEB-INF/views/template/header.jsp" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <div class="container-wrapper">
     <div class="container">
         <section>
@@ -17,19 +17,15 @@
                 <div>
                     <a class="btn btn-danger pull-left" ng-click="clearCart()"><span
                             class="glyphicon glyphicon-remove-sign"></span> Clear Cart</a>
-
                     <!--                    <a ng-if="cart.cartItem.length==0" style="opacity: 0.5" class="btn btn-danger pull-left"><span
                                                 class="glyphicon glyphicon-remove-sign"></span> Clear Cartt</a>-->
-
                     <a href="<spring:url value="/order/${cartId}.htm" />" class="btn btn-success pull-right"><span
                             class="glyphicon glyphicon-shopping-cart"></span> Check out</a>
                 </div>
                 <br/><br/><br/>
                 <div class="col-xs-12">
                     <c:if test="${not empty error}">
-                        <div class="error" style="color:#ff0000">
-                                ${error}
-                        </div>
+                        <div class="text-danger">${error}</div>
                     </c:if>
                 </div>
                 <table class="table table-hover">
@@ -58,6 +54,5 @@
                 </table>
             </div>
         </section>
-        <!-- My -->
-        <script src="<c:url value="/resources/js/controller.js" /> "></script>
-<%@ include file="/WEB-INF/views/template/footer.jsp"%>
+        <script src="resources/js/controller.js"></script>
+<%@ include file="/WEB-INF/views/template/footer.jsp" %>

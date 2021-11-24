@@ -4,6 +4,6 @@
 <div class="display-1 lead text-center">
     <h1 class="fs-2">Unauthorized</h1>
 </div>
-<img src="resources/images/error.gif" alt="error.gif"">
+<img src="resources/images/error.gif" alt="error.gif">
 
-<%@include file="/WEB-INF/views/template/footer.jsp"%>
+<%@include file="/WEB-INF/views/template/footer.jsp" %>

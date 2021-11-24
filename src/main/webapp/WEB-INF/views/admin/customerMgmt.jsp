@@ -1,6 +1,3 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include flush="true" page="/WEB-INF/views/template/header.jsp">
     <jsp:param name="title" value="Customer Management"/>
 </jsp:include>
@@ -20,7 +17,7 @@
             <div class=row>
                 <form class="form-inline" action="<c:url value="/admin/customerManagement/search/1.htm"/>"
                       method="post">
-<%--                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
+                    <%--                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
                     <div class="d-flex justify-content-center align-items-center">
                         <input type="text" name="searchTerm" class="form-control" style="width:300px"
                                id="inputEmail" placeholder="Search Username or Email">
@@ -121,4 +118,4 @@
         </div>
     </div>
 </div>
-<%@ include file="/WEB-INF/views/template/footer.jsp"%>
+<%@ include file="/WEB-INF/views/template/footer.jsp" %>

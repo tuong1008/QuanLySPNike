@@ -1,6 +1,6 @@
-<%@include file="/WEB-INF/views/template/header.jsp"%>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/views/template/header.jsp" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header title">
@@ -13,7 +13,7 @@
                 <div class="row">
                     <label class="col-xs-3 control-label"></label>
                     <div class="col-xs-9">
-                        <form:errors path="productName" cssStyle="color: #ff0000"/>
+                        <form:errors path="productName" cssClass="text-danger"/>
                     </div>
                 </div>
                 <div class="form-group has-success">
@@ -26,7 +26,7 @@
                 <div class="row">
                     <label class="col-xs-3 control-label"></label>
                     <div class="col-xs-9">
-                        <form:errors path="productPrice" cssStyle="color: #ff0000"/>
+                        <form:errors path="productPrice" cssClass="text-danger"/>
                     </div>
                 </div>
                 <div class="form-group has-success">
@@ -39,7 +39,7 @@
                 <div class="row">
                     <label class="col-xs-3 control-label"></label>
                     <div class="col-xs-9">
-                        <form:errors path="unitInStock" cssStyle="color: #ff0000"/>
+                        <form:errors path="unitInStock" cssClass="text-danger"/>
                     </div>
                 </div>
                 <div class="form-group has-success">
@@ -52,7 +52,7 @@
                 <div class="row">
                     <label class="col-xs-3 control-label"></label>
                     <div class="col-xs-9">
-                        <form:errors path="productCategory" cssStyle="color: #ff0000"/>
+                        <form:errors path="productCategory" cssClass="text-danger"/>
                     </div>
                 </div>
                 <div class="form-group has-success">
@@ -67,7 +67,7 @@
                 <div class="row">
                     <label class="col-xs-3 control-label"></label>
                     <div class="col-xs-9">
-                        <form:errors path="productDescription" cssStyle="color: #ff0000"/>
+                        <form:errors path="productDescription" cssClass="text-danger"/>
                     </div>
                 </div>
                 <div class="form-group has-success">
@@ -94,4 +94,4 @@
         </div>
     </div>
 </div>
-<%@include file="/WEB-INF/views/template/footer.jsp"%>
+<%@include file="/WEB-INF/views/template/footer.jsp" %>

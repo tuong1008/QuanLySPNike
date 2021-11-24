@@ -1,5 +1,5 @@
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@include file="/WEB-INF/views/template/header.jsp"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@include file="/WEB-INF/views/template/header.jsp" %>
 <c:url var="firstUrl" value="/product/productList/${productCategory}/1.htm"/>
 <c:url var="lastUrl" value="/product/productList/${productCategory}/${totalPages}.htm"/>
 <c:url var="prevUrl" value="/product/productList/${productCategory}/${currentPageNumber - 1}.htm"/>
@@ -21,8 +21,7 @@
                 </div>
             </div>
             <div class="jumbotron col-md-6">
-                <h1>Nike Online Shop</h1>
-                <p>Select your favourite product and buy</p>
+                <p>Select your favourite products</p>
             </div>
             <div class="col-md-3">
                 <h1 class="Product-category">Product Category</h1>
@@ -61,9 +60,7 @@
         <section class="productsection">
             <div class="container">
                 <c:if test="${not empty msg}">
-                    <div class="no-product">
-                            ${msg}
-                    </div>
+                    <div class="no-product">${msg}</div>
                 </c:if>
                 <div class="row">
                     <c:forEach var="product" items="${products}">
@@ -77,7 +74,7 @@
                                 </div>
                                 <div class="product-desc">
                                     <h2>${product.productName}</h2>
-                                    <h3>${product.productPrice} USD</h3>
+                                    <h3>${product.productPrice}đ</h3>
                                     <a href=" <c:url value="/product/viewProduct/${product.productId}.htm"/>"
                                        class="btn btn-info btn-lg">View Detail</a>
                                 </div>
@@ -137,4 +134,4 @@
         </div>
     </div>
 </div>
-<%@include file="/WEB-INF/views/template/footer.jsp"%>
+<%@include file="/WEB-INF/views/template/footer.jsp" %>

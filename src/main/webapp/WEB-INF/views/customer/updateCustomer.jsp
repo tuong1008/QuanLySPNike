@@ -1,6 +1,6 @@
-<%@include file="/WEB-INF/views/template/header.jsp"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/views/template/header.jsp" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header title">
@@ -13,21 +13,19 @@
                 <div class="form-group has-success">
                     <label class="col-xs-3 control-label"></label>
                     <div class="col-xs-9">
-                        <h1>Give Old username and Password:</h1>
+                        <h1>Enter old username and password:</h1>
                     </div>
                 </div>
                 <div class="form-group has-success">
                     <label class="col-xs-3 control-label"></label>
                     <div class="col-xs-9">
                         <c:if test="${not empty error}">
-                            <div class="error" style="color:#ff0000">
-                                    ${error}
-                            </div>
+                            <div class="text-danger">${error}</div>
                         </c:if>
                     </div>
                 </div>
                 <div class="form-group has-success">
-                    <label class="col-xs-3 control-label" for="username">Username :</label>
+                    <label class="col-xs-3 control-label" for="username">Username:</label>
                     <div class="col-xs-9">
                         <input type="text" class="form-control" placeholder="Enter Username" name="username"
                                id="username"/>
@@ -44,11 +42,10 @@
                     <label class="col-xs-3 control-label"></label>
                     <div class="col-xs-9">
                         <input type="submit" value="Submit" class="btn btn-default">
-                        <a href="<c:url value="/" />" class="btn btn-default">Cancel</a>
                     </div>
                 </div>
             </form:form>
         </div>
     </div>
 </div>
-<%@include file="/WEB-INF/views/template/footer.jsp"%>
+<%@include file="/WEB-INF/views/template/footer.jsp" %>

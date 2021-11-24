@@ -1,6 +1,6 @@
-<%@include file="/WEB-INF/views/template/header.jsp"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/views/template/header.jsp" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -17,10 +17,8 @@
                                     <div class="form-group has-success">
                                         <label class="col-xs-3 control-label"></label>
                                         <div class="col-xs-9">
-                                            <c:if test="${!empty error}">
-                                                <div class="text-danger">
-                                                        ${error}
-                                                </div>
+                                            <c:if test="${not empty error}">
+                                                <div class="text-danger">${error}</div>
                                             </c:if>
                                         </div>
                                     </div>
@@ -60,4 +58,4 @@
         </div>
     </div>
 </div>
-<%@include file="/WEB-INF/views/template/footer.jsp"%>
+<%@include file="/WEB-INF/views/template/footer.jsp" %>

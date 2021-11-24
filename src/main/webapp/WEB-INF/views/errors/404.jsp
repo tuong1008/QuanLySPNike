@@ -3,7 +3,7 @@
 </jsp:include>
 <div style="position: absolute; top:10%; left: 30px">
     <c:choose>
-        <c:when test="${!empty message}">
+        <c:when test="${not empty message}">
             <h1 class="fs-2">${message}</h1>
         </c:when>
         <c:otherwise>
@@ -13,4 +13,4 @@
 </div>
 <img src="resources/images/error.gif" alt="404 not found">
 
-<%@include file="/WEB-INF/views/template/footer.jsp"%>
+<%@include file="/WEB-INF/views/template/footer.jsp" %>

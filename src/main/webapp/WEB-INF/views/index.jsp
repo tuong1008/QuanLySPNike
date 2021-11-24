@@ -20,7 +20,7 @@
     <a href="<c:url value="home/contact.htm"/>">home/contact.htm</a>
 </div>
 <br>
-<div>Một số trang yêu cầu đăng nhập</div>
+<div>Một số trang yêu cầuđăng nhập</div>
 <div>
     <a href="<c:url value="user/logoff.htm"/>">user/logoff.htm</a>
 </div>
@@ -34,6 +34,6 @@
     <a href="<c:url value="order/list.htm"/>">order/list.htm</a>
 </div>
 <br>
-<div>Sau khi đăng nhập thành công, trở về những url trên, nó sẽ load DS Major bằng Interceptor</div>
+<div>Sau khiđăng nhập thành công, trở về những url trên, nó sẽ load DS Major bằng Interceptor</div>
 </body>
 </html>

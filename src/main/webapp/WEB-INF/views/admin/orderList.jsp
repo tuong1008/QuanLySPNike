@@ -1,12 +1,12 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ include file="/WEB-INF/views/template/header.jsp"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ include file="/WEB-INF/views/template/header.jsp" %>
 <c:url var="firstUrl" value="/admin/customerOrder/1.htm"/>
 <c:url var="lastUrl" value="/admin/customerOrder/${totalPages}.htm"/>
 <c:url var="prevUrl" value="/admin/customerOrder/${currentPageNumber - 1}.htm"/>
 <c:url var="nextUrl" value="/admin/customerOrder/${currentPageNumber + 1}.htm"/>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
@@ -117,4 +117,4 @@
         </div>
     </div>
 </div>
-<%@ include file="/WEB-INF/views/template/footer.jsp"%>
+<%@ include file="/WEB-INF/views/template/footer.jsp" %>

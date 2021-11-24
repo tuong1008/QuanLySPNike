@@ -1,4 +1,5 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -11,7 +12,7 @@
     <base href="${pageContext.servletContext.contextPath}/">
     <link rel="icon" href="resources/images/favicon.ico">
     <c:choose>
-        <c:when test="${!empty param.title}">
+        <c:when test="${not empty param.title}">
             <title>${param.title}</title>
         </c:when>
         <c:otherwise>

@@ -1,6 +1,7 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ include file="/WEB-INF/views/template/header.jsp"%>
+<%--@elvariable id="customer" type="ptithcm.entity.Customer"--%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ include file="/WEB-INF/views/template/header.jsp" %>
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
@@ -11,10 +12,10 @@
         <table class="table table-striped table-hover table-borderless">
             <thead class="table-dark">
             <tr class="bg-success">
-                <th>Street Name</th>
+                <th>Address</th>
                 <th>City</th>
                 <th>Country</th>
-                <th>ZipCode</th>
+                <th>Zip Code</th>
             </tr>
             </thead>
             <tr>
@@ -30,7 +31,7 @@
             <tr class="bg-success">
                 <th>City</th>
                 <th>Country</th>
-                <th>ZipCode</th>
+                <th>Zip Code</th>
             </tr>
             </thead>
             <tr>
@@ -41,4 +42,4 @@
         </table>
     </div>
 </div>
-<%@ include file="/WEB-INF/views/template/footer.jsp"%>
+<%@ include file="/WEB-INF/views/template/footer.jsp" %>
