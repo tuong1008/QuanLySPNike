@@ -1,4 +1,3 @@
-
 package ptithcm.daoImpl;
 
 import org.hibernate.Query;

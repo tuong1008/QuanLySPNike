@@ -1,4 +1,3 @@
-
 package poly.interceptor;
 
 import org.hibernate.SessionFactory;
