@@ -65,5 +65,4 @@ public class CustomerServiceImpl implements CustomerService {
     public long getTotalCustomerByUsernameOrEmail(String string) {
         return customerDao.getTotalCustomerByUsernameOrEmail(string);
     }
-
 }

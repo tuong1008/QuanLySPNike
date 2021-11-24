@@ -13,14 +13,15 @@ public class CartItem implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long cartItemId;
 
-    @ManyToOne//with cart
-    @JoinColumn(name = "cartId")//primaru key of cart
+    @ManyToOne
+    @JoinColumn(name = "cartId")
     @JsonBackReference
     private Cart cart;
-    @ManyToOne//with cartitem
-    @JoinColumn(name = "productId")
 
+    @ManyToOne
+    @JoinColumn(name = "productId")
     private Product product;
+
     private int quantity;
     private double totalPrice;
 

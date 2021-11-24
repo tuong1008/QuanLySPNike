@@ -91,16 +91,4 @@ public class OrderController {
 
         excelExporter.export(response);
     }
-//	public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
-//			Exception ex) {
-//		ModelAndView modelAndView=new ModelAndView();
-//		CustomError error=new CustomError();
-//	
-//		
-//		error.setMessage("Your request is not valid.Please Enter a valid request.");
-//		modelAndView.addObject("customError", error);
-//		modelAndView.setViewName("error_page");
-//		
-//		return modelAndView;
-//	}
 }

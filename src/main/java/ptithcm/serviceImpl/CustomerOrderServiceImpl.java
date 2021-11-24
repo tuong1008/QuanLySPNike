@@ -58,5 +58,4 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
     public long getTotalOrderByCustomerId(long customerId) {
         return customerOrderDao.getTotalOrderByCustomerId(customerId);
     }
-
 }

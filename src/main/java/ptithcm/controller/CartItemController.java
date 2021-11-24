@@ -97,16 +97,11 @@ public class CartItemController {
         cart.setGrandTotal(grandTotal);
 
         cartService.updateCart(cart);
-//		System.out.println("C:"+cartItem.getTotalPrice());
-//		System.out.println(cartItem);
-
         cartItemService.deleteCartItem(cartItem);
-//		System.out.println("c:hpoihpoifihihitih-----------");
     }
 
 
     //REMOVE CART/CLEAR CART
-
     @RequestMapping(value = "/{cartId}.htm", method = RequestMethod.DELETE)
     @ResponseStatus(value = HttpStatus.OK)
     public void clearCart(HttpServletRequest request, @PathVariable(value = "cartId") int cartId) {

@@ -44,5 +44,4 @@ public class CartItemServiceImpl implements CartItemService {
     public void removeAllCartItems(long l) {
         cartItemDao.removeAllByCartId(l);
     }
-
 }

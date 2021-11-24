@@ -31,5 +31,4 @@ public class AuthoritiesServiceImpl implements ptithcm.service.AuthoritiesServic
             return "";
         }
     }
-
 }

@@ -147,8 +147,15 @@ public class Customer implements Serializable {
         setUsername(other.username);
         setPassword(other.password);
         setEnabled(other.enabled);
-        this.billingAddress.merge(other.billingAddress);
-        this.shippingAddress.merge(other.shippingAddress);
-
+        // update child entity
+        if (this.billingAddress != null && other.billingAddress != null) {
+            this.billingAddress.merge(other.billingAddress);
+        }
+        if (this.shippingAddress != null && other.shippingAddress != null) {
+            this.shippingAddress.merge(other.shippingAddress);
+        }
+        if (other.cart != null && this.cart != null) {
+            this.cart.merge(other.cart);
+        }
     }
 }
