@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ptithcm.entity.Cart;
 import ptithcm.entity.Customer;
 import ptithcm.service.CustomerService;
 
@@ -17,12 +18,18 @@ public class CartController {
     private CustomerService customerService;
 
     @RequestMapping
-    public String getCart(HttpServletRequest request) {
+    public String getCart(HttpServletRequest request) throws Exception {
         String activeUser = request.getSession().getAttribute("username").toString();
         Customer customer = customerService.findCustomerByUsername(activeUser);
-        long cartId = customer.getCart().getCartId();
+        if (customer.getCart() == null) {
+            Cart cart = new Cart();
+            customer.setCart(cart);
+            customerService.updateCustomer(customer);
+            return "redirect:/customer/cart/" + cart.getCartId() + ".htm";
+        } else {
+            return "redirect:/customer/cart/" + customer.getCart().getCartId() + ".htm";
+        }
 
-        return "redirect:/customer/cart/" + cartId + ".htm";
     }
 
     @RequestMapping("/{cartId}.htm")
@@ -35,12 +42,12 @@ public class CartController {
 //				Exception ex) {
 //			ModelAndView modelAndView=new ModelAndView();
 //			CustomError error=new CustomError();
-//		
-//			
+//
+//
 //			error.setMessage("Your request is not valid.Please Enter a valid request.");
 //			modelAndView.addObject("customError", error);
 //			modelAndView.setViewName("error_page");
-//			
+//
 //			return modelAndView;
 //		}
 

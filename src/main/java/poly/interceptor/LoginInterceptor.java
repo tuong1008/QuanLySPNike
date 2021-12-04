@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
 @Transactional
-public class LoggerInterceptor extends HandlerInterceptorAdapter {
+public class LoginInterceptor extends HandlerInterceptorAdapter {
     @Autowired
     SessionFactory sessionFactory;
 
