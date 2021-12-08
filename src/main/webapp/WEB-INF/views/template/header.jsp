@@ -52,9 +52,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
+                <c:if test="${sessionScope.username!='admin'}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.htm">Contact</a>
+                    </li>
+                </c:if>
+
             </ul>
             <ul class="navbar-nav ms-auto mb-lg-0">
                 <c:choose>

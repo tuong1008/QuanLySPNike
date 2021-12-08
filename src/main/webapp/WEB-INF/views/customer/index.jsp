@@ -11,27 +11,27 @@
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active" data-bs-interval="2000">
-            <img class="d-block w-100" src="resources/images/banner14_1.jpg" alt="First slide">
+            <img class="d-block w-100" style="width: 1500px; height: 1000px" src="resources/images/banner3.jpg" alt="1st slide">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Nike Online Shop</h5>
-                <p>Buy Latest Products</p>
-                <p><a class="btn btn-lg btn-primary" href="register" role="link">Sign up
+                <p style="font-family: 'Segoe UI Semibold', serif">Buy Latest Products</p>
+                <p style="font-family: 'Segoe UI Semibold', serif"><a class="btn btn-lg btn-dark" href="register" role="link">Sign up
                     now!</a>
                 </p>
             </div>
         </div>
         <div class="carousel-item" data-bs-interval="2000">
-            <img class="d-block w-100" src="resources/images/banner12_1.jpg" alt="First slide">
+            <img class="d-block w-100" style="width: 1500px; height: 1000px" src="resources/images/banner1.jpg" alt="2nd slide">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Find all your favorite products here!</h5>
-                <p>Top tier quality</p>
+                <h5 style="font-family: 'Segoe UI Semibold', serif">Find all your favorite products here!</h5>
+                <p style="font-family: 'Segoe UI Semibold', serif">Top tier quality</p>
             </div>
         </div>
         <div class="carousel-item" data-bs-interval="2000">
-            <img class="d-block w-100" src="resources/images/banner13_1.jpg" alt="First slide">
+            <img class="d-block w-100" style="width: 1500px; height: 1000px" src="resources/images/banner4.jpg" alt="3rd slide">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Chosen by the best athletes around the world</h5>
-                <p>Shop with us!</p>
+                <h5 style="font-family: 'Segoe UI Semibold', serif">Chosen by the best athletes around the world</h5>
+                <p style="font-family: 'Segoe UI Semibold', serif">Shop with us!</p>
             </div>
         </div>
     </div>
