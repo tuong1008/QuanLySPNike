@@ -54,5 +54,7 @@
                 </table>
             </div>
         </section>
-        <script src="resources/js/controller.js"></script>
+    </div>
+</div>
+<script src="resources/js/controller.js"></script>
 <%@ include file="/WEB-INF/views/template/footer.jsp" %>

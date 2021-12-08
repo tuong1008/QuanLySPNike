@@ -2,13 +2,12 @@ package ptithcm.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ptithcm.entity.Cart;
 import ptithcm.entity.Customer;
 import ptithcm.service.CustomerService;
-
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
@@ -33,7 +32,7 @@ public class CartController {
     }
 
     @RequestMapping("/{cartId}.htm")
-    public String getCartRedirect(@PathVariable(value = "cartId") long cartId, Model model) {
+    public String getCartRedirect(@PathVariable(value = "cartId") long cartId, ModelMap model) {
         model.addAttribute("cartId", cartId);
 
         return "customer/cart";
