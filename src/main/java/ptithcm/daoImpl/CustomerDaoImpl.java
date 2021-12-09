@@ -25,7 +25,7 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
     @Override
     public Customer findByUsername(String username) {
         Session session = sessionFactory.getCurrentSession();
-                Transaction t = session.beginTransaction();
+        Transaction t = session.beginTransaction();
         Query query = session.createQuery("FROM Customer C WHERE C.username = :username");
         query.setParameter("username", username);
         List<Customer> list = query.list();
@@ -39,7 +39,7 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
     @Override
     public Customer findByUsernameAndPassword(String username, String password) {
         Session session = sessionFactory.getCurrentSession();
-                Transaction t = session.beginTransaction();
+        Transaction t = session.beginTransaction();
         Query query = session.createQuery("FROM Customer C WHERE C.username = :username and C.password = :password");
         query.setParameter("username", username);
         query.setParameter("password", password);
@@ -69,7 +69,7 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
     @Override
     public List<Customer> findAll() {
         Session session = sessionFactory.getCurrentSession();
-                Transaction t = session.beginTransaction();
+        Transaction t = session.beginTransaction();
         Query query = session.createQuery("FROM Customer c");
         List<Customer> list = query.list();
         t.commit();
@@ -80,9 +80,9 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
     }
 
     @Override
-    public List<Customer> getAllCustomers(Integer pageNumber) {
+    public List<Customer> getAllCustomers(int pageNumber) {
         Session session = sessionFactory.getCurrentSession();
-                Transaction t = session.beginTransaction();
+        Transaction t = session.beginTransaction();
         Query query = session.createQuery("FROM Customer C where C.username<>'admin'");
         query.setFirstResult((pageNumber - 1) * 10);
         query.setMaxResults(10);
@@ -98,7 +98,7 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
     @Override
     public long getTotalCustomers() {
         Session session = sessionFactory.getCurrentSession();
-                Transaction t = session.beginTransaction();
+        Transaction t = session.beginTransaction();
         Query query = session.createQuery("select count(*) FROM Customer C");
         long results = (long) query.uniqueResult();
         t.commit();
@@ -109,7 +109,7 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
     @Override
     public List<Customer> findAllCustomerByUsernameOrEmail(String searchTerm, int pageNumber) {
         Session session = sessionFactory.getCurrentSession();
-                Transaction t = session.beginTransaction();
+        Transaction t = session.beginTransaction();
         Query query = session.createQuery("FROM Customer t WHERE (t.username LIKE :searchTerm OR t.customerEmailAddress LIKE :searchTerm) and t.username<>'admin'");
         query.setParameter("searchTerm", MatchMode.ANYWHERE.toMatchString(searchTerm));
         query.setFirstResult((pageNumber - 1) * 10); //trang 1, từ 0

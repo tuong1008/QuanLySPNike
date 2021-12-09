@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 public class Customer implements Serializable {
@@ -59,6 +60,11 @@ public class Customer implements Serializable {
     @JsonBackReference
     @JoinColumn(name = "cartId")
     private Cart cart;
+
+//    @JsonBackReference
+//    @OneToMany(mappedBy = "Customer", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+//    private Set<Message> messages;
+
 
     public long getCustomerId() {
         return customerId;

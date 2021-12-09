@@ -50,7 +50,6 @@ public class RegisterController {
         if (result.hasErrors()) {
             return "customer/registerCustomer";
         }
-        //System.out.println("--------------------------update:"+update+" ------------"+oldUserId);
         if (update != null && update.equalsIgnoreCase("update")) {
             String username = request.getSession().getAttribute("username").toString();
             Customer oldCustomer = customerService.findCustomerByUsername(username);

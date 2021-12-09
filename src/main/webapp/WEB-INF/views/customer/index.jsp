@@ -284,7 +284,7 @@
                 <div class="col-md-10">
                     <blockquote class="blockquote">
                         <i class="fa fa-quote-left" aria-hidden="true"></i>
-                        <p>Lorem ipsum dolor atque culpa deserunt fuga magni molestias nostrum obcaecati possimus!</p>
+                        <p class="text-dark">Lorem ipsum dolor atque culpa deserunt fuga magni molestias nostrum obcaecati possimus!</p>
                     </blockquote>
                 </div>
             </div>
@@ -298,7 +298,7 @@
                 <div class="col-md-10">
                     <blockquote class="blockquote">
                         <i class="fa fa-quote-left" aria-hidden="true"></i>
-                        <p>Alias aspernatur, atque culpa deserunt fuga magni molestias nostrum obcaecati possimus,
+                        <p class="text-dark">Alias aspernatur, atque culpa deserunt fuga magni molestias nostrum obcaecati possimus,
                             quaerat quasi quo repellat saepe ut voluptatem? Deleniti explicabo quae quisquam!</p>
                     </blockquote>
                 </div>

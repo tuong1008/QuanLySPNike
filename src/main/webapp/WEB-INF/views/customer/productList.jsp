@@ -8,7 +8,7 @@
     <div class="container">
         <div class=row>
             <div class="col-md-3">
-                <h1 class="Product-category">Product Category</h1>
+                <h1 class="fs-2 fw-bold">Product Category</h1>
                 <div class="list-group popular-product">
                     <a href="<c:url value="/product/productList/Lifestyle/1.htm"/>" class="list-group-item">Lifestyle Shoes</a>
                     <a href="<c:url value="/product/productList/Running/1.htm"/>" class="list-group-item">Running Shoes</a>
@@ -24,7 +24,7 @@
                 <p>Select your favourite products</p>
             </div>
             <div class="col-md-3">
-                <h1 class="Product-category">Product Category</h1>
+                <h1 class="fs-2 fw-bold">Product Category</h1>
                 <div class="list-group popular-product">
                     <a href="<c:url value="/product/productList/Jogger/1.htm"/>" class="list-group-item">Jogger Pants</a>
                     <a href="<c:url value="/product/productList/Bags/1.htm"/>" class="list-group-item">Bags</a>

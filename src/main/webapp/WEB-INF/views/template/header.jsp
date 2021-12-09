@@ -49,9 +49,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="product/productList.htm">Products</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
+<%--                <li class="nav-item">--%>
+<%--                    <a class="nav-link" href="#">About</a>--%>
+<%--                </li>--%>
                 <c:if test="${sessionScope.username!='admin'}">
                     <li class="nav-item">
                         <a class="nav-link" href="contact.htm">Contact</a>

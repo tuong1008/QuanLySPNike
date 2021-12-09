@@ -13,7 +13,7 @@ public interface CustomerDao extends GenericDao<Customer> {
 
     List<Customer> findAll();
 
-    List<Customer> getAllCustomers(Integer pageNumber);
+    List<Customer> getAllCustomers(int pageNumber);
 
     long getTotalCustomers();
 

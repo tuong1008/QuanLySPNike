@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <jsp:include flush="true" page="/WEB-INF/views/template/header.jsp">
     <jsp:param name="title" value="Contact us"/>
 </jsp:include>
@@ -22,24 +24,45 @@
                                 </div>
                                 <div class="d-flex flex-row align-items-center mt-3">
                                     <span class="icons"><i class="fa fa-envelope-o"></i></span>
-                                    <div class="address text-start"><span>Address</span>
+                                    <div class="address text-start"><span>Email</span>
                                         <p>admin@nikeshop.com</p></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="text-center px-1">
-                                <div class="forms p-4 py-5 bg-white"><h5>Send Message</h5>
-                                    <div class="mt-4 inputs"><input type="text" class="form-control" placeholder="Name">
-                                        <input type="text" class="form-control" placeholder="Email">
-                                        <textarea class="form-control" placeholder="Type your message"></textarea>
-                                    </div>
-                                    <div class="button mt-4 text-left">
-                                        <button class="btn btn-dark">Send</button>
-                                    </div>
+                        <%--@elvariable id="message" type="ptithcm.entity.Message"--%>
+                        <form:form action="/sendmessage.htm" method="post" cssClass="form-horizontal" modelAttribute="message">
+                            <div class="col-md-6">
+                                <div class="text-center px-1">
+                                    <c:choose>
+                                        <c:when test="${sessionScope.user!=null}">
+                                            <div class="forms p-4 py-5 bg-white"><h5>Send</h5>
+                                                <div class="mt-4 inputs">
+                                                    <input type="text" class="form-control" placeholder="Name" value="${sessionScope.user.customerName}">
+                                                    <input type="text" class="form-control" placeholder="Email Address" value="${sessionScope.user.customerEmailAddress}">
+                                                    <textarea class="form-control" placeholder="Your message"></textarea>
+                                                </div>
+                                                <div class="button mt-4 text-left">
+                                                    <button type="submit" class="btn btn-dark">Send</button>
+                                                </div>
+                                            </div>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <div class="forms p-4 py-5 bg-white"><h5>Send Message</h5>
+                                                <div class="mt-4 inputs">
+                                                    <input type="text" class="form-control" placeholder="Name">
+                                                    <input type="text" class="form-control" placeholder="Email Address">
+                                                    <textarea class="form-control" placeholder="Your message"></textarea>
+                                                </div>
+                                                <div class="button mt-4 text-left">
+                                                    <button type="submit" class="btn btn-dark">Send</button>
+                                                </div>
+                                            </div>
+                                        </c:otherwise>
+                                    </c:choose>
+
                                 </div>
                             </div>
-                        </div>
+                        </form:form>
                     </div>
                 </div>
             </div>

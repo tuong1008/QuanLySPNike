@@ -45,7 +45,9 @@ public class HomeController {
     public String login(HttpServletRequest request, ModelMap model, @ModelAttribute("customer") Customer customer) throws ServletException {
         Customer temp = customerService.findCustomerByUsernameAndPassword(customer.getUsername(), customer.getPassword());
         if (temp != null) {
-            request.getSession().setAttribute("username", customer.getUsername());
+            request.getSession().setAttribute("username", temp.getUsername());
+            request.getSession().setAttribute("user", temp);
+
             String role = authoritiesService.getRole(customer.getUsername());
             if (role.equals("ROLE_USER") || role.isEmpty()) {
                 return "redirect:/trang-chu.htm";
@@ -61,6 +63,7 @@ public class HomeController {
     @RequestMapping(value = "/logout.htm", method = RequestMethod.GET)
     public String logoutPage(HttpServletRequest request) throws ServletException {
         request.getSession().removeAttribute("username");
+        request.getSession().removeAttribute("user");
         return "redirect:/login.htm?logout";
     }
 
