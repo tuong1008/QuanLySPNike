@@ -1,6 +1,7 @@
 <%--close header div--%>
 </div>
-<div class="custom-footer container-fluid; width: 100%;">
+<%--<div class="custom-footer container-fluid footer fixed-bottom" style="width: 100%;">--%>
+<div class="footer fixed-bottom mt-lg-auto" style="width: 100%;">
     <footer class="bg-dark text-center text-white">
         <div class="container p-4 pb-0">
             <section class="mb-4">
