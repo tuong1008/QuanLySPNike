@@ -9,13 +9,13 @@
             <div class="col-md-9">
                 <div class="contact-us text-center"><h3>Contact Us</h3>
                     <p class="mb-5">Hey. How can we help you? Send us a message!</p>
-                    <div class="row">
+                    <div class="d-flex flex-row justify-content-start">
                         <div class="col-md-6">
                             <div class="mt-5 text-center px-3">
                                 <div class="d-flex flex-row align-items-center">
                                     <span class="icons"><i class="fa fa-map-marker"></i></span>
                                     <div class="address text-start"><span>Address</span>
-                                        <p>Man Thiện, Thủ Đức, Hồ Chí Minh</p></div>
+                                        <p>23 Quang Trung, Ho Chi Minh City</p></div>
                                 </div>
                                 <div class="d-flex flex-row align-items-center mt-3">
                                     <span class="icons"><i class="fa fa-phone"></i></span>
@@ -30,7 +30,7 @@
                             </div>
                         </div>
                         <%--@elvariable id="userMessage" type="ptithcm.entity.Message"--%>
-                        <form:form action="${pageContext.request.contextPath}/contact.htm" method="post" cssClass="form-horizontal" modelAttribute="userMessage">
+                        <form:form action="${pageContext.request.contextPath}/contact.htm"  cssStyle="width: 100%" method="post" modelAttribute="userMessage">
                             <div class="col-md-6">
                                 <div class="text-center px-1">
                                     <c:choose>
