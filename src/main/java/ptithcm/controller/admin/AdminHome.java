@@ -5,15 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ptithcm.entity.CartItem;
-import ptithcm.entity.Customer;
-import ptithcm.entity.CustomerOrder;
-import ptithcm.entity.Product;
+import ptithcm.entity.*;
 import ptithcm.exceptions.PageNotFoundException;
 import ptithcm.service.*;
 
 import javax.servlet.jsp.JspContext;
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -40,6 +38,9 @@ public class AdminHome {
 
     @Autowired
     private BillingAddressService billingAddressService;
+
+    @Autowired
+    private MessageService messageService;
 
     @RequestMapping("/home.htm")
     public String adminPage() {
@@ -241,11 +242,45 @@ public class AdminHome {
         return "admin/productInventory";
     }
 
-    @RequestMapping("/messages/{pageNumber}")
-    public String getCustomerOrderProduct(@PathVariable("pageNumber") int pageNumber, ModelMap model) {
-        CustomerOrder customerOrder = customerOrderService.getCustomerOrderById(pageNumber);
-        model.addAttribute("order", customerOrder);
+//    @RequestMapping("/customerOrder/{pageNumber}")
+//    public String getCustomerOrderProduct(@PathVariable("pageNumber") int pageNumber, ModelMap model) {
+//        CustomerOrder customerOrder = customerOrderService.getCustomerOrderById(pageNumber);
+//        model.addAttribute("order", customerOrder);
+//
+//        return "admin/orderDetails";
+//    }
 
-        return "admin/orderDetails";
+    @RequestMapping("/messages/{pageNumber}")
+    public String customerMessage(@PathVariable int pageNumber, ModelMap model){
+        List<Message> messages = messageService.getAllMessage(pageNumber);
+        int total = messages.size();
+
+        int totalPages = (int) Math.ceil(total / 10.0);
+        if (total == 0) totalPages = 1;
+
+        int currentPageNumber = pageNumber;
+        int beginIndex = Math.max(1, currentPageNumber - 6);
+        int endIndex = Math.min(beginIndex + 10, total);
+        model.addAttribute("messages", messages);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("currentPageNumber", currentPageNumber);
+        model.addAttribute("beginIndex", beginIndex);
+        model.addAttribute("endIndex", endIndex);
+
+        return "redirect:/admin/messages/1.htm";
+    }
+
+    @RequestMapping("/messages/delete/{messageId}")
+    public String customerMessage(@PathVariable long messageId, ModelMap model) {
+        Message m = messageService.getMessageById(messageId);
+
+        if (m == null) {
+            model.addAttribute("error", "Delete failed.");
+        } else {
+            messageService.deleteMessage(m);
+            model.addAttribute("message", "Delete successfully");
+        }
+
+        return "redirect:/admin/messages/1.htm";
     }
 }

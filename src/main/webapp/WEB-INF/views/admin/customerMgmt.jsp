@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <jsp:include flush="true" page="/WEB-INF/views/template/header.jsp">
     <jsp:param name="title" value="Customer Management"/>
 </jsp:include>

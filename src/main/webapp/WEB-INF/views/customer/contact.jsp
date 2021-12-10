@@ -29,17 +29,38 @@
                                 </div>
                             </div>
                         </div>
-                        <%--@elvariable id="message" type="ptithcm.entity.Message"--%>
-                        <form:form action="/sendmessage.htm" method="post" cssClass="form-horizontal" modelAttribute="message">
+                        <%--@elvariable id="userMessage" type="ptithcm.entity.Message"--%>
+                        <form:form action="${pageContext.request.contextPath}/contact.htm" method="post" cssClass="form-horizontal" modelAttribute="userMessage">
                             <div class="col-md-6">
                                 <div class="text-center px-1">
                                     <c:choose>
                                         <c:when test="${sessionScope.user!=null}">
-                                            <div class="forms p-4 py-5 bg-white"><h5>Send</h5>
+                                            <div class="forms p-4 py-5 bg-white"><h5>Send Message</h5>
                                                 <div class="mt-4 inputs">
-                                                    <input type="text" class="form-control" placeholder="Name" value="${sessionScope.user.customerName}">
-                                                    <input type="text" class="form-control" placeholder="Email Address" value="${sessionScope.user.customerEmailAddress}">
-                                                    <textarea class="form-control" placeholder="Your message"></textarea>
+                                                    <div class="form-outline mb-4">
+                                                        <div class="col-xs-9">
+                                                            <form:errors path="name" cssClass="text-danger"/>
+                                                        </div>
+                                                        <div class="col-xs-9">
+                                                            <form:input type="text" class="form-control" placeholder="Name" value="${sessionScope.user.customerName}" path="name"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-outline mb-4">
+                                                        <div class="col-xs-9">
+                                                            <form:errors path="email" cssClass="text-danger"/>
+                                                        </div>
+                                                        <div>
+                                                            <form:input type="text" class="form-control" placeholder="Email Address" value="${sessionScope.user.customerEmailAddress}" path="email"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-outline mb-4">
+                                                        <div class="col-xs-9">
+                                                            <form:errors path="message" cssClass="text-danger"/>
+                                                        </div>
+                                                        <div class="col-xs-9">
+                                                            <form:textarea class="form-control" placeholder="Your message" path="message"/>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="button mt-4 text-left">
                                                     <button type="submit" class="btn btn-dark">Send</button>
@@ -49,9 +70,30 @@
                                         <c:otherwise>
                                             <div class="forms p-4 py-5 bg-white"><h5>Send Message</h5>
                                                 <div class="mt-4 inputs">
-                                                    <input type="text" class="form-control" placeholder="Name">
-                                                    <input type="text" class="form-control" placeholder="Email Address">
-                                                    <textarea class="form-control" placeholder="Your message"></textarea>
+                                                    <div class="form-outline mb-4">
+                                                        <div class="col-xs-9">
+                                                            <form:errors path="name" cssClass="text-danger"/>
+                                                        </div>
+                                                        <div class="col-xs-9">
+                                                            <form:input type="text" class="form-control" placeholder="Name" path="name"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-outline mb-4">
+                                                        <div class="col-xs-9">
+                                                            <form:errors path="email" cssClass="text-danger"/>
+                                                        </div>
+                                                        <div>
+                                                            <form:input type="text" class="form-control" placeholder="Email Address" path="email"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-outline mb-4">
+                                                        <div class="col-xs-9">
+                                                            <form:errors path="message" cssClass="text-danger"/>
+                                                        </div>
+                                                        <div class="col-xs-9">
+                                                            <form:textarea class="form-control" placeholder="Your message" path="message"/>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="button mt-4 text-left">
                                                     <button type="submit" class="btn btn-dark">Send</button>
@@ -59,7 +101,6 @@
                                             </div>
                                         </c:otherwise>
                                     </c:choose>
-
                                 </div>
                             </div>
                         </form:form>

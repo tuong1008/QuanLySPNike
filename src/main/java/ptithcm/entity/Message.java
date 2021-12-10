@@ -16,6 +16,11 @@ public class Message implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long messageId;
 
+    @Valid
+    @NotEmpty
+    @Column(columnDefinition = "nvarchar(30)")
+    private String name;
+
     @NotEmpty
     @Size(min = 10)
     @Column(columnDefinition = "nvarchar(max)")
@@ -25,7 +30,7 @@ public class Message implements Serializable {
 //    @CreationTimestamp
 //    @Column(insertable = false, updatable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 //    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    @Column(insertable = false, updatable = false)
+    @Column(updatable = false)
     @DateTimeFormat(pattern = "HH:mm:ss dd/MM/yyyy")
     private Date sentTime;
 
@@ -80,5 +85,13 @@ public class Message implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -102,6 +102,41 @@ public class MessageDaoImpl extends AbstractDao<Message> implements MessageDao {
         return list;
     }
 
+    @Override
+    public List<Message> getAllMessagesByUserId(long id) {
+        Session session = sessionFactory.getCurrentSession();
+        Transaction t = session.beginTransaction();
+        Query query = session.createQuery("FROM Message m WHERE m.customerId=:id");
+        query.setParameter("id", id);
+
+        List<Message> list = query.list();
+        t.commit();
+
+        if (list.isEmpty()) {
+            return null;
+        }
+        return list;
+    }
+
+    @Override
+    public List<Message> getAllMessagesByUserId(long id, int pageNumber) {
+        Session session = sessionFactory.getCurrentSession();
+        Transaction t = session.beginTransaction();
+        Query query = session.createQuery("FROM Message m WHERE m.customerId=:id");
+        query.setParameter("id", id);
+
+        query.setFirstResult((pageNumber - 1) * 10);
+        query.setMaxResults(10);
+
+        List<Message> list = query.list();
+        t.commit();
+
+        if (list.isEmpty()) {
+            return null;
+        }
+        return list;
+    }
+
 
     @Override
     public long getTotalMessages() {

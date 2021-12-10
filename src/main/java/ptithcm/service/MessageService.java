@@ -9,6 +9,11 @@ public interface MessageService {
 
     void deleteMessage(Message message);
 
+    List<Message> getAllMessage();
+    List<Message> getAllMessage(int pageNumber);
+
+    Message getMessageById(long id);
+
     List<Message> getAllMessageByEmail(String email);
     List<Message> getAllMessageByEmail(String email, int page);
 

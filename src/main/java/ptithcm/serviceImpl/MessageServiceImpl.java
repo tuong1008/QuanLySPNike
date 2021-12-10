@@ -22,8 +22,23 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
+    public List<Message> getAllMessage() {
+        return messageDao.getAllMessages();
+    }
+
+    @Override
+    public List<Message> getAllMessage(int pageNumber) {
+        return messageDao.getAllMessages();
+    }
+
+    @Override
+    public Message getMessageById(long id) {
+        return messageDao.findById(id);
+    }
+
+    @Override
     public List<Message> getAllMessageByEmail(String email) {
-        return null;
+        return messageDao.getAllMessagesByEmail(email);
     }
 
     @Override
@@ -33,12 +48,12 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public List<Message> getAllMessageOfUser(long customerid) {
-        return null;
+        return messageDao.getAllMessagesByUserId(customerid);
     }
 
     @Override
     public List<Message> getAllMessageOfUser(long customerid, int page) {
-        return null;
+        return messageDao.getAllMessagesByUserId(customerid, page);
     }
 
     @Override

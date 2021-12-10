@@ -10,41 +10,53 @@
 <div class="container-wrapper">
     <div class="container">
         <div class=row>
-            <div class="jumbotron col-md-12">
+            <div class="fs-2 text-dark">
                 <p>View your customer messages</p>
             </div>
         </div>
         <section class="productsection">
             <div class="container">
-                <c:if test="${not empty msg}">
-                    <div class="no-product">
-                            ${msg}
+                <c:if test="${not empty message}">
+                    <div class="text-success">
+                            ${message}
                     </div>
                 </c:if>
-                <c:forEach var="contact" items="${messages}">
-                    <div class="row message">
-                        <p class="info"> ${contact.contactInfo}</p>
+                <c:if test="${not empty error}">
+                    <div class="text-danger">
+                            ${error}
+                    </div>
+                </c:if>
+                <c:forEach var="m" items="${messages}">
+                    <div class="alert alert-primary">
+                        <p class="text-info"> ${m.name}</p>
                         <br/>
+                        <p class="text-info"> ${m.email}</p>
+                        <br/>
+
                         <div class="row" style=" margin-bottom: 20px; margin-left: -3px;color: crimson;">
+<%--                            <div class="col-md-6">--%>
+<%--                                UserName: ${m.customer.customerName}--%>
+<%--                            </div>--%>
                             <div class="col-md-6">
-                                UserName: ${contact.customer.customerName}
-                            </div>
-                            <div class="col-md-6">
-                                Date: ${contact.date}
+                                Sent: ${m.sentTime}
                             </div>
                         </div>
-                        <form action="<c:url value="/admin/customerMessages/deleteMessage" />" method="post" class="form-horizontal">
-                            <input type="hidden" name="customerMessageId" value="${contact.contactId}">
-                            <input type="hidden" name="currentPageNumber" value="${currentPageNumber}">
-                            <input type="submit" value="Delete Message" class="btn btn-danger operation">
-                        </form>
+<%--                        <form action="<c:url value="/admin/messages/delete/${m.messageId}.htm/" />" method="post" class="form-horizontal">--%>
+<%--                            <input type="hidden" name="customerMessageId" value="${m.contactId}">--%>
+<%--                            <input type="hidden" name="currentPageNumber" value="${currentPageNumber}">--%>
+<%--                            <input type="submit" value="Delete Message" class="btn btn-danger">--%>
+<%--                        </form>--%>
+                        <a href="<spring:url value="/admin/messages/delete/${m.messageId}.htm"/>"
+                           class="delete-icon" data-toggle="tooltip" data-placement="top" title="Delete">
+                            <i class="fa fa-times-circle"></i>
+                        </a>
                     </div>
                 </c:forEach>
             </div>
         </section>
     </div>
 </div>
-<c:if test="${empty msg}">
+<%--<c:if test="${empty message}">--%>
     <div class="Page navigation text-center">
         <ul class="pagination">
             <c:choose>
@@ -80,5 +92,5 @@
             </c:choose>
         </ul>
     </div>
-</c:if>
+<%--</c:if>--%>
 <%@include file="/WEB-INF/views/template/footer.jsp" %>

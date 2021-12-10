@@ -25,13 +25,13 @@ public class ContactController {
 
     @RequestMapping("/contact")
     public String contact(ModelMap model) {
-        model.addAttribute("message", new Message());
+        model.addAttribute("userMessage", new Message());
 
         return "customer/contact";
     }
 
     @RequestMapping(value = "/contact", method = RequestMethod.POST)
-    public String contact(HttpServletRequest request, @Valid @ModelAttribute("message") Message message, BindingResult result, ModelMap model) {
+    public String contact(HttpServletRequest request, @Valid @ModelAttribute("userMessage") Message message, BindingResult result, ModelMap model) {
         if (result.hasErrors()) {
             return "customer/contact";
         }

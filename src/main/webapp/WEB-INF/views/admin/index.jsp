@@ -34,7 +34,7 @@
         <div class="card w-25">
             <div class="card-body text-center">
                 <div class="text-center">
-                    <a class="link-primary h4 text-center" href="admin/customerMessages/1.htm">Customer Messages</a>
+                    <a class="link-primary h4 text-center" href="/admin/messages/1.htm">Customer Messages</a>
                 </div>
                 <p>View all customer message</p>
             </div>
