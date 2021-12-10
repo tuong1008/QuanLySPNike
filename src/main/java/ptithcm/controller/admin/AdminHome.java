@@ -242,25 +242,17 @@ public class AdminHome {
         return "admin/productInventory";
     }
 
-//    @RequestMapping("/customerOrder/{pageNumber}")
-//    public String getCustomerOrderProduct(@PathVariable("pageNumber") int pageNumber, ModelMap model) {
-//        CustomerOrder customerOrder = customerOrderService.getCustomerOrderById(pageNumber);
-//        model.addAttribute("order", customerOrder);
-//
-//        return "admin/orderDetails";
-//    }
-
     @RequestMapping("/messages/{pageNumber}.htm")
     public String customerMessage(@PathVariable Integer pageNumber, ModelMap model){
         List<Message> messages = messageService.getAllMessage(pageNumber);
-        int total = (int) messageService.getTotalMessages();
+        long total = messageService.getTotalMessages();
 
         int totalPages = (int) Math.ceil(total / 10.0);
         if (total == 0) totalPages = 1;
 
         int currentPageNumber = pageNumber;
         int beginIndex = Math.max(1, currentPageNumber - 6);
-        int endIndex = Math.min(beginIndex + 10, total);
+        int endIndex = Math.min(beginIndex + 10, totalPages);
         model.addAttribute("messages", messages);
         model.addAttribute("totalPages", totalPages);
         model.addAttribute("currentPageNumber", currentPageNumber);
