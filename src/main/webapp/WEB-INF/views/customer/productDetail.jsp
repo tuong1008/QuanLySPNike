@@ -14,16 +14,16 @@
                          style="width:100%"/>
                 </div>
                 <div class="col-md-5 product-details">
-                    <p><strong class="desc-title col-md-4">Name:</strong>
+                    <p><strong class="text-dark col-md-4">Name:</strong>
                         ${product.productName}</p>
-                    <p><strong class="desc-title col-md-4">Description:</strong>
+                    <p><strong class="text-dark col-md-4">Description:</strong>
                         ${product.productDescription}</p>
-                    <p><strong class="desc-title col-md-4">Unit in Stock:</strong>
+                    <p><strong class="text-dark col-md-4">Unit in Stock:</strong>
                         ${product.unitInStock}</p>
-                    <p><strong class="desc-title col-md-4">Category:</strong>
+                    <p><strong class="text-dark col-md-4">Category:</strong>
                         ${product.productCategory}</p>
-                    <p><strong class="desc-title col-md-4">Price:</strong>
-                        ${product.productPrice}đ</p>
+                    <p><strong class="text-dark col-md-4">Price:</strong>
+                        ${product.productPrice}VND</p>
                     <br/>
                     <c:set var="url" scope="page" value="/product/productList/${product.productCategory}/1.htm"/>
                     <c:if test="${sessionScope.username=='admin'}">

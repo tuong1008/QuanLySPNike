@@ -13,7 +13,7 @@
         </c:if>
         <div class="page-header">
             <h1>Product Inventory Page: ${pageContext.request.userPrincipal.name}</h1>
-            <a class="btn btn-primary" href="<c:url value="/admin/product/addProduct.htm"/>">Add New Product</a>
+            <a class="btn btn-primary" href="<c:url value="/admin/product/addProduct.htm"/>">Add Product</a>
             <c:if test="${not empty search}">
                 <a class="btn btn-primary" href="<c:url value="/admin/productManagement/1.htm"/>">See All Product</a>
             </c:if>
@@ -50,14 +50,20 @@
                     <td class="success">${product.productName}</td>
                     <td class="info">${product.productCategory}</td>
                     <td class="warning">${product.unitInStock}</td>
-                    <td class="success">${product.productPrice}đ</td>
+                    <td class="success">${product.productPrice}VND</td>
                     <td class="info">
-                        <a href=" <c:url value="/product/viewProduct/${product.productId}.htm"/>">
-                            <i class="fa fa-info-circle" aria-hidden="true"></i></a>
-                        <a href=" <c:url value="/admin/product/deleteProduct/${product.productId}.htm"/>">
-                            <i class="fa fa-trash" aria-hidden="true"></i></a>
-                        <a href=" <c:url value="/admin/product/updateProduct/${product.productId}.htm"/>">
-                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a href="<c:url value="/product/viewProduct/${product.productId}.htm"/>"
+                           data-bs-toggle="tooltip" title="View">
+                            <i class="fa fa-info-circle fs-5 text-info" aria-hidden="true"></i>
+                        </a>
+                        <a href="<c:url value="/admin/product/updateProduct/${product.productId}.htm"/>"
+                           data-bs-toggle="tooltip" title="Edit">
+                            <i class="fa fa-pencil-square-o fs-5 text-success" aria-hidden="true"></i>
+                        </a>
+                        <a href="<c:url value="/admin/product/deleteProduct/${product.productId}.htm"/>"
+                           data-bs-toggle="tooltip" title="Delete">
+                            <i class="fa fa-trash fs-5 text-danger" aria-hidden="true"></i>
+                        </a>
                     </td>
                 </tr>
             </c:forEach>
