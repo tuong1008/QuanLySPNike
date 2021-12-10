@@ -40,6 +40,32 @@
                         </div>
                     </div>
                     <div>
+                        <button type="button" class="btn btn-primary fs-5" data-bs-toggle="modal" data-bs-target="#modal${m.messageId}">
+                            Reply
+                        </button>
+                        <div class="modal fade" id="modal${m.messageId}" tabindex="-1" aria-labelledby="exampleModalLabel${m.messageId}" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel${m.messageId}">Reply Message</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form:form action="admin/messages/mail.htm" method="post">
+                                            <form:input class="form-control" name="to" value="${m.email}" readonly="readonly" path="to"/>
+                                            <form:textarea class="form-control" name="body" placeholder="Body" rows="3" cols="30" path="body"/>
+                                            <div class="d-flex">
+                                                <button type="submit" class="btn btn-primary mt-2">Send</button>
+                                                <h2 class="text-info">${msg}</h2>
+                                            </div>
+                                        </form:form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <a href="<spring:url value="/admin/messages/delete/${m.messageId}.htm"/>" class="btn btn-danger fs-5">Delete</a>
                     </div>
                 </div>

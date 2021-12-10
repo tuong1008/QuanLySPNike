@@ -111,4 +111,44 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basename" value="resources/i18n/messages"/>
     </bean>
+
+<!--    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">-->
+<!--        <property name="host" value="smtp.gmail.com"/>-->
+<!--        <property name="port" value="465"/>-->
+<!--&lt;!&ndash;        <property name="username" value="skyhero2834@gmail.com"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        <property name="password" value="y3MupJKGYD3UiPu"/>&ndash;&gt;-->
+<!--        &lt;!&ndash;        <property name="username" value="skyhero2834@gmail.com"/>&ndash;&gt;-->
+<!--        &lt;!&ndash;        <property name="password" value="y3MupJKGYD3UiPu"/>&ndash;&gt;-->
+<!--        <property name="defaultEncoding" value="UTF-8"/>-->
+<!--        <property name="javaMailProperties">-->
+<!--            <props>-->
+<!--                <prop key="mail.smtp.auth">true</prop>-->
+<!--                <prop key="mail.smtp.socketFactory.class">-->
+<!--                    javax.net.ssl.SSLSocketFactory-->
+<!--                </prop>-->
+<!--                <prop key="mail.smtp.socketFactory.port">465</prop>-->
+<!--                <prop key="mail.smtp.starttls.enable">true</prop>-->
+<!--                <prop key="mail.debug">true</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.gmail.com"/>
+        <property name="port" value="465"/>
+        <property name="username" value="tuong100801@gmail.com"/>
+        <property name="password" value="zdgmeknlvpimdjhx"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.socketFactory.class">
+                    javax.net.ssl.SSLSocketFactory</prop>
+                <prop key="mail.smtp.socketFactory.port">465</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.debug">true</prop>
+            </props>
+        </property>
+    </bean>
+
 </beans>

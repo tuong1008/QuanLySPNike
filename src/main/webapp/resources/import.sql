@@ -109,8 +109,8 @@ insert into Customer (customerEmailAddress, customerName, customerPhoneNumber, e
 insert into Customer (customerEmailAddress, customerName, customerPhoneNumber, enabled, password, username, billingAddressId, cartId, shippingAddressId) values ('mbickerton11@topsy.com', 'Merrie Bickerton', '2734722979', 1, 123, 'mbickerton11', 2, null, 34);
 insert into Customer (customerEmailAddress, customerName, customerPhoneNumber, enabled, password, username, billingAddressId, cartId, shippingAddressId) values ('ndallosso12@gmpg.org', 'Newton Dallosso', '6825956301', 1, 123, 'ndallosso12', 25, null, 5);
 insert into Customer (customerEmailAddress, customerName, customerPhoneNumber, enabled, password, username, billingAddressId, cartId, shippingAddressId) values ('bjurasz13@people.com.cn', 'Bil Jurasz', '1813390999', 1, 123, 'bjurasz13', 1, null, 21);
-insert into Message (message, name, sentTime, email, customerId) values (N'When will Lebron shoes arrive?', N'Joe Biden1', '2021-12-1 05:51:01.830', 'cfaithfullb@goo.ne.jp', 12);
-insert into Message (message, name, sentTime, email, customerId) values (N'Áo khoác có size XXXXL không shop?', N'Joe Biden2', '2021-12-9 04:59:01.830', 'n18dccn214@student.ptithcm.edu.vn', 21);
-insert into Message (message, name, sentTime, email, customerId) values (N'User-centric motivating flexibility?', N'Joe Biden3', '2021-12-12 18:59:01.830' , 'wmccaskell2@typepad.com', 14);
-insert into Message (message, name, sentTime, email, customerId) values (N'Devolved tertiary superstructure!', N'Joe Biden4', '2021-12-13 12:59:01.830', 'kdittson3@deliciousdays.com', null);
-insert into Message (message, name, sentTime, email, customerId) values (N'Object-based coherent project?', N'Joe Biden5', '2021-12-11 01:29:01.830', 'ckellar4@msn.com', null);
+insert into Message (message, name, sentTime, email, customerId) values (N'When will Lebron shoes arrive?', N'Joe Biden', '2021-12-1 05:51:01.830', 'cfaithfullb@goo.ne.jp', 12);
+insert into Message (message, name, sentTime, email, customerId) values (N'Do you have jackets in XXXL?', N'John Wick', '2021-12-9 04:59:01.830', 'n18dccn214@student.ptithcm.edu.vn', 21);
+insert into Message (message, name, sentTime, email, customerId) values (N'User-centric motivating flexibility?', N'Jack Jack', '2021-12-12 18:59:01.830' , 'skywalker2834@gmail.com', 14);
+insert into Message (message, name, sentTime, email, customerId) values (N'Devolved tertiary superstructure!', N'Johny Cash', '2021-12-13 12:59:01.830', 'kdittson3@deliciousdays.com', null);
+insert into Message (message, name, sentTime, email, customerId) values (N'Object-based coherent project?', N'Joey J', '2021-12-11 01:29:01.830', 'ckellar4@msn.com', null);
