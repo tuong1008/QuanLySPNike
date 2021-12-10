@@ -147,6 +147,7 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
             old.merge(updated);
             session.saveOrUpdate(old);
             t.commit();
+            return null;
         } catch (Exception e) {
             t.rollback();
             e.printStackTrace();
@@ -156,6 +157,5 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
                 session.close();
             }
         }
-        return null;
     }
 }
