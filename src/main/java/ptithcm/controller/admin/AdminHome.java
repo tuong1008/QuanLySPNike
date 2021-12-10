@@ -250,10 +250,10 @@ public class AdminHome {
 //        return "admin/orderDetails";
 //    }
 
-    @RequestMapping("/messages/{pageNumber}")
-    public String customerMessage(@PathVariable int pageNumber, ModelMap model){
+    @RequestMapping("/messages/{pageNumber}.htm")
+    public String customerMessage(@PathVariable Integer pageNumber, ModelMap model){
         List<Message> messages = messageService.getAllMessage(pageNumber);
-        int total = messages.size();
+        int total = (int) messageService.getTotalMessages();
 
         int totalPages = (int) Math.ceil(total / 10.0);
         if (total == 0) totalPages = 1;
@@ -267,11 +267,11 @@ public class AdminHome {
         model.addAttribute("beginIndex", beginIndex);
         model.addAttribute("endIndex", endIndex);
 
-        return "redirect:/admin/messages/1.htm";
+        return "admin/messages";
     }
 
-    @RequestMapping("/messages/delete/{messageId}")
-    public String customerMessage(@PathVariable long messageId, ModelMap model) {
+    @RequestMapping("/messages/delete/{messageId}.htm")
+    public String customerMessage(@PathVariable Long messageId, ModelMap model) {
         Message m = messageService.getMessageById(messageId);
 
         if (m == null) {
