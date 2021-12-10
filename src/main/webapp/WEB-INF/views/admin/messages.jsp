@@ -9,51 +9,40 @@
 <c:url var="nextUrl" value="/admin/messages/${currentPageNumber + 1}"/>
 <div class="container-wrapper">
     <div class="container">
-        <div class="row">
+        <div>
             <div class="fs-2 text-dark">
                 View your customer messages
             </div>
         </div>
-        <section class="productsection">
-            <div class="container">
-                <c:if test="${not empty message}">
-                    <div class="text-success">
-                            ${message}
-                    </div>
-                </c:if>
-                <c:if test="${not empty error}">
-                    <div class="text-danger">
-                            ${error}
-                    </div>
-                </c:if>
-                <c:forEach var="m" items="${messages}">
-                    <div class="alert alert-primary">
-                        <p class="text-info"> ${m.name}</p>
-                        <br/>
-                        <p class="text-info"> ${m.email}</p>
-                        <br/>
-
-                        <div class="row" style=" margin-bottom: 20px; margin-left: -3px;color: crimson;">
-                                <%--                            <div class="col-md-6">--%>
-                                <%--                                UserName: ${m.customer.customerName}--%>
-                                <%--                            </div>--%>
-                            <div class="col-md-6">
-                                Sent: ${m.sentTime}
+        <div class="container">
+            <c:if test="${not empty message}">
+                <div class="text-success">
+                        ${message}
+                </div>
+            </c:if>
+            <c:if test="${not empty error}">
+                <div class="text-danger">
+                        ${error}
+                </div>
+            </c:if>
+            <c:forEach var="m" items="${messages}">
+                <div class="alert alert-primary d-flex flex-row justify-content-between">
+                    <div class="d-flex flex-row">
+                        <div class="d-flex flex-row">
+                            <div class="d-flex flex-column">
+                                <div class="text-primary">Name: ${m.name}</div>
+                                <div class="text-primary">Email: ${m.email}</div>
+                                <div class="text-primary">Sent: ${m.sentTime}</div>
                             </div>
+                            <div>${m.message}</div>
                         </div>
-                            <%--                        <form action="<c:url value="/admin/messages/delete/${m.messageId}.htm/" />" method="post" class="form-horizontal">--%>
-                            <%--                            <input type="hidden" name="customerMessageId" value="${m.contactId}">--%>
-                            <%--                            <input type="hidden" name="currentPageNumber" value="${currentPageNumber}">--%>
-                            <%--                            <input type="submit" value="Delete Message" class="btn btn-danger">--%>
-                            <%--                        </form>--%>
-                        <a href="<spring:url value="/admin/messages/delete/${m.messageId}.htm"/>"
-                           class="delete-icon" data-toggle="tooltip" data-placement="top" title="Delete">
-                            <i class="fa fa-times-circle"></i>
-                        </a>
                     </div>
-                </c:forEach>
-            </div>
-        </section>
+                    <div>
+                        <a href="<spring:url value="/admin/messages/delete/${m.messageId}.htm"/>" class="btn btn-danger fs-5">Delete</a>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
     </div>
 </div>
 <%--<c:if test="${empty message}">--%>
