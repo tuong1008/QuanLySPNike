@@ -1,7 +1,7 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,7 +62,7 @@
             <ul class="navbar-nav ms-auto mb-lg-0">
                 <c:choose>
                     <c:when test="${sessionScope.username!=null}">
-                        <li class="nav-item dropdown justify-content-center">
+                        <li class="nav-item dropdown d-flex align-items-center">
                             <a class="nav-link" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     ${sessionScope.username}
                             </a>

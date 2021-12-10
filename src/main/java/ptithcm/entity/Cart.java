@@ -43,9 +43,4 @@ public class Cart implements Serializable {
     public void setGrandTotal(double grandTotal) {
         this.grandTotal = grandTotal;
     }
-
-    public void merge(Cart other) {
-        setCartItem(other.cartItem);
-        setGrandTotal(other.grandTotal);
-    }
 }

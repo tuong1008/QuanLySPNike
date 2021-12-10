@@ -144,23 +144,4 @@ public class Customer implements Serializable {
     public void setCart(Cart cart) {
         this.cart = cart;
     }
-
-    public void merge(Customer other) {
-        setCustomerName(other.customerName);
-        setCustomerEmailAddress(other.customerEmailAddress);
-        setCustomerPhoneNumber(other.customerPhoneNumber);
-        setUsername(other.username);
-        setPassword(other.password);
-        setEnabled(other.enabled);
-        // update child entity
-        if (this.billingAddress != null && other.billingAddress != null) {
-            this.billingAddress.merge(other.billingAddress);
-        }
-        if (this.shippingAddress != null && other.shippingAddress != null) {
-            this.shippingAddress.merge(other.shippingAddress);
-        }
-        if (other.cart != null && this.cart != null) {
-            this.cart.merge(other.cart);
-        }
-    }
 }
