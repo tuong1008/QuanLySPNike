@@ -72,11 +72,4 @@ public class ShippingAddress implements Serializable {
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
-
-    public void merge(ShippingAddress updated) {
-        setAddress(updated.address);
-        setCity(updated.city);
-        setCountry(updated.country);
-        setZipCode(updated.zipCode);
-    }
 }

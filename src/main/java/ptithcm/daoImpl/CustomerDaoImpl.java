@@ -40,7 +40,7 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
     public Customer findByUsernameAndPassword(String username, String password) {
         Session session = sessionFactory.getCurrentSession();
         Transaction t = session.beginTransaction();
-        Query query = session.createQuery("FROM Customer C WHERE C.username = :username and C.password = :password");
+        Query query = session.createQuery("FROM Customer C WHERE C.username = :username and C.password = :password and C.enabled = True");
         query.setParameter("username", username);
         query.setParameter("password", password);
         List<Customer> list = query.list();
@@ -135,27 +135,5 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
         t.commit();
 
         return results;
-    }
-
-    public String update(Customer updated) {
-        Customer old = customerService.getCustomerById(updated.getCustomerId());
-
-        Session session = sessionFactory.getCurrentSession();
-        Transaction t = session.beginTransaction();
-
-        try {
-            old.merge(updated);
-            session.saveOrUpdate(old);
-            t.commit();
-            return null;
-        } catch (Exception e) {
-            t.rollback();
-            e.printStackTrace();
-            return e.getMessage();
-        } finally {
-            if (session.isOpen()) {
-                session.close();
-            }
-        }
     }
 }

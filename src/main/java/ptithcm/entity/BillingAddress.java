@@ -56,10 +56,4 @@ public class BillingAddress implements Serializable {
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
-
-    public void merge(BillingAddress updated) {
-        setCity(updated.getCity());
-        setCountry(updated.getCountry());
-        setZipCode(updated.getZipCode());
-    }
 }

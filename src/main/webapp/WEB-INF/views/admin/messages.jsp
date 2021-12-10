@@ -1,9 +1,8 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
-<jsp:include flush="true" page="/WEB-INF/views/template/header.jsp">
-    <jsp:param name="title" value="Customer Messages"/>
-</jsp:include>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ include file="/WEB-INF/views/template/header.jsp" %>
 <c:url var="firstUrl" value="/admin/messages/1"/>
 <c:url var="lastUrl" value="/admin/messages/${totalPages}"/>
 <c:url var="prevUrl" value="/admin/messages/${currentPageNumber - 1}"/>
