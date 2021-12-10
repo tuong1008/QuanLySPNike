@@ -12,8 +12,7 @@
             </script>
         </c:if>
         <div class="page-header">
-            <h1>Product Inventory Page:${pageContext.request.userPrincipal.name}</h1>
-            <p class="lead">This is product inventory page</p>
+            <h1>Product Inventory Page: ${pageContext.request.userPrincipal.name}</h1>
             <a class="btn btn-primary" href="<c:url value="/admin/product/addProduct.htm"/>">Add New Product</a>
             <c:if test="${not empty search}">
                 <a class="btn btn-primary" href="<c:url value="/admin/productManagement/1.htm"/>">See All Product</a>
@@ -21,10 +20,8 @@
         </div>
         <div class="container">
             <div class=row>
-
                 <form class="form-inline" action="<c:url value="/admin/productManagement/search/1.htm"/>"
                       method="post">
-                    <!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
                     <div class="d-flex justify-content-center align-items-center">
                         <input type="text" name="searchTerm" class="form-control" style="width:300px"
                                id="inputEmail" placeholder="Enter Name or Category name">
@@ -32,19 +29,18 @@
                         <button type="submit" class="btn btn-primary">Search Product</button>
                     </div>
                 </form>
-
             </div>
         </div>
         <br>
         <table class="table table-striped table-hover table-bordered" data-sortable>
-            <thead>
+            <thead class="table-dark">
             <tr class="bg-success">
-                <th data-sortable="false">Photo Thumb</th>
+                <th data-sortable="false">Thumbnail</th>
                 <th>Product Name</th>
                 <th>Category</th>
                 <th>Unit in Stock</th>
                 <th>Price</th>
-                <th data-sortable="false">Operation</th>
+                <th data-sortable="false">Action</th>
             </tr>
             </thead>
             <c:forEach items="${products}" var="product">

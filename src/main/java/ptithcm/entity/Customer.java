@@ -9,7 +9,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.util.Set;
 
 @Entity
 public class Customer implements Serializable {

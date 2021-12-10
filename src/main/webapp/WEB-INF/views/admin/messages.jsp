@@ -1,5 +1,6 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <jsp:include flush="true" page="/WEB-INF/views/template/header.jsp">
     <jsp:param name="title" value="Customer Messages"/>
 </jsp:include>
@@ -32,7 +33,9 @@
                             <div class="d-flex flex-column">
                                 <div class="text-primary">Name: ${m.name}</div>
                                 <div class="text-primary">Email: ${m.email}</div>
-                                <div class="text-primary">Sent: ${m.sentTime}</div>
+                                <div class="text-primary">
+                                    <fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${m.sentTime}"/>
+                                </div>
                             </div>
                             <div>${m.message}</div>
                         </div>
@@ -45,42 +48,7 @@
         </div>
     </div>
 </div>
-<%--<c:if test="${empty message}">--%>
 <div class="d-flex justify-content-center">
-<%--    <ul class="pagination">--%>
-<%--        <c:choose>--%>
-<%--            <c:when test="${currentPageNumber == 1}">--%>
-<%--                <li class="disabled"><a href="#"></a></li>--%>
-<%--                <li class="disabled"><a href="#"></a></li>--%>
-<%--            </c:when>--%>
-<%--            <c:otherwise>--%>
-<%--                <li><a href="${firstUrl}"></a></li>--%>
-<%--                <li><a href="${prevUrl}"></a></li>--%>
-<%--            </c:otherwise>--%>
-<%--        </c:choose>--%>
-<%--        <c:forEach var="i" begin="${beginIndex}" end="${endIndex}">--%>
-<%--            <c:url var="pageUrl" value="admin/messages/${i}.htm"/>--%>
-<%--            <c:choose>--%>
-<%--                <c:when test="${i == currentPageNumber}">--%>
-<%--                    <li class="active"><a href="${pageUrl}"><c:out value="${i}"/></a></li>--%>
-<%--                </c:when>--%>
-<%--                <c:otherwise>--%>
-<%--                    <li><a href="${pageUrl}"><c:out value="${i}"/></a></li>--%>
-<%--                </c:otherwise>--%>
-<%--            </c:choose>--%>
-<%--        </c:forEach>--%>
-<%--        <c:choose>--%>
-<%--            <c:when test="${currentPageNumber == totalPages}">--%>
-<%--                <li class="page-item disabled"><a href="#"></a></li>--%>
-<%--                <li class="page-item disabled"><a href="#"></a></li>--%>
-<%--            </c:when>--%>
-<%--            <c:otherwise>--%>
-<%--                <li><a href="${nextUrl}"></a></li>--%>
-<%--                <li><a href="${lastUrl}"></a></li>--%>
-<%--            </c:otherwise>--%>
-<%--        </c:choose>--%>
-<%--    </ul>--%>
-
     <ul class="pagination">
         <c:choose>
             <c:when test="${currentPageNumber == 1}">

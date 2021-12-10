@@ -13,7 +13,7 @@
             <h1>Customer Order Page</h1>
             <p class="lead">Here is all Customer order list!</p>
             <c:if test="${not empty search}">
-                <a class="btn btn-primary" href="<c:url value="/admin/customerOrder/1.htm"/>">See All Orders</a>
+                <a class="btn btn-dark" href="<c:url value="/admin/customerOrder/1.htm"/>">See All Orders</a>
             </c:if>
             <a class="btn btn-primary pull-right" href="<c:url value="/order/excel.htm"/>">Export Excel</a>
         </div>
@@ -22,12 +22,12 @@
 
                 <form class="form-inline" action="<c:url value="/admin/customerOrder/search/1.htm"/>"
                       method="post">
-                    <!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
+<%--                    <!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->--%>
                     <div class="d-flex justify-content-center align-items-center">
                         <input type="text" name="searchTerm" class="form-control" style="width:300px"
-                               id="inputEmail" placeholder="Enter Email or username name">
+                               id="inputEmail" placeholder="Enter email or username">
                         <input type="hidden" value="category" name="search">
-                        <button type="submit" class="btn btn-primary">Search Product</button>
+                        <button type="submit" class="btn btn-success">Search Product</button>
                     </div>
                 </form>
 
@@ -36,7 +36,7 @@
         <br>
         <c:set var="sl" value="1"/>
         <table class="table table-striped table-hover" data-sortable>
-            <thead>
+            <thead class="table-dark">
             <tr class="bg-success">
                 <th style="width: 7%">SL No.</th>
                 <th style="width: 12.5%">Name</th>
@@ -44,8 +44,8 @@
                 <th style="width: 12.5%">Phone</th>
                 <th style="width: 12.5%">Username</th>
                 <th style="width: 18%">Time Order</th>
-                <th style="width: 12.5%" data-sortable="false">Orderdetails</th>
-                <th style="width: 12.5%" data-sortable="false">Operation</th>
+                <th style="width: 12.5%" data-sortable="false">Order Details</th>
+                <th style="width: 12.5%" data-sortable="false">Action</th>
             </tr>
             </thead>
             <c:forEach items="${orders}" var="order">

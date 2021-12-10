@@ -17,10 +17,9 @@
         </div>
         <div class="container">
             <div class=row>
-                <form class="form-inline" action="<c:url value="/admin/customerManagement/search/1.htm"/>"
-                      method="post">
+                <form class="form-inline" action="<c:url value="/admin/customerManagement/search/1.htm"/>" method="post">
                     <%--                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
-                    <div class="d-flex justify-content-center align-items-center">
+                    <div class="d-flex justify-content-center align-items-center mb-4">
                         <input type="text" name="searchTerm" class="form-control" style="width:300px"
                                id="inputEmail" placeholder="Search Username or Email">
                         <button type="submit" class="btn btn-primary btn-dark">
@@ -63,9 +62,9 @@
                     </td>
                     <td>
                         <a href="<spring:url value="/admin/customerManagement/update/${customer.customerId}.htm"/>"
-                           class="setting-icon" title="Settings" data-toggle="tooltip" data-placement="top"><i class="fa fa-gear"></i></a>
+                           class="setting-icon" title="Edit" data-toggle="tooltip" data-placement="top"><i class="fa fa-gear fs-5"></i></a>
                         <a href="<spring:url value="/admin/customerManagement/delete/${customer.customerId}.htm"/>"
-                           class="delete-icon" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-times-circle"></i></a>
+                           class="delete-icon" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-times-circle fs-5"></i></a>
                     </td>
                 </tr>
             </c:forEach>
