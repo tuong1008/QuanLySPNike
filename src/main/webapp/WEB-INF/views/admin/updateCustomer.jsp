@@ -76,6 +76,14 @@
                             </div>
                             <div class="form-outline mb-4">
                                 <div class="col-xs-9">
+                                    Enabled
+                                </div>
+                                <div class="col-xs-9">
+                                    <form:checkbox path="enabled" cssClass="form-check-input"/>
+                                </div>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <div class="col-xs-9">
                                     <h1 class="fs-4">Billing Address</h1>
                                 </div>
                             </div>
@@ -87,7 +95,6 @@
                                     <form:input path="billingAddress.city" class="form-control" placeholder="${customer.billingAddress.city}"/>
                                 </div>
                             </div>
-
                             <div class="form-outline mb-4">
                                 <div class="col-xs-9">
                                     <form:errors path="billingAddress.country" cssClass="text-danger"/>

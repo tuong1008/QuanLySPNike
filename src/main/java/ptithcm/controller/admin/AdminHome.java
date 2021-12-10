@@ -9,9 +9,7 @@ import ptithcm.entity.*;
 import ptithcm.exceptions.PageNotFoundException;
 import ptithcm.service.*;
 
-import javax.servlet.jsp.JspContext;
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -243,7 +241,7 @@ public class AdminHome {
     }
 
     @RequestMapping("/messages/{pageNumber}.htm")
-    public String customerMessage(@PathVariable Integer pageNumber, ModelMap model){
+    public String customerMessage(@PathVariable Integer pageNumber, ModelMap model) {
         List<Message> messages = messageService.getAllMessage(pageNumber);
         long total = messageService.getTotalMessages();
 
