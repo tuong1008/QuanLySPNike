@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@include file="/WEB-INF/views/template/header.jsp" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>

@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@include file="/WEB-INF/views/template/header.jsp" %>
 <div class="container-wrapper">
     <div class="container overflow-hidden">

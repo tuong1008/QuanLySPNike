@@ -1,4 +1,5 @@
 <%--close header div--%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 </div>
 <%--<div class="custom-footer container-fluid footer fixed-bottom" style="width: 100%;">--%>
 <div class="footer fixed-bottom mt-lg-auto" style="width: 100%;">

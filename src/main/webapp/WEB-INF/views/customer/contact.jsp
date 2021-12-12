@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <jsp:include flush="true" page="/WEB-INF/views/template/header.jsp">
@@ -15,17 +16,20 @@
                                 <div class="d-flex flex-row align-items-center">
                                     <span class="icons"><i class="fa fa-map-marker"></i></span>
                                     <div class="address text-start"><span>Address</span>
-                                        <p>23 Quang Trung, Ho Chi Minh City</p></div>
+                                        <p>23 Quang Trung, Hồ Chí Minh City</p>
+                                    </div>
                                 </div>
                                 <div class="d-flex flex-row align-items-center mt-3">
                                     <span class="icons"><i class="fa fa-phone"></i></span>
                                     <div class="address text-start"><span>Phone</span>
-                                        <p>+84 9977553311</p></div>
+                                        <p>+84 9977553311</p>
+                                    </div>
                                 </div>
                                 <div class="d-flex flex-row align-items-center mt-3">
                                     <span class="icons"><i class="fa fa-envelope-o"></i></span>
                                     <div class="address text-start"><span>Email</span>
-                                        <p>admin@nikeshop.com</p></div>
+                                        <p>admin@nikeshop.com</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

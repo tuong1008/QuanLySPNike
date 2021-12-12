@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@include file="/WEB-INF/views/template/header.jsp" %>
 <c:url var="firstUrl" value="/product/productList/${productCategory}/1.htm"/>

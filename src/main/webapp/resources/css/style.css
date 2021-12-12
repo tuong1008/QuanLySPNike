@@ -4,6 +4,14 @@
     --footer-height: 150px;
 }
 
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+}
+
 html {
     position: relative;
     min-height: 100%;

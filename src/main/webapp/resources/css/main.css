@@ -231,11 +231,3 @@ textarea {
     font-size: 42px;
     margin-left: -159px;
 }
-
-@font-face {
-    font-family: 'JetBrains Mono';
-    src: url('/resources/fonts/JetBrainsMono-Regular.ttf') format("truetype");
-    src: url('/resources/fonts/JetBrainsMono-Regular.woff2 ') format('woff');
-    font-style: normal;
-    font-weight: normal;
-}

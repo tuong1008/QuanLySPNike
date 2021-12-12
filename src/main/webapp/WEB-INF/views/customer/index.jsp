@@ -1,6 +1,6 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@include file="/WEB-INF/views/template/header.jsp" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-
 <div id="introCarousel" class="carousel slide carousel-dark" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#introCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>

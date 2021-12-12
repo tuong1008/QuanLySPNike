@@ -22,14 +22,12 @@ public class Message implements Serializable {
     private String name;
 
     @NotEmpty
+    @Lob
     @Size(min = 10)
     @Column(columnDefinition = "nvarchar(max)")
     private String message;
 
     @Temporal(TemporalType.TIMESTAMP)
-//    @CreationTimestamp
-//    @Column(insertable = false, updatable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-//    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     @Column(updatable = false)
     @DateTimeFormat(pattern = "HH:mm:ss dd/MM/yyyy")
     private Date sentTime;

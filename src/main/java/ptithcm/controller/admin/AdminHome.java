@@ -40,6 +40,9 @@ public class AdminHome {
     @Autowired
     private MessageService messageService;
 
+    @Autowired
+    Mailer mailer;
+
     @RequestMapping("/home.htm")
     public String adminPage() {
         return "admin/index";
@@ -240,6 +243,11 @@ public class AdminHome {
         return "admin/productInventory";
     }
 
+    @RequestMapping("/messages")
+    public String customerMessage() {
+        return "redirect:/admin/messages/1.htm";
+    }
+
     @RequestMapping("/messages/{pageNumber}.htm")
     public String customerMessage(@PathVariable Integer pageNumber, ModelMap model) {
         List<Message> messages = messageService.getAllMessage(pageNumber);
@@ -272,5 +280,16 @@ public class AdminHome {
         }
 
         return "redirect:/admin/messages/1.htm";
+    }
+
+    @RequestMapping("/messages/mail.htm")
+    public String send(ModelMap model, @RequestParam(name = "to") String to, @RequestParam(name = "body") String body) {
+        try {
+            mailer.send("NikeShopSupport", to, "Update to your NikeShop question", body);
+            model.addAttribute("message", "Reply success.");
+        } catch (Exception e) {
+            model.addAttribute("message", "Fail to reply. Check if receiver's email is valid.");
+        }
+        return "admin/success";
     }
 }

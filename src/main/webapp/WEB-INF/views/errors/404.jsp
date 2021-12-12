@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <jsp:include flush="true" page="/WEB-INF/views/template/header.jsp">
     <jsp:param name="title" value="404 ERROR"/>
 </jsp:include>
