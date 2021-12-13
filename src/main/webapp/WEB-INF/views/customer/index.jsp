@@ -278,7 +278,7 @@
             </div>
             <div class="row mt-4">
                 <div class="col-md-2">
-                    <img class="rounded-circle" src="resources/images/user1.jpg"
+                    <img class="rounded-circle" src="resources/images/user4.jpg"
                          alt="image" width="90" height="90">
                 </div>
                 <div class="col-md-10">
@@ -291,7 +291,7 @@
             <div class="row mt-4">
                 <div class="col-md-2">
                     <div>
-                        <img class="rounded-circle" src="resources/images/user2.jpg"
+                        <img class="rounded-circle" src="resources/images/user3.jpg"
                              alt="image" width="90" height="90">
                     </div>
                 </div>

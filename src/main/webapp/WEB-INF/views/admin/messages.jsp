@@ -28,24 +28,26 @@
                 </div>
             </c:if>
             <c:forEach var="m" items="${messages}">
-                <div class="alert alert-primary d-flex flex-column justify-content-between">
-                    <div class="me-auto d-flex flex-row">
-                        <div class="d-flex flex-row">
-                            <div class="d-flex flex-column">
-                                <div class="text-primary">Name:
-                                    <span class="text-dark">${m.name}</span>
-                                </div>
-                                <div class="text-primary">Email:
-                                    <span class="text-dark">${m.email}</span>
-                                </div>
-                                <div class="text-primary">
-                                    <fmt:formatDate pattern="dd/MM/yyyy HH:mm" value="${m.sentTime}"/>
+                <div class="alert alert-primary d-flex flex-row justify-content-between">
+                    <div class="d-flex flex-column">
+                        <div class="me-auto d-flex flex-row">
+                            <div class="d-flex flex-row">
+                                <div class="d-flex flex-column">
+                                    <div class="text-primary">Name:
+                                        <span class="text-dark">${m.name}</span>
+                                    </div>
+                                    <div class="text-primary">Email:
+                                        <span class="text-dark">${m.email}</span>
+                                    </div>
+                                    <div class="text-primary">
+                                        <fmt:formatDate pattern="dd/MM/yyyy HH:mm" value="${m.sentTime}"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="flex-fill text-dark text-start">${m.message}</div>
                     </div>
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-between align-items-center">
                         <div>
                             <button type="button" class="btn btn-primary fs-6" data-bs-toggle="modal" data-bs-target="#modal${m.messageId}">
                                 Reply

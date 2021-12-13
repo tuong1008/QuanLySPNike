@@ -24,10 +24,11 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
     </bean>
     <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager"/>
     <mvc:resources mapping="/resource/**" location="/resources/"/><!--cache-period="31556926"-->
-    <!-- Cấu hình view -->
+
     <bean id="viewResolver"
           p:prefix="/WEB-INF/views/" p:suffix=".jsp"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
+
     <!-- Cấu hình package chứa các controller -->
     <context:component-scan base-package="ptithcm.controller, ptithcm.entity"/>
     <mvc:interceptors>
@@ -38,13 +39,10 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
             <mvc:mapping path="/rest/cart/**"/>
             <mvc:mapping path="/order/**"/>
             <mvc:mapping path="/register**"/>
-            <!--<mvc:mapping path="/admin/**"/>-->
-            <!--        <mvc:exclude-mapping path="/register.htm?update**"/>-->
             <bean class="poly.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
         <mvc:interceptor>
             <mvc:mapping path="/admin/**"/>
-            <!--<mvc:exclude-mapping path="/home/contact.htm"/>-->
             <bean class="poly.interceptor.AdminInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
@@ -111,28 +109,8 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basename" value="resources/i18n/messages"/>
     </bean>
-
-<!--    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">-->
-<!--        <property name="host" value="smtp.gmail.com"/>-->
-<!--        <property name="port" value="465"/>-->
-<!--&lt;!&ndash;        <property name="username" value="skyhero2834@gmail.com"/>&ndash;&gt;-->
-<!--&lt;!&ndash;        <property name="password" value="y3MupJKGYD3UiPu"/>&ndash;&gt;-->
-<!--        &lt;!&ndash;        <property name="username" value="skyhero2834@gmail.com"/>&ndash;&gt;-->
-<!--        &lt;!&ndash;        <property name="password" value="y3MupJKGYD3UiPu"/>&ndash;&gt;-->
-<!--        <property name="defaultEncoding" value="UTF-8"/>-->
-<!--        <property name="javaMailProperties">-->
-<!--            <props>-->
-<!--                <prop key="mail.smtp.auth">true</prop>-->
-<!--                <prop key="mail.smtp.socketFactory.class">-->
-<!--                    javax.net.ssl.SSLSocketFactory-->
-<!--                </prop>-->
-<!--                <prop key="mail.smtp.socketFactory.port">465</prop>-->
-<!--                <prop key="mail.smtp.starttls.enable">true</prop>-->
-<!--                <prop key="mail.debug">true</prop>-->
-<!--            </props>-->
-<!--        </property>-->
-<!--    </bean>-->
-
+<!--                    <property name="username" value="skyhero2834@gmail.com"/>-->
+<!--                    <property name="password" value="y3MupJKGYD3UiPu"/>-->
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
         <property name="host" value="smtp.gmail.com"/>
         <property name="port" value="465"/>
