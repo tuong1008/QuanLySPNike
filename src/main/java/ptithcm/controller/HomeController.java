@@ -55,7 +55,7 @@ public class HomeController {
                 return "redirect:/admin/home.htm";
             }
         } else {
-            model.addAttribute("error", "Sai tài khoản hoặc mật khẩu!");
+            model.addAttribute("error", "User account or password incorrect!");
             return "customer/login";
         }
     }

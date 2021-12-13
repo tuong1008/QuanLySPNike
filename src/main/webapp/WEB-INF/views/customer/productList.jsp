@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="product-desc">
                                     <h2>${product.productName}</h2>
-                                    <h3>${product.productPrice}&#36</h3>
+                                    <h3>${product.productPrice}VND</h3>
                                     <a href=" <c:url value="/product/viewProduct/${product.productId}.htm"/>"
                                        class="btn btn-info btn-lg">View Detail</a>
                                 </div>

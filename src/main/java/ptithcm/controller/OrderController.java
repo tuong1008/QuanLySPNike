@@ -44,7 +44,12 @@ public class OrderController {
     public String createOrder(Model model, @PathVariable("cartId") long cartId, HttpServletRequest request) {
 
         Cart cart = cartService.getCartById(cartId);
-
+        if (cart.getGrandTotal()==0){
+            model.addAttribute("error", "Error! Cart is empty");
+            return "customer/cart";
+        }
+        
+        
         Product productMakeError = cartService.checkAndUpdateProductsInCart(cart);
         if (productMakeError == null) {
             CustomerOrder customerOrder = new CustomerOrder();

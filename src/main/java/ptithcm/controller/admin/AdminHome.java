@@ -89,7 +89,7 @@ public class AdminHome {
         return "admin/customerMgmt";
     }
 
-    @RequestMapping(value = "/customerManagement/search/{pageNumber}.htm", method = RequestMethod.POST)
+    @RequestMapping(value = "/customerManagement/search/{pageNumber}.htm")
     public String customerManagementSearch(@RequestParam("searchTerm") String searchTerm, @PathVariable("pageNumber") Integer pageNumber, ModelMap model) {
         List<Customer> page = customerService.findAllCustomerByUsernameOrEmail(searchTerm, pageNumber);
         long totalProducts = customerService.getTotalCustomerByUsernameOrEmail(searchTerm);
@@ -106,7 +106,7 @@ public class AdminHome {
         model.addAttribute("beginIndex", beginIndex);
         model.addAttribute("endIndex", endIndex);
 
-        model.addAttribute("search", "search");
+        model.addAttribute("search", searchTerm);
         return "admin/customerMgmt";
     }
 
@@ -149,7 +149,7 @@ public class AdminHome {
             customerService.updateCustomer(customer);
             model.addAttribute("message", "Delete successfully");
         }
-        return "redirect:/admin/customerManagement.htm";
+        return "redirect:/admin/customerManagement/1.htm";
     }
 
     @RequestMapping("/customerOrder/{pageNumber}.htm")

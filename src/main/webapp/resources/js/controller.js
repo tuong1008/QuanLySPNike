@@ -5,6 +5,10 @@ cartApp.controller("cartCtrl", function ($scope, $http) {
     $scope.refreshCart = function () {
         $http.get('/NikeShop/rest/cart/' + $scope.cartId + '.htm').success(function (data) {
             $scope.cart = data;
+            if (data.grandTotal===0){
+                let element = document.getElementById("btnCheckOut");
+                element.classList.add("disabled");
+            }
         });
     };
 
@@ -12,7 +16,6 @@ cartApp.controller("cartCtrl", function ($scope, $http) {
         $http.delete('/NikeShop/rest/cart/' + $scope.cartId + '.htm').success(function () {
 
             $scope.refreshCart();
-
         });
     };
 

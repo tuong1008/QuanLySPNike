@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import javax.validation.constraints.Pattern;
 
 @Entity
 public class ShippingAddress implements Serializable {
@@ -26,7 +27,7 @@ public class ShippingAddress implements Serializable {
     private String country;
 
     @NotEmpty
-    @Column(columnDefinition = "varchar(255)")
+    @Pattern(regexp="[\\d]{5,6}", message="This field should contain five or six digits!")
     private String zipCode;
 
     public static long getSerialVersionUID() {

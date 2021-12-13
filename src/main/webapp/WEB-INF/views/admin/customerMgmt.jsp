@@ -4,25 +4,33 @@
 <jsp:include flush="true" page="/WEB-INF/views/template/header.jsp">
     <jsp:param name="title" value="Customer Management"/>
 </jsp:include>
-<c:url var="firstUrl" value="/admin/customerManagement/1.htm"/>
-<c:url var="lastUrl" value="/admin/customerManagement/${totalPages}.htm"/>
-<c:url var="prevUrl" value="/admin/customerManagement/${currentPageNumber - 1}.htm"/>
-<c:url var="nextUrl" value="/admin/customerManagement/${currentPageNumber + 1}.htm"/>
 
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
             <c:if test="${not empty search}">
                 <a class="btn btn-primary" href="<c:url value="/admin/customerManagement/1.htm"/>">See All Customers</a>
+                
+                <c:url var="firstUrl" value="/admin/customerManagement/search/1.htm?searchTerm=${search}"/>
+                <c:url var="lastUrl" value="/admin/customerManagement/search/${totalPages}.htm?searchTerm=${search}"/>
+                <c:url var="prevUrl" value="/admin/customerManagement/search/${currentPageNumber - 1}.htm?searchTerm=${search}"/>
+                <c:url var="nextUrl" value="/admin/customerManagement/search/${currentPageNumber + 1}.htm?searchTerm=${search}"/>
+            </c:if>
+            <c:if test="${empty search}">
+                
+                <c:url var="firstUrl" value="/admin/customerManagement/1.htm"/>
+                <c:url var="lastUrl" value="/admin/customerManagement/${totalPages}.htm"/>
+                <c:url var="prevUrl" value="/admin/customerManagement/${currentPageNumber - 1}.htm"/>
+                <c:url var="nextUrl" value="/admin/customerManagement/${currentPageNumber + 1}.htm"/>
             </c:if>
         </div>
         <div class="container">
             <div class=row>
-                <form class="form-inline" action="<c:url value="/admin/customerManagement/search/1.htm"/>" method="post">
+                <form class="form-inline" action="<c:url value="/admin/customerManagement/search/1.htm"/>">
                     <%--                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
                     <div class="d-flex justify-content-center align-items-center mb-4">
                         <input type="text" name="searchTerm" class="form-control" style="width:300px"
-                               id="inputEmail" placeholder="Search Username or Email">
+                               id="inputEmail" placeholder="Search Username or Email" value="${search}">
                         <button type="submit" class="btn btn-primary btn-dark">
                             <i class="fa fa-search"></i>
                         </button>
@@ -89,7 +97,17 @@
                     </c:otherwise>
                 </c:choose>
                 <c:forEach var="i" begin="${beginIndex}" end="${endIndex}">
-                    <c:url var="pageUrl" value="/admin/customerManagement/${i}.htm"/>
+                    <c:if test="${not empty search}">
+                        <c:url var="pageUrl" value="/admin/customerManagement/search/${i}.htm?searchTerm=${search}"/>
+
+                        <c:url var="firstUrl" value="/admin/customerManagement/search/1.htm?searchTerm=${search}"/>
+                        <c:url var="lastUrl" value="/admin/customerManagement/search/${totalPages}.htm?searchTerm=${search}"/>
+                        <c:url var="prevUrl" value="/admin/customerManagement/search/${currentPageNumber - 1}.htm?searchTerm=${search}"/>
+                        <c:url var="nextUrl" value="/admin/customerManagement/search/${currentPageNumber + 1}.htm?searchTerm=${search}"/>
+                    </c:if>
+                    <c:if test="${empty search}">
+                        <c:url var="pageUrl" value="/admin/customerManagement/${i}.htm"/>
+                    </c:if>
                     <c:choose>
                         <c:when test="${i == currentPageNumber}">
                             <li class="page-item active">

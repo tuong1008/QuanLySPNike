@@ -99,7 +99,7 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
     public long getTotalCustomers() {
         Session session = sessionFactory.getCurrentSession();
         Transaction t = session.beginTransaction();
-        Query query = session.createQuery("select count(*) FROM Customer C");
+        Query query = session.createQuery("select count(*) FROM Customer C where C.username<>'admin'");
         long results = (long) query.uniqueResult();
         t.commit();
 
@@ -129,7 +129,7 @@ public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDa
         Transaction t = session.beginTransaction();
 
         Query query = session.createQuery(
-                "select count(*) FROM Customer t WHERE t.username LIKE :searchTerm OR t.customerEmailAddress LIKE :searchTerm");
+                "select count(*) FROM Customer t WHERE t.username LIKE :searchTerm OR t.customerEmailAddress LIKE :searchTerm and t.username<>'admin'");
         query.setParameter("searchTerm", MatchMode.ANYWHERE.toMatchString(searchTerm));
         long results = (long) query.uniqueResult();
         t.commit();

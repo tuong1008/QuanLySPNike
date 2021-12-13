@@ -108,7 +108,7 @@ public class CustomerOrderDaoImpl extends AbstractDao<CustomerOrder> implements 
     public long getTotalOrderByCustomerId(long customerId) {
         Session session = sessionFactory.getCurrentSession();
                 Transaction t = session.beginTransaction();
-        Query query = session.createQuery("select count(*) FROM CustomerOrder t WHERE t.customerid=:customerId");
+        Query query = session.createQuery("select count(*) FROM CustomerOrder t WHERE t.customer.customerId=:customerId");
         query.setParameter("customerId", customerId);
         long results = (long) query.uniqueResult();
         t.commit();

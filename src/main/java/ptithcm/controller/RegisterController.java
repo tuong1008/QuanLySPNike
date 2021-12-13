@@ -54,8 +54,8 @@ public class RegisterController {
             String username = request.getSession().getAttribute("username").toString();
             Customer oldCustomer = customerService.findCustomerByUsername(username);
 
-//            billingAddressService.addBillingAddress(customer.getBillingAddress());
-//            shippingAddressService.addShippingAddress(customer.getShippingAddress());
+            billingAddressService.addBillingAddress(customer.getBillingAddress());
+            shippingAddressService.addShippingAddress(customer.getShippingAddress());
 
             BillingAddress oldBillingAddress = oldCustomer.getBillingAddress();
             ShippingAddress oldShippingAddress = oldCustomer.getShippingAddress();
@@ -73,8 +73,8 @@ public class RegisterController {
 
             String error = customerService.updateCustomer(oldCustomer);
             if (error == null) {
-//                billingAddressService.removeBillingAddress(oldBillingAddress);
-//                shippingAddressService.removeShippingAddress(oldShippingAddress);
+                billingAddressService.removeBillingAddress(oldBillingAddress);
+                shippingAddressService.removeShippingAddress(oldShippingAddress);
                 model.addAttribute("message", "Register Successfully!");
                 return "customer/success_page";
             } else {

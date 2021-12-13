@@ -30,7 +30,7 @@ public class Customer implements Serializable {
     private String customerEmailAddress;
 
     @NotEmpty
-    @Pattern(regexp = "[\\d]{1,15}")
+    @Pattern(regexp = "^0[0-9]{9,10}$", message="Invalid phone number format!")
     private String customerPhoneNumber;
 
     @NotEmpty
@@ -40,7 +40,7 @@ public class Customer implements Serializable {
     private String username;
 
     @NotEmpty
-    //@Size(min=6,max=30)
+    @Size(min=6,max=30)
     private String password;
 
     private boolean enabled;
