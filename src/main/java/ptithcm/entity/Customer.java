@@ -21,7 +21,7 @@ public class Customer implements Serializable {
 
     @NotEmpty
     @Size(min = 5, max = 30)
-    @Column(columnDefinition = "nvarchar(255)")
+    @Column(columnDefinition = "varchar(255)")
     private String customerName;
 
     @NotEmpty

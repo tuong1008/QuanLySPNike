@@ -16,11 +16,11 @@ public class BillingAddress implements Serializable {
     private long billingAddressId;
 
     @NotEmpty
-    @Column(columnDefinition = "nvarchar(255)")
+    @Column(columnDefinition = "varchar(255)")
     private String city;
 
     @NotEmpty
-    @Column(columnDefinition = "nvarchar(255)")
+    @Column(columnDefinition = "varchar(255)")
     private String country;
 
     @NotEmpty

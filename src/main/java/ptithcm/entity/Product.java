@@ -19,7 +19,7 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long productId;
     @NotEmpty
-    @Column(columnDefinition = "nvarchar(255)")
+    @Column(columnDefinition = "varchar(255)")
     private String productName;
 
     @Range(min = 0)
@@ -29,10 +29,10 @@ public class Product implements Serializable {
     @Range(min = 0)
     @NotNull
     private Integer unitInStock;
-    @Column(columnDefinition = "nvarchar(255)")
+    @Column(columnDefinition = "varchar(255)")
     private String productCategory;
 
-    @Column(columnDefinition = "nvarchar(255)")
+    @Column(columnDefinition = "varchar(255)")
     private String productDescription;
 
     @Transient

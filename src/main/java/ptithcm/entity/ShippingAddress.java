@@ -15,15 +15,15 @@ public class ShippingAddress implements Serializable {
     private long shippingAddressId;
 
     @NotEmpty
-    @Column(columnDefinition = "nvarchar(255)")
+    @Column(columnDefinition = "varchar(255)")
     private String address;
 
     @NotEmpty
-    @Column(columnDefinition = "nvarchar(255)")
+    @Column(columnDefinition = "varchar(255)")
     private String city;
 
     @NotEmpty
-    @Column(columnDefinition = "nvarchar(255)")
+    @Column(columnDefinition = "varchar(255)")
     private String country;
 
     @NotEmpty

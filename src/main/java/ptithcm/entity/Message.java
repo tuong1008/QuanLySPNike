@@ -18,13 +18,13 @@ public class Message implements Serializable {
 
     @Valid
     @NotEmpty
-    @Column(columnDefinition = "nvarchar(30)")
+    @Column(columnDefinition = "varchar(30)")
     private String name;
 
     @NotEmpty
     @Lob
     @Size(min = 10)
-    @Column(columnDefinition = "nvarchar(max)")
+    @Column(columnDefinition = "text")
     private String message;
 
     @Temporal(TemporalType.TIMESTAMP)
