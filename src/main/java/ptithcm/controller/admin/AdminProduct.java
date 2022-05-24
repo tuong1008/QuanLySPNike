@@ -45,7 +45,7 @@ public class AdminProduct {
             productService.addProduct(product);
             MultipartFile productImage = product.getProductImage();
             String rootDir = request.getSession().getServletContext().getRealPath("/");
-            path = Paths.get(rootDir + "\\resources\\images\\" + product.getProductId() + ".png");
+            path = Paths.get(rootDir +"resources"+File.separator+"images"+File.separator+ product.getProductId() + ".png");
             if (productImage != null && !productImage.isEmpty()) {
                 try {
                     productImage.transferTo(new File(path.toString()));
@@ -56,7 +56,7 @@ public class AdminProduct {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return "redirect:/admin/productManagement/1.htm";
     }
@@ -76,12 +76,11 @@ public class AdminProduct {
         }
         MultipartFile productImage = product.getProductImage();
         String rootDir = request.getSession().getServletContext().getRealPath("/");
-        path = Paths.get(rootDir + "\\resources\\images\\" + product.getProductId() + ".png");
+        path = Paths.get(rootDir +"resources"+File.separator+"images"+File.separator+ product.getProductId() + ".png");
         if (productImage != null && !productImage.isEmpty()) {
             //System.out.println("OKKKK--------------------");
             try {
                 productImage.transferTo(new File(path.toString()));
-                //System.out.println("IMage Save at:"+path.toString());
             } catch (Exception e) {
                 e.printStackTrace();
                 throw new RuntimeException("Product image saving failed", e);
@@ -95,7 +94,7 @@ public class AdminProduct {
     public String deleteProduct(@PathVariable("productId") long productId, Model model, HttpServletRequest request) throws Exception {
         try {
             String rootDir = request.getSession().getServletContext().getRealPath("/");
-            path = Paths.get(rootDir + "\\resources\\images\\" + productId + ".png");
+            path = Paths.get(rootDir +"resources"+ File.separator +"images"+ File.separator + productId + ".png");
             if (Files.exists(path)) {
                 try {
                     Files.delete(path);
@@ -106,7 +105,6 @@ public class AdminProduct {
             Product productToDel = productService.getProductById(productId);
             productService.deleteProduct(productToDel);
         } catch (Exception e) {
-            System.out.println("------------------------------------------------------------------");
             model.addAttribute("messsage", e.getMessage());
         }
         return "redirect:/admin/productManagement/1.htm";
