@@ -1,13 +1,13 @@
-# QuanLySPNike
+# Quan Ly San Pham Nike
+
 DEMO Admin Account:
 
-+Username: Admin
-
-+Password: 123
++ Username: Admin
++ Password: 123
 
 DEMO Customer Account:
 
-+Username: tuong1008
-+Password: 123456
++ Username: tuong1008
++ Password: 123456
 
-YOU CAN REGISTRY ACCOUNT FOR YOURSEFT!
+You can register your own accounts!
