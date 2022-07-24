@@ -2,7 +2,7 @@
 
 DEMO Admin Account:
 
-+ Username: Admin
++ Username: admin
 + Password: 123
 
 DEMO Customer Account:
